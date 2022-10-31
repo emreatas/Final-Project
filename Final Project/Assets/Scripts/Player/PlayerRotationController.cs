@@ -8,7 +8,7 @@ namespace Player
     public class PlayerRotationController : MonoBehaviour
     {
         [SerializeField] private PlayerInputSystem inputSystem;
-        [SerializeField] private float rotationSpeed;
+        [SerializeField] private PlayerRotationSettings rotationSettings;
 
         private void OnEnable()
         {
@@ -25,7 +25,7 @@ namespace Player
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation, 
                 Quaternion.LookRotation(movementVector, transform.up), 
-                rotationSpeed * Time.deltaTime);
+                rotationSettings.RotationSpeed * Time.deltaTime);
         }
         
         private void AddListeners()
