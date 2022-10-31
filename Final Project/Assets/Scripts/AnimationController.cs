@@ -7,6 +7,6 @@ public class AnimationController : MonoBehaviour
     Animator anim;
     public void PlayWalkAnimation()
     {
-        anim.SetBool("");
+        //anim.SetBool("");
     }
 }
