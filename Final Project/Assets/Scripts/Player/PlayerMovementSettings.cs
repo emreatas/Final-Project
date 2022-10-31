@@ -8,5 +8,6 @@ namespace Player
     public class PlayerMovementSettings : ScriptableObject
     {
         public float MovementSpeed;
+        public float RotationSpeed;
     }
 }
