@@ -1,6 +1,6 @@
 ﻿namespace StateMachine
 {
-    public enum FSMStates
+    public enum PlayerStates
     {
         Idle,
         Move,
