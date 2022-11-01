@@ -19,5 +19,10 @@ namespace Skills
         {
             Debug.Log("Cast Fire Skill");
         }
+
+        public override void FinishedSkill()
+        {
+            OnFinishedSkill.Invoke();
+        }
     }
 }
