@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Interacbles;
 using UnityEngine;
+using Utils;
 
 namespace Player
 {
@@ -11,6 +12,8 @@ namespace Player
         [SerializeField] private PlayerInputSystem inputSystem;
         [SerializeField] private LayerMask interactableLayerMask;
 
+        public static GameEvent OnStartInteraction;
+        
         private void OnEnable()
         {
             AddListeners();
@@ -48,8 +51,21 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            other.GetComponent<ItemPickUp>();
+            Debug.Log("Trigerrr");
+            Debug.Log(other.name);
+            if (other.gameObject.CompareTag("Interactable"))
+            {
+                Debug.Log("Tag Correct");
+                CanvasManager.instance.OnInteractableStart(true);   
+            }
+        }
 
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Interactable"))
+            {
+                CanvasManager.instance.OnInteractableStart(false);   
+            }
         }
     }
 }
