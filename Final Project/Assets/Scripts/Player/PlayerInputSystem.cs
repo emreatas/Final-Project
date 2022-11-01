@@ -11,7 +11,10 @@ namespace Player
             OnMovePerformed, 
             OnMoveCanceled;
 
-        public GameEvent OnBasicAttackStarted;
+        public GameEvent 
+            OnBasicAttackStarted,
+            OnBasicAttackPerformed,
+            OnBasicAttackCanceled;
 
         public GameEvent<Vector3> 
             OnPrimarySkillStarted,
@@ -22,6 +25,8 @@ namespace Player
             OnSecondarySkillStarted,
             OnSecondarySkillPerfomed,
             OnSecondarySkillCanceled;
+
+        public GameEvent OnInventoryStarted;
 
         private bool m_IsMoving;
         private bool m_BasicAttack;
@@ -56,7 +61,7 @@ namespace Player
 
             if (m_BasicAttack)
             {
-                Debug.Log("Basic Attack Perform");
+                OnBasicAttackPerformed.Invoke();
             }
         }
 
@@ -66,13 +71,11 @@ namespace Player
 
             if (context.started)
             {
-                Debug.Log("Movement Started");
                 OnMoveStarted.Invoke(m_MovementVector);
                 m_IsMoving = true;
             }
             else if (context.canceled)
             {
-                Debug.Log("Movement Canceled");
                 OnMoveCanceled.Invoke(m_MovementVector);
                 m_IsMoving = false;
             }
@@ -83,14 +86,12 @@ namespace Player
             if (context.started)
             {
                 m_BasicAttack = true;
-                Debug.Log("Basic Attack Started");
                 OnBasicAttackStarted.Invoke();
             }
             if (context.canceled)
             {
                 m_BasicAttack = false;
-                Debug.Log("Basic Attack Canceled");
-                OnBasicAttackStarted.Invoke();
+                OnBasicAttackCanceled.Invoke();
             }
         }
         
