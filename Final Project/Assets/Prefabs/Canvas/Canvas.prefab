@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cffba14087eb3147825fd4bc7fe3411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactButton: {fileID: 8760334455042758989}
+  interactButton: {fileID: 5271815093204381259}
 --- !u!114 &1766508226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,7 +1023,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.061479174, y: 0.05237054}
   m_AnchorMax: {x: 0.16774999, y: 0.252}
-  m_AnchoredPosition: {x: 1.500061, y: -0.36444092}
+  m_AnchoredPosition: {x: 1.5, y: -0.36444092}
   m_SizeDelta: {x: -103, y: -101.077866}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2688623680181541184
@@ -1100,7 +1100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 59, y: 56}
+  m_AnchoredPosition: {x: 59.000122, y: 56}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &98168084238469154
@@ -1389,7 +1389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1428681665857595699
 RectTransform:
   m_ObjectHideFlags: 0
