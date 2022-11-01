@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6411abdfba394aab8ed038c6e3ad6a3b, type: 3}
-  m_Name: Test Ice Skill
+  m_Script: {fileID: 11500000, guid: 6dd125d707e166746a0e04ffde07e353, type: 3}
+  m_Name: Test Basic Skill
   m_EditorClassIdentifier: 
-  SkillDuration: 3
+  SkillDuration: 1

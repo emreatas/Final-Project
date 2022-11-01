@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e3e2378913ca741b546b0317d6c233, type: 3}
   m_Name: Test Fire Skill
   m_EditorClassIdentifier: 
+  SkillDuration: 3
