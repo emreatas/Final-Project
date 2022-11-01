@@ -9,12 +9,14 @@ namespace StateMachine
         public override void OnEnter()
         {
             Debug.Log("Enter Move");
+            m_StateMachine.AnimationController.PlayWalkAnimation();
             AddListeners();
         }
 
         public override void OnExit()
         {
             Debug.Log("Exit Move");
+            m_StateMachine.AnimationController.StopWalkAnimation();
             RemoveListeners();
         }
         
@@ -22,6 +24,8 @@ namespace StateMachine
         {
             MovePlayer(movementVector);
             RotatePlayer(movementVector);
+            // Debug.Log(movementVector.magnitude);
+            m_StateMachine.AnimationController.SetSpeed(movementVector.magnitude);
         }
 
         private void HandleOnMoveCanceled(Vector3 movementVector)
@@ -41,9 +45,16 @@ namespace StateMachine
         
         private void MovePlayer(Vector3 movementVector)
         {
-            m_StateMachine.CharacterController.Move(
+            // m_StateMachine.CharacterController.Move(
+            //     m_StateMachine.MovementSettings.MovementSpeed * 
+            //     Time.deltaTime * 
+            //     movementVector 
+            //     );
+            
+            m_StateMachine.Rigidbody.MovePosition(
+                m_StateMachine.transform.position + 
                 m_StateMachine.MovementSettings.MovementSpeed * 
-                Time.deltaTime * 
+                 Time.deltaTime * 
                 movementVector 
                 );
         }
