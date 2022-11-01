@@ -6,6 +6,8 @@ namespace Interacbles
 {
     public interface IInteractable
     {
+        // Sprite InteractableIcon { get; set; }
+        
         void Interact();
     }
 }
