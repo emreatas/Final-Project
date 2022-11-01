@@ -9,8 +9,15 @@ namespace StateMachine
         [SerializeField] private PlayerStates initialPlayerState;
         [SerializeField] private PlayerInputSystem inputSystem;
         [SerializeField] private CharacterController characterController;
+        [SerializeField] private Rigidbody rigidbody;
         [SerializeField] private PlayerMovementSettings movementSettings;
+        [SerializeField] private PlayerSkillController skillController;
+        [SerializeField] private PlayerAnimationController animationController;
 
+
+        public Rigidbody Rigidbody => rigidbody;
+        public PlayerAnimationController AnimationController => animationController;
+        public PlayerSkillController SkillController => skillController;
         public PlayerMovementSettings MovementSettings => movementSettings;
         public CharacterController CharacterController => characterController;
         public PlayerInputSystem InputSystem => inputSystem;
