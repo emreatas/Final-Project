@@ -62,6 +62,8 @@ MonoBehaviour:
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  interactRadius: 0
+  interactableTag: Interactable
 --- !u!1 &569026012163837470
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,12 +170,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1316861999170624588}
-  - component: {fileID: 1316861999170624591}
   - component: {fileID: 1316861999170624587}
   - component: {fileID: 1316861999170624586}
   - component: {fileID: 379916632}
   - component: {fileID: 379916633}
   - component: {fileID: 1250084310}
+  - component: {fileID: 1906554614}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -199,24 +201,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &1316861999170624591
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316861999170624585}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1316861999170624587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +355,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 34467118-5e8d-48a7-a7b4-a73f8957b21f
     m_ActionName: PlayerTest/SecondaryAttack
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1316861999170624586}
+        m_TargetAssemblyTypeName: Player.PlayerInputSystem, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d6aba580-7d1a-4bb9-92f2-19c58c8e33ab
+    m_ActionName: PlayerTest/Interact[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerTest
@@ -418,7 +418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPlayerState: 0
   inputSystem: {fileID: 1316861999170624586}
-  characterController: {fileID: 1316861999170624591}
   rigidbody: {fileID: 1250084310}
   movementSettings: {fileID: 11400000, guid: e48e04d7c10e30a40a85becccefec4d2, type: 2}
   skillController: {fileID: 379916632}
@@ -431,14 +430,28 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316861999170624585}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &1906554614
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316861999170624585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.23
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1316861999343994853
 GameObject:
   m_ObjectHideFlags: 0
