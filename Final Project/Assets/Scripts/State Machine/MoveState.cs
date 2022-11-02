@@ -45,12 +45,6 @@ namespace StateMachine
         
         private void MovePlayer(Vector3 movementVector)
         {
-            // m_StateMachine.CharacterController.Move(
-            //     m_StateMachine.MovementSettings.MovementSpeed * 
-            //     Time.deltaTime * 
-            //     movementVector 
-            //     );
-            
             m_StateMachine.Rigidbody.MovePosition(
                 m_StateMachine.transform.position + 
                 m_StateMachine.MovementSettings.MovementSpeed * 
@@ -61,10 +55,12 @@ namespace StateMachine
 
         private void RotatePlayer(Vector3 movementVector)
         {
-            m_StateMachine.transform.rotation = Quaternion.RotateTowards(
-                m_StateMachine.transform.rotation, 
+            Quaternion newRot = Quaternion.RotateTowards(
+                m_StateMachine.Rigidbody.rotation, 
                 Quaternion.LookRotation(movementVector,  m_StateMachine.transform.up), 
                 m_StateMachine.MovementSettings.RotationSpeed * Time.deltaTime);
+            
+            m_StateMachine.Rigidbody.MoveRotation(newRot);
         }
 
         private void AddListeners()
