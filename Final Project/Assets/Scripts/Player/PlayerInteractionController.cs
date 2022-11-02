@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Interacbles;
+using MyNamespace;
 using UnityEngine;
 using Utils;
 
@@ -11,10 +12,7 @@ namespace Player
         [SerializeField] private LayerMask interactableLayerMask;
         [SerializeField] private float interactRadius;
         [SerializeField] private string interactableTag;
-
-
-        public static GameEvent OnStartInteraction;
-
+        
         private List<IInteractable> interactableChest = new List<IInteractable>();
 
         private void OnEnable()
@@ -31,7 +29,8 @@ namespace Player
         {
             if (other.gameObject.CompareTag(interactableTag))
             {
-                CanvasManager.instance.OnInteractableStart(true);   
+                // CanvasManager.instance.OnInteractableStart(true);   
+                InteractableUI.Instance.EnableInteractButton();
                 interactableChest.Add(other.GetComponent<IInteractable>());
             }
         }
@@ -43,26 +42,14 @@ namespace Player
                 interactableChest.Remove(other.GetComponent<IInteractable>());
                 if (interactableChest.Count == 0)
                 {
-                    CanvasManager.instance.OnInteractableStart(false);
+                    InteractableUI.Instance.DisableInteractButton();
+                    // CanvasManager.instance.OnInteractableStart(false);
                 }
             }
         }
         
         private void HandleOnInteractionStarted()
         {
-            // Debug.Log("Raycast Hit started");
-            //
-            // Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactRadius, interactableLayerMask);
-            //
-            // for (int i = 0; i < hitColliders.Length; i++)
-            // {
-            //     IInteractable interacted = hitColliders[i].GetComponent<IInteractable>();
-            //     if (interacted != null)
-            //     {
-            //         interacted.Interact();
-            //     }
-            // }
-            
             Debug.Log("Interaction started");
 
             for (int i = 0; i < interactableChest.Count; i++)
