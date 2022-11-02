@@ -3,38 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using Utils;
 
 namespace MyNamespace
 {
-    public class InteractableUI : MonoBehaviour
+    public class InteractableUI : AbstractSingelton<InteractableUI>
     {
         [SerializeField] private GameObject interactUI;
+        [SerializeField] private GameObject interactItemPanel;
+
+        [SerializeField] private Transform itemButtonParent;
         
-        private void OnEnable()
+        [SerializeField] private DroppedItem itemButtonPrefab;
+        
+        public void EnableInteractButton()
         {
-            AddListeners();
+            interactUI.SetActive(true);
         }
 
-        private void OnDisable()
+        public void DisableInteractButton()
         {
-            RemoveListeners();
+            interactUI.SetActive(false);
         }
         
-        private void HandleOnStartInteraction()
+        public void EnableInteractPanel()
         {
-            
+            interactItemPanel.SetActive(true);
         }
 
-        private void AddListeners()
+        public void DisableInteractPanel()
         {
-            PlayerInteractionController.OnStartInteraction.AddListener(HandleOnStartInteraction);
+            interactItemPanel.SetActive(false);
         }
 
+        public void AddToItemPanel(Item item)
+        {
+            var uiItem = Instantiate(itemButtonPrefab, itemButtonParent);
+            uiItem.InitializeItemButton(item);
+        }
         
-        private void RemoveListeners()
-        {
-            PlayerInteractionController.OnStartInteraction.RemoveListener(HandleOnStartInteraction);
-        }
     }
 }
 
