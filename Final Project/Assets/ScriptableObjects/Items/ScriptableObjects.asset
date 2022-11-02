@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8227ca3bc5979bc40b2adb7e47c070ec, type: 3}
   m_Name: ScriptableObjects
   m_EditorClassIdentifier: 
-  ItemName: 
-  Icon: {fileID: 0}
+  ItemName: Chest
+  Icon: {fileID: 21300000, guid: c23bb5c1541e4415bb82f430a308f7e3, type: 3}
+  isDefaultItem: 0
