@@ -8,7 +8,9 @@ namespace Interacbles
     {
         public void Interact()
         {
-            Debug.Log("Interacted");
+            Debug.Log("Interacted with " + name);
+            
+            
         }
         
     }

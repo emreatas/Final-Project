@@ -4,14 +4,10 @@ using UnityEngine;
 using Interacbles;
 public class Chest : MonoBehaviour, IInteractable
 {
-    public List<Item> dropableItem = new List<Item>();
+    [SerializeField] private List<Item> dropableItem = new List<Item>();
 
     public void Interact()
     {
-        throw new System.NotImplementedException();
+        Debug.Log(dropableItem[0].name);
     }
-
-
-
-
 }

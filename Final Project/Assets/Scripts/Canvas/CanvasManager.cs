@@ -12,7 +12,8 @@ public class CanvasManager : MonoBehaviour
     {
         instance = this;
     }
-
+    
+    public static event Action<bool> ItemDropPanelStart;
     public static event Action<bool> InteractableStart;
 
     public void OnInteractableStart(bool interact)
@@ -24,4 +25,13 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+    public void OnItemDropPanelStart(bool interact)
+    {
+
+        if (ItemDropPanelStart != null)
+        {
+            ItemDropPanelStart(interact);
+        }
+    }
+    
 }
