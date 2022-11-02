@@ -3,35 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class CanvasManager : MonoBehaviour
+namespace CanvasNS
 {
-
-    public static CanvasManager instance;
-
-    private void Awake()
-    {
-        instance = this;
-    }
-    
-    public static event Action<bool> ItemDropPanelStart;
-    public static event Action<bool> InteractableStart;
-
-    public void OnInteractableStart(bool interact)
+    public class CanvasManager : MonoBehaviour
     {
 
-        if (InteractableStart != null)
+        public static CanvasManager instance;
+
+        private void Awake()
         {
-            InteractableStart(interact);
+            instance = this;
         }
-    }
 
-    public void OnItemDropPanelStart(bool interact)
-    {
+        public static event Action<bool> ItemDropPanelStart;
+        public static event Action<bool> InteractableStart;
 
-        if (ItemDropPanelStart != null)
+        public void OnInteractableStart(bool interact)
         {
-            ItemDropPanelStart(interact);
+
+            if (InteractableStart != null)
+            {
+                InteractableStart(interact);
+            }
         }
+
+        public void OnItemDropPanelStart(bool interact)
+        {
+
+            if (ItemDropPanelStart != null)
+            {
+                ItemDropPanelStart(interact);
+            }
+        }
+
     }
-    
 }
