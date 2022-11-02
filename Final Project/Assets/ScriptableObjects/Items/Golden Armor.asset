@@ -15,4 +15,5 @@ MonoBehaviour:
   ItemName: Golden Chest
   Icon: {fileID: 21300000, guid: c23bb5c1541e4415bb82f430a308f7e3, type: 3}
   tier: 2
+  tierSprite: {fileID: 21300000, guid: 4c6392db171184bb98d834e1fbd3769e, type: 3}
   isDefaultItem: 0

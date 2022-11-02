@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8227ca3bc5979bc40b2adb7e47c070ec, type: 3}
   m_Name: Staff09
   m_EditorClassIdentifier: 
-  ItemName: New Item
-  Icon: {fileID: 0}
-  tier: 0
+  ItemName: Staff09
+  Icon: {fileID: 21300000, guid: b8a7b5beaf1294305bef08e46951fd60, type: 3}
+  tier: 1
+  tierSprite: {fileID: 21300000, guid: 4c6392db171184bb98d834e1fbd3769e, type: 3}
   isDefaultItem: 0

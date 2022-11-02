@@ -433,23 +433,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 368180735, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -334
       objectReference: {fileID: 0}
     - target: {fileID: 2145011759, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2145011759, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2145011759, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 246
       objectReference: {fileID: 0}
     - target: {fileID: 2145011759, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 2688623678484253587, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}

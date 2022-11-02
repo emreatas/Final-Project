@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     public string ItemName = "New Item";
     public Sprite Icon = null;
     public ItemTier tier;
+    public Sprite tierSprite;
     public bool isDefaultItem = false;
 
     public Color GetTierColor()
@@ -15,7 +16,7 @@ public class Item : ScriptableObject
         switch (tier)
         {
             case ItemTier.NoTier:
-                return new Color(0,0,0,1);
+                return new Color(0, 0, 0, 1);
             case ItemTier.Standart:
                 return Color.green;
             case ItemTier.Rare:
@@ -25,7 +26,7 @@ public class Item : ScriptableObject
             case ItemTier.Legendary:
                 return Color.yellow;
             default:
-                return new Color(0,0,0,1);
+                return new Color(0, 0, 0, 1);
         }
     }
 }
