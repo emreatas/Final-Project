@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils;
@@ -26,7 +27,7 @@ namespace Player
             OnSecondarySkillPerfomed,
             OnSecondarySkillCanceled;
 
-        public GameEvent OnInventoryStarted;
+        public GameEvent OnInteractStarted;
 
         private bool m_IsMoving;
         private bool m_BasicAttack;
@@ -39,15 +40,23 @@ namespace Player
         {
             ProcessInputs();
         }
-        
-        private void ProcessInputs()
+
+        private void FixedUpdate()
+        {
+            ProcessPhyisicInputs();
+        }
+
+        private void ProcessPhyisicInputs()
         {
             if (m_IsMoving)
             {
                 Vector3 movementVector = new Vector3(m_MovementVector.x, 0, m_MovementVector.y);
                 OnMovePerformed.Invoke(movementVector);
             }
+        }
 
+        private void ProcessInputs()
+        {
             if (m_IsTouchingPrimarySkill)
             {
                 Vector3 vector = new Vector3(m_PrimarySkillVector.x, 0, m_PrimarySkillVector.y);
@@ -124,6 +133,14 @@ namespace Player
             {
                 m_IsTouchingSecondarySkill = false;
                 OnSecondarySkillCanceled.Invoke(m_SecondarySkillVector);
+            }
+        }
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                OnInteractStarted.Invoke();
             }
         }
     }
