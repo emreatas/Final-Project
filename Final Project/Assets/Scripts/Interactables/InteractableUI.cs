@@ -1,11 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Player;
+using Items;
 using UnityEngine;
 using Utils;
 
-namespace MyNamespace
+namespace Interactables
 {
     public class InteractableUI : AbstractSingelton<InteractableUI>
     {
@@ -36,12 +34,13 @@ namespace MyNamespace
             interactItemPanel.SetActive(false);
         }
 
-        public void AddToItemPanel(Item item)
+        public GameObject AddToItemPanel(Item item, Action<Item> onSelectItem)
         {
             var uiItem = Instantiate(itemButtonPrefab, itemButtonParent);
-            uiItem.InitializeItemButton(item);
+            uiItem.InitializeItemButton(item, onSelectItem);
+            
+            return uiItem.gameObject;
         }
-        
     }
 }
 

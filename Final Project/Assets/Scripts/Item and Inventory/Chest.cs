@@ -1,21 +1,65 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Interacbles;
-using MyNamespace;
+using Interactables;
 
-public class Chest : MonoBehaviour, IInteractable
+namespace Items
 {
-    [SerializeField] private List<Item> dropableItem = new List<Item>();
-    
-    public void Interact()
+    public class Chest : Interactable
     {
-        for (int i = 0; i < dropableItem.Count; i++)
+        [SerializeField] private ChestLoot chestLoot;
+        private bool m_Interacted;
+
+        public void InitializeChest(ChestLoot chestLoot)
         {
-            InteractableUI.Instance.AddToItemPanel(dropableItem[i]);
+            this.chestLoot = chestLoot;
         }
-        
-        InteractableUI.Instance.EnableInteractPanel();
+
+        public override void Interact()
+        {
+            InteractableUI.Instance.EnableInteractPanel();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (m_Interacted)
+            {
+                return;
+            }
+
+            m_Interacted = true;
+
+            AddItemsChest();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            Reset();
+        }
+
+        private void AddItemsChest()
+        {
+            for (int i = 0; i < chestLoot.dropableItem.Count; i++)
+            {
+                var itemGO = InteractableUI.Instance.AddToItemPanel(chestLoot.dropableItem[i], OnSelectItem);
+                chestLoot.instansiatedItems[chestLoot.dropableItem[i]] = itemGO;
+            }
+        }
+
+        private void Reset()
+        {
+            m_Interacted = false;
+            for (int i = 0; i < chestLoot.dropableItem.Count; i++)
+            {
+                Destroy(chestLoot.instansiatedItems[chestLoot.dropableItem[i]]);
+            }
+
+            chestLoot.instansiatedItems.Clear();
+        }
+
+        private void OnSelectItem(Item item)
+        {
+            chestLoot.SelectItemFromChest(item);
+        }
     }
 }
