@@ -1,17 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Interacbles
+
+namespace Interactables
 {
-    public class Interactable : MonoBehaviour, IInteractable
+    public abstract class Interactable : MonoBehaviour
     {
-        public void Interact()
-        {
-            Debug.Log("Interacted with " + name);
-            
-            
-        }
-        
+        public abstract void Interact();
     }
 }

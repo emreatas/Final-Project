@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Interacbles;
-public class ItemPickUp : MonoBehaviour, IInteractable
+using Interactables;
+using Items;
+
+public class ItemPickUp : MonoBehaviour
 {
     public Item item;
     
@@ -10,6 +12,11 @@ public class ItemPickUp : MonoBehaviour, IInteractable
     {
 
 
+    }
+
+    public void Reset()
+    {
+        throw new System.NotImplementedException();
     }
 
     void PickUp()
