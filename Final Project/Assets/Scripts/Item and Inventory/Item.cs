@@ -32,7 +32,7 @@ namespace Items
             }
         }
     }
-    
+
     public enum ItemTier
     {
         NoTier,
