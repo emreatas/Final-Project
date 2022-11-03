@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3026eca0c557d4b4ea06c4e86dd237f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loot: {fileID: 11400000, guid: 62ee64f0dbf737e4bb921f9dbe35b1d3, type: 2}
+  loot: {fileID: 11400000, guid: 8fb95783f03f2584b917e0094e9413d4, type: 2}
   chestPrefab: {fileID: 3737001678930392955, guid: e0ae46b185a37fc4aaa431b25783f8cc,
     type: 3}
 --- !u!4 &105283057
@@ -989,7 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f7a75d6a47bd7448cdf059d05fd1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestLoot: {fileID: 11400000, guid: 62ee64f0dbf737e4bb921f9dbe35b1d3, type: 2}
+  dropableItem: []
 --- !u!65 &1877190387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1255,7 +1255,7 @@ PrefabInstance:
     - target: {fileID: 6698001483064196462, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 59
+      value: 59.000305
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
@@ -1330,7 +1330,7 @@ PrefabInstance:
         type: 3}
       propertyPath: chestLoot
       value: 
-      objectReference: {fileID: 11400000, guid: 62ee64f0dbf737e4bb921f9dbe35b1d3,
+      objectReference: {fileID: 11400000, guid: 8fb95783f03f2584b917e0094e9413d4,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0ae46b185a37fc4aaa431b25783f8cc, type: 3}
