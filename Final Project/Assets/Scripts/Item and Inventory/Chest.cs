@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Interactables;
 
@@ -7,12 +8,17 @@ namespace Items
 {
     public class Chest : Interactable
     {
-        [SerializeField] private ChestLoot chestLoot;
+        //[SerializeField] private ChestLoot chestLoot;
+        
+        public List<Item> dropableItem;
+        public Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
         private bool m_Interacted;
+        
 
         public void InitializeChest(ChestLoot chestLoot)
         {
-            this.chestLoot = chestLoot;
+            //this.chestLoot = chestLoot;
+            dropableItem = chestLoot.GetRandomLoot();
         }
 
         public override void Interact()
@@ -39,27 +45,33 @@ namespace Items
 
         private void AddItemsChest()
         {
-            for (int i = 0; i < chestLoot.dropableItem.Count; i++)
+            for (int i = 0; i < dropableItem.Count; i++)
             {
-                var itemGO = InteractableUI.Instance.AddToItemPanel(chestLoot.dropableItem[i], OnSelectItem);
-                chestLoot.instansiatedItems[chestLoot.dropableItem[i]] = itemGO;
+                var itemGO = InteractableUI.Instance.AddToItemPanel(dropableItem[i], OnSelectItem);
+                instansiatedItems[dropableItem[i]] = itemGO;
             }
         }
 
         private void Reset()
         {
             m_Interacted = false;
-            for (int i = 0; i < chestLoot.dropableItem.Count; i++)
+            for (int i = 0; i < dropableItem.Count; i++)
             {
-                Destroy(chestLoot.instansiatedItems[chestLoot.dropableItem[i]]);
+                Destroy(instansiatedItems[dropableItem[i]]);
             }
 
-            chestLoot.instansiatedItems.Clear();
+            instansiatedItems.Clear();
         }
 
         private void OnSelectItem(Item item)
         {
-            chestLoot.SelectItemFromChest(item);
+            SelectItemFromChest(item);
+        }
+        
+        private void SelectItemFromChest(Item item)
+        {
+            instansiatedItems.Remove(item);
+            dropableItem.Remove(item);
         }
     }
 }
