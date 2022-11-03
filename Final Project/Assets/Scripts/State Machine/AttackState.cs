@@ -27,6 +27,7 @@ namespace StateMachine
         private void HandleOnFinishedBasicSkill()
         {
             m_StateMachine.SwitchState(PlayerStates.Idle);
+            m_StateMachine.AnimationController.StopBasicAttackAnimation();
         }
         
         private void HandleOnPrimarySkillPerformed(Vector3 skillVector)

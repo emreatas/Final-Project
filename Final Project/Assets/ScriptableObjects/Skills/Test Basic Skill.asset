@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd125d707e166746a0e04ffde07e353, type: 3}
   m_Name: Test Basic Skill
   m_EditorClassIdentifier: 
+  AnimationName: Mage01
   SkillDuration: 1

@@ -5,6 +5,8 @@ namespace Skills
 {
     public abstract class AbstractSkill : ScriptableObject
     {
+        public string AnimationName;
+
         public GameEvent OnFinishedSkill;
 
         public float SkillDuration;

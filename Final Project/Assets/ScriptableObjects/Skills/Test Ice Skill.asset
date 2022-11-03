@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6411abdfba394aab8ed038c6e3ad6a3b, type: 3}
   m_Name: Test Ice Skill
   m_EditorClassIdentifier: 
+  AnimationName: Mage03
   SkillDuration: 3

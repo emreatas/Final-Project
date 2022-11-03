@@ -6,17 +6,29 @@ using Utils;
 
 namespace Player
 {
+    public class PlayerAnimationClips
+    {
+        
+    }
+    
     public class PlayerAnimationController : MonoBehaviour
     {
         [SerializeField] private Animator animator;
+        [SerializeField] private PlayerSkillController skillController;
+        
+        private int m_IdleState = Animator.StringToHash(IDLE);
+        private int m_WalkState = Animator.StringToHash(WALK);
+        private int m_Speed = Animator.StringToHash(SPEED);
+        private int m_BasicAttack = Animator.StringToHash(BASICATTACK);
 
-        private int m_IdleState = Animator.StringToHash("Idle");
-        private int m_WalkState = Animator.StringToHash("Walk");
-        private int m_Speed = Animator.StringToHash("Speed");
-        private int m_BasicAttack = Animator.StringToHash("BasicAttack");
+        private const string BASICATTACK = "BasicAttack";
+        private const string WALK = "Walk";
+        private const string SPEED = "Speed";
+        private const string IDLE = "Idle";
 
         public GameEvent OnAttackAnimFinished;
-        
+
+ 
         public void PlayIdleAnimation()
         {
             animator.SetBool(m_IdleState,true);
@@ -44,7 +56,14 @@ namespace Player
 
         public void PlayBasicAttackAnimation()
         {
-            animator.SetTrigger(m_BasicAttack);
+            animator.SetBool(m_BasicAttack,true);
+            
+            animator.SetTrigger(BASICATTACK + skillController.BasicSkill.AnimationName);
+        }
+        
+        public void StopBasicAttackAnimation()
+        {
+            animator.SetBool(m_BasicAttack,false);
         }
 
         public void _OnAttackAnimationFinished()

@@ -539,6 +539,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98721e9eb8d07ad4b8d521e08f41e5ae, type: 3}
+--- !u!114 &1256655892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 379916632, guid: c8072b673e3e0744691801952ee27297,
+    type: 3}
+  m_PrefabInstance: {fileID: 1316861999024017544}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d931d9a68c247024194efdc82b3975d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1408004922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,69 +1022,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1250084310, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250084310, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 931330931500009236, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 931330931500009236, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 931330931500009236, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 933250672829232886, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9993579
-      objectReference: {fileID: 0}
-    - target: {fileID: 933250672829232886, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -9.685131e-17
-      objectReference: {fileID: 0}
-    - target: {fileID: 933250672829232886, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.035830766
-      objectReference: {fileID: 0}
-    - target: {fileID: 933250672829232886, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -1.0612489e-15
-      objectReference: {fileID: 0}
-    - target: {fileID: 933250672829232886, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 933250672829232886, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 933250672829232886, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 985964543037356106, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1316861999170624585, guid: c8072b673e3e0744691801952ee27297,
         type: 3}
       propertyPath: m_Name
@@ -1133,6 +1082,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2005241925510371740, guid: c8072b673e3e0744691801952ee27297,
+        type: 3}
+      propertyPath: skillController
+      value: 
+      objectReference: {fileID: 1256655892}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8072b673e3e0744691801952ee27297, type: 3}
 --- !u!1001 &2688623678276074883
@@ -1255,7 +1209,7 @@ PrefabInstance:
     - target: {fileID: 6698001483064196462, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 59.000305
+      value: 59.000244
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}

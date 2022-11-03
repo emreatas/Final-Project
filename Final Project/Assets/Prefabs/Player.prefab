@@ -709,6 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 985964543037356106}
+  skillController: {fileID: 379916632}
 --- !u!95 &985964543037356106 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2299288295018338661, guid: 313819ea4066a2a42a7b55b54aefaab8,
