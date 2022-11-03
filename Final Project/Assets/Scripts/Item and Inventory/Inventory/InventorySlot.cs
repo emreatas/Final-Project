@@ -32,7 +32,11 @@ public class InventorySlot : MonoBehaviour
         //itemTier = null;
         itemTier.enabled = false;
 
+    }
 
+    public void ShowItem()
+    {
+        CanvasNS.CanvasManager.instance.OnShowItem(item);
 
     }
 }
