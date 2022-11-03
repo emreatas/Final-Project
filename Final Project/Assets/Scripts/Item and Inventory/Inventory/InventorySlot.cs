@@ -13,19 +13,24 @@ public class InventorySlot : MonoBehaviour
     public void AddItem(Item newItem)
     {
         item = newItem;
-        itemIcon.sprite = item.Icon;
-        // itemTier.sprite = item.tierSprite;
+
         itemIcon.enabled = true;
-        //itemTier.enabled = true;
+        itemIcon.sprite = item.Icon;
+
+        itemTier.enabled = true;
+        itemTier.sprite = item.tierSprite;
+        itemTier.color = item.GetTierColor();
     }
 
     public void ClearSlot()
     {
         item = null;
-        itemIcon.sprite = null;
-        //   itemTier = null;
+
+        //itemIcon.sprite = null;
         itemIcon.enabled = false;
-        // itemTier.enabled = false;
+
+        //itemTier = null;
+        itemTier.enabled = false;
 
 
 

@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;
     Inventory inventory;
-    InventorySlot[] slots;
+   public  InventorySlot[] slots;
 
 
     void Start()
