@@ -7,17 +7,13 @@ using Items;
 public class ItemPickUp : MonoBehaviour
 {
     public Item item;
-    
+
     public void Interact()
     {
 
 
     }
 
-    public void Reset()
-    {
-        throw new System.NotImplementedException();
-    }
 
     void PickUp()
     {

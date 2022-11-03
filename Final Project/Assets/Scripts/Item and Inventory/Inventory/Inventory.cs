@@ -13,6 +13,8 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
 
     public List<Item> items = new List<Item>();
 
