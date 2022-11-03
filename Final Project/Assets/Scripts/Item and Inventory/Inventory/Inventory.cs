@@ -23,10 +23,22 @@ public class Inventory : MonoBehaviour
         if (!item.isDefaultItem)
         {
             items.Add(item);
+
+            if (onItemChangedCallback != null)
+            {
+                onItemChangedCallback.Invoke();
+            }
+
         }
     }
     public void Remove(Item item)
     {
         items.Remove(item);
+
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
+
     }
 }

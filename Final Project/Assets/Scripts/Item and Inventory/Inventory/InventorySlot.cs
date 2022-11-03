@@ -14,18 +14,18 @@ public class InventorySlot : MonoBehaviour
     {
         item = newItem;
         itemIcon.sprite = item.Icon;
-        itemTier.sprite = item.tierSprite;
+        // itemTier.sprite = item.tierSprite;
         itemIcon.enabled = true;
-        itemTier.enabled = true;
+        //itemTier.enabled = true;
     }
 
     public void ClearSlot()
     {
         item = null;
         itemIcon.sprite = null;
-        itemTier = null;
+        //   itemTier = null;
         itemIcon.enabled = false;
-        itemTier.enabled = false;
+        // itemTier.enabled = false;
 
 
 
