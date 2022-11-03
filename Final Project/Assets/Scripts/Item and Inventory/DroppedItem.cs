@@ -1,8 +1,10 @@
 using System;
+using ObjectPooling;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Utils;
 
 namespace Items
 {
@@ -38,11 +40,6 @@ namespace Items
             OnSelectItem = null;
             
             Destroy(gameObject);
-        }
-
-        private void OnDestroy()
-        {
-            OnSelectItem = null;
         }
     }
 }

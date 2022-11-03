@@ -3,21 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Interactables;
+using Utils;
 
 namespace Items
 {
     public class Chest : Interactable
     {
-        //[SerializeField] private ChestLoot chestLoot;
-        
         public List<Item> dropableItem;
         public Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
         private bool m_Interacted;
-        
+        private bool CanDestroy => dropableItem.Count <= 0;
+
+        private GameEvent OnReset;
 
         public void InitializeChest(ChestLoot chestLoot)
         {
-            //this.chestLoot = chestLoot;
             dropableItem = chestLoot.GetRandomLoot();
         }
 
@@ -57,6 +57,7 @@ namespace Items
             m_Interacted = false;
             for (int i = 0; i < dropableItem.Count; i++)
             {
+                InteractableUI.Instance.RemoveItemFromPanel();
                 Destroy(instansiatedItems[dropableItem[i]]);
             }
 
@@ -70,8 +71,20 @@ namespace Items
         
         private void SelectItemFromChest(Item item)
         {
+            InteractableUI.Instance.RemoveItemFromPanel();
+            
             instansiatedItems.Remove(item);
             dropableItem.Remove(item);
+
+            if (CanDestroy)
+            {
+                DestroyChest();
+            }
+        }
+
+        private void DestroyChest()
+        {
+            Destroy(gameObject);
         }
     }
 }

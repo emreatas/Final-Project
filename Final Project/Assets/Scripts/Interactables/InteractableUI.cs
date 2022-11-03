@@ -1,5 +1,7 @@
 using System;
 using Items;
+using ObjectPooling;
+using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 
@@ -13,6 +15,8 @@ namespace Interactables
         [SerializeField] private Transform itemButtonParent;
         
         [SerializeField] private DroppedItem itemButtonPrefab;
+
+        private int activeItemCount = 0;
         
         public void EnableInteractButton()
         {
@@ -26,7 +30,10 @@ namespace Interactables
         
         public void EnableInteractPanel()
         {
-            interactItemPanel.SetActive(true);
+            if (activeItemCount > 0)
+            {
+                interactItemPanel.SetActive(true);
+            }
         }
 
         public void DisableInteractPanel()
@@ -36,10 +43,22 @@ namespace Interactables
 
         public GameObject AddToItemPanel(Item item, Action<Item> onSelectItem)
         {
+            activeItemCount++;
+            
             var uiItem = Instantiate(itemButtonPrefab, itemButtonParent);
             uiItem.InitializeItemButton(item, onSelectItem);
-            
+
             return uiItem.gameObject;
+        }
+
+        public void RemoveItemFromPanel()
+        {
+            activeItemCount--;
+
+            if (activeItemCount <= 0)
+            {
+                DisableInteractPanel();
+            }
         }
     }
 }
