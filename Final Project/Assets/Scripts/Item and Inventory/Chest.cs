@@ -73,9 +73,11 @@ namespace Items
         {
             InteractableUI.Instance.RemoveItemFromPanel();
             
+            Inventory.Instance.Add(item);
+            
             instansiatedItems.Remove(item);
             dropableItem.Remove(item);
-
+    
             if (CanDestroy)
             {
                 DestroyChest();
