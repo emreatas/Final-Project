@@ -41,6 +41,10 @@ namespace CanvasNS
             }
         }
 
+        public void Unequip()
+        {
+            //Unequip func
+        }
         public void UseItem()
         {
             if (showedItem != null)

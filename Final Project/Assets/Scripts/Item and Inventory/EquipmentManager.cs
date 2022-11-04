@@ -8,9 +8,10 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
 
     EquipmentItem[] equipmentItems;
 
-
+    Inventory inventory;
     private void Start()
     {
+        inventory = Inventory.Instance;
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
 
         equipmentItems = new EquipmentItem[numSlots];
@@ -22,11 +23,29 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
     {
         int slotIndex = (int)newItem.slot;
 
+        EquipmentItem olditem = null;
+
+        if (equipmentItems[slotIndex] != null)
+        {
+            olditem = equipmentItems[slotIndex];
+            inventory.Add(olditem);
+        }
 
         equipmentItems[slotIndex] = newItem;
     }
 
+    public void Unequip(int slotIndex)
+    {
+        if (equipmentItems[slotIndex] != null)
+        {
+            EquipmentItem oldItem = equipmentItems[slotIndex];
+            inventory.Add(oldItem);
 
+            equipmentItems[slotIndex] = null;
+        }
+
+
+    }
 
 
 }

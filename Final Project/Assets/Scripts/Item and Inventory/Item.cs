@@ -15,10 +15,10 @@ namespace Items
         public ItemTier tier;
         public Sprite tierSprite;
         public bool isDefaultItem = false;
-        
+
         public List<ItemStat> compulsoryItemStats = new List<ItemStat>();
         public List<ItemStat> randomItemStats = new List<ItemStat>();
-        
+
         public Color GetTierColor()
         {
             switch (tier)
@@ -48,6 +48,8 @@ namespace Items
         {
             Inventory.Instance.Remove(this);
         }
+
+
 
 
     }
