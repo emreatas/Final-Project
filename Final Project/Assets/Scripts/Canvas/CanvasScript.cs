@@ -41,6 +41,14 @@ namespace CanvasNS
             }
         }
 
+        public void UseItem()
+        {
+            if (showedItem != null)
+            {
+                showedItem.Use();
+            }
+        }
+
         private void CanvasManager_ShowItem(Items.Item obj)
         {
             showedItem = obj;
@@ -55,7 +63,7 @@ namespace CanvasNS
             itemIcon.sprite = obj.Icon;
             itemTier.sprite = obj.tierSprite;
             itemTier.color = obj.GetTierColor();
-            itemName.text = obj.name;
+            itemName.text = obj.itemName;
 
         }
 

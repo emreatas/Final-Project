@@ -7,7 +7,8 @@ namespace Items
     [CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObjects/Inventory/Item")]
     public class Item : ScriptableObject
     {
-        public string ItemName = "New Item";
+        public string itemName = "New Item";
+        public ItemClass itemClass;
         public Sprite Icon = null;
         public ItemTier tier;
         public Sprite tierSprite;
@@ -31,8 +32,21 @@ namespace Items
                     return new Color(0, 0, 0, 1);
             }
         }
-    }
 
+
+        public virtual void Use()
+        {
+
+        }
+
+
+    }
+    public enum ItemClass
+    {
+        All,
+        Mage,
+        Knight
+    }
     public enum ItemTier
     {
         NoTier,
