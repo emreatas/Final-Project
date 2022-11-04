@@ -25,7 +25,7 @@ namespace Player
         private const string WALK = "Walk";
         private const string SPEED = "Speed";
         private const string IDLE = "Idle";
-
+        
         public GameEvent OnAttackAnimFinished;
 
  
