@@ -12,12 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad1030e97940bc9f232b32eb3b8f78, type: 3}
   m_Name: Chest Items
   m_EditorClassIdentifier: 
-  constantDropItems:
-  - {fileID: 11400000, guid: b4017d3d1aee92a4486a558214356b17, type: 2}
+  constantDropItems: []
   randomDropItems:
-  - item: {fileID: 11400000, guid: 3470c7da87be6914094ff9459f4267f4, type: 2}
-    dropChance: 25
-  - item: {fileID: 11400000, guid: 5d0c9a793df2b394b9d5e5d3b29fdd50, type: 2}
+  - item: {fileID: 11400000, guid: 784c3b0585c318943919d9afef50367c, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: 1415be73c1efa174fb506257e0fb05ca, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: d5705838fc2919c4ba3d44f77a26725e, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: ce91f3aa0b5ba544cbdfea0e9471e1e0, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: da2b340ffac1b1d46a26f33ae7a4977d, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: 57fd06854ab347043b684aa9e5838f02, type: 2}
+    dropChance: 75
+  - item: {fileID: 11400000, guid: ecc68820ddbf6e84380c53ad5c10599a, type: 2}
     dropChance: 75
   minRandomItemDrop: 0
   maxRandomItemDrop: 2
