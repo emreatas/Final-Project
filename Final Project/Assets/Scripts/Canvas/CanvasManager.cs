@@ -19,6 +19,7 @@ namespace CanvasNS
         public static event Action<bool> ItemDropPanelStart;
         public static event Action<bool> InteractableStart;
         public static event Action<Item> ShowItem;
+
         public void OnInteractableStart(bool interact)
         {
 
@@ -44,6 +45,7 @@ namespace CanvasNS
                 ShowItem(item);
             }
         }
+
 
     }
 }

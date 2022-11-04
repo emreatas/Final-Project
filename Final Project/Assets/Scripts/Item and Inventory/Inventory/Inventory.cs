@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Items;
 using UnityEngine;
+using Utils;
 
-public class Inventory : MonoBehaviour
+public class Inventory : AbstractSingelton<Inventory>
 {
 
-    public static Inventory Instance;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+
 
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;

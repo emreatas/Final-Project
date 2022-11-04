@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace CanvasNS
 {
     public class CanvasScript : MonoBehaviour
     {
         public GameObject interactButton;
+        public GameObject deleteButton;
+        public GameObject equipButton;
         [SerializeField] private GameObject interactItemPanel;
 
 
@@ -15,6 +18,7 @@ namespace CanvasNS
         public UnityEngine.UI.Image itemTier;
         public TMPro.TextMeshProUGUI itemName;
 
+        private Items.Item showedItem;
 
         private void OnEnable()
         {
@@ -24,8 +28,29 @@ namespace CanvasNS
 
         }
 
+        public void DeleteItem()
+        {
+            if (showedItem != null)
+            {
+                Inventory.Instance.Remove(showedItem);
+                itemIcon.enabled = false;
+                itemTier.enabled = false;
+                itemName.enabled = false;
+                deleteButton.SetActive(false);
+                equipButton.SetActive(false);
+            }
+        }
+
         private void CanvasManager_ShowItem(Items.Item obj)
         {
+            showedItem = obj;
+
+
+            itemIcon.enabled = true;
+            itemTier.enabled = true;
+            itemName.enabled = true;
+            deleteButton.SetActive(true);
+            equipButton.SetActive(true);
 
             itemIcon.sprite = obj.Icon;
             itemTier.sprite = obj.tierSprite;
@@ -52,9 +77,10 @@ namespace CanvasNS
             CanvasManager.ItemDropPanelStart -= CanvasManagerOnItemDropPanelStart;
             CanvasManager.ShowItem -= CanvasManager_ShowItem;
 
+
         }
 
-        public void Inventory(GameObject inventoryPanel)
+        public void InventoryUI(GameObject inventoryPanel)
         {
             inventoryPanel.SetActive(true);
         }
