@@ -36,7 +36,11 @@ public class InventorySlot : MonoBehaviour
 
     public void ShowItem()
     {
-        CanvasNS.CanvasManager.instance.OnShowItem(item);
+
+        if (item != null)
+        {
+            CanvasNS.CanvasManager.instance.OnShowItem(item);
+        }
 
     }
 }
