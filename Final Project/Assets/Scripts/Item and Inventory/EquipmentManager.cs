@@ -11,10 +11,9 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
 
     private void Start()
     {
-        int numSlots = System.Enum.GetNames(typeof(EquipmentItem)).Length;
+        int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
 
         equipmentItems = new EquipmentItem[numSlots];
-
 
     }
 

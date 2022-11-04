@@ -39,6 +39,11 @@ namespace Items
 
         }
 
+        public void RemoveFromInventory()
+        {
+            Inventory.Instance.Remove(this);
+        }
+
 
     }
     public enum ItemClass

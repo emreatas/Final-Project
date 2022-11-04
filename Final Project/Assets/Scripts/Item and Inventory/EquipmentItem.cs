@@ -12,7 +12,9 @@ public class EquipmentItem : Item
     {
         base.Use();
         EquipmentManager.Instance.Equip(this);
+        RemoveFromInventory();
     }
+
 
 
 }
