@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using MEC;
 
 namespace StateMachine
 {
@@ -61,6 +63,18 @@ namespace StateMachine
         private void OnStateExit()
         {
             m_CurrentState?.OnExit();
+        }
+
+        public void InvokeFunction(Action action, float delay)
+        {
+            Timing.RunCoroutine(_InvokeCoroutine(action, delay));
+        }
+
+        IEnumerator<float> _InvokeCoroutine(Action action, float delay)
+        {
+            yield return Timing.WaitForSeconds(delay);
+
+            action.Invoke();
         }
     }
 }
