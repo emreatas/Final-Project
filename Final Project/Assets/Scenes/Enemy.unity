@@ -994,11 +994,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7150212829430355444, guid: d97a0773298178d448814916370f8d74,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: dbaea15b72c7ef846b2cceb194beac22, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97a0773298178d448814916370f8d74, type: 3}
 --- !u!1 &8571442670533223441 stripped
@@ -1007,18 +1002,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1569866335426580933}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8571442670533552622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8571442670533223441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4a3cfb8e02c834890a6590d8590854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &8571442670533552623
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1033,7 +1016,7 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
