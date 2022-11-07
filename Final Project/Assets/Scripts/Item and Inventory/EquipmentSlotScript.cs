@@ -27,8 +27,6 @@ public class EquipmentSlotScript : MonoBehaviour
 
     public void UnequipItem()
     {
-
-
         itemIcon.enabled = false;
         itemTier.enabled = false;
     }
@@ -41,6 +39,7 @@ public class EquipmentSlotScript : MonoBehaviour
         if (item != null)
         {
             CanvasNS.CanvasManager.instance.OnShowItem(item);
+            CanvasNS.CanvasManager.instance.OnShowEquipItem();
         }
 
 

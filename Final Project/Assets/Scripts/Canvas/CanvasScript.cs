@@ -10,6 +10,9 @@ namespace CanvasNS
         public GameObject interactButton;
         public GameObject deleteButton;
         public GameObject equipButton;
+        public GameObject unEquipButton;
+
+
         [SerializeField] private GameObject interactItemPanel;
 
 
@@ -25,6 +28,29 @@ namespace CanvasNS
             CanvasManager.InteractableStart += CanvasManager_InteractableStart1;
             CanvasManager.ItemDropPanelStart += CanvasManagerOnItemDropPanelStart;
             CanvasManager.ShowItem += CanvasManager_ShowItem;
+            CanvasManager.ShowInventoryItem += CanvasManager_ShowInventoryItem;
+            CanvasManager.ShowEquipItem += CanvasManager_ShowEquipItem;
+
+        }
+
+        private void CanvasManager_ShowEquipItem()
+        {
+
+            deleteButton.SetActive(false);
+            unEquipButton.SetActive(true);
+            equipButton.SetActive(false);
+
+
+
+        }
+
+        private void CanvasManager_ShowInventoryItem()
+        {
+
+            deleteButton.SetActive(true);
+            unEquipButton.SetActive(false);
+            equipButton.SetActive(true);
+
 
         }
 
@@ -46,6 +72,15 @@ namespace CanvasNS
             if (showedItem != null)
             {
                 showedItem.Unequip();
+                itemIcon.enabled = false;
+                itemTier.enabled = false;
+                itemName.enabled = false;
+
+                deleteButton.SetActive(false);
+                unEquipButton.SetActive(false);
+                equipButton.SetActive(false);
+
+
             }
         }
         public void UseItem()
@@ -53,6 +88,14 @@ namespace CanvasNS
             if (showedItem != null)
             {
                 showedItem.Use();
+                itemIcon.enabled = false;
+                itemTier.enabled = false;
+                itemName.enabled = false;
+
+                deleteButton.SetActive(false);
+                unEquipButton.SetActive(false);
+                equipButton.SetActive(false);
+
             }
         }
 
@@ -60,12 +103,10 @@ namespace CanvasNS
         {
             showedItem = obj;
 
-
             itemIcon.enabled = true;
             itemTier.enabled = true;
             itemName.enabled = true;
-            deleteButton.SetActive(true);
-            equipButton.SetActive(true);
+
 
             itemIcon.sprite = obj.Icon;
             itemTier.sprite = obj.tierSprite;
@@ -91,6 +132,8 @@ namespace CanvasNS
             CanvasManager.InteractableStart -= CanvasManager_InteractableStart1;
             CanvasManager.ItemDropPanelStart -= CanvasManagerOnItemDropPanelStart;
             CanvasManager.ShowItem -= CanvasManager_ShowItem;
+            CanvasManager.ShowInventoryItem -= CanvasManager_ShowInventoryItem;
+            CanvasManager.ShowEquipItem -= CanvasManager_ShowEquipItem;
 
 
         }

@@ -19,6 +19,8 @@ namespace CanvasNS
         public static event Action<bool> ItemDropPanelStart;
         public static event Action<bool> InteractableStart;
         public static event Action<Item> ShowItem;
+        public static event Action ShowInventoryItem;
+        public static event Action ShowEquipItem;
 
         public void OnInteractableStart(bool interact)
         {
@@ -46,6 +48,21 @@ namespace CanvasNS
             }
         }
 
+        public void OnShowInventoryItem()
+        {
+            if (ShowInventoryItem != null)
+            {
+                ShowInventoryItem();
+            }
+        }
+
+        public void OnShowEquipItem()
+        {
+            if (ShowEquipItem != null)
+            {
+                ShowEquipItem();
+            }
+        }
 
     }
 }

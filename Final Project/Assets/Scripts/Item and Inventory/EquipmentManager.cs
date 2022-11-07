@@ -9,18 +9,10 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
     public Dictionary<EquipmentSlot, EquipmentSlotScript> equipmentItems;
 
 
-    //Dictionary<EquipmentSlot, EquipmentItem> equipmentItems = new Dictionary<EquipmentSlot, EquipmentItem>();
-
-    //EquipmentItem[] equipmentItems;
-
-    //public Dictionary<EquipmentSlot, EquipmentItem> EquipmentItems => equipmentItems;
-
     Inventory inventory;
     private void Start()
     {
         inventory = Inventory.Instance;
-        //int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
-        //equipmentItems = new EquipmentItem[numSlots];
 
         InitSlots();
     }
@@ -60,7 +52,7 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
         if (equipmentItems.ContainsKey(newItem.slot))
         {
             inventory.Add(newItem);
-            equipmentItems[newItem.slot] = null;
+            equipmentItems[newItem.slot].item = null;
             equipmentItems[newItem.slot].UnequipItem();
         }
     }
