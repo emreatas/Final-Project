@@ -13,7 +13,7 @@ namespace Stat
         
         public void AddModifier(AttributeModifier modifier)
         {
-            CharacterAttribute modifiedAttribute = FindAttribute(modifier);
+            CharacterAttribute modifiedAttribute = FindAttribute(modifier.TargetStat);
 
             if (modifiedAttribute != null)
             {
@@ -23,7 +23,7 @@ namespace Stat
 
         public void RemoveModifier(AttributeModifier modifier)
         {
-            CharacterAttribute modifiedAttribute = FindAttribute(modifier);
+            CharacterAttribute modifiedAttribute = FindAttribute(modifier.TargetStat);
 
             if (modifiedAttribute != null)
             {
@@ -31,11 +31,16 @@ namespace Stat
             }
         }
 
-        private CharacterAttribute FindAttribute(AttributeModifier modifier)
+        public float GetValue(StatType type)
+        {
+            return FindAttribute(type).CalculateFinalValue();
+        }
+
+        private CharacterAttribute FindAttribute(StatType statType)
         {
             for (int i = 0; i < _characterAttribute.Count; i++)
             {
-                if (_characterAttribute[i].StatType == modifier.TargetStat)
+                if (_characterAttribute[i].StatType == statType)
                 {
                     return _characterAttribute[i];
                 }
@@ -43,5 +48,7 @@ namespace Stat
 
             return null;
         }
+        
+        
     }
 }

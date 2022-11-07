@@ -45,6 +45,8 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnMovePerformed.AddListener(HandleOnMovePerformed);
             
             m_StateMachine.InputSystem.OnBasicAttackStarted.AddListener(HandleOnAttackStart);
+            m_StateMachine.InputSystem.OnBasicAttackPerformed.AddListener(HandleOnAttackStart);
+            
             m_StateMachine.InputSystem.OnPrimarySkillStarted.AddListener(HandleOnAttackStart);
             m_StateMachine.InputSystem.OnSecondarySkillStarted.AddListener(HandleOnAttackStart);
         }
@@ -55,6 +57,8 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnMovePerformed.RemoveListener(HandleOnMovePerformed);
             
             m_StateMachine.InputSystem.OnBasicAttackStarted.RemoveListener(HandleOnAttackStart);
+            m_StateMachine.InputSystem.OnBasicAttackPerformed.RemoveListener(HandleOnAttackStart);
+            
             m_StateMachine.InputSystem.OnPrimarySkillStarted.RemoveListener(HandleOnAttackStart);
             m_StateMachine.InputSystem.OnSecondarySkillStarted.RemoveListener(HandleOnAttackStart);
         }

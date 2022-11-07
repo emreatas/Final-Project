@@ -18,6 +18,11 @@ namespace Player
                 AttributeModifier att = new AttributeModifier(100,targetStat);
                 characterStats.AddModifier(att);
             }
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                Debug.Log(characterStats.GetValue(targetStat));
+            }
         }
     }
 }

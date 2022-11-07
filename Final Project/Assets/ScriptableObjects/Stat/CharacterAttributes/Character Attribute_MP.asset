@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statType: {fileID: 11400000, guid: 597db983d59c34a429557fd4bf11a1bc, type: 2}
   baseValue: 800
-  dependantValue: 0
   additiveAttributeModifiers: []
   percentageAttributeModifiers: []
   dependantCharacterAttributes:
-  - {fileID: 11400000}
+  - characterAttribute: {fileID: 11400000, guid: 35f7c1c3c3c0372429a78749f805123b,
+      type: 2}
+    multiplier: 1
