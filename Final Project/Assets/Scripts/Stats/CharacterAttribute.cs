@@ -10,17 +10,16 @@ namespace Stat
     {
         [SerializeField] private StatType statType;
         [SerializeField] private float baseValue;
-        [SerializeField] private float dependantValue;
         
         [SerializeField] private List<AttributeModifier> additiveAttributeModifiers = new List<AttributeModifier>();
         [SerializeField] private List<AttributeModifier> percentageAttributeModifiers = new List<AttributeModifier>();
-        [SerializeField] private List<CharacterAttribute> dependantCharacterAttributes = new List<CharacterAttribute>();
-
+        [SerializeField] private List<DependantAttribute> dependantCharacterAttributes = new List<DependantAttribute>();
 
         private float m_FinalValue;
 
         private bool m_FinalValueChanged;
 
+        public bool FinalValueChanged => m_FinalValueChanged;
         public StatType StatType => statType;
 
         public CharacterAttribute(StatType statType, float baseValue = 0)
@@ -84,17 +83,18 @@ namespace Stat
         {
             for (int i = 0; i < dependantCharacterAttributes.Count; i++)
             {
-                m_FinalValue = dependantCharacterAttributes[i].CalculateFinalValue() /
-                               dependantCharacterAttributes[i].dependantValue;
+              
+                m_FinalValue += dependantCharacterAttributes[i].characterAttribute.CalculateFinalValue() *
+                                dependantCharacterAttributes[i].multiplier;
             }
         }
 
-        public void AddDependantCharacterAttribute(CharacterAttribute characterAttribute)
+        public void AddDependantCharacterAttribute(DependantAttribute characterAttribute)
         {
             dependantCharacterAttributes.Add(characterAttribute);
         }
 
-        public void RemoveDependantCharacterAttribute(CharacterAttribute characterAttribute)
+        public void RemoveDependantCharacterAttribute(DependantAttribute characterAttribute)
         {
             if (dependantCharacterAttributes.Contains(characterAttribute))
             {
@@ -104,7 +104,9 @@ namespace Stat
         
         public float CalculateFinalValue()
         {
-            if (!m_FinalValueChanged)
+            CheckDependantAttrValueChanged();
+            
+            if (m_FinalValueChanged)
             {
                 m_FinalValue = baseValue;
 
@@ -116,6 +118,17 @@ namespace Stat
             }
 
             return m_FinalValue;
+        }
+
+        private void CheckDependantAttrValueChanged()
+        {
+            for (int i = 0; i < dependantCharacterAttributes.Count; i++)
+            {
+                if (dependantCharacterAttributes[i].characterAttribute.FinalValueChanged)
+                {
+                    m_FinalValueChanged = true;
+                }
+            }
         }
     }
 }
