@@ -10,6 +10,7 @@ namespace StateMachine
         {
             Debug.Log("Enter Move");
             m_StateMachine.AnimationController.PlayWalkAnimation();
+            m_StateMachine.IsPressingMove = true;
             AddListeners();
         }
 
@@ -17,6 +18,7 @@ namespace StateMachine
         {
             Debug.Log("Exit Move");
             m_StateMachine.AnimationController.StopWalkAnimation();
+            m_StateMachine.IsPressingMove = false;
             RemoveListeners();
         }
         
@@ -69,6 +71,8 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnMoveCanceled.AddListener(HandleOnMoveCanceled);
             
             m_StateMachine.InputSystem.OnBasicAttackStarted.AddListener(HandleOnAttackStart);
+            m_StateMachine.InputSystem.OnBasicAttackPerformed.AddListener(HandleOnAttackStart);
+            
             m_StateMachine.InputSystem.OnPrimarySkillStarted.AddListener(HandleOnAttackStart);
             m_StateMachine.InputSystem.OnSecondarySkillStarted.AddListener(HandleOnAttackStart);
         }
@@ -79,6 +83,8 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnMoveCanceled.RemoveListener(HandleOnMoveCanceled);
             
             m_StateMachine.InputSystem.OnBasicAttackStarted.RemoveListener(HandleOnAttackStart);
+            m_StateMachine.InputSystem.OnBasicAttackPerformed.RemoveListener(HandleOnAttackStart);
+            
             m_StateMachine.InputSystem.OnPrimarySkillStarted.RemoveListener(HandleOnAttackStart);
             m_StateMachine.InputSystem.OnSecondarySkillStarted.RemoveListener(HandleOnAttackStart);
         }

@@ -14,17 +14,24 @@ namespace StateMachine
         [SerializeField] private PlayerMovementSettings movementSettings;
         [SerializeField] private PlayerSkillController skillController;
         [SerializeField] private PlayerAnimationController animationController;
-
-
+        [SerializeField] private PlayerStates currentSTate;
+        
         public Rigidbody Rigidbody => rigidbody;
         public PlayerAnimationController AnimationController => animationController;
         public PlayerSkillController SkillController => skillController;
         public PlayerMovementSettings MovementSettings => movementSettings;
         public PlayerInputSystem InputSystem => inputSystem;
         
+        public bool IsPressingMove
+        {
+            get => m_IsPressingMove;
+            set => m_IsPressingMove = value;
+        }
         
         private BaseState m_CurrentState;
 
+        private bool m_IsPressingMove;
+        
         private Dictionary<PlayerStates, BaseState> m_StateDictionary;
         
         private void Awake()
@@ -52,6 +59,7 @@ namespace StateMachine
         {
             OnStateExit();
             m_CurrentState = m_StateDictionary[newState];
+            currentSTate = newState;
             OnStateEnter();
         }
 

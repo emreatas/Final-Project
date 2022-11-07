@@ -20,8 +20,10 @@ namespace Player
         private int m_WalkState = Animator.StringToHash(WALK);
         private int m_Speed = Animator.StringToHash(SPEED);
         private int m_BasicAttack = Animator.StringToHash(BASICATTACK);
+        private int m_RepeatAttack = Animator.StringToHash(REPEATATTACK);
 
         private const string BASICATTACK = "BasicAttack";
+        private const string REPEATATTACK = "RepeatAttack";
         private const string WALK = "Walk";
         private const string SPEED = "Speed";
         private const string IDLE = "Idle";
@@ -64,6 +66,11 @@ namespace Player
         public void StopBasicAttackAnimation()
         {
             animator.SetBool(m_BasicAttack,false);
+        }
+        
+        public void RepeatAttack()
+        {
+            animator.SetTrigger(m_RepeatAttack);
         }
 
         public void _OnAttackAnimationFinished()

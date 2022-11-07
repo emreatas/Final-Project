@@ -9,6 +9,8 @@ namespace StateMachine
         private bool m_IsPressingBasicAttack;
 
         private bool m_PerformingAttack;
+
+        private bool m_IsPressingMove;
         
         public override void OnEnter()
         {
@@ -29,7 +31,7 @@ namespace StateMachine
             if (!m_PerformingAttack)
             {
                 m_PerformingAttack = true;
-
+                
                 m_StateMachine.SkillController.PerformBasicSkill();
                 m_StateMachine.AnimationController.PlayBasicAttackAnimation();
             }
@@ -43,13 +45,7 @@ namespace StateMachine
         private void HandleOnFinishedBasicSkill()
         {
             m_StateMachine.AnimationController.StopBasicAttackAnimation();
-            
-            m_StateMachine.InvokeFunction(ResetPerformAttack, 0.1f);
-            
-            if (!m_IsPressingBasicAttack)
-            {
-                m_StateMachine.SwitchState(PlayerStates.Idle);
-            }
+            m_StateMachine.InvokeFunction(ChangeState,0.1f);
         }
         
         private void HandleOnPrimarySkillPerformed(Vector3 skillVector)
@@ -87,6 +83,30 @@ namespace StateMachine
             m_PerformingAttack = false;
         }
         
+        private void HandleOnMoveStarted(Vector3 obj)
+        {
+            m_StateMachine.IsPressingMove = true;
+        }
+
+        private void HandleOnMoveCanceled(Vector3 obj)
+        {
+            m_StateMachine.IsPressingMove = false;
+        }
+        
+        private void ChangeState()
+        {
+            ResetPerformAttack();
+            if (m_StateMachine.IsPressingMove)
+            {
+                m_StateMachine.SwitchState(PlayerStates.Move);
+            }
+            else
+            {
+                m_StateMachine.SwitchState(PlayerStates.Idle);
+            }
+        }
+
+        
         private void AddListeners()
         {
             m_StateMachine.InputSystem.OnBasicAttackPerformed.AddListener(HandleOnBasicAttackPerformed);
@@ -102,6 +122,8 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnSecondarySkillCanceled.AddListener(HandleOnSecondarySkillCanceled);
             // m_StateMachine.SkillController.SecondarySkill.OnFinishedSkill.AddListener(HandleOnFinishedSecondarySkill);
             
+            m_StateMachine.InputSystem.OnMoveStarted.AddListener(HandleOnMoveStarted);
+            m_StateMachine.InputSystem.OnMoveCanceled.AddListener(HandleOnMoveCanceled);
         }
         
         private void RemoveListeners()
@@ -118,6 +140,9 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnSecondarySkillPerfomed.RemoveListener(HandleOnSecondarySkillPerformed);
             m_StateMachine.InputSystem.OnSecondarySkillCanceled.RemoveListener(HandleOnSecondarySkillCanceled);
             // m_StateMachine.SkillController.SecondarySkill.OnFinishedSkill.RemoveListener(HandleOnFinishedSecondarySkill);
+            
+            m_StateMachine.InputSystem.OnMoveStarted.RemoveListener(HandleOnMoveStarted);
+            m_StateMachine.InputSystem.OnMoveCanceled.RemoveListener(HandleOnMoveCanceled);
 
         }
     }
