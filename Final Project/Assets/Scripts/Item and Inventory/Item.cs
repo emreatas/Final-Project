@@ -9,6 +9,7 @@ namespace Items
     [CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObjects/Inventory/Item")]
     public class Item : ScriptableObject
     {
+
         public string itemName = "New Item";
         public ItemClass itemClass;
         public Sprite Icon = null;
@@ -40,6 +41,11 @@ namespace Items
 
 
         public virtual void Use()
+        {
+
+        }
+
+        public virtual void Unequip()
         {
 
         }
