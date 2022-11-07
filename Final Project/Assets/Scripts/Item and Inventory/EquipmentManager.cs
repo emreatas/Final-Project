@@ -2,50 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils;
-
+using Items;
 public class EquipmentManager : AbstractSingelton<EquipmentManager>
 {
 
-    EquipmentItem[] equipmentItems;
+    public Dictionary<EquipmentSlot, EquipmentSlotScript> equipmentItems;
+
+
+    //Dictionary<EquipmentSlot, EquipmentItem> equipmentItems = new Dictionary<EquipmentSlot, EquipmentItem>();
+
+    //EquipmentItem[] equipmentItems;
+
+    //public Dictionary<EquipmentSlot, EquipmentItem> EquipmentItems => equipmentItems;
 
     Inventory inventory;
     private void Start()
     {
         inventory = Inventory.Instance;
-        int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
+        //int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
+        //equipmentItems = new EquipmentItem[numSlots];
 
-        equipmentItems = new EquipmentItem[numSlots];
-
+        InitSlots();
     }
 
+    private void InitSlots()
+    {
+        equipmentItems = new Dictionary<EquipmentSlot, EquipmentSlotScript>();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            EquipmentSlotScript es = transform.GetChild(i).GetComponent<EquipmentSlotScript>();
+            if (es != null)
+            {
+
+                equipmentItems[es.slot] = es;
+            }
+        }
+    }
 
     public void Equip(EquipmentItem newItem)
     {
-        int slotIndex = (int)newItem.slot;
 
-        EquipmentItem olditem = null;
-
-        if (equipmentItems[slotIndex] != null)
+        if (equipmentItems.ContainsKey(newItem.slot))
         {
-            olditem = equipmentItems[slotIndex];
-            inventory.Add(olditem);
+            EquipmentItem oldItem = equipmentItems[newItem.slot].item;
+
+            if (oldItem != null)
+            {
+                inventory.Add(oldItem);
+            }
         }
-
-        equipmentItems[slotIndex] = newItem;
+        equipmentItems[newItem.slot].item = newItem;
+        equipmentItems[newItem.slot].UseItem();
     }
-
-    public void Unequip(int slotIndex)
+    public void Unequip(EquipmentItem newItem)
     {
-        if (equipmentItems[slotIndex] != null)
+        if (equipmentItems.ContainsKey(newItem.slot))
         {
-            EquipmentItem oldItem = equipmentItems[slotIndex];
-            inventory.Add(oldItem);
-
-            equipmentItems[slotIndex] = null;
+            inventory.Add(newItem);
+            equipmentItems[newItem.slot] = null;
+            equipmentItems[newItem.slot].UnequipItem();
         }
-
-
     }
-
-
 }

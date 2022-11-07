@@ -43,7 +43,10 @@ namespace CanvasNS
 
         public void Unequip()
         {
-            //Unequip func
+            if (showedItem != null)
+            {
+                showedItem.Unequip();
+            }
         }
         public void UseItem()
         {

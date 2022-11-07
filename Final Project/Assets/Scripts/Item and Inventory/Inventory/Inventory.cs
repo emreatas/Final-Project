@@ -7,9 +7,6 @@ using Utils;
 public class Inventory : AbstractSingelton<Inventory>
 {
 
-
-
-
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
