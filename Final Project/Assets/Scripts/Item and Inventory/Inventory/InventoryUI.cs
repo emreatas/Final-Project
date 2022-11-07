@@ -10,10 +10,6 @@ public class InventoryUI : MonoBehaviour
     public InventorySlot[] slots;
     Inventory inventory;
 
-    [Header("----Equipment----")]
-    public EquipmentSlotScript[] equipmentSlots;
-    public Transform equipmentParent;
-
 
 
 
@@ -24,7 +20,6 @@ public class InventoryUI : MonoBehaviour
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 
 
-        //  equipmentSlots = equipmentParent.GetComponentsInChildren<EquipmentSlotScript>();
     }
 
     private void UpdateUI()
