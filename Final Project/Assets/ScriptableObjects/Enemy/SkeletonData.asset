@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 5a3137750e3ee2747bbc9a623cbbe44f, type: 3}
   m_Name: SkeletonData
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyScriptable
+  m_EditorClassIdentifier: 
   range: 0
   sightRange: 0
   health: 0
   attackRate: 0
+  patrolRadius: 0
