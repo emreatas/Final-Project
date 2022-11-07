@@ -5,9 +5,16 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    [Header("----Inventory----")]
     public Transform itemsParent;
+    public InventorySlot[] slots;
     Inventory inventory;
-   public  InventorySlot[] slots;
+
+    [Header("----Equipment----")]
+    public EquipmentSlotScript[] equipmentSlots;
+    public Transform equipmentParent;
+
+
 
 
     void Start()
@@ -15,6 +22,9 @@ public class InventoryUI : MonoBehaviour
         inventory = Inventory.Instance;
         inventory.onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+
+
+        //  equipmentSlots = equipmentParent.GetComponentsInChildren<EquipmentSlotScript>();
     }
 
     private void UpdateUI()
@@ -32,6 +42,11 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+
+
+
+
+
 
 
 }
