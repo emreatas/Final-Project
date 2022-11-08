@@ -39,6 +39,7 @@ namespace StateMachine
         
         private void HandleOnBasicAttackCanceled()
         {
+            m_StateMachine.SkillController.CancelBasicSkill();
             m_IsPressingBasicAttack = false;
         }
         
@@ -96,14 +97,20 @@ namespace StateMachine
         private void ChangeState()
         {
             ResetPerformAttack();
-            if (m_StateMachine.IsPressingMove)
+
+            if (!m_IsPressingBasicAttack)
             {
-                m_StateMachine.SwitchState(PlayerStates.Move);
+                if (m_StateMachine.IsPressingMove)
+                {
+                    m_StateMachine.SwitchState(PlayerStates.Move);
+                }
+                else
+                {
+                    m_StateMachine.SwitchState(PlayerStates.Idle);
+                }
             }
-            else
-            {
-                m_StateMachine.SwitchState(PlayerStates.Idle);
-            }
+            
+         
         }
 
         
