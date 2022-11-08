@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using MEC;
 using Skills;
@@ -10,7 +9,8 @@ namespace Player
     public class PlayerSkillController : MonoBehaviour
     {
         [SerializeField] private PlayerInputSystem inputSystem;
-
+        [SerializeField] private PlayerStats playerStats;
+        
         [SerializeField] private AbstractSkill basicSkill;
         [SerializeField] private AbstractSkill primarySkill;
         [SerializeField] private AbstractSkill secondarySkill;
@@ -26,13 +26,27 @@ namespace Player
 
         public void PerformBasicSkill()
         {
-            basicSkill.PerformSkill();
+            float dmg = playerStats.GetValue(basicSkill.statType);
+            Debug.Log(" Damageee " + dmg);
+            basicSkill.SetDamage(dmg);
+            Timing.RunCoroutine(basicSkill.PerformSkill(transform));
+            // StartCoroutine(basicSkill.PerformSkill(transform));
             // Timing.RunCoroutine(_CastSpells(basicSkill.SkillDuration, basicSkill.FinishedSkill));
+        }
+
+        public void CastBasicSkill()
+        {
+            basicSkill.CastSkill();
         }
 
         public void CancelBasicSkill()
         {
             basicSkill.CancelSkill();
+        }
+
+        public void OnFinishedBasicSkill()
+        {
+            basicSkill.FinishedSkill();
         }
         
         public void StartPrimarySkill(Vector3 skillVector)
@@ -42,7 +56,7 @@ namespace Player
 
         public void PerformPrimarySkill(Vector3 skillVector)
         {
-            primarySkill.PerformSkill();
+            // primarySkill.PerformSkill(rigidbody);
         }
 
         public void CancelPrimarySkill(Vector3 skillVector)
@@ -58,7 +72,7 @@ namespace Player
 
         public void PerformSecondarySkill(Vector3 skillVector)
         {
-            secondarySkill.PerformSkill();
+            // secondarySkill.PerformSkill(transform);
         }
 
         public void CancelSecondarySkill(Vector3 skillVector)
