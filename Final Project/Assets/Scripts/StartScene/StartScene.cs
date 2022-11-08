@@ -46,6 +46,11 @@ public class StartScene : MonoBehaviour
 
         cam.transform.position = createCamPos.position;
         cam.transform.rotation = createCamPos.rotation;
+
+        for (int i = 0; i < characters.Count; i++)
+        {
+            characters[i].SetActive(false);
+        }
     }
 
     public void SelectNewCharacter(int characterIndex)
@@ -56,12 +61,22 @@ public class StartScene : MonoBehaviour
         }
         characters[characterIndex].SetActive(true);
 
-        if (true)
-        {
 
-        }
     }
 
+    public void BackButton()
+    {
+        startPanel.SetActive(true);
+        createPanel.SetActive(false);
+
+        cam.transform.position = startCamPos.position;
+        cam.transform.rotation = startCamPos.rotation;
+
+        for (int i = 0; i < characters.Count; i++)
+        {
+            characters[i].SetActive(false);
+        }
+    }
 
 
 }
