@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Stat
 {
-    //[Serializable]
     [CreateAssetMenu(menuName = "ScriptableObjects/Stats/CharacterAttribute")]
     public class CharacterAttribute : ScriptableObject
     {
@@ -26,6 +25,11 @@ namespace Stat
         {
             this.baseValue = baseValue;
             this.statType = statType;
+        }
+
+        private void OnValidate()
+        {
+            m_FinalValueChanged = true;
         }
 
         public void AddModifier(AttributeModifier modifier)
@@ -92,6 +96,8 @@ namespace Stat
         public void AddDependantCharacterAttribute(DependantAttribute characterAttribute)
         {
             dependantCharacterAttributes.Add(characterAttribute);
+
+            m_FinalValueChanged = true;
         }
 
         public void RemoveDependantCharacterAttribute(DependantAttribute characterAttribute)
@@ -99,6 +105,8 @@ namespace Stat
             if (dependantCharacterAttributes.Contains(characterAttribute))
             {
                 dependantCharacterAttributes.Remove(characterAttribute);
+                
+                m_FinalValueChanged = true;
             }
         }
         
