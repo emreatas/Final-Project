@@ -57,7 +57,7 @@ namespace Skills
         public override void CastSkill()
         {
             var projectile = Instantiate(projectilePrefab, m_Player.position, quaternion.identity);
-            projectile.InitializeProjectile(m_Target, m_Player.forward);
+            projectile.InitializeProjectile(m_Target, m_Player.forward, m_Damage);
         }
 
         private Collider FindClosestEnemy(Vector3 playerPos, Collider[] hitCollider)
