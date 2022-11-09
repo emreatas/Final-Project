@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Skills
@@ -10,9 +11,14 @@ namespace Skills
             Debug.Log("Start Fire Skill");
         }
 
-        public override void PerformSkill()
+        public override void CastSkill()
         {
-            Debug.Log("Perform Fire Skill");
+            throw new System.NotImplementedException();
+        }
+
+        public override void PerformSkill(Vector3 shootDirection)
+        {
+            
         }
 
         public override void CancelSkill()
@@ -23,6 +29,11 @@ namespace Skills
         public override void FinishedSkill()
         {
             OnFinishedSkill.Invoke();
+        }
+
+        public override IEnumerator<float> SkillCoroutine(Transform player)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

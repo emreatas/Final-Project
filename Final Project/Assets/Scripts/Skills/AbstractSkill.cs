@@ -20,10 +20,12 @@ namespace Skills
         
         
         public abstract void StartSkill();
-        public abstract IEnumerator<float> PerformSkill(Transform player);
+        public virtual void PerformSkill(Vector3 shootDirection){}
         public abstract void CastSkill();
         public abstract void CancelSkill();
         public abstract void FinishedSkill();
+        
+        public abstract IEnumerator<float> SkillCoroutine(Transform player);
 
         public void SetDamage(float baseDamage)
         {

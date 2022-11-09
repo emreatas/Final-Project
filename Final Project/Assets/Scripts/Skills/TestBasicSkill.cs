@@ -25,7 +25,7 @@ namespace Skills
             Debug.Log("Start Basic Attack");
         }
 
-        public override IEnumerator<float> PerformSkill(Transform player)
+        public override IEnumerator<float> SkillCoroutine(Transform player)
         {
             Debug.Log("Perform Basic Attack");
             m_Player = player;
