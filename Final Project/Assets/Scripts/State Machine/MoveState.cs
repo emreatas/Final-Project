@@ -48,22 +48,12 @@ namespace StateMachine
         
         private void MovePlayer(Vector3 movementVector)
         {
-            m_StateMachine.Rigidbody.MovePosition(
-                m_StateMachine.transform.position + 
-                m_StateMachine.MovementSettings.MovementSpeed * 
-                 Time.deltaTime * 
-                movementVector 
-                );
+            m_StateMachine.MovementController.MovePlayer(movementVector);
         }
 
         private void RotatePlayer(Vector3 movementVector)
         {
-            Quaternion newRot = Quaternion.RotateTowards(
-                m_StateMachine.Rigidbody.rotation, 
-                Quaternion.LookRotation(movementVector,  m_StateMachine.transform.up), 
-                m_StateMachine.MovementSettings.RotationSpeed * Time.deltaTime);
-            
-            m_StateMachine.Rigidbody.MoveRotation(newRot);
+            m_StateMachine.MovementController.RotatePlayer(movementVector);
         }
         
         private void HandleOnSkillStarted(Vector3 vector)

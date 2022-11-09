@@ -10,16 +10,14 @@ namespace StateMachine
     {
         [SerializeField] private PlayerStates initialPlayerState;
         [SerializeField] private PlayerInputSystem inputSystem;
-        [SerializeField] private Rigidbody rigidbody;
-        [SerializeField] private PlayerMovementSettings movementSettings;
         [SerializeField] private PlayerSkillController skillController;
         [SerializeField] private PlayerAnimationController animationController;
-  
-        public Rigidbody Rigidbody => rigidbody;
+        [SerializeField] private PlayerMovementController movementController;
+        
         public PlayerAnimationController AnimationController => animationController;
         public PlayerSkillController SkillController => skillController;
-        public PlayerMovementSettings MovementSettings => movementSettings;
         public PlayerInputSystem InputSystem => inputSystem;
+        public PlayerMovementController MovementController => movementController;
         
         public bool IsPressingMove
         {
