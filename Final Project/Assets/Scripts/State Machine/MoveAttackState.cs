@@ -9,6 +9,7 @@ namespace StateMachine
         public MoveAttackState(FiniteStateMachine stateMachine) : base(stateMachine) { }
 
         private bool m_PerfomingAttack;
+        private Vector3 m_lastPrimaryAttackDirection;
         
         public override void OnEnter()
         {
@@ -60,12 +61,14 @@ namespace StateMachine
         private void HandleOnPerfomedPrimarySkill(Vector3 skillDirection)
         {
             m_StateMachine.SkillController.PerformPrimarySkill(skillDirection);
+            
+            m_lastPrimaryAttackDirection = skillDirection;
         }
         
         private void HandleOnPrimarySkillCanceled(Vector3 skillDirection)
         {
             m_StateMachine.AnimationController.PlayPrimaryAttackAnimation();
-            m_StateMachine.SkillController.StartPrimarySkill(skillDirection);
+            m_StateMachine.SkillController.StartPrimarySkill(m_lastPrimaryAttackDirection);
 
             RemoveMovementListeners();
             RemoveSkillListeners();
