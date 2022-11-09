@@ -1320,7 +1320,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0.30000007, y: 0.3}
+  m_SizeDelta: {x: 0.39999998, y: 0.39999998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1772576954
 GameObject:
@@ -1636,6 +1636,11 @@ PrefabInstance:
       propertyPath: primarySkill
       value: 
       objectReference: {fileID: 11400000, guid: 6114c62a98e73744cb821cec650c27df,
+        type: 2}
+    - target: {fileID: 379916632, guid: c8072b673e3e0744691801952ee27297, type: 3}
+      propertyPath: secondarySkill
+      value: 
+      objectReference: {fileID: 11400000, guid: 81d0c726de4e9d641a0f10decf0db5ad,
         type: 2}
     - target: {fileID: 379916632, guid: c8072b673e3e0744691801952ee27297, type: 3}
       propertyPath: skillIndicator
@@ -2247,7 +2252,7 @@ PrefabInstance:
     - target: {fileID: 6698001483064196462, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 59.000366
+      value: 59.00055
       objectReference: {fileID: 0}
     - target: {fileID: 7308808710551100308, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
