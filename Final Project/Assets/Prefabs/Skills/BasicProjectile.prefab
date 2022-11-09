@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5418826363207003807}
+  lifeTime: 2
   maxRange: 10
 --- !u!54 &5418826363207003807
 Rigidbody:

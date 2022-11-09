@@ -9607,6 +9607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 514559425189708245}
+  lifeTime: 2
   attackSpeedMultiplicator: 0.1
 --- !u!1 &8929182414494971460
 GameObject:

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using EpicToonFX;
+using MEC;
 using UnityEngine;
 
 namespace Skills
@@ -9,6 +11,7 @@ namespace Skills
     public abstract class AbstractProjectile : MonoBehaviour
     {
         [SerializeField] protected Rigidbody rb;
+        [SerializeField] private float lifeTime;
         
         protected float m_Damage;
         protected float m_AttackSpeed;
@@ -16,7 +19,19 @@ namespace Skills
         protected bool m_HasTarget;
         protected Transform m_TargetTransform;
 
-        protected bool IsTargetDestroyed => m_TargetTransform == null; 
+        private CoroutineHandle m_DestroyCoroutine;
+        
+        protected bool IsTargetDestroyed => m_TargetTransform == null;
+
+        private void Start()
+        {
+            m_DestroyCoroutine = Timing.RunCoroutine(_Destroy());
+        }
+        
+        private void OnDestroy()
+        {
+            Timing.KillCoroutines(m_DestroyCoroutine);
+        }
         
         public void InitializeParams(float damage, float attackSpeed)
         {
@@ -44,6 +59,13 @@ namespace Skills
         }
         
         public abstract void FireProjectile(Vector3 dir);
+
+        private IEnumerator<float> _Destroy()
+        {
+            yield return Timing.WaitForSeconds(lifeTime);
+            
+            Destroy(gameObject);
+        }
     }
 
 }
