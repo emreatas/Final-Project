@@ -58,7 +58,8 @@ namespace Skills
             FireProjectile(dir);
         }
         
-        public abstract void FireProjectile(Vector3 dir);
+        public virtual void FireProjectile(Vector3 dir){}
+        public virtual void FireProjectile(){}
 
         private IEnumerator<float> _Destroy()
         {
