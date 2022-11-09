@@ -38,6 +38,11 @@ namespace StateMachine
         {
             m_StateMachine.SwitchState(PlayerStates.Attack);
         }
+
+        private void HandleOnSkillStarted(Vector3 vector)
+        {
+            m_StateMachine.SwitchState(PlayerStates.MoveAttack);
+        }
         
         private void AddListeners()
         {
@@ -47,8 +52,8 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnBasicAttackStarted.AddListener(HandleOnAttackStart);
             m_StateMachine.InputSystem.OnBasicAttackPerformed.AddListener(HandleOnAttackStart);
             
-            m_StateMachine.InputSystem.OnPrimarySkillStarted.AddListener(HandleOnAttackStart);
-            m_StateMachine.InputSystem.OnSecondarySkillStarted.AddListener(HandleOnAttackStart);
+            m_StateMachine.InputSystem.OnPrimarySkillStarted.AddListener(HandleOnSkillStarted);
+            m_StateMachine.InputSystem.OnSecondarySkillStarted.AddListener(HandleOnSkillStarted);
         }
 
         private void RemoveListeners()
@@ -59,8 +64,8 @@ namespace StateMachine
             m_StateMachine.InputSystem.OnBasicAttackStarted.RemoveListener(HandleOnAttackStart);
             m_StateMachine.InputSystem.OnBasicAttackPerformed.RemoveListener(HandleOnAttackStart);
             
-            m_StateMachine.InputSystem.OnPrimarySkillStarted.RemoveListener(HandleOnAttackStart);
-            m_StateMachine.InputSystem.OnSecondarySkillStarted.RemoveListener(HandleOnAttackStart);
+            m_StateMachine.InputSystem.OnPrimarySkillStarted.RemoveListener(HandleOnSkillStarted);
+            m_StateMachine.InputSystem.OnSecondarySkillStarted.RemoveListener(HandleOnSkillStarted);
         }
     }
 }

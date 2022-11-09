@@ -14,8 +14,7 @@ namespace StateMachine
         [SerializeField] private PlayerMovementSettings movementSettings;
         [SerializeField] private PlayerSkillController skillController;
         [SerializeField] private PlayerAnimationController animationController;
-        [SerializeField] private PlayerStates currentSTate;
-        
+  
         public Rigidbody Rigidbody => rigidbody;
         public PlayerAnimationController AnimationController => animationController;
         public PlayerSkillController SkillController => skillController;
@@ -27,7 +26,9 @@ namespace StateMachine
             get => m_IsPressingMove;
             set => m_IsPressingMove = value;
         }
+
         
+        private PlayerStates m_CurrentPlayerState;
         private BaseState m_CurrentState;
 
         private bool m_IsPressingMove;
@@ -41,7 +42,8 @@ namespace StateMachine
                 {
                     { PlayerStates.Idle , new IdleState(this)},
                     { PlayerStates.Move , new MoveState(this)},
-                    { PlayerStates.Attack , new AttackState(this)}
+                    { PlayerStates.Attack , new AttackState(this)},
+                    { PlayerStates.MoveAttack , new MoveAttackState(this)}
                 };
         }
 
@@ -59,7 +61,7 @@ namespace StateMachine
         {
             OnStateExit();
             m_CurrentState = m_StateDictionary[newState];
-            currentSTate = newState;
+            m_CurrentPlayerState = newState;
             OnStateEnter();
         }
 
