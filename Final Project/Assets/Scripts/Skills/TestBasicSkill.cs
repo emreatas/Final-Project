@@ -20,12 +20,7 @@ namespace Skills
         private Transform m_Player;
         private Transform m_Target;
         
-        public override void StartSkill()
-        {
-            Debug.Log("Start Basic Attack");
-        }
-
-        public override IEnumerator<float> SkillCoroutine(Transform player)
+        public override IEnumerator<float> PerformSkillCoroutine(Transform player)
         {
             Debug.Log("Perform Basic Attack");
             m_Player = player;
@@ -53,13 +48,19 @@ namespace Skills
                 }
             }
         }
-
+        
         public override void CastSkill()
         {
             var projectile = Instantiate(projectilePrefab, m_Player.position, quaternion.identity);
             projectile.InitializeProjectile(m_Target, m_Player.forward, m_Damage);
         }
-
+        
+        public override void OnFinishedSkillAnimation()
+        {
+            OnFinishedSkill.Invoke();
+            ResetParams();
+        }
+        
         private Collider FindClosestEnemy(Vector3 playerPos, Collider[] hitCollider)
         {
             Collider closest = hitCollider[0];
@@ -77,21 +78,10 @@ namespace Skills
             return closest;
         }
         
-        public override void CancelSkill()
-        {
-            Debug.Log("Cancel Basic Attack");
-        }
-        
         private void ResetParams()
         {
             m_Player = null;
             m_Target = null;
-        }
-
-        public override void FinishedSkill()
-        {
-            OnFinishedSkill.Invoke();
-            ResetParams();
         }
     }
 }

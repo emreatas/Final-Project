@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
 using Stat;
 using UnityEngine;
 using Utils;
@@ -19,13 +20,18 @@ namespace Skills
         public float m_Damage;
         
         
-        public abstract void StartSkill();
+        public virtual void StartSkill(){}
         public virtual void PerformSkill(Vector3 shootDirection){}
-        public abstract void CastSkill();
-        public abstract void CancelSkill();
-        public abstract void FinishedSkill();
-        
-        public abstract IEnumerator<float> SkillCoroutine(Transform player);
+        public virtual void CancelSkill(){}
+        public virtual void CastSkill(){}
+        public virtual void OnFinishedSkillAnimation(){}
+
+        public virtual void ShowSkillIndicator(Transform player ,Vector3 shootDirection){}
+
+        public virtual IEnumerator<float> PerformSkillCoroutine(Transform player)
+        {
+            yield return Timing.WaitForOneFrame;
+        }
 
         public void SetDamage(float baseDamage)
         {

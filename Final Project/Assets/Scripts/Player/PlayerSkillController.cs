@@ -10,6 +10,7 @@ namespace Player
     {
         [SerializeField] private PlayerInputSystem inputSystem;
         [SerializeField] private PlayerStats playerStats;
+        [SerializeField] private GameObject skillIndicator;
         
         [SerializeField] private AbstractSkill basicSkill;
         [SerializeField] private AbstractSkill primarySkill;
@@ -29,7 +30,7 @@ namespace Player
             float dmg = playerStats.GetValue(basicSkill.statType);
             Debug.Log(" Damageee " + dmg);
             basicSkill.SetDamage(dmg);
-            Timing.RunCoroutine(basicSkill.PerformSkill(transform));
+            Timing.RunCoroutine(basicSkill.PerformSkillCoroutine(transform));
             // StartCoroutine(basicSkill.PerformSkill(transform));
             // Timing.RunCoroutine(_CastSpells(basicSkill.SkillDuration, basicSkill.FinishedSkill));
         }
@@ -46,17 +47,17 @@ namespace Player
 
         public void OnFinishedBasicSkill()
         {
-            basicSkill.FinishedSkill();
+            basicSkill.OnFinishedSkillAnimation();
         }
         
-        public void StartPrimarySkill(Vector3 skillVector)
+        public void StartPrimarySkill()
         {
             primarySkill.StartSkill();
         }
 
         public void PerformPrimarySkill(Vector3 skillVector)
         {
-            // primarySkill.PerformSkill(rigidbody);
+            primarySkill.PerformSkill(skillVector);
         }
 
         public void CancelPrimarySkill(Vector3 skillVector)

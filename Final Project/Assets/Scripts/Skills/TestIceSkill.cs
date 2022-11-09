@@ -21,12 +21,12 @@ namespace Skills
             Debug.Log("Cast Fire Skill");
         }
 
-        public override void FinishedSkill()
+        public override void OnFinishedSkillAnimation()
         {
             OnFinishedSkill.Invoke();
         }
 
-        public override IEnumerator<float> SkillCoroutine(Transform player)
+        public override IEnumerator<float> PerformSkillCoroutine(Transform player)
         {
             throw new System.NotImplementedException();
         }
