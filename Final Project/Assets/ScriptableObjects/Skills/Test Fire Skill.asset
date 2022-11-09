@@ -12,5 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e3e2378913ca741b546b0317d6c233, type: 3}
   m_Name: Test Fire Skill
   m_EditorClassIdentifier: 
-  AnimationName: Mage02
+  AnimationName: Mage01
+  damageStatType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
+  damageMultiplier: 0.545
+  attackSpeedStatType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32,
+    type: 2}
+  attackSpeedMultiplier: 0.115
+  SkillIndicatorSettings: {fileID: 11400000, guid: 39d834256190df044ac215d9a312280e,
+    type: 2}
   SkillDuration: 3
+  m_Damage: 231.75
+  m_AttackSpeed: 1.1615001
+  prefab: {fileID: -3935729255787724650, guid: 73027ac1259c4bd4fb9752dc84e3a37a, type: 3}

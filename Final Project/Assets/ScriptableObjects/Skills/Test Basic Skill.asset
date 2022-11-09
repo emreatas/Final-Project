@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Test Basic Skill
   m_EditorClassIdentifier: 
   AnimationName: Mage01
-  statType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
-  damageMultiplier: 0.059
+  damageStatType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
+  damageMultiplier: 0.103
+  attackSpeedStatType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32,
+    type: 2}
+  attackSpeedMultiplier: 1
+  SkillIndicatorSettings: {fileID: 11400000, guid: 39d834256190df044ac215d9a312280e,
+    type: 2}
   SkillDuration: 1
-  m_Damage: 158.85
+  m_Damage: 165.45
+  m_AttackSpeed: 10.1
+  prefab: {fileID: 1042883617819421295, guid: 501e47ff4f307a44e86eef95d3d2a9cc, type: 3}
   skillSpeed: 5
   rotatateLerpDuration: 0.1
   enemyDetectRadius: 10
@@ -24,5 +31,3 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 1024
-  projectilePrefab: {fileID: 1042883617819421295, guid: 501e47ff4f307a44e86eef95d3d2a9cc,
-    type: 3}

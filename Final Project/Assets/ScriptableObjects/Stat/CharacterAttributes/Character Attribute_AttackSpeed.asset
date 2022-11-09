@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Character Attribute_AttackSpeed
   m_EditorClassIdentifier: 
   statType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
-  baseValue: 1
+  baseValue: 10
   additiveAttributeModifiers: []
   percentageAttributeModifiers: []
   dependantCharacterAttributes:
