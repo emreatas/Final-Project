@@ -110,7 +110,7 @@ namespace Player
 
         public void _OnPrimarySkillCast()
         {
-            skillController.CasPrimarySkill();
+            skillController.CastPrimarySkill();
         }
 
         private void SetCombo()
