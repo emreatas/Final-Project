@@ -23,8 +23,10 @@ namespace Player
         private int m_Speed = Animator.StringToHash(SPEED);
         private int m_BasicAttack = Animator.StringToHash(BASICATTACK);
         private int m_ComboCount = Animator.StringToHash(COMBO);
+        private int m_PrimaryAttack = Animator.StringToHash(PRIMARYATTACK);
 
         private const string BASICATTACK = "BasicAttack";
+        private const string PRIMARYATTACK = "PrimaryAttack";
         private const string WALK = "Walk";
         private const string SPEED = "Speed";
         private const string IDLE = "Idle";
@@ -74,6 +76,17 @@ namespace Player
         {
             animator.SetBool(m_BasicAttack,false);
         }
+
+        public void PlayPrimaryAttackAnimation()
+        {
+            animator.SetBool(m_PrimaryAttack, true);
+            animator.SetTrigger(PRIMARYATTACK + skillController.PrimarySkill.AnimationName);
+        }
+
+        public void StopPrimaryAttackAnimation()
+        {
+            animator.SetBool(m_PrimaryAttack, false);
+        }
         
         public void _OnAttackAnimationFinished()
         {
@@ -83,32 +96,43 @@ namespace Player
             SetCombo();
             m_ComboCoroutine = Timing.RunCoroutine(ResetCombo());
         }
-
+        
         public void _OnBasicAttackCast()
         {
             skillController.CastBasicSkill();
         }
 
+        public void _OnPrimaryAttackAnimationFinished()
+        {
+            OnAttackAnimFinished.Invoke();
+            skillController.OnFinishedPrimarySkill();
+        }
+
+        public void _OnPrimarySkillCast()
+        {
+            skillController.CasPrimarySkill();
+        }
+
         private void SetCombo()
         {
-            if (animator.GetInteger(COMBO) == 1)
+            if (animator.GetInteger(m_ComboCount) == 1)
             {
-                animator.SetInteger(COMBO, 2);
+                animator.SetInteger(m_ComboCount, 2);
             }
-            else if (animator.GetInteger(COMBO) == 2)
+            else if (animator.GetInteger(m_ComboCount) == 2)
             {
-                animator.SetInteger(COMBO, 3);
+                animator.SetInteger(m_ComboCount, 3);
             }
             else
             {
-                animator.SetInteger(COMBO, 1);
+                animator.SetInteger(m_ComboCount, 1);
             }
         }
         
         IEnumerator<float> ResetCombo()
         {
             yield return Timing.WaitForSeconds(comboThreshold);
-            animator.SetInteger(COMBO, 1);
+            animator.SetInteger(m_ComboCount, 1);
         }
     }
 }
