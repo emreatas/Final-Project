@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Skills
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Skills/TestFire")]
-    public class TestFireSkill : AbstractSkill
+    [CreateAssetMenu(menuName = "ScriptableObjects/Skills/Mage/Primary/AirBomb")]
+    public class Skill_AirBomb : AbstractSkill
     {
         public override void RotatePlayer(Action<Vector3> LerpPlayer)
         {
@@ -15,7 +15,7 @@ namespace Skills
         public override void CastSkill()
         {
             var instansiated = Instantiate(prefab, m_Player.position, Quaternion.identity);
-            instansiated.InitializeParams(m_Damage, m_Damage);
+            instansiated.InitializeParams(m_Damage, m_AttackSpeed);
             instansiated.FireProjectile(m_ShootDirection);
         }
 

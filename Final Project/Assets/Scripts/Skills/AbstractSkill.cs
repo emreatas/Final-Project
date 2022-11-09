@@ -42,7 +42,7 @@ namespace Skills
         
         public virtual void CastSkill(){}
         
-        public virtual void ShowSkillIndicator(SkillIndicator skillIndicator ,Vector3 shootDirection){}
+        public virtual void ShowSkillIndicator(SkillIndicator skillIndicator, Vector3 shootDirection){}
 
         public virtual void RotatePlayer(Action<Vector3> LerpPlayer) { }
         
