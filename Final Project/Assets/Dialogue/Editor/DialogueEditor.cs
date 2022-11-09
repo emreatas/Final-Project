@@ -9,13 +9,15 @@ namespace RPG.Dialogue.Editor
 {
     public class DialogueEditor : EditorWindow
     {
+        Dialogue selectedDialogue = null;
+
        [MenuItem("Window/Dialogue Editor")]
        public static void ShowEditorWindow()
         {
             GetWindow(typeof(DialogueEditor), true, "Dialogue Editor");
         }
 
-        [OnOpenAssetAttribute(1)]
+        [OnOpenAsset(1)]
         public static bool OnOpenAsset(int instanceID, int line)
         {
             Dialogue dialogue = EditorUtility.InstanceIDToObject(instanceID) as Dialogue;
@@ -27,6 +29,34 @@ namespace RPG.Dialogue.Editor
             return false;
         }
 
+        private void OnEnable()
+        {
+            Selection.selectionChanged += OnSelectionChange;
+        }
+
+        private void OnSelectionChange()
+        {
+            Dialogue newDialogue = Selection.activeObject as Dialogue;
+            if (newDialogue != null)
+            {
+                selectedDialogue = newDialogue;
+                Repaint();
+            }
+        }
+        private void OnGUI()
+        {
+            if (selectedDialogue == null)
+            {
+                EditorGUILayout.LabelField("Dialog seçilmedi.");
+            }
+            else
+            {
+                foreach (DialogueNode node in selectedDialogue.GetAllNodes())
+                {
+                    EditorGUILayout.LabelField(node.text);
+                }
+            }
+        }
     }
 }
 
