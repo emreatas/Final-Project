@@ -7,11 +7,6 @@ using Utils;
 
 namespace Player
 {
-    public class PlayerAnimationClips
-    {
-        
-    }
-    
     public class PlayerAnimationController : MonoBehaviour
     {
         [SerializeField] private Animator animator;

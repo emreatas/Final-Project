@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
 {
 
     public Dictionary<EquipmentSlot, EquipmentSlotScript> equipmentItems;
-
+    
 
     Inventory inventory;
     private void Start()
