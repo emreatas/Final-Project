@@ -28,11 +28,12 @@ namespace Player
 
         public void PerformBasicSkill()
         {
-            float dmg = playerStats.GetValue(basicSkill.statType);
-            Debug.Log(" Damageee " + dmg);
-            basicSkill.SetDamage(dmg);
+            float dmg = playerStats.GetValue(basicSkill.damageStatType);
+            float attackSpeed = playerStats.GetValue(basicSkill.attackSpeedStatType);
+            basicSkill.SetAttributes(dmg, attackSpeed);
             
-            Vector3 targetPos = basicSkill.FindTargetPosition(transform);
+            basicSkill.SetPlayerTransform(transform);
+            Vector3 targetPos = basicSkill.FindTargetPosition();
             movementController.LerpPlayerRotation(targetPos);
         }
 
@@ -54,10 +55,8 @@ namespace Player
         public void StartPrimarySkill(Vector3 skillDirection)
         {
             skillIndicator.DisableSkillIndicator();
-            
-            movementController.LerpPlayerRotation((transform.position + skillDirection));
-            
-            primarySkill.StartSkill();
+            primarySkill.ShootDirection = skillDirection;
+            movementController.LerpPlayerRotation(transform.position + skillDirection);
         }
 
         public void PerformPrimarySkill(Vector3 skillVector)
@@ -65,15 +64,14 @@ namespace Player
             primarySkill.ShowSkillIndicator(skillIndicator, skillVector);
             primarySkill.PerformSkill(skillVector);
         }
-
-        public void CancelPrimarySkill(Vector3 skillVector)
-        {
-            skillIndicator.DisableSkillIndicator();
-            // Timing.RunCoroutine(_CastSpells(primarySkill.SkillDuration, primarySkill.FinishedSkill));
-        }
         
         public void CastPrimarySkill()
         {
+            float dmg = playerStats.GetValue(primarySkill.damageStatType);
+            float attackSpeed = playerStats.GetValue(primarySkill.attackSpeedStatType);
+            primarySkill.SetAttributes(dmg, attackSpeed);
+            
+            primarySkill.SetPlayerTransform(transform);
             primarySkill.CastSkill();
         }
         

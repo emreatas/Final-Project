@@ -10,25 +10,18 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/TestBasic")]
     public class TestBasicSkill : AbstractSkill
     {
-        [SerializeField] private float skillSpeed;
-        [SerializeField] private float rotatateLerpDuration;
         [SerializeField] private float enemyDetectRadius;
-        [SerializeField] private float maxDistance;
         [SerializeField] private LayerMask enemyLayerMask;
-        [SerializeField] private BasicSkillProjectile projectilePrefab;
 
-        private Transform m_Player;
         private Transform m_Target;
 
-        public override Vector3 FindTargetPosition(Transform player)
+        public override Vector3 FindTargetPosition()
         {
-            m_Player = player;
-
-            Collider[] hitColliders = Physics.OverlapSphere(player.position, enemyDetectRadius, enemyLayerMask);
+            Collider[] hitColliders = Physics.OverlapSphere(m_Player.position, enemyDetectRadius, enemyLayerMask);
             
             if ( hitColliders.Length > 0)
             {
-                m_Target = FindClosestEnemy(player.position, hitColliders).transform;
+                m_Target = FindClosestEnemy(m_Player.position, hitColliders).transform;
                 
                 Debug.Log("Hit " + m_Target.name);
                 return m_Target.position;
@@ -39,8 +32,9 @@ namespace Skills
 
         public override void CastSkill()
         {
-            var projectile = Instantiate(projectilePrefab, m_Player.position, quaternion.identity);
-            projectile.InitializeProjectile(m_Target, m_Player.forward, m_Damage);
+            var projectile = Instantiate(prefab, m_Player.position, quaternion.identity);
+            projectile.InitializeParams(m_Damage, m_AttackSpeed);
+            projectile.FireProjectile( m_Player.forward,m_Target);
         }
         
         public override void OnFinishedSkillAnimation()

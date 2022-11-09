@@ -6,14 +6,12 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/TestFire")]
     public class TestFireSkill : AbstractSkill
     {
-        public override void PerformSkill(Vector3 shootDirection)
-        {
-            
-        }
-        
+ 
         public override void CastSkill()
         {
-            
+            var instansiated = Instantiate(prefab, m_Player.position, Quaternion.identity);
+            instansiated.InitializeParams(m_Damage, m_Damage);
+            instansiated.FireProjectile(m_ShootDirection);
         }
 
         public override void ShowSkillIndicator(SkillIndicator skillIndicator, Vector3 shootDirection)
