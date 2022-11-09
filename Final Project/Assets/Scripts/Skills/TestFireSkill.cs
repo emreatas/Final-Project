@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,11 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/TestFire")]
     public class TestFireSkill : AbstractSkill
     {
- 
+        public override void RotatePlayer(Action<Vector3> LerpPlayer)
+        {
+            LerpPlayer(m_Player.position + ShootDirection);
+        }
+
         public override void CastSkill()
         {
             var instansiated = Instantiate(prefab, m_Player.position, Quaternion.identity);
@@ -22,6 +27,7 @@ namespace Skills
 
         public override void OnFinishedSkillAnimation()
         {
+            base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
         }
     }

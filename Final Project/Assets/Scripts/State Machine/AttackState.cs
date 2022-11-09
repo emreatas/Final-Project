@@ -32,14 +32,13 @@ namespace StateMachine
             {
                 m_PerformingAttack = true;
                 
-                m_StateMachine.SkillController.PerformBasicSkill();
+                m_StateMachine.SkillController.StartBasicSkill();
                 m_StateMachine.AnimationController.PlayBasicAttackAnimation();
             }
         }
         
         private void HandleOnBasicAttackCanceled()
         {
-            m_StateMachine.SkillController.CancelBasicSkill();
             m_IsPressingBasicAttack = false;
         }
         

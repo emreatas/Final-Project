@@ -8,7 +8,6 @@ namespace Player
 {
     public class PlayerSkillController : MonoBehaviour
     {
-        [SerializeField] private PlayerInputSystem inputSystem;
         [SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private SkillIndicator skillIndicator;
@@ -23,30 +22,16 @@ namespace Player
         
         public void StartBasicSkill()
         {
-            basicSkill.StartSkill();
-        }
-
-        public void PerformBasicSkill()
-        {
-            float dmg = playerStats.GetValue(basicSkill.damageStatType);
-            float attackSpeed = playerStats.GetValue(basicSkill.attackSpeedStatType);
-            basicSkill.SetAttributes(dmg, attackSpeed);
+            InitializeSkill(ref basicSkill);
             
-            basicSkill.SetPlayerTransform(transform);
-            Vector3 targetPos = basicSkill.FindTargetPosition();
-            movementController.LerpPlayerRotation(targetPos);
+            basicSkill.RotatePlayer(movementController.LerpPlayerRotation);
         }
-
+        
         public void CastBasicSkill()
         {
             basicSkill.CastSkill();
         }
-
-        public void CancelBasicSkill()
-        {
-            basicSkill.CancelSkill();
-        }
-
+        
         public void OnFinishedBasicSkill()
         {
             basicSkill.OnFinishedSkillAnimation();
@@ -56,22 +41,17 @@ namespace Player
         {
             skillIndicator.DisableSkillIndicator();
             primarySkill.ShootDirection = skillDirection;
-            movementController.LerpPlayerRotation(transform.position + skillDirection);
+            InitializeSkill(ref primarySkill);
+            primarySkill.RotatePlayer( movementController.LerpPlayerRotation);
         }
 
         public void PerformPrimarySkill(Vector3 skillVector)
         {
             primarySkill.ShowSkillIndicator(skillIndicator, skillVector);
-            primarySkill.PerformSkill(skillVector);
         }
         
         public void CastPrimarySkill()
         {
-            float dmg = playerStats.GetValue(primarySkill.damageStatType);
-            float attackSpeed = playerStats.GetValue(primarySkill.attackSpeedStatType);
-            primarySkill.SetAttributes(dmg, attackSpeed);
-            
-            primarySkill.SetPlayerTransform(transform);
             primarySkill.CastSkill();
         }
         
@@ -79,10 +59,19 @@ namespace Player
         {
             primarySkill.OnFinishedSkillAnimation();
         }
+        
+        private void InitializeSkill(ref AbstractSkill skill)
+        {
+            float dmg = playerStats.GetValue(skill.damageStatType);
+            float attackSpeed = playerStats.GetValue(skill.attackSpeedStatType);
+            skill.SetAttributes(dmg, attackSpeed);
+            
+            skill.SetPlayerTransform(transform);
+        }
 
         public void StartSecondarySkill(Vector3 skillVector)
         {
-            secondarySkill.StartSkill();
+   
         }
 
         public void PerformSecondarySkill(Vector3 skillVector)
@@ -92,16 +81,8 @@ namespace Player
 
         public void CancelSecondarySkill(Vector3 skillVector)
         {
-            secondarySkill.CancelSkill();
-            // Timing.RunCoroutine(_CastSpells(secondarySkill.SkillDuration, secondarySkill.FinishedSkill));
+         
         }
         
-        
-        private IEnumerator<float> _CastSpells(float duration, Action FinishedSkillFunc)
-        {
-            yield return Timing.WaitForSeconds(duration);
-
-            FinishedSkillFunc();
-        }
     }
 }

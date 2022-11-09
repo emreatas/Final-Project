@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MEC;
@@ -10,24 +11,20 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/TestBasic")]
     public class TestBasicSkill : AbstractSkill
     {
+        [Header("Enemy")]
         [SerializeField] private float enemyDetectRadius;
         [SerializeField] private LayerMask enemyLayerMask;
 
         private Transform m_Target;
 
-        public override Vector3 FindTargetPosition()
+        public override void RotatePlayer(Action<Vector3> LerpPlayer)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(m_Player.position, enemyDetectRadius, enemyLayerMask);
-            
-            if ( hitColliders.Length > 0)
+            Transform target = FindTarget();
+
+            if (target != null)
             {
-                m_Target = FindClosestEnemy(m_Player.position, hitColliders).transform;
-                
-                Debug.Log("Hit " + m_Target.name);
-                return m_Target.position;
+                LerpPlayer(target.position);
             }
-            
-            return Vector3.zero;
         }
 
         public override void CastSkill()
@@ -39,10 +36,28 @@ namespace Skills
         
         public override void OnFinishedSkillAnimation()
         {
+            base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
-            ResetParams();
         }
         
+        protected override void ResetParams()
+        {
+            base.ResetParams();
+            m_Target = null;
+        }
+        
+        private Transform FindTarget()
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(m_Player.position, enemyDetectRadius, enemyLayerMask);
+            
+            if ( hitColliders.Length > 0)
+            {
+                m_Target = FindClosestEnemy(m_Player.position, hitColliders).transform;
+            }
+            
+            return m_Target ;
+        }
+
         private Collider FindClosestEnemy(Vector3 playerPos, Collider[] hitCollider)
         {
             Collider closest = hitCollider[0];
@@ -58,12 +73,6 @@ namespace Skills
                 }
             }
             return closest;
-        }
-        
-        private void ResetParams()
-        {
-            m_Player = null;
-            m_Target = null;
         }
     }
 }
