@@ -25,10 +25,6 @@ namespace Skills
         {
             OnFinishedSkill.Invoke();
         }
-
-        public override IEnumerator<float> PerformSkillCoroutine(Transform player)
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 }

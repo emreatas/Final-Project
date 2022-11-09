@@ -19,10 +19,9 @@ namespace Skills
 
         private Transform m_Player;
         private Transform m_Target;
-        
-        public override IEnumerator<float> PerformSkillCoroutine(Transform player)
+
+        public override Vector3 FindTargetPosition(Transform player)
         {
-            Debug.Log("Perform Basic Attack");
             m_Player = player;
 
             Collider[] hitColliders = Physics.OverlapSphere(player.position, enemyDetectRadius, enemyLayerMask);
@@ -32,23 +31,12 @@ namespace Skills
                 m_Target = FindClosestEnemy(player.position, hitColliders).transform;
                 
                 Debug.Log("Hit " + m_Target.name);
-                
-                float lerpedTime = 0;
-            
-                Quaternion startRot = player.rotation;
-                Quaternion targetRot = Quaternion.LookRotation(m_Target.position - player.position);
-            
-                while (rotatateLerpDuration > lerpedTime)
-                {
-                    player.rotation = Quaternion.Slerp(startRot, targetRot, lerpedTime/rotatateLerpDuration);        
-        
-                    lerpedTime += Time.deltaTime;
-                    
-                    yield return Timing.WaitForOneFrame;
-                }
+                return m_Target.position;
             }
+            
+            return Vector3.zero;
         }
-        
+
         public override void CastSkill()
         {
             var projectile = Instantiate(projectilePrefab, m_Player.position, quaternion.identity);

@@ -10,17 +10,18 @@ namespace Skills
         {
             
         }
-
-        public override void CancelSkill()
-        {
-            Debug.Log("Cast Fire Skill");
-        }
-
+        
         public override void CastSkill()
         {
-            throw new System.NotImplementedException();
+            
         }
-        
+
+        public override void ShowSkillIndicator(SkillIndicator skillIndicator, Vector3 shootDirection)
+        {
+            skillIndicator.InitIndicatorSettings(SkillIndicatorSettings);
+            skillIndicator.UpdateIndicatorDirection(shootDirection);
+        }
+
         public override void OnFinishedSkillAnimation()
         {
             OnFinishedSkill.Invoke();

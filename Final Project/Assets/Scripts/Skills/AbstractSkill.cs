@@ -13,7 +13,8 @@ namespace Skills
         public StatType statType;
         [Range(0,1)]
         public float damageMultiplier;
-        
+
+        public SkillIndicatorSettings SkillIndicatorSettings;
         public GameEvent OnFinishedSkill;
 
         public float SkillDuration;
@@ -26,11 +27,11 @@ namespace Skills
         public virtual void CastSkill(){}
         public virtual void OnFinishedSkillAnimation(){}
 
-        public virtual void ShowSkillIndicator(Transform player ,Vector3 shootDirection){}
+        public virtual void ShowSkillIndicator(SkillIndicator skillIndicator ,Vector3 shootDirection){}
 
-        public virtual IEnumerator<float> PerformSkillCoroutine(Transform player)
+        public virtual Vector3 FindTargetPosition(Transform player)
         {
-            yield return Timing.WaitForOneFrame;
+            return Vector3.zero;
         }
 
         public void SetDamage(float baseDamage)

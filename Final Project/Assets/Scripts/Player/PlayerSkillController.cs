@@ -9,8 +9,9 @@ namespace Player
     public class PlayerSkillController : MonoBehaviour
     {
         [SerializeField] private PlayerInputSystem inputSystem;
+        [SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerStats playerStats;
-        [SerializeField] private GameObject skillIndicator;
+        [SerializeField] private SkillIndicator skillIndicator;
         
         [SerializeField] private AbstractSkill basicSkill;
         [SerializeField] private AbstractSkill primarySkill;
@@ -30,9 +31,9 @@ namespace Player
             float dmg = playerStats.GetValue(basicSkill.statType);
             Debug.Log(" Damageee " + dmg);
             basicSkill.SetDamage(dmg);
-            Timing.RunCoroutine(basicSkill.PerformSkillCoroutine(transform));
-            // StartCoroutine(basicSkill.PerformSkill(transform));
-            // Timing.RunCoroutine(_CastSpells(basicSkill.SkillDuration, basicSkill.FinishedSkill));
+            
+            Vector3 targetPos = basicSkill.FindTargetPosition(transform);
+            movementController.LerpPlayerRotation(targetPos);
         }
 
         public void CastBasicSkill()
@@ -50,22 +51,37 @@ namespace Player
             basicSkill.OnFinishedSkillAnimation();
         }
         
-        public void StartPrimarySkill()
+        public void StartPrimarySkill(Vector3 skillDirection)
         {
+            skillIndicator.DisableSkillIndicator();
+            
+            movementController.LerpPlayerRotation((transform.position + skillDirection));
+            
             primarySkill.StartSkill();
         }
 
         public void PerformPrimarySkill(Vector3 skillVector)
         {
+            primarySkill.ShowSkillIndicator(skillIndicator, skillVector);
             primarySkill.PerformSkill(skillVector);
         }
 
         public void CancelPrimarySkill(Vector3 skillVector)
         {
-            primarySkill.CancelSkill();
+            skillIndicator.DisableSkillIndicator();
             // Timing.RunCoroutine(_CastSpells(primarySkill.SkillDuration, primarySkill.FinishedSkill));
         }
         
+        public void CastPrimarySkill()
+        {
+            primarySkill.CastSkill();
+        }
+        
+        public void OnFinishedPrimarySkill()
+        {
+            primarySkill.OnFinishedSkillAnimation();
+        }
+
         public void StartSecondarySkill(Vector3 skillVector)
         {
             secondarySkill.StartSkill();
@@ -81,7 +97,8 @@ namespace Player
             secondarySkill.CancelSkill();
             // Timing.RunCoroutine(_CastSpells(secondarySkill.SkillDuration, secondarySkill.FinishedSkill));
         }
-
+        
+        
         private IEnumerator<float> _CastSpells(float duration, Action FinishedSkillFunc)
         {
             yield return Timing.WaitForSeconds(duration);
