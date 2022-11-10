@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Stat
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Stats/CharacterStats")]
     public class CharacterStat : ScriptableObject
     {
-        [Header("Base Stats")] [SerializeField]
-        private List<CharacterAttribute> _characterAttribute;
-        
+        [Header("Base Stats")] 
+        [SerializeField] private List<CharacterAttribute> _characterAttribute;
+
+        public List<CharacterAttribute> CharacterAttributes => _characterAttribute;
+
         
         public void AddModifier(AttributeModifier modifier)
         {

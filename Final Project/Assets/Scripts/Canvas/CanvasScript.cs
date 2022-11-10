@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using Stat;
+using System;
+using Player;
 
 namespace CanvasNS
 {
@@ -11,6 +14,12 @@ namespace CanvasNS
         public GameObject deleteButton;
         public GameObject equipButton;
         public GameObject unEquipButton;
+
+
+        [Header("Stat Texts")]
+        public List<StatTexts> statTexts;
+
+
 
 
         [SerializeField] private GameObject interactItemPanel;
@@ -31,6 +40,39 @@ namespace CanvasNS
             CanvasManager.ShowInventoryItem += CanvasManager_ShowInventoryItem;
             CanvasManager.ShowEquipItem += CanvasManager_ShowEquipItem;
 
+            PlayerStats.OnCharacterStatsInitialized.AddListener(HandleOnInitializeStats);
+            PlayerStats.OnCharacterAttributeUpdated.AddListener(HandleOnCharacterAttributeUpdated);
+
+
+        }
+
+        private void HandleOnInitializeStats(CharacterStat characterStats)
+        {
+            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
+            {
+                for (int j = 0; j < statTexts.Count; j++)
+                {
+                    if (statTexts[j].statType == characterStats.CharacterAttributes[i].StatType)
+                    {
+                        statTexts[j].text.text = $" : {characterStats.CharacterAttributes[i].CalculateFinalValue()}";
+                        break;
+                    }
+                }
+            }
+
+           
+        }
+
+        private void HandleOnCharacterAttributeUpdated(CharacterAttribute characterAttribute)
+        {
+            for (int i = 0; i < statTexts.Count; i++)
+            {
+                if (statTexts[i].statType == characterAttribute.StatType)
+                {
+                    statTexts[i].text.text = $" : {characterAttribute.CalculateFinalValue()}";
+                    break;
+                }
+            }
         }
 
         private void CanvasManager_ShowEquipItem()
@@ -135,6 +177,12 @@ namespace CanvasNS
             CanvasManager.ShowInventoryItem -= CanvasManager_ShowInventoryItem;
             CanvasManager.ShowEquipItem -= CanvasManager_ShowEquipItem;
 
+            PlayerStats.OnCharacterStatsInitialized.RemoveListener(HandleOnInitializeStats);
+            PlayerStats.OnCharacterAttributeUpdated.RemoveListener(HandleOnCharacterAttributeUpdated);
+        }
+
+        private void UpdateText()
+        {
 
         }
 
@@ -148,4 +196,11 @@ namespace CanvasNS
             panel.SetActive(false);
         }
     }
+}
+
+[Serializable]
+public class StatTexts
+{
+    public TextMeshProUGUI text;
+    public StatType statType;
 }
