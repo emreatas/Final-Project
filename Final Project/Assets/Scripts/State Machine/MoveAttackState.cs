@@ -105,7 +105,7 @@ namespace StateMachine
         private void HandleOnPrimaryAttackFinished()
         {
             m_StateMachine.AnimationController.StopPrimaryAttackAnimation();
-            ChangeState();
+            m_StateMachine.InvokeFunction(ChangeState,0.1f);
         }
 
         private void ChangeState()

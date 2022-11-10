@@ -44,8 +44,15 @@ namespace StateMachine
         
         private void HandleOnFinishedBasicSkill()
         {
-            m_StateMachine.AnimationController.StopBasicAttackAnimation();
-            m_StateMachine.InvokeFunction(ChangeState,0.1f);
+            if (!m_IsPressingBasicAttack)
+            {
+                m_StateMachine.AnimationController.StopBasicAttackAnimation();
+                m_StateMachine.InvokeFunction(ChangeState,0.1f);
+            }
+            else
+            {
+                ResetPerformAttack();
+            }
         }
         
         private void HandleOnMoveStarted(Vector3 obj)
