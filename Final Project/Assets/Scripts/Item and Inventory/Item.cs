@@ -16,7 +16,7 @@ namespace Items
         public ItemTier tier;
         public Sprite tierSprite;
         public bool isDefaultItem = false;
-        public List<ItemStat> stats = new List<ItemStat>();
+        public List<AttributeModifier> stats = new List<AttributeModifier>();
 
         //public List<ItemStat> compulsoryItemStats = new List<ItemStat>();
         //public List<ItemStat> randomItemStats = new List<ItemStat>();
@@ -45,6 +45,7 @@ namespace Items
         public void GetRandomStats()
         {
             stats = itemStatPool.GetRandomStats();
+            
         }
 
         public virtual void Use()

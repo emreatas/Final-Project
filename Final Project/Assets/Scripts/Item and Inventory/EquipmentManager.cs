@@ -6,9 +6,10 @@ using Utils;
 using Items;
 public class EquipmentManager : AbstractSingelton<EquipmentManager>
 {
-
     public Dictionary<EquipmentSlot, EquipmentSlotScript> equipmentItems;
-    
+
+    public static GameEvent<EquipmentItem> OnEquipItem;
+    public static GameEvent<EquipmentItem> OnUnequipItem;
 
     Inventory inventory;
     private void Start()
@@ -35,16 +36,17 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
 
     public void Equip(EquipmentItem newItem)
     {
-
         if (equipmentItems.ContainsKey(newItem.slot))
         {
             EquipmentItem oldItem = equipmentItems[newItem.slot].item;
 
             if (oldItem != null)
             {
+                OnUnequipItem.Invoke(oldItem);
                 inventory.Add(oldItem);
             }
         }
+        OnEquipItem.Invoke(newItem);
         equipmentItems[newItem.slot].item = newItem;
         equipmentItems[newItem.slot].UseItem();
     }
@@ -52,6 +54,7 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
     {
         if (equipmentItems.ContainsKey(newItem.slot))
         {
+            OnUnequipItem.Invoke(newItem);
             inventory.Add(newItem);
             equipmentItems[newItem.slot].item = null;
             equipmentItems[newItem.slot].UnequipItem();

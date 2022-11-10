@@ -19,10 +19,7 @@ public class EquipmentItem : Item
     {
         base.Unequip();
         EquipmentManager.Instance.Unequip(this);
-
-
     }
-
 }
 
 

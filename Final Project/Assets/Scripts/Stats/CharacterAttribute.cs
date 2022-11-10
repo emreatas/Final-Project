@@ -20,7 +20,7 @@ namespace Stat
         private float m_FinalValue;
 
         private bool m_FinalValueChanged;
-
+        
         public bool FinalValueChanged => m_FinalValueChanged;
         public StatType StatType => statType;
 
@@ -29,14 +29,7 @@ namespace Stat
             this.baseValue = baseValue;
             this.statType = statType;
         }
-
-        private void OnValidate()
-        {
-            m_FinalValueChanged = true;
-            
-            OnCharacterAttributeUpdated.Invoke(this);
-        }
-
+        
         public void AddModifier(AttributeModifier modifier)
         {
             if (statType == modifier.TargetStat)
@@ -134,7 +127,7 @@ namespace Stat
                 ApplyDependantAttributes();
                 ApplyAdditiveModifiers();
                 ApplyPercentageModifiers();
-
+                
                 m_FinalValueChanged = false;
             }
 
