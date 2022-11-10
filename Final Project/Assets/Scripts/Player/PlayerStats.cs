@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CanvasNS;
 using Items;
 using Stat;
 using UnityEngine;
@@ -36,6 +37,11 @@ namespace Player
             OnCharacterStatsInitialized.Invoke(characterStats);
         }
         
+        private void HandleOnCharacterAttributeIncreased(StatType statType)
+        {
+            characterStats.IncreaseBaseValue(statType, 1);
+        }
+        
         private void AddListeners()
         {
             for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
@@ -44,8 +50,9 @@ namespace Player
             }
             EquipmentManager.OnEquipItem.AddListener(HandleOnEquipItem);
             EquipmentManager.OnUnequipItem.AddListener(HandleOnUnequipItem);
+            CanvasScript.OnCharacterAttributeIncreased.AddListener(HandleOnCharacterAttributeIncreased);
         }
-
+        
         private void RemoveListeners()
         {
             for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
@@ -54,6 +61,7 @@ namespace Player
             }
             EquipmentManager.OnEquipItem.RemoveListener(HandleOnEquipItem);
             EquipmentManager.OnUnequipItem.RemoveListener(HandleOnUnequipItem);
+            CanvasScript.OnCharacterAttributeIncreased.RemoveListener(HandleOnCharacterAttributeIncreased);
         }
         
         private void HandleOnEquipItem(EquipmentItem equipedItem)

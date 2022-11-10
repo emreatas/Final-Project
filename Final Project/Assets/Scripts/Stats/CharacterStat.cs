@@ -34,6 +34,15 @@ namespace Stat
             }
         }
 
+        public void IncreaseBaseValue(StatType statType, float amount)
+        {
+            CharacterAttribute attribute = FindAttribute(statType);
+            if (attribute != null)
+            {
+                attribute.IncreaseBaseValue(amount);
+            }
+        }
+        
         public float GetValue(StatType type)
         {
             return FindAttribute(type).CalculateFinalValue();

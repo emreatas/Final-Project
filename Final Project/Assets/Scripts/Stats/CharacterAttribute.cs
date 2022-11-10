@@ -115,11 +115,26 @@ namespace Stat
                 OnCharacterAttributeUpdated.Invoke(this);
             }
         }
+
+        public void IncreaseBaseValue(float amount)
+        {
+            baseValue += amount;
+            OnCharacterAttributeUpdated.Invoke(this);
+        }
         
         public float CalculateFinalValue()
         {
             CheckDependantAttrValueChanged();
+            m_FinalValue = baseValue;
+
+            ApplyDependantAttributes();
+            ApplyAdditiveModifiers();
+            ApplyPercentageModifiers();
             
+            m_FinalValueChanged = false;
+           
+            
+            /*
             if (m_FinalValueChanged)
             {
                 m_FinalValue = baseValue;
@@ -130,7 +145,7 @@ namespace Stat
                 
                 m_FinalValueChanged = false;
             }
-
+*/
             return m_FinalValue;
         }
 

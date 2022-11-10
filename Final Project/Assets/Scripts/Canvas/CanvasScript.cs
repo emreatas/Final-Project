@@ -5,6 +5,8 @@ using TMPro;
 using Stat;
 using System;
 using Player;
+using Skills;
+using Utils;
 
 namespace CanvasNS
 {
@@ -18,12 +20,15 @@ namespace CanvasNS
         [Header("Item Stat Texts")]
         public List<TextMeshProUGUI> itemStatTexts;
 
-        [Header("Stat Texts")]
+        [Header("Inventory Stat Texts")]
         public List<StatTexts> statTexts;
+        
+        [Header("Stat Panel Texts")]
+        public List<StatTexts> statPanelTexts;
 
         [Header("Stat Panel Texts")]
-        public TextMeshProUGUI statTitle;
-        public TextMeshProUGUI statInfo;
+        public TextMeshProUGUI rightPanelTitle;
+        public TextMeshProUGUI rightPanelInfo;
 
         [SerializeField] private GameObject interactItemPanel;
 
@@ -34,6 +39,8 @@ namespace CanvasNS
         public TMPro.TextMeshProUGUI itemName;
 
         private Items.Item showedItem;
+
+        public static GameEvent<StatType> OnCharacterAttributeIncreased;
 
         private void OnEnable()
         {
@@ -51,6 +58,13 @@ namespace CanvasNS
 
         private void HandleOnInitializeStats(CharacterStat characterStats)
         {
+            UpdateInventoryStats(characterStats);
+            UpdateStatTexts(characterStats);
+
+        }
+        
+        private void UpdateInventoryStats(CharacterStat characterStats)
+        {
             for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
             {
                 for (int j = 0; j < statTexts.Count; j++)
@@ -62,10 +76,23 @@ namespace CanvasNS
                     }
                 }
             }
-
-
         }
-
+        
+        private void UpdateStatTexts(CharacterStat characterStats)
+        {
+            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
+            {
+                for (int j = 0; j < statPanelTexts.Count; j++)
+                {
+                    if (statPanelTexts[j].statType == characterStats.CharacterAttributes[i].StatType)
+                    {
+                        statPanelTexts[j].text.text = $"{characterStats.CharacterAttributes[i].CalculateFinalValue()}";
+                        break;
+                    }
+                }
+            }
+        }
+        
         private void HandleOnCharacterAttributeUpdated(CharacterAttribute characterAttribute)
         {
             for (int i = 0; i < statTexts.Count; i++)
@@ -99,6 +126,11 @@ namespace CanvasNS
 
         }
 
+        public void IncreaseCharacterAttrıbute(StatType statType)
+        {
+            OnCharacterAttributeIncreased.Invoke(statType);
+        }
+        
         public void DeleteItem()
         {
             if (showedItem != null)
@@ -199,9 +231,14 @@ namespace CanvasNS
 
         public void UpdateStatText(StatType statType)
         {
-            statTitle.text = statType.name;
-            statInfo.text = statType.description;
-
+            rightPanelTitle.text = statType.name;
+            rightPanelInfo.text = statType.description;
+        }
+        
+        public void UpdateSkillText(AbstractSkill skill)
+        {
+            rightPanelTitle.text = skill.name;
+            //rightPanelInfo.text = skill.description;
         }
 
         public void InventoryUI(GameObject inventoryPanel)
