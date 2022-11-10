@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a3c29364e44837ba8bab090b5ba590, type: 3}
   m_Name: MagicalAttack
   m_EditorClassIdentifier: 
-  name: Vitality
+  name: Magical Attack
+  description: 
