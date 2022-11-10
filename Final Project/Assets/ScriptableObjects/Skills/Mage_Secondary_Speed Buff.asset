@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd27ff5cd16e7444e85969fcc2390b01, type: 3}
+  m_Name: Mage_Secondary_Speed Buff
+  m_EditorClassIdentifier: 
+  SkillName: Speed Buff
+  skillType: 2
+  SkillIcon: {fileID: 0}
+  SkillDescription: Speed Buff
+  AnimationName: Mage02
+  prefab: {fileID: 1281889272400627997, guid: 868f43e4cdcba0747af2015fdf1198d9, type: 3}
+  SkillIndicatorSettings: {fileID: 11400000, guid: e244b3911c379cc46afcfee5402faeca,
+    type: 2}
