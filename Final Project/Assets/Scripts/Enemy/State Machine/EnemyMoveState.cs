@@ -7,12 +7,28 @@ public class EnemyMoveState : EnemyBaseState
         enemy.getNavMeshAgent().isStopped = false;
     }
     public override void UpdateState(EnemyStateManager enemy) {
-        enemy.getNavMeshAgent().destination = enemy.getTargetTransform().position;
-        if(Vector3.Distance(enemy.transform.position , enemy.getTargetTransform().position) > enemy.enemyStats.sightRange) {
-            enemy.SwitchState(enemy.IdleState);
+        if(enemy.getDistanceToPlayer() > enemy.enemyStats.sightRange) {
+            if(enemy.getDistanceToBornPosition() < 1f) {
+                enemy.anim.SetBool("isMove" , false);
+                enemy.SwitchState(enemy.IdleState);
+            }
+            else {
+                enemy.getNavMeshAgent().destination = enemy.getBornTransform();
+            }
+        }
+        else if(enemy.getDistanceToPlayer() <= enemy.enemyStats.sightRange) {
+            if(enemy.getDistanceToPlayer() > enemy.enemyStats.attackRange) {
+                enemy.getNavMeshAgent().isStopped = false;
+                enemy.getNavMeshAgent().destination = enemy.getTargetTransform();
+            }
+            else if(enemy.getDistanceToPlayer() <= enemy.enemyStats.attackRange) {
+                enemy.getNavMeshAgent().isStopped = true;
+                enemy.anim.SetBool("isMove" , false);
+                enemy.SwitchState(enemy.AttackState);
+            }
         }
     }
-    public override void OnCollisionEnter(EnemyStateManager enemy) {
+    public override void OnTriggerEnter(EnemyStateManager enemy , Collider other) {
 
     }
 }

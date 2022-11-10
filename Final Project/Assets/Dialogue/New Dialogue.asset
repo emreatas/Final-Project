@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: Char A
-    text: Hello stranger.
+  - uniqueID: Quest Line
+    text: Sure, here's a quest for you. Kill 10 orcs
     children: []
-  - uniqueID: 
-    text: 
+  - uniqueID: Vulgar Line
+    text: Get lost!
     children: []
-  - uniqueID: 
-    text: 
+  - uniqueID: Skeptical Line
+    text: You are ya?
     children: []
   - uniqueID: 
     text: 
