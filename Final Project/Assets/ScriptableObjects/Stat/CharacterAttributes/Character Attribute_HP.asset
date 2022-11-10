@@ -19,4 +19,4 @@ MonoBehaviour:
   dependantCharacterAttributes:
   - characterAttribute: {fileID: 11400000, guid: 29b5531724447024db7722bcadd04106,
       type: 2}
-    multiplier: 1
+    multiplier: 20

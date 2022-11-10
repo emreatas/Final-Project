@@ -9609,6 +9609,9 @@ MonoBehaviour:
   rb: {fileID: 514559425189708245}
   lifeTime: 2
   attackSpeedMultiplicator: 1
+  damageMultiplicator: 1
+  damageType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
+  attackSpeedType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
 --- !u!1 &8929182414494971460
 GameObject:
   m_ObjectHideFlags: 0
