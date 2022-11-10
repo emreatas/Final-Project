@@ -54,7 +54,8 @@ namespace Skills
         private void InstansiateMeteor(Vector3 spawnPosition)
         {
             var instansiated = Instantiate(prefab, spawnPosition, Quaternion.identity);
-            instansiated.InitializeParams(m_Damage, m_AttackSpeed);
+            // instansiated.InitializeParams(m_Damage, m_AttackSpeed);
+            instansiated.InitializeStats(m_CharacterStat);
             instansiated.FireProjectile();
         }
 

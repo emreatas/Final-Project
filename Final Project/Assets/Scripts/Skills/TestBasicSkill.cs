@@ -30,7 +30,8 @@ namespace Skills
         public override void CastSkill()
         {
             var projectile = Instantiate(prefab, m_Player.position, quaternion.identity);
-            projectile.InitializeParams(m_Damage, m_AttackSpeed);
+            // projectile.InitializeParams(m_Damage, m_AttackSpeed);
+            projectile.InitializeStats(m_CharacterStat);
             projectile.FireProjectile( m_Player.forward,m_Target);
         }
         

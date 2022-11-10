@@ -14,6 +14,8 @@ namespace Player
         [SerializeField] private CharacterStat characterStats;
         [SerializeField] private StatType targetStat;
 
+        public CharacterStat CharacterStats => characterStats;
+        
         public static GameEvent<CharacterStat> OnCharacterStatsInitialized;
         public static GameEvent<CharacterAttribute> OnCharacterAttributeUpdated;
 

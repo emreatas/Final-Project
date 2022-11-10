@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using MEC;
+using Player;
 using Stat;
 using UnityEngine;
 using Utils;
@@ -10,16 +11,16 @@ namespace Skills
 {
     public abstract class AbstractSkill : ScriptableObject
     {
+        [Header("Skill")] 
+        public string SkillName;
+        public PlayerSkillType skillType;
+        public Sprite SkillIcon;
+        [TextArea(10,100)] 
+        public string SkillDescription;
+        
         [Header("Animations Name")]
         public string AnimationName;
         
-        [Header("Attributes")]
-        public StatType damageStatType;
-        [Range(0,1)] public float damageMultiplier;
-        
-        public StatType attackSpeedStatType;
-        [Range(0,1)] public float attackSpeedMultiplier;
-      
         [Header("Projectile Prefab")]
         [SerializeField] protected AbstractProjectile prefab;
         
@@ -27,6 +28,8 @@ namespace Skills
         public SkillIndicatorSettings SkillIndicatorSettings;
         
         public GameEvent OnFinishedSkill;
+
+        protected CharacterStat m_CharacterStat;
         
         protected float m_Damage;
         protected float m_AttackSpeed;
@@ -56,10 +59,15 @@ namespace Skills
             m_Player = null;
         }
         
-        public void SetAttributes(float baseDamage, float baseAttackSpeed)
+        // public void SetAttributes(float baseDamage, float baseAttackSpeed)
+        // {
+        //     m_Damage = baseDamage + (baseDamage * damageMultiplier);
+        //     m_AttackSpeed = baseAttackSpeed * attackSpeedMultiplier;
+        // }
+        
+        public void SetAttributes(CharacterStat characterStat)
         {
-            m_Damage = baseDamage + (baseDamage * damageMultiplier);
-            m_AttackSpeed = baseAttackSpeed * attackSpeedMultiplier;
+            m_CharacterStat = characterStat;
         }
 
         public void SetPlayerTransform(Transform player)

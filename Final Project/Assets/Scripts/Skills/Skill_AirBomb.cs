@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Stat;
 using UnityEngine;
 
 namespace Skills
@@ -11,11 +12,12 @@ namespace Skills
         {
             LerpPlayer(m_Player.position + ShootDirection);
         }
-
+        
         public override void CastSkill()
         {
             var instansiated = Instantiate(prefab, m_Player.position, Quaternion.identity);
-            instansiated.InitializeParams(m_Damage, m_AttackSpeed);
+            // instansiated.InitializeStats(m_Damage, m_AttackSpeed);
+            instansiated.InitializeStats(m_CharacterStat);
             instansiated.FireProjectile(m_ShootDirection);
         }
 
@@ -30,5 +32,7 @@ namespace Skills
             base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
         }
+
+     
     }
 }
