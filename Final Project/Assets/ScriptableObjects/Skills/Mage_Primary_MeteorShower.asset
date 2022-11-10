@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6411abdfba394aab8ed038c6e3ad6a3b, type: 3}
   m_Name: Mage_Primary_MeteorShower
   m_EditorClassIdentifier: 
+  SkillName: Meteor Shower
+  SkillDescription: Meteorssssssssssssss
+  SkillIcon: {fileID: 21300000, guid: 8d27f5ec7a2d2ebd41155974e93135ef, type: 3}
+  skillType: 1
   AnimationName: Mage02
   damageStatType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
   damageMultiplier: 0.578

@@ -6,6 +6,7 @@ using Stat;
 using System;
 using Player;
 using Skills;
+using UnityEngine.UI;
 using Utils;
 
 namespace CanvasNS
@@ -38,10 +39,19 @@ namespace CanvasNS
         public UnityEngine.UI.Image itemTier;
         public TMPro.TextMeshProUGUI itemName;
 
+        [Header("Player Skills")] 
+        public Image basicSkill;
+        public Image primarySkill;
+        public Image secondarySkill;
+
+        private Dictionary<PlayerSkillType, Image> m_SkillImages;
+
         private Items.Item showedItem;
+        private AbstractSkill selectedSkill;
 
         public static GameEvent<StatType> OnCharacterAttributeIncreased;
-
+        public static GameEvent<AbstractSkill> OnSkillChanged;
+        
         private void OnEnable()
         {
             CanvasManager.InteractableStart += CanvasManager_InteractableStart1;
@@ -54,6 +64,16 @@ namespace CanvasNS
             PlayerStats.OnCharacterAttributeUpdated.AddListener(HandleOnCharacterAttributeUpdated);
 
 
+        }
+
+        private void Start()
+        {
+            m_SkillImages = new Dictionary<PlayerSkillType, Image>()
+            {
+                { PlayerSkillType.Basic ,basicSkill},
+                { PlayerSkillType.Primary ,primarySkill},
+                { PlayerSkillType.Secondary ,secondarySkill}
+            };
         }
 
         private void HandleOnInitializeStats(CharacterStat characterStats)
@@ -126,7 +146,7 @@ namespace CanvasNS
 
         }
 
-        public void IncreaseCharacterAttrıbute(StatType statType)
+        public void IncreaseCharacterAttribute(StatType statType)
         {
             OnCharacterAttributeIncreased.Invoke(statType);
         }
@@ -229,6 +249,15 @@ namespace CanvasNS
             PlayerStats.OnCharacterAttributeUpdated.RemoveListener(HandleOnCharacterAttributeUpdated);
         }
 
+        public void SelectSkill()
+        {
+            if (selectedSkill != null)
+            {
+                OnSkillChanged.Invoke(selectedSkill);
+                m_SkillImages[selectedSkill.skillType].sprite = selectedSkill.SkillIcon;
+            }
+        }
+        
         public void UpdateStatText(StatType statType)
         {
             rightPanelTitle.text = statType.name;
@@ -237,8 +266,9 @@ namespace CanvasNS
         
         public void UpdateSkillText(AbstractSkill skill)
         {
-            rightPanelTitle.text = skill.name;
-            //rightPanelInfo.text = skill.description;
+            selectedSkill = skill;
+            rightPanelTitle.text = skill.SkillName;
+            rightPanelInfo.text = skill.SkillDescription;
         }
 
         public void InventoryUI(GameObject inventoryPanel)

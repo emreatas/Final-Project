@@ -1,11 +1,19 @@
 using System;
 using System.Collections.Generic;
+using CanvasNS;
 using MEC;
 using Skills;
 using UnityEngine;
 
 namespace Player
 {
+    public enum PlayerSkillType
+    {
+        Basic,
+        Primary,
+        Secondary
+    }
+    
     public class PlayerSkillController : MonoBehaviour
     {
         [SerializeField] private PlayerMovementController movementController;
@@ -15,10 +23,20 @@ namespace Player
         [SerializeField] private AbstractSkill basicSkill;
         [SerializeField] private AbstractSkill primarySkill;
         [SerializeField] private AbstractSkill secondarySkill;
-
+        
         public AbstractSkill BasicSkill => basicSkill;
         public AbstractSkill PrimarySkill => primarySkill;
         public AbstractSkill SecondarySkill => secondarySkill;
+
+        private void OnEnable()
+        {
+            AddListeners();
+        }
+
+        private void OnDisable()
+        {
+            RemoveListeners();
+        }
         
         public void StartBasicSkill()
         {
@@ -84,5 +102,30 @@ namespace Player
          
         }
         
+        private void HandleOnSkillChanged(AbstractSkill newSkill)
+        {
+            if (newSkill.skillType == PlayerSkillType.Basic)
+            {
+                basicSkill = newSkill;
+            }
+            else if(newSkill.skillType == PlayerSkillType.Primary)
+            {
+                primarySkill = newSkill;    
+            }
+            else
+            {
+                secondarySkill = newSkill;
+            }
+        }
+        
+        private void AddListeners()
+        {
+            CanvasScript.OnSkillChanged.AddListener(HandleOnSkillChanged);
+        }
+
+        private void RemoveListeners()
+        {
+            CanvasScript.OnSkillChanged.RemoveListener(HandleOnSkillChanged);
+        }
     }
 }
