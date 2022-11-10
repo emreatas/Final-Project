@@ -33,6 +33,8 @@ namespace Stat
         private void OnValidate()
         {
             m_FinalValueChanged = true;
+            
+            OnCharacterAttributeUpdated.Invoke(this);
         }
 
         public void AddModifier(AttributeModifier modifier)
@@ -49,8 +51,8 @@ namespace Stat
                 }
                 
                 m_FinalValueChanged = true;
-
-                CalculateFinalValue();
+                
+                OnCharacterAttributeUpdated.Invoke(this);
             }
         }
 
@@ -69,8 +71,8 @@ namespace Stat
                 }
 
                 m_FinalValueChanged = true;
-
-                CalculateFinalValue();
+                
+                OnCharacterAttributeUpdated.Invoke(this);
             }
         }
 
@@ -105,6 +107,8 @@ namespace Stat
             dependantCharacterAttributes.Add(characterAttribute);
 
             m_FinalValueChanged = true;
+            
+            OnCharacterAttributeUpdated.Invoke(this);
         }
 
         public void RemoveDependantCharacterAttribute(DependantAttribute characterAttribute)
@@ -114,6 +118,8 @@ namespace Stat
                 dependantCharacterAttributes.Remove(characterAttribute);
                 
                 m_FinalValueChanged = true;
+                
+                OnCharacterAttributeUpdated.Invoke(this);
             }
         }
         
@@ -123,7 +129,6 @@ namespace Stat
             
             if (m_FinalValueChanged)
             {
-                OnCharacterAttributeUpdated.Invoke(this);
                 m_FinalValue = baseValue;
 
                 ApplyDependantAttributes();
