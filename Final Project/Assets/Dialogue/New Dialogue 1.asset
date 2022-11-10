@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: New Dialogue 1
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: Char B
-    text: Who are you calling stranger fool.
+  - uniqueID: Quest line
+    text: Give me quest
     children: []
-  - uniqueID: 
-    text: 
+  - uniqueID: Question line
+    text: Tell me about yourself.
     children: []
   - uniqueID: 
     text: 
