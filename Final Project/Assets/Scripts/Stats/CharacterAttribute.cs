@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Stat
 {
@@ -13,7 +14,9 @@ namespace Stat
         [SerializeField] private List<AttributeModifier> additiveAttributeModifiers = new List<AttributeModifier>();
         [SerializeField] private List<AttributeModifier> percentageAttributeModifiers = new List<AttributeModifier>();
         [SerializeField] private List<DependantAttribute> dependantCharacterAttributes = new List<DependantAttribute>();
-
+        
+        public GameEvent<CharacterAttribute> OnCharacterAttributeUpdated;
+        
         private float m_FinalValue;
 
         private bool m_FinalValueChanged;
@@ -46,6 +49,8 @@ namespace Stat
                 }
                 
                 m_FinalValueChanged = true;
+
+                CalculateFinalValue();
             }
         }
 
@@ -64,6 +69,8 @@ namespace Stat
                 }
 
                 m_FinalValueChanged = true;
+
+                CalculateFinalValue();
             }
         }
 
@@ -116,6 +123,7 @@ namespace Stat
             
             if (m_FinalValueChanged)
             {
+                OnCharacterAttributeUpdated.Invoke(this);
                 m_FinalValue = baseValue;
 
                 ApplyDependantAttributes();
