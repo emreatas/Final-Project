@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using EpicToonFX;
 using MEC;
+using Stat;
 using UnityEngine;
 
 namespace Skills
@@ -13,14 +14,16 @@ namespace Skills
         [SerializeField] protected Rigidbody rb;
         [SerializeField] private float lifeTime;
         
-        protected float m_Damage;
-        protected float m_AttackSpeed;
+        // protected float m_Damage;
+        // protected float m_AttackSpeed;
         
         protected bool m_HasTarget;
         protected Transform m_TargetTransform;
 
         private CoroutineHandle m_DestroyCoroutine;
         
+        protected CharacterStat m_CharacterStat;
+
         protected bool IsTargetDestroyed => m_TargetTransform == null;
 
         private void Start()
@@ -33,11 +36,21 @@ namespace Skills
             Timing.KillCoroutines(m_DestroyCoroutine);
         }
         
-        public void InitializeParams(float damage, float attackSpeed)
+        // public void InitializeParams(float damage, float attackSpeed)
+        // {
+        //     m_Damage = damage;
+        //     m_AttackSpeed = attackSpeed;
+        // }
+        
+        public void InitializeStats(CharacterStat characterStat)
         {
-            m_Damage = damage;
-            m_AttackSpeed = attackSpeed;
+            m_CharacterStat = characterStat;
+            SetStatValues();
         }
+
+        
+        protected abstract void SetStatValues();
+
         protected void SetHasTarget()
         {
             if (m_TargetTransform == null)
