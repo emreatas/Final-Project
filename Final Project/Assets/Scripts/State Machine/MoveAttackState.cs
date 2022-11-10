@@ -75,6 +75,24 @@ namespace StateMachine
             
             StopCurrentAnimation();
         }
+        
+        private void HandleOnPerformedSecondarySkill(Vector3 skillDirection)
+        {
+            m_StateMachine.SkillController.PerformSecondarySkill(skillDirection);
+            
+            m_lastPrimaryAttackDirection = skillDirection;
+        }
+
+        private void HandleOnSecondarySkillCanceled(Vector3 obj)
+        {
+            m_StateMachine.AnimationController.PlaySecondaryAttackAnimation();
+            m_StateMachine.SkillController.StartSecondarySkill(m_lastPrimaryAttackDirection);
+
+            RemoveMovementListeners();
+            RemoveSkillListeners();
+            
+            StopCurrentAnimation();
+        }
 
         private void StartCurrentAnimation()
         {
@@ -107,6 +125,12 @@ namespace StateMachine
             m_StateMachine.AnimationController.StopPrimaryAttackAnimation();
             m_StateMachine.InvokeFunction(ChangeState,0.1f);
         }
+        
+        private void HandleOnSecondaryAttackFinished()
+        {
+            m_StateMachine.AnimationController.StopSecondaryAttackAnimation();
+            m_StateMachine.InvokeFunction(ChangeState,0.1f);
+        }
 
         private void ChangeState()
         {
@@ -121,6 +145,7 @@ namespace StateMachine
             // m_StateMachine.InputSystem.OnSecondarySkillPerfomed.AddListener(HandleOnAttackStart);
             
             m_StateMachine.AnimationController.OnAttackAnimFinished.AddListener(HandleOnPrimaryAttackFinished);
+            m_StateMachine.AnimationController.OnSecondaryAttackAnimFinished.AddListener(HandleOnSecondaryAttackFinished);
             
         }
 
@@ -131,7 +156,8 @@ namespace StateMachine
             RemoveSkillListeners();
 
             
-            m_StateMachine.AnimationController.OnAttackAnimFinished.AddListener(HandleOnPrimaryAttackFinished);
+            m_StateMachine.AnimationController.OnAttackAnimFinished.RemoveListener(HandleOnPrimaryAttackFinished);
+            m_StateMachine.AnimationController.OnSecondaryAttackAnimFinished.RemoveListener(HandleOnSecondaryAttackFinished);
         }
         
         private void AddMovementListeners()
@@ -153,12 +179,18 @@ namespace StateMachine
         {
             m_StateMachine.InputSystem.OnPrimarySkillPerfomed.AddListener(HandleOnPerfomedPrimarySkill);
             m_StateMachine.InputSystem.OnPrimarySkillCanceled.AddListener(HandleOnPrimarySkillCanceled);
+            
+            m_StateMachine.InputSystem.OnSecondarySkillPerfomed.AddListener(HandleOnPerformedSecondarySkill);
+            m_StateMachine.InputSystem.OnSecondarySkillCanceled.AddListener(HandleOnSecondarySkillCanceled);
         }
 
         private void RemoveSkillListeners()
         {
             m_StateMachine.InputSystem.OnPrimarySkillPerfomed.RemoveListener(HandleOnPerfomedPrimarySkill);
             m_StateMachine.InputSystem.OnPrimarySkillCanceled.RemoveListener(HandleOnPrimarySkillCanceled);
+            
+            m_StateMachine.InputSystem.OnSecondarySkillPerfomed.RemoveListener(HandleOnPerformedSecondarySkill);
+            m_StateMachine.InputSystem.OnSecondarySkillCanceled.RemoveListener(HandleOnSecondarySkillCanceled);
         }
     }
 }

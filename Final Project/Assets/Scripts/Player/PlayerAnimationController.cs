@@ -19,15 +19,18 @@ namespace Player
         private int m_BasicAttack = Animator.StringToHash(BASICATTACK);
         private int m_ComboCount = Animator.StringToHash(COMBO);
         private int m_PrimaryAttack = Animator.StringToHash(PRIMARYATTACK);
+        private int m_SecondaryAttack = Animator.StringToHash(SECONDARYATTACK);
 
         private const string BASICATTACK = "BasicAttack";
         private const string PRIMARYATTACK = "PrimaryAttack";
+        private const string SECONDARYATTACK = "SecondaryAttack";
         private const string WALK = "Walk";
         private const string SPEED = "Speed";
         private const string IDLE = "Idle";
         private const string COMBO = "Combo";
         
         public GameEvent OnAttackAnimFinished;
+        public GameEvent OnSecondaryAttackAnimFinished;
         
         private CoroutineHandle m_ComboCoroutine;
 
@@ -81,6 +84,28 @@ namespace Player
         public void StopPrimaryAttackAnimation()
         {
             animator.SetBool(m_PrimaryAttack, false);
+        }
+        
+        public void PlaySecondaryAttackAnimation()
+        {
+            animator.SetBool(m_SecondaryAttack, true);
+            animator.SetTrigger(SECONDARYATTACK + skillController.SecondarySkill.AnimationName);
+        }
+
+        public void StopSecondaryAttackAnimation()
+        {
+            animator.SetBool(m_SecondaryAttack, false);
+        }
+        
+        public void _OnSecondaryAttackAnimationFinished()
+        {
+            OnSecondaryAttackAnimFinished.Invoke();
+            skillController.OnFinishedSecondarySkill();
+        }
+
+        public void _OnSecondarySkillCast()
+        {
+            skillController.CastSecondarySkill();
         }
         
         public void _OnAttackAnimationFinished()

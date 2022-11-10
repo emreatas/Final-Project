@@ -78,28 +78,37 @@ namespace Player
             primarySkill.OnFinishedSkillAnimation();
         }
         
-        private void InitializeSkill(ref AbstractSkill skill)
+        public void StartSecondarySkill(Vector3 skillDirection)
         {
-            float dmg = playerStats.GetValue(skill.damageStatType);
-            float attackSpeed = playerStats.GetValue(skill.attackSpeedStatType);
-            skill.SetAttributes(dmg, attackSpeed);
-            
-            skill.SetPlayerTransform(transform);
-        }
-
-        public void StartSecondarySkill(Vector3 skillVector)
-        {
-   
+            skillIndicator.DisableSkillIndicator();
+            secondarySkill.ShootDirection = skillDirection;
+            InitializeSkill(ref secondarySkill);
+            secondarySkill.RotatePlayer( movementController.LerpPlayerRotation);
         }
 
         public void PerformSecondarySkill(Vector3 skillVector)
         {
-            // secondarySkill.PerformSkill(transform);
+            secondarySkill.ShowSkillIndicator(skillIndicator, skillVector);
         }
-
-        public void CancelSecondarySkill(Vector3 skillVector)
+        
+        public void CastSecondarySkill()
         {
-         
+            secondarySkill.CastSkill();
+        }
+        
+        public void OnFinishedSecondarySkill()
+        {
+            secondarySkill.OnFinishedSkillAnimation();
+        }
+        
+        private void InitializeSkill(ref AbstractSkill skill)
+        {
+            //float dmg = playerStats.GetValue(skill.damageStatType);
+            //float attackSpeed = playerStats.GetValue(skill.attackSpeedStatType);
+            // skill.SetAttributes(dmg, attackSpeed);
+            skill.SetAttributes(playerStats.CharacterStats);
+            
+            skill.SetPlayerTransform(transform);
         }
         
         private void HandleOnSkillChanged(AbstractSkill newSkill)
