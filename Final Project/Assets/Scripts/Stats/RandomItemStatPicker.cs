@@ -12,13 +12,20 @@ namespace Stat
 
         [SerializeField] private int randomStatCount;
 
-        public List<ItemStat> GetRandomStats()
+        public List<AttributeModifier> GetRandomStats()
         {
             List<ItemStat> itemPool = new List<ItemStat>(randomItemStats);
-            List<ItemStat> stats = new List<ItemStat>();
-            
-            stats.AddRange(compulsoryItemStats);
+            List<AttributeModifier> stats = new List<AttributeModifier>();
 
+            for (int i = 0; i < compulsoryItemStats.Count; i++)
+            {
+                compulsoryItemStats[i].SetItemValue();
+                AttributeModifier modifier = new AttributeModifier(compulsoryItemStats[i].statValue,
+                    compulsoryItemStats[i].statType, compulsoryItemStats[i].attributeType);
+                
+                stats.Add( modifier);
+            }
+            
             for (int i = 0; i < randomStatCount; i++)
             {
                 if (itemPool.Count <= 0)
@@ -27,7 +34,14 @@ namespace Stat
                 }
                 
                 int randomStatIndex = UnityEngine.Random.Range(0, itemPool.Count);
-                stats.Add(itemPool[randomStatIndex]);
+
+                var item = itemPool[randomStatIndex];
+                item.SetItemValue();
+                
+                AttributeModifier modifier = new AttributeModifier(item.statValue,
+                    item.statType, item.attributeType);
+                
+                stats.Add(modifier);
                 itemPool.RemoveAt(randomStatIndex);
             }
 
