@@ -761,7 +761,7 @@ PrefabInstance:
     - target: {fileID: 1316861999170624588, guid: c8072b673e3e0744691801952ee27297,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.75141716
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 1316861999170624588, guid: c8072b673e3e0744691801952ee27297,
         type: 3}
@@ -812,6 +812,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1769553594}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1899053265 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7150212829422857634, guid: d97a0773298178d448814916370f8d74,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569866335426580933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1899053267
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899053265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 7
+  m_Height: 40
+  m_Direction: 0
+  m_Center: {x: -4.0460725, y: -2.1687026, z: 0.9362399}
 --- !u!1 &1994584506
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,6 +947,26 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &2021450920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7150212829423045604, guid: d97a0773298178d448814916370f8d74,
+    type: 3}
+  m_PrefabInstance: {fileID: 1569866335426580933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2021450922
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021450920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 7
+  m_Height: 40
+  m_Direction: 0
+  m_Center: {x: 3.361892, y: 0.38777682, z: 0.33753306}
 --- !u!1001 &1569866335426580933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -938,6 +978,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skeleton Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7150212829422826964, guid: d97a0773298178d448814916370f8d74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7150212829423043216, guid: d97a0773298178d448814916370f8d74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7150212829423155240, guid: d97a0773298178d448814916370f8d74,
         type: 3}
@@ -1016,9 +1066,9 @@ NavMeshAgent:
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
@@ -1037,6 +1087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePositionTransform: {fileID: 1769553595}
+  leftHand: {fileID: 1899053265}
+  rightHand: {fileID: 2021450920}
   anim: {fileID: 8571442670533552626}
   enemyStats: {fileID: 11400000, guid: cf031d209a40e544dad60a7c9ffe7dcf, type: 2}
 --- !u!95 &8571442670533552626
@@ -1048,7 +1100,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8571442670533223441}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: b69174d668ba02d44b14a084b217670a, type: 3}
   m_Controller: {fileID: 9100000, guid: 3508f01e8b7627a4594d815633ee9b92, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -1059,3 +1111,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &8571442670533552628
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571442670533223441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.319909
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.65995455, z: 0}
