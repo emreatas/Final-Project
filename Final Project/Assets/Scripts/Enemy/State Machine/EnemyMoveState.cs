@@ -3,7 +3,8 @@ using UnityEngine;
 public class EnemyMoveState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager enemy) {
-
+        enemy.anim.SetBool("isMove" , true);
+        enemy.getNavMeshAgent().isStopped = false;
     }
     public override void UpdateState(EnemyStateManager enemy) {
         enemy.getNavMeshAgent().destination = enemy.getTargetTransform().position;

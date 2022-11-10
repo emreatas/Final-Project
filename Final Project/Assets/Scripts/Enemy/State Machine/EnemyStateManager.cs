@@ -8,6 +8,7 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] private Transform movePositionTransform;
     private NavMeshAgent navMeshAgent;
 
+    public Animator anim;
     public EnemyScriptable enemyStats;
     public EnemyBaseState currentState;
     public EnemyAttackState AttackState = new EnemyAttackState();
