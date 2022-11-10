@@ -15,12 +15,15 @@ namespace CanvasNS
         public GameObject equipButton;
         public GameObject unEquipButton;
 
+        [Header("Item Stat Texts")]
+        public List<TextMeshProUGUI> itemStatTexts;
 
         [Header("Stat Texts")]
         public List<StatTexts> statTexts;
 
-
-
+        [Header("Stat Panel Texts")]
+        public TextMeshProUGUI statTitle;
+        public TextMeshProUGUI statInfo;
 
         [SerializeField] private GameObject interactItemPanel;
 
@@ -60,7 +63,7 @@ namespace CanvasNS
                 }
             }
 
-           
+
         }
 
         private void HandleOnCharacterAttributeUpdated(CharacterAttribute characterAttribute)
@@ -155,6 +158,19 @@ namespace CanvasNS
             itemTier.color = obj.GetTierColor();
             itemName.text = obj.itemName;
 
+            for (int i = 0; i < itemStatTexts.Count; i++)
+            {
+                itemStatTexts[i].enabled = false;
+            }
+
+            for (int i = 0; i < obj.stats.Count; i++)
+            {
+                if (i < itemStatTexts.Count)
+                {
+                    itemStatTexts[i].enabled = true;
+                    itemStatTexts[i].text = obj.stats[i].GetText();
+                }
+            }
         }
 
         private void CanvasManagerOnItemDropPanelStart(bool obj)
@@ -181,8 +197,10 @@ namespace CanvasNS
             PlayerStats.OnCharacterAttributeUpdated.RemoveListener(HandleOnCharacterAttributeUpdated);
         }
 
-        private void UpdateText()
+        public void UpdateStatText(StatType statType)
         {
+            statTitle.text = statType.name;
+            statInfo.text = statType.description;
 
         }
 
