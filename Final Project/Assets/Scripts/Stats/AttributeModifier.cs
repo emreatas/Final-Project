@@ -10,6 +10,23 @@ namespace Stat
         [SerializeField] private float m_BaseValue;
         [SerializeField] private AttributeType m_BaseAttributeType;
         [SerializeField] private StatType m_TargetStat;
+
+        public string GetText()
+        {
+            string attrTpye = "";
+            
+            switch (m_BaseAttributeType)
+            {
+                case AttributeType.Additive:
+                    attrTpye = "+";
+                    break;
+                case AttributeType.Percantage:
+                    attrTpye = "%";
+                    break;
+            }
+
+            return $"{m_TargetStat.name} {attrTpye} {m_BaseValue}";
+        }
         
         public float BaseValue
         {
