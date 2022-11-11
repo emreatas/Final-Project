@@ -1,0 +1,20 @@
+NPC cevapları karakterimizin sorularına uygun olmalı.
+
+Örneğin karakter quest istediğinde hemen questi alabilmeli veya
+NPC karakterimizi tanımak sorular sorabilmeli.
+
+Sorulan sorunun cevabı bir tane olmasa iyi olur.
+
+Karakterimizin verdiği kaba cevapların sonucu olmalı, quest vermeyi reddetmek
+ve daha fazla konuşamamak gibi.
+
+Verilen quest ilerlemesine göre bir ödül / ekstra diyalog eklenmeli.
+
+Quest sisteminin dialoglarla entegre çalışması gerekiyor.
+
+Quest sisteminin ödülleri olmalı.
+
+Questler ile hikaye doğru orantılı olmalı.
+
+Belli questler tamamlandığında hikayeyi derinleştirmeli.
+

@@ -20,7 +20,7 @@ MonoBehaviour:
     text: Get lost!
     children: []
   - uniqueID: Skeptical Line
-    text: You are ya?
+    text: Who are ya?
     children: []
   - uniqueID: 
     text: 
