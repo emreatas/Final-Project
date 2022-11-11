@@ -42,7 +42,7 @@ public class EnemyStateManager : MonoBehaviour
         return this.bornPosition;
     }
     public float getDistanceToPlayer() {
-        return Vector3.Distance(new Vector3(this.transform.position.x , this.transform.position.y - enemyStats.positionDiffWithPrefab , this.transform.position.z) , getTargetTransform());
+        return Vector3.Distance(new Vector3(this.transform.position.x , this.transform.position.y + enemyStats.positionDiffWithPrefab , this.transform.position.z) , getTargetTransform());
     }
     public float getDistanceToBornPosition() {
         return Vector3.Distance(this.transform.position , getBornTransform());
