@@ -161,6 +161,8 @@ namespace CanvasNS
                 itemName.enabled = false;
                 deleteButton.SetActive(false);
                 equipButton.SetActive(false);
+                
+                ResetItemStatTexts();
             }
         }
 
@@ -177,7 +179,7 @@ namespace CanvasNS
                 unEquipButton.SetActive(false);
                 equipButton.SetActive(false);
 
-
+                ResetItemStatTexts();
             }
         }
         public void UseItem()
@@ -192,7 +194,16 @@ namespace CanvasNS
                 deleteButton.SetActive(false);
                 unEquipButton.SetActive(false);
                 equipButton.SetActive(false);
+                
+                ResetItemStatTexts();
+            }
+        }
 
+        private void ResetItemStatTexts()
+        {
+            for (int i = 0; i < itemStatTexts.Count; i++)
+            {
+                itemStatTexts[i].text = "";
             }
         }
 
