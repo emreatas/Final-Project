@@ -14,7 +14,7 @@ namespace Skills
         
         public override void CastSkill()
         {
-            var instansiated = Instantiate(prefab, m_Player.position, Quaternion.identity, m_Player);
+            var instansiated = Instantiate(prefab, m_Player);
             // instansiated.InitializeStats(m_Damage, m_AttackSpeed);
             instansiated.InitializeStats(m_CharacterStat);
             instansiated.FireProjectile();
