@@ -13,7 +13,4 @@ public class EnemyIdleState : EnemyBaseState
     public override void OnTriggerEnter(EnemyStateManager enemy , Collider other) {
 
     }
-    void Patrolling() {
-
-    }
 }

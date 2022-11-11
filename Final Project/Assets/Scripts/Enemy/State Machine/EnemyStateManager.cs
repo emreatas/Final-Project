@@ -16,16 +16,15 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyAttackState AttackState = new EnemyAttackState();
     public EnemyIdleState IdleState = new EnemyIdleState();
     public EnemyMoveState MoveState = new EnemyMoveState();
+    public EnemyPatrollingState PatrollingState = new EnemyPatrollingState();
 
-    void Start()
-    {
+    void Start() {
         bornPosition = this.transform.position;
         currentState = IdleState;
         navMeshAgent = GetComponent<NavMeshAgent>();
         currentState.EnterState(this);
     }
-    void Update()
-    {
+    void Update() {
         currentState.UpdateState(this);
     }
     public void SwitchState(EnemyBaseState state) {
@@ -37,7 +36,7 @@ public class EnemyStateManager : MonoBehaviour
         return this.navMeshAgent;
     }
     public Vector3 getTargetTransform() {
-        return new Vector3(this.movePositionTransform.position.x,0,this.movePositionTransform.position.z);
+        return new Vector3(this.movePositionTransform.position.x , 0 , this.movePositionTransform.position.z);
     }
     public Vector3 getBornTransform() {
         return this.bornPosition;
@@ -47,5 +46,15 @@ public class EnemyStateManager : MonoBehaviour
     }
     public float getDistanceToBornPosition() {
         return Vector3.Distance(new Vector3(this.transform.position.x , 0 , this.transform.position.z) , getBornTransform());
+    }
+    public bool CreateRandomPoints(out Vector3 result) {
+        Vector3 randomPoint = getBornTransform() + Random.insideUnitSphere * enemyStats.patrolRadius;
+        NavMeshHit hit;
+        if(NavMesh.SamplePosition(randomPoint , out hit , 1.0f , NavMesh.AllAreas)) {
+            result = hit.position;
+            return true;
+        }
+        result = Vector3.zero;
+        return false;
     }
 }
