@@ -23,7 +23,7 @@ namespace CanvasNS
 
         [Header("Inventory Stat Texts")]
         public List<StatTexts> statTexts;
-        
+
         [Header("Stat Panel Texts")]
         public List<StatTexts> statPanelTexts;
 
@@ -39,7 +39,7 @@ namespace CanvasNS
         public UnityEngine.UI.Image itemTier;
         public TMPro.TextMeshProUGUI itemName;
 
-        [Header("Player Skills")] 
+        [Header("Player Skills")]
         public Image basicSkill;
         public Image primarySkill;
         public Image secondarySkill;
@@ -51,7 +51,7 @@ namespace CanvasNS
 
         public static GameEvent<StatType> OnCharacterAttributeIncreased;
         public static GameEvent<AbstractSkill> OnSkillChanged;
-        
+
         private void OnEnable()
         {
             CanvasManager.InteractableStart += CanvasManager_InteractableStart1;
@@ -82,7 +82,7 @@ namespace CanvasNS
             UpdateStatTexts(characterStats);
 
         }
-        
+
         private void UpdateInventoryStats(CharacterStat characterStats)
         {
             for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
@@ -91,13 +91,13 @@ namespace CanvasNS
                 {
                     if (statTexts[j].statType == characterStats.CharacterAttributes[i].StatType)
                     {
-                        statTexts[j].text.text = $" : {characterStats.CharacterAttributes[i].CalculateFinalValue()}";
+                        statTexts[j].text.text = $" : {(int)characterStats.CharacterAttributes[i].CalculateFinalValue()}";
                         break;
                     }
                 }
             }
         }
-        
+
         private void UpdateStatTexts(CharacterStat characterStats)
         {
             for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
@@ -106,13 +106,13 @@ namespace CanvasNS
                 {
                     if (statPanelTexts[j].statType == characterStats.CharacterAttributes[i].StatType)
                     {
-                        statPanelTexts[j].text.text = $"{characterStats.CharacterAttributes[i].CalculateFinalValue()}";
+                        statPanelTexts[j].text.text = $"{(int)characterStats.CharacterAttributes[i].CalculateFinalValue()}";
                         break;
                     }
                 }
             }
         }
-        
+
         private void HandleOnCharacterAttributeUpdated(CharacterAttribute characterAttribute)
         {
             for (int i = 0; i < statTexts.Count; i++)
@@ -150,7 +150,7 @@ namespace CanvasNS
         {
             OnCharacterAttributeIncreased.Invoke(statType);
         }
-        
+
         public void DeleteItem()
         {
             if (showedItem != null)
@@ -161,7 +161,7 @@ namespace CanvasNS
                 itemName.enabled = false;
                 deleteButton.SetActive(false);
                 equipButton.SetActive(false);
-                
+
                 ResetItemStatTexts();
             }
         }
@@ -194,7 +194,7 @@ namespace CanvasNS
                 deleteButton.SetActive(false);
                 unEquipButton.SetActive(false);
                 equipButton.SetActive(false);
-                
+
                 ResetItemStatTexts();
             }
         }
@@ -268,13 +268,13 @@ namespace CanvasNS
                 m_SkillImages[selectedSkill.skillType].sprite = selectedSkill.SkillIcon;
             }
         }
-        
+
         public void UpdateStatText(StatType statType)
         {
             rightPanelTitle.text = statType.name;
             rightPanelInfo.text = statType.description;
         }
-        
+
         public void UpdateSkillText(AbstractSkill skill)
         {
             selectedSkill = skill;

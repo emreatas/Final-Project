@@ -44,7 +44,7 @@ namespace Items
 
         private void OnTriggerExit(Collider other)
         {
-            Reset();
+            ResetItem();
         }
 
         private void AddItemsChest()
@@ -56,7 +56,7 @@ namespace Items
             }
         }
 
-        private void Reset()
+        private void ResetItem()
         {
             m_Interacted = false;
             for (int i = 0; i < dropableItem.Count; i++)

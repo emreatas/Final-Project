@@ -6,7 +6,7 @@ using Utils;
 using Items;
 public class EquipmentManager : AbstractSingelton<EquipmentManager>
 {
-    public Dictionary<EquipmentSlot, EquipmentSlotScript> equipmentItems;
+    public Dictionary<EquipmentSlot, EquipmentSlotScript> equipmentItems  = new Dictionary<EquipmentSlot, EquipmentSlotScript>();
 
     public static GameEvent<EquipmentItem> OnEquipItem;
     public static GameEvent<EquipmentItem> OnUnequipItem;
@@ -41,19 +41,16 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
             EquipmentSlotScript es = transform.GetChild(i).GetComponent<EquipmentSlotScript>();
             if (es != null)
             {
-                Debug.Log("Slot " + es.name);
-                if (!equipmentItems.ContainsKey(es.slot))
-                {
-                    equipmentItems.Add (es.slot, es);
-                }
-                else
-                    equipmentItems[es.slot] = es;
+
+                equipmentItems[es.slot] = es;
             }
         }
     }
 
     public void Equip(EquipmentItem newItem)
     {
+
+
         if (equipmentItems.ContainsKey(newItem.slot))
         {
             EquipmentItem oldItem = equipmentItems[newItem.slot].item;

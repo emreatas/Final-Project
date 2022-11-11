@@ -5,7 +5,7 @@ namespace Stat
 {
     //[CreateAssetMenu(menuName = "ScriptableObjects/Stats/StatModifier")]
     [Serializable]
-    public class AttributeModifier 
+    public class AttributeModifier
     {
         [SerializeField] private float m_BaseValue;
         [SerializeField] private AttributeType m_BaseAttributeType;
@@ -14,20 +14,22 @@ namespace Stat
         public string GetText()
         {
             string attrTpye = "";
-            
+            float showtext = m_BaseValue;
+                
             switch (m_BaseAttributeType)
             {
                 case AttributeType.Additive:
                     attrTpye = "+";
                     break;
                 case AttributeType.Percantage:
+                    showtext *= 10;
                     attrTpye = "%";
                     break;
             }
 
-            return $"{m_TargetStat.name} {attrTpye} {m_BaseValue}";
+            return $"{m_TargetStat.name} {attrTpye} {(int)showtext}";
         }
-        
+
         public float BaseValue
         {
             get => m_BaseValue;
