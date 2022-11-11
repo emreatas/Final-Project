@@ -994,6 +994,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8571442670533552623, guid: d97a0773298178d448814916370f8d74,
+        type: 3}
+      propertyPath: m_Acceleration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8571442670533552624, guid: d97a0773298178d448814916370f8d74,
         type: 3}
       propertyPath: movePositionTransform

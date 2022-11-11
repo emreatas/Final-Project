@@ -10,6 +10,7 @@ public class EnemyAttackState : EnemyBaseState
             enemy.anim.SetBool("isAttack" , false);
             enemy.SwitchState(enemy.MoveState);
         }
+        enemy.transform.LookAt(new Vector3(enemy.getTargetTransform().x,0,enemy.getTargetTransform().z));
     }
     public override void OnTriggerEnter(EnemyStateManager enemy, Collider other) {
         IHealth player = other.GetComponent<IHealth>();
