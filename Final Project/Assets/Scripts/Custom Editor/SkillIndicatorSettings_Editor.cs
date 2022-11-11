@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Skills;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
-
-namespace CustomEditor
+#if UNITY_EDITOR
+namespace MyCustomEditor
 {
-    [UnityEditor.CustomEditor(typeof(SkillIndicatorSettings))]
+
+    [CustomEditor(typeof(SkillIndicatorSettings))]
     public class SkillIndicatorSettings_Editor : Editor
     {
         public override void OnInspectorGUI()
@@ -22,9 +25,9 @@ namespace CustomEditor
                 skillSettings.radius = EditorGUILayout.FloatField("Radius", skillSettings.radius);
                 skillSettings.radiusColor = EditorGUILayout.ColorField("Radius Color", skillSettings.radiusColor);
                 skillSettings.radiusSprite = EditorGUILayout.ObjectField("Radius Sprite", skillSettings.radiusSprite, typeof(Sprite), true) as Sprite;
-                
-                
-                
+
+
+
                 EditorGUILayout.Space();
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField("Impact");
@@ -34,7 +37,7 @@ namespace CustomEditor
                     skillSettings.impactRadius = EditorGUILayout.FloatField("Impact Radius", skillSettings.impactRadius);
                     skillSettings.impactColor = EditorGUILayout.ColorField("Impact Color", skillSettings.impactColor);
                     skillSettings.impactSprite = EditorGUILayout.ObjectField("Impact Sprite", skillSettings.impactSprite, typeof(Sprite), true) as Sprite;
-                    
+
                 }
             }
             EditorGUILayout.Space();
@@ -46,10 +49,11 @@ namespace CustomEditor
                 skillSettings.length = EditorGUILayout.FloatField("Direction Length", skillSettings.length);
                 skillSettings.directionColor = EditorGUILayout.ColorField("Direction Color", skillSettings.directionColor);
                 skillSettings.directionSprite = EditorGUILayout.ObjectField("Direction Sprite", skillSettings.directionSprite, typeof(Sprite), true) as Sprite;
-               
+
             }
-            
+
         }
     }
 
 }
+#endif

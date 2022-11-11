@@ -37,7 +37,7 @@ namespace Skills
         {
             if (initalizedIndicator) { return; }
             
-            m_SkillIndicatorSettings = skillIndicatorSettings;
+            m_SkillIndicatorSettings = Instantiate(skillIndicatorSettings);
 
             skillIndicatorSettings.InitializeIndicator(radiusTransform, radiusImage, directionTransform, directionImage, impactTransform, impactImage);
             
