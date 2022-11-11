@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f0fbfb480385d428b8d86511736365, type: 3}
   m_Name: Indicator Settings_MeteorShower
   m_EditorClassIdentifier: 
-  HasRadius: 0
-  radius: 0
-  radiusSprite: {fileID: 0}
-  radiusColor: {r: 0, g: 0, b: 0, a: 0}
+  HasRadius: 1
+  radius: 5
+  radiusSprite: {fileID: 21300000, guid: 472f66ba810b14ac484d18ee7316a974, type: 3}
+  radiusColor: {r: 0, g: 0.89691234, b: 1, a: 1}
   HasDirection: 0
   length: 0
   directionSprite: {fileID: 0}

@@ -39,7 +39,7 @@ namespace Skills
             
             m_SkillIndicatorSettings = Instantiate(skillIndicatorSettings);
 
-            skillIndicatorSettings.InitializeIndicator(radiusTransform, radiusImage, directionTransform, directionImage, impactTransform, impactImage);
+            m_SkillIndicatorSettings.InitializeIndicator(radiusTransform, radiusImage, directionTransform, directionImage, impactTransform, impactImage);
             
             EnableSkillIndicator();
         }

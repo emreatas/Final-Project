@@ -9,31 +9,19 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skill/Indicator")]
     public class SkillIndicatorSettings : ScriptableObject
     {
-        [HideInInspector] 
         public bool HasRadius;
-        [HideInInspector]
         public float radius;
-        [HideInInspector]
         public Sprite radiusSprite;
-        [HideInInspector]
         public Color radiusColor;
         
-        [HideInInspector]
         public bool HasDirection;
-        [HideInInspector]
         public float length;
-        [HideInInspector]
         public Sprite directionSprite;
-        [HideInInspector]
         public Color directionColor;
-
-        [HideInInspector]       
+ 
         public bool HasImpact;
-        [HideInInspector]
         public float impactRadius;
-        [HideInInspector]
         public Sprite impactSprite;
-        [HideInInspector]
         public Color impactColor;
         
 
