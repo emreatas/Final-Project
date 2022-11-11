@@ -19,6 +19,10 @@ namespace Items
         public void InitializeChest(ChestLoot chestLoot)
         {
             dropableItem = chestLoot.GetRandomLoot();
+            if (dropableItem.Count == 0)
+            {
+                Destroy(gameObject);
+            }
         }
 
         public override void Interact()

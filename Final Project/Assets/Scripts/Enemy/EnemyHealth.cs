@@ -8,7 +8,7 @@ namespace Enemy
     public class EnemyHealth : MonoBehaviour, IHealth
     {
         [SerializeField] private float health;
-        
+
         public float Health => health;
         
         public void TakeDamage(float damage)
@@ -17,6 +17,7 @@ namespace Enemy
 
             if (Health <= 0)
             {
+                RandomLoot.Instance.CreateLoot(transform.position);
                 Destroy(gameObject);
             }
         }
