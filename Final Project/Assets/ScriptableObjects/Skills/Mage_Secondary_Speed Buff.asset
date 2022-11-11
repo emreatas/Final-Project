@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Speed Buff
   skillType: 2
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 21300000, guid: d8af8355e25902c53cd5d4210cba9d44, type: 3}
   SkillDescription: Speed Buff
   AnimationName: Mage02
-  prefab: {fileID: 1281889272400627997, guid: 868f43e4cdcba0747af2015fdf1198d9, type: 3}
-  SkillIndicatorSettings: {fileID: 11400000, guid: e244b3911c379cc46afcfee5402faeca,
+  prefab: {fileID: -5790117147406844057, guid: 2abe054487f343f429515e72f83e0278, type: 3}
+  SkillIndicatorSettings: {fileID: 11400000, guid: bd1cc9887ecfbe241bc838292d8b6e8f,
     type: 2}

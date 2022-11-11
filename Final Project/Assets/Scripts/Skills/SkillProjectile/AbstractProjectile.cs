@@ -8,11 +8,10 @@ using UnityEngine;
 
 namespace Skills
 {
-    [RequireComponent(typeof(Rigidbody))]
     public abstract class AbstractProjectile : MonoBehaviour
     {
         [SerializeField] protected Rigidbody rb;
-        [SerializeField] private float lifeTime;
+        [SerializeField] protected float lifeTime;
         
         // protected float m_Damage;
         // protected float m_AttackSpeed;
@@ -74,7 +73,7 @@ namespace Skills
         public virtual void FireProjectile(Vector3 dir){}
         public virtual void FireProjectile(){}
 
-        private IEnumerator<float> _Destroy()
+        protected virtual IEnumerator<float> _Destroy()
         {
             yield return Timing.WaitForSeconds(lifeTime);
             

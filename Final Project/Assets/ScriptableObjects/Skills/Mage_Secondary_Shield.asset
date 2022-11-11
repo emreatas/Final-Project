@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Shield
   skillType: 2
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 21300000, guid: e4c4de161840d7789d06e664df68bf87, type: 3}
   SkillDescription: Shield
   AnimationName: Mage01
-  prefab: {fileID: -7251627800501779279, guid: 108b16a5bf4d7414eb23bf5220d5c9a8, type: 3}
-  SkillIndicatorSettings: {fileID: 11400000, guid: 080a294e23d3cff4c96a984c90d34e0c,
+  prefab: {fileID: 1965787083831036400, guid: 2d996e0d19455c140b72822017f00807, type: 3}
+  SkillIndicatorSettings: {fileID: 11400000, guid: bd9d078654e21274abefeb9e8529d660,
     type: 2}

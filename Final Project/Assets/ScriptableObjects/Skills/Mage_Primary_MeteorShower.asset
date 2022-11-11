@@ -18,7 +18,7 @@ MonoBehaviour:
   SkillDescription: Meteorssssssssssssss
   AnimationName: Mage02
   prefab: {fileID: 8585377616355276214, guid: af916cfc33874994d9acdd7b7837b2f2, type: 3}
-  SkillIndicatorSettings: {fileID: 11400000, guid: dae48a680b924734db242ca71c6638a5,
+  SkillIndicatorSettings: {fileID: 11400000, guid: c0d534159168c1244ab85220a82c795b,
     type: 2}
   meteorCount: 10
   meteorSpawnDelay: 0.25
