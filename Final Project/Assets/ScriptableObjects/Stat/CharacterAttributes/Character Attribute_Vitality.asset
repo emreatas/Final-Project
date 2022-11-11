@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Character Attribute_Vitality
   m_EditorClassIdentifier: 
   statType: {fileID: 11400000, guid: 565954323bdb20849a5bf6f85666d7e8, type: 2}
-  baseValue: 4
+  baseValue: 1
   additiveAttributeModifiers: []
   percentageAttributeModifiers: []
   dependantCharacterAttributes: []

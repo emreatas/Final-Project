@@ -23,19 +23,19 @@ MonoBehaviour:
     compulsoryItemStats:
     - statType: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
       attributeType: 0
-      minValue: 100
-      maxValue: 200
+      minValue: 20
+      maxValue: 30
       statValue: 0
     randomItemStats:
     - statType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
       attributeType: 0
-      minValue: 100
-      maxValue: 200
+      minValue: 2
+      maxValue: 10
       statValue: 0
     - statType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
       attributeType: 1
-      minValue: 5
-      maxValue: 10
+      minValue: 1
+      maxValue: 3
       statValue: 0
     randomStatCount: 1
   slot: 3

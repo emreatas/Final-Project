@@ -23,14 +23,14 @@ MonoBehaviour:
     compulsoryItemStats:
     - statType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
       attributeType: 0
-      minValue: 100
-      maxValue: 200
+      minValue: 15
+      maxValue: 20
       statValue: 0
     randomItemStats:
     - statType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
       attributeType: 0
-      minValue: 100
-      maxValue: 200
+      minValue: 5
+      maxValue: 10
       statValue: 0
     - statType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
       attributeType: 0

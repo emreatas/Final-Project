@@ -23,8 +23,8 @@ MonoBehaviour:
     compulsoryItemStats:
     - statType: {fileID: 11400000, guid: d353b6f80575f1d4395e7d4939d2445e, type: 2}
       attributeType: 0
-      minValue: 10
-      maxValue: 20
+      minValue: 5
+      maxValue: 10
       statValue: 0
     randomItemStats:
     - statType: {fileID: 11400000, guid: 889d791648bf1ae49a0c9d65d1002ab2, type: 2}
