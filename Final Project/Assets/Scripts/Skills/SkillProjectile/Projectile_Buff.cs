@@ -7,20 +7,18 @@ using UnityEngine;
 
 namespace Skills
 {
-    public class Projectile_Shield : AbstractProjectile
+    public class Projectile_Buff : AbstractProjectile
     {
-        [SerializeField] private StatType armorType;
-        [SerializeField] private float armorMultiplicator;
-
-        [SerializeField] private float armorDuration;
+        [SerializeField] private StatType buffType;
+        [SerializeField] private float buffMultiplicator;
         
-        private float m_Armor;
+        private float m_BuffValue;
         private AttributeModifier m_Modifier;
         
         protected override void SetStatValues()
         {
-            float baseValue = m_CharacterStat.GetValue(armorType);
-            m_Armor = baseValue * armorMultiplicator;
+            float baseValue = m_CharacterStat.GetValue(buffType);
+            m_BuffValue = baseValue * buffMultiplicator;
         }
         
         public override void FireProjectile()
@@ -30,7 +28,7 @@ namespace Skills
 
         private void AddToCharacterAttributes()
         {
-            m_Modifier = new AttributeModifier(m_Armor, armorType);
+            m_Modifier = new AttributeModifier(m_BuffValue, buffType);
             m_CharacterStat.AddModifier(m_Modifier);
         }
 
@@ -39,9 +37,9 @@ namespace Skills
             m_CharacterStat.RemoveModifier(m_Modifier);
         }
 
-        private IEnumerator<float> _EndSkill()
+        protected override IEnumerator<float> _Destroy()
         {
-            yield return Timing.WaitForSeconds(armorDuration);
+            yield return Timing.WaitForSeconds(lifeTime);
             RemoveFromCharacterAttributes();
             Destroy(gameObject);
         }
