@@ -34,8 +34,8 @@ MonoBehaviour:
       statValue: 0
     - statType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
       attributeType: 1
-      minValue: 1
-      maxValue: 3
+      minValue: 0.1
+      maxValue: 0.15
       statValue: 0
     randomStatCount: 1
   slot: 3

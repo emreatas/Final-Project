@@ -15,21 +15,39 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
     private void Start()
     {
         inventory = Inventory.Instance;
-
+        //InitDictionary();
         InitSlots();
+    }
+
+    private void InitDictionary()
+    {
+        equipmentItems = new Dictionary<EquipmentSlot, EquipmentSlotScript>()
+        {
+            {EquipmentSlot.Accessory, null },
+            {EquipmentSlot.Shoes, null },
+            {EquipmentSlot.Chest, null },
+            {EquipmentSlot.Head, null },
+            {EquipmentSlot.Wings, null },
+            {EquipmentSlot.Wapon, null },
+        };
     }
 
     private void InitSlots()
     {
-        equipmentItems = new Dictionary<EquipmentSlot, EquipmentSlotScript>();
+
 
         for (int i = 0; i < transform.childCount; i++)
         {
             EquipmentSlotScript es = transform.GetChild(i).GetComponent<EquipmentSlotScript>();
             if (es != null)
             {
-
-                equipmentItems[es.slot] = es;
+                Debug.Log("Slot " + es.name);
+                if (!equipmentItems.ContainsKey(es.slot))
+                {
+                    equipmentItems.Add (es.slot, es);
+                }
+                else
+                    equipmentItems[es.slot] = es;
             }
         }
     }

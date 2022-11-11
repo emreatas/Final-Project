@@ -4806,6 +4806,7 @@ MonoBehaviour:
   rb: {fileID: 2555736695685545723}
   lifeTime: 2
   attackSpeedMultiplicator: 0.1
+  damageMultiplicator: 10
   damageType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
   attackSpeedType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
 --- !u!1 &5862642877789198392
