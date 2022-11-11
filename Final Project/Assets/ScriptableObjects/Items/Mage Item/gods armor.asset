@@ -18,4 +18,24 @@ MonoBehaviour:
   tier: 3
   tierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
   isDefaultItem: 0
+  stats: []
+  itemStatPool:
+    compulsoryItemStats:
+    - statType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
+      attributeType: 0
+      minValue: 100
+      maxValue: 200
+      statValue: 0
+    randomItemStats:
+    - statType: {fileID: 11400000, guid: 565954323bdb20849a5bf6f85666d7e8, type: 2}
+      attributeType: 0
+      minValue: 1
+      maxValue: 2
+      statValue: 0
+    - statType: {fileID: 11400000, guid: 889d791648bf1ae49a0c9d65d1002ab2, type: 2}
+      attributeType: 0
+      minValue: 100
+      maxValue: 200
+      statValue: 0
+    randomStatCount: 1
   slot: 1
