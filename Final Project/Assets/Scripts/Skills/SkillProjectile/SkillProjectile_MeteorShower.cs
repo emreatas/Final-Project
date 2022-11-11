@@ -8,7 +8,8 @@ namespace Skills
     public class SkillProjectile_MeteorShower : AbstractProjectile
     {
         [SerializeField] private float attackSpeedMultiplicator;
-        
+        [SerializeField] private float damageMultiplicator;
+
         [SerializeField] private StatType damageType;
         [SerializeField] private StatType attackSpeedType;
 
@@ -30,7 +31,7 @@ namespace Skills
             IHealth enemy = other.GetComponent<IHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(m_Damage);
+                enemy.TakeDamage(m_Damage * damageMultiplicator);
             }
             Destroy(gameObject);
         }

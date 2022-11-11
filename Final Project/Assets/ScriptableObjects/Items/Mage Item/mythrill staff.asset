@@ -29,8 +29,8 @@ MonoBehaviour:
     randomItemStats:
     - statType: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
       attributeType: 1
-      minValue: 1
-      maxValue: 2
+      minValue: 0.1
+      maxValue: 0.2
       statValue: 0
     - statType: {fileID: 11400000, guid: 597db983d59c34a429557fd4bf11a1bc, type: 2}
       attributeType: 0
