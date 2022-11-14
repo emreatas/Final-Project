@@ -758,14 +758,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1534973586}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 15.58, z: 0.88}
+  m_LocalRotation: {x: 0.19175115, y: 0, z: 0, w: 0.9814436}
+  m_LocalPosition: {x: 0, y: 5.87, z: -11.2}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.11, y: 0, z: 0}
 --- !u!114 &1534973590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2307,6 +2307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 985628977, guid: d97a0773298178d448814916370f8d74, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1534973589}
     - target: {fileID: 7150212829422826964, guid: d97a0773298178d448814916370f8d74,
         type: 3}
       propertyPath: m_Name
@@ -2367,21 +2371,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7779045796269776154, guid: d97a0773298178d448814916370f8d74,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7779045796269776154, guid: d97a0773298178d448814916370f8d74,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8571442670533552624, guid: d97a0773298178d448814916370f8d74,
-        type: 3}
-      propertyPath: exclamationMark
-      value: 
-      objectReference: {fileID: 3757979710535179955}
     - target: {fileID: 8571442670533552624, guid: d97a0773298178d448814916370f8d74,
         type: 3}
       propertyPath: movePositionTransform
@@ -2389,9 +2378,3 @@ PrefabInstance:
       objectReference: {fileID: 1769553595}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97a0773298178d448814916370f8d74, type: 3}
---- !u!1 &3757979710535179955 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3757979710535179955, guid: d97a0773298178d448814916370f8d74,
-    type: 3}
-  m_PrefabInstance: {fileID: 1569866335426580933}
-  m_PrefabAsset: {fileID: 0}

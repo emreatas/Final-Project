@@ -24,8 +24,10 @@ public class EnemyPatrollingState : EnemyBaseState
         }
     }
     IEnumerator<float> _HappyWaiting(EnemyStateManager enemy , Vector3 point) {
+        enemy.getNavMeshAgent().isStopped = true;
         enemy.anim.SetBool("isMove" , false);
         yield return Timing.WaitForSeconds(3f);
+        enemy.getNavMeshAgent().isStopped = false;
         enemy.anim.SetBool("isMove" , true);
         enemy.getNavMeshAgent().SetDestination(point);
         hasTargetPoint = false;

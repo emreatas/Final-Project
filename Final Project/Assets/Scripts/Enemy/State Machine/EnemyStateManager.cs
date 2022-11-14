@@ -7,7 +7,7 @@ public class EnemyStateManager : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Vector3 bornPosition;
 
-    public GameObject exclamationMark;
+    public GameObject exclamationMark, questionMark;
     public Collider leftHand, rightHand;
     public Animator anim;
     public EnemyScriptable enemyStats;
@@ -27,10 +27,10 @@ public class EnemyStateManager : MonoBehaviour
     void Update() {
         currentState.UpdateState(this);
         if(getDistanceToPlayer() < enemyStats.exclamationRange && getDistanceToPlayer() >= enemyStats.sightRange) {
-            exclamationMark.SetActive(true);
+            questionMark.SetActive(true);
         }
         else {
-            exclamationMark.SetActive(false);
+            questionMark.SetActive(false);
         }
     }
     public void SwitchState(EnemyBaseState state) {
