@@ -10,7 +10,7 @@ namespace Items
 {
     public class Chest : Interactable
     {
-        public List<InventorySystem.Item> dropableItem;
+        public List<Item> dropableItem;
         public Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
         private bool m_Interacted;
         private bool CanDestroy => dropableItem.Count <= 0;

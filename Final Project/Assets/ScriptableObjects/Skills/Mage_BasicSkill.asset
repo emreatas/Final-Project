@@ -12,22 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd125d707e166746a0e04ffde07e353, type: 3}
   m_Name: Mage_BasicSkill
   m_EditorClassIdentifier: 
+  SkillName: 
+  skillType: 0
+  SkillIcon: {fileID: 0}
+  SkillDescription: 
   AnimationName: Mage01
-  damageStatType: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
-  damageMultiplier: 0.103
-  attackSpeedStatType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32,
-    type: 2}
-  attackSpeedMultiplier: 1
-  SkillIndicatorSettings: {fileID: 11400000, guid: 39d834256190df044ac215d9a312280e,
-    type: 2}
-  SkillDuration: 1
-  m_Damage: 165.45
-  m_AttackSpeed: 10.1
   prefab: {fileID: 1042883617819421295, guid: 501e47ff4f307a44e86eef95d3d2a9cc, type: 3}
-  skillSpeed: 5
-  rotatateLerpDuration: 0.1
+  SkillIndicatorSettings: {fileID: 11400000, guid: 8d53efed5e53cc04bb7ed14c61a48e09,
+    type: 2}
   enemyDetectRadius: 10
-  maxDistance: 10
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 1024

@@ -15,7 +15,7 @@ namespace Interactables
 
         [SerializeField] private Transform itemButtonParent;
 
-        [SerializeField] private InventorySystem.DroppedItem itemButtonPrefab;
+        [SerializeField] private DroppedItem itemButtonPrefab;
 
         public static Action<Item> OnItemAddedToInventory;
 
@@ -44,7 +44,7 @@ namespace Interactables
             interactItemPanel.SetActive(false);
         }
 
-        public GameObject AddToItemPanel(InventorySystem.Item item, Action<InventorySystem.Item> onSelectItem)
+        public GameObject AddToItemPanel(Item item, Action<Item> onSelectItem)
         {
             activeItemCount++;
 
