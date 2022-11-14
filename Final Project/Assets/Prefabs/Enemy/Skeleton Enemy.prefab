@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 7449899831356981270}
-  enemyStateManager: {fileID: 0}
+  enemyStateManager: {fileID: 8571442670533552624}
 --- !u!1 &7150212829422827594
 GameObject:
   m_ObjectHideFlags: 0
