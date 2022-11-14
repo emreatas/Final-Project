@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,14 +10,21 @@ namespace Enemy
         public Slider healthBar;
         public EnemyStateManager enemyStateManager;
 
-        public float Health => enemyStats.health;
-        
+        private float health;
+
+        private void Start()
+        {
+            health = enemyStats.health;
+            healthBar.maxValue = health;
+            healthBar.value = health;
+        }
+
         public void TakeDamage(float damage)
         {
-            enemyStats.health -= damage;
-            healthBar.value = Health;
+            health -= damage;
+            healthBar.value = health;
             enemyStateManager.SwitchState(enemyStateManager.HitReactionState);
-            if (Health <= 0)
+            if (health <= 0)
             {
                 RandomLoot.Instance.CreateLoot(transform.position);
                 Destroy(gameObject);

@@ -4,7 +4,5 @@ using UnityEngine;
 
 public interface IHealth 
 {
-    public float Health { get; }
-
     public void TakeDamage(float damage);
 }
