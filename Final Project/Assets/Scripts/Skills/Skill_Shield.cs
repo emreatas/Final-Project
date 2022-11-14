@@ -21,7 +21,7 @@ namespace Skills
             instansiated.FireProjectile();
         }
 
-        public override void ShowSkillIndicator(SkillIndicator skillIndicator, Vector3 shootDirection)
+        public override void ShowSkillIndicator(DecalSkillIndicator skillIndicator, Vector3 shootDirection)
         {
             skillIndicator.InitIndicatorSettings(SkillIndicatorSettings);
             skillIndicator.UpdateIndicatorDirection(shootDirection);

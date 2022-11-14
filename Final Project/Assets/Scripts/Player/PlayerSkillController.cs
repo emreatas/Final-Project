@@ -18,8 +18,8 @@ namespace Player
     {
         [SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerStats playerStats;
-        [SerializeField] private SkillIndicator skillIndicator;
-        
+        [SerializeField] private DecalSkillIndicator skillIndicator;
+
         [SerializeField] private AbstractSkill basicSkill;
         [SerializeField] private AbstractSkill primarySkill;
         [SerializeField] private AbstractSkill secondarySkill;
