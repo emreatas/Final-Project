@@ -28,7 +28,4 @@ public class EnemyMoveState : EnemyBaseState
             }
         }
     }
-    public override void OnTriggerEnter(EnemyStateManager enemy , Collider other) {
-
-    }
 }

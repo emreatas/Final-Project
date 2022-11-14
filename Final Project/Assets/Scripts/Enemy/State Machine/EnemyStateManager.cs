@@ -9,7 +9,7 @@ public class EnemyStateManager : MonoBehaviour
     private NavMeshAgent navMeshAgent;
     private Vector3 bornPosition;
 
-    public GameObject leftHand, rightHand;
+    public Collider leftHand, rightHand;
     public Animator anim;
     public EnemyScriptable enemyStats;
     public EnemyBaseState currentState;
@@ -56,5 +56,13 @@ public class EnemyStateManager : MonoBehaviour
         }
         result = Vector3.zero;
         return false;
+    }
+    public void EnableColliders() {
+        leftHand.enabled = true;
+        rightHand.enabled = true;
+    }
+    public void DisableColliders() {
+        leftHand.enabled = false;
+        rightHand.enabled = false;
     }
 }

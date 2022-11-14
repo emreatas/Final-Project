@@ -10,7 +10,4 @@ public class EnemyIdleState : EnemyBaseState
             enemy.SwitchState(enemy.MoveState);
         }
     }
-    public override void OnTriggerEnter(EnemyStateManager enemy , Collider other) {
-
-    }
 }
