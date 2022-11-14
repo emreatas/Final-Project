@@ -17,7 +17,7 @@ MonoBehaviour:
   radiusSprite: {fileID: 21300000, guid: 472f66ba810b14ac484d18ee7316a974, type: 3}
   radiusColor: {r: 0, g: 0.84153175, b: 1, a: 1}
   HasDirection: 1
-  length: 2.5
+  length: 5
   directionSprite: {fileID: 21300000, guid: 7699ec922342d4ba385f8cb330a162fd, type: 3}
   directionColor: {r: 0, g: 0.36528063, b: 1, a: 1}
   HasImpact: 0

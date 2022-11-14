@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 namespace Skills
@@ -13,70 +14,66 @@ namespace Skills
         public float radius;
         public Sprite radiusSprite;
         public Color radiusColor;
-        
+
         public bool HasDirection;
         public float length;
         public Sprite directionSprite;
         public Color directionColor;
- 
+        
         public bool HasImpact;
         public float impactRadius;
         public Sprite impactSprite;
         public Color impactColor;
         
-
-        public void InitializeIndicator(Transform radiusTransform, Image radiusImage, Transform directionTransform, Image directionImage, Transform impactTransform, Image impactImage)
+        public void InitializeIndicator(DecalProjector radiusDeccal, DecalProjector directionDecal, DecalProjector impactDecal,  Transform directionDecalParent)
         {
-            InitializeRadiusIndicator(radiusTransform, radiusImage);
-            InitializeDirectionIndicator(directionTransform, directionImage);
-            InitializeImpactIndicator(impactTransform, impactImage);
+            InitializeRadiusIndicator(radiusDeccal);
+            InitializeDirectionIndicator(directionDecal, directionDecalParent);
+            InitializeImpactIndicator(impactDecal);
         }
         
-        public void InitializeRadiusIndicator(Transform radiusTransform, Image radiusImage)
+        public void InitializeRadiusIndicator(DecalProjector radiusDecal)
         {
             if (HasRadius)
             {
-                radiusImage.sprite = radiusSprite;
-                radiusImage.color = radiusColor;
+                radiusDecal.material.color = radiusColor;
                 
-                radiusTransform.localScale = new Vector3(radius, radius, 1);
-                radiusTransform.gameObject.SetActive(true);
+                radiusDecal.gameObject.transform.localScale = new Vector3(radius, radius, 1);
+                radiusDecal.gameObject.SetActive(true);
             }
             else
             {
-                radiusTransform.gameObject.SetActive(false);
+                radiusDecal.gameObject.SetActive(false);
             }
         }
 
-        public void InitializeDirectionIndicator(Transform directionTransform, Image directionImage)
+        public void InitializeDirectionIndicator(DecalProjector directionDecal, Transform directionDecalParent)
         {
             if (HasDirection)
             {
-                directionImage.sprite = directionSprite;
-                directionImage.color = directionColor;
-                
-                directionTransform.localScale = new Vector3(1, 1, length);
-                directionTransform.gameObject.SetActive(true);
+                directionDecal.material.color = directionColor;
+
+                directionDecalParent.localScale = new Vector3(length,1,length );
+                directionDecal.gameObject.SetActive(true);
             }
             else
             {
-                directionTransform.gameObject.SetActive(false);
+                directionDecal.gameObject.SetActive(false);
             }
         }
         
-        private void InitializeImpactIndicator(Transform impactTransform, Image impactImage)
+        private void InitializeImpactIndicator(DecalProjector impactDecal)
         {
             if (HasImpact)
             {
-                impactImage.sprite = impactSprite;
-                impactImage.color = impactColor;
+                impactDecal.material.color = impactColor;
 
-                impactTransform.localScale = new Vector3(impactRadius, impactRadius, 1);
-                impactTransform.gameObject.SetActive(true);
+                impactDecal.gameObject.transform.localScale = new Vector3(impactRadius, impactRadius, 1);
+                impactDecal.gameObject.SetActive(true);
             }
             else
             {
-                impactTransform.gameObject.SetActive(false);
+                impactDecal.gameObject.SetActive(false);
             }
         }
         
@@ -92,13 +89,11 @@ namespace Skills
                 impactTransform.position = GetImpactPosition(playerTransform, direction);
             }
         }
-
+        
         public Vector3 GetImpactPosition(Transform playerTransform, Vector3 direction)
         {
             Vector3 impactPos = playerTransform.position + (direction * radius / 2);
             return impactPos;
         }
-        
-        
     } 
 }

@@ -1,21 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 namespace Skills
 {
-    public class SkillIndicator : MonoBehaviour
+    public class DecalSkillIndicator : MonoBehaviour
     {
-        [SerializeField] private Transform radiusTransform;
-        [SerializeField] private Image radiusImage;
-        
-        [SerializeField] private Transform directionTransform;
-        [SerializeField] private Image directionImage;
+        [SerializeField] private DecalProjector radiusDecal;
+        [SerializeField] private DecalProjector directionDecal;
+        [SerializeField] private DecalProjector impactDecal;
 
-        [SerializeField] private Transform impactTransform;
-        [SerializeField] private Image impactImage;
-
+        [SerializeField] private Transform directionParent;
         
         private bool initalizedIndicator;
 
@@ -37,17 +33,16 @@ namespace Skills
         {
             if (initalizedIndicator) { return; }
             
-            m_SkillIndicatorSettings = Instantiate(skillIndicatorSettings);
+            m_SkillIndicatorSettings = skillIndicatorSettings;
 
-            m_SkillIndicatorSettings.InitializeIndicator(radiusTransform, radiusImage, directionTransform, directionImage, impactTransform, impactImage);
+            m_SkillIndicatorSettings.InitializeIndicator(radiusDecal, directionDecal, impactDecal,directionParent);
             
             EnableSkillIndicator();
         }
         
         public void UpdateIndicatorDirection(Vector3 direction)
         {
-            m_SkillIndicatorSettings.UpdateIndicator(transform , directionTransform, impactTransform, direction);
+            m_SkillIndicatorSettings.UpdateIndicator(transform , directionParent, impactDecal.transform, direction);
         }
     }
-
 }
