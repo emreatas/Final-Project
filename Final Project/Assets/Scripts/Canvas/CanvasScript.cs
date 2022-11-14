@@ -8,6 +8,7 @@ using Player;
 using Skills;
 using UnityEngine.UI;
 using Utils;
+using InventorySystem;
 
 namespace CanvasNS
 {
@@ -46,7 +47,7 @@ namespace CanvasNS
 
         private Dictionary<PlayerSkillType, Image> m_SkillImages;
 
-        private Items.Item showedItem;
+        private Item showedItem;
         private AbstractSkill selectedSkill;
 
         public static GameEvent<StatType> OnCharacterAttributeIncreased;
@@ -155,7 +156,7 @@ namespace CanvasNS
         {
             if (showedItem != null)
             {
-                Inventory.Instance.Remove(showedItem);
+                // Inventory.Instance.Remove(showedItem);
                 itemIcon.enabled = false;
                 itemTier.enabled = false;
                 itemName.enabled = false;
@@ -170,7 +171,7 @@ namespace CanvasNS
         {
             if (showedItem != null)
             {
-                showedItem.Unequip();
+                //  showedItem.Unequip();
                 itemIcon.enabled = false;
                 itemTier.enabled = false;
                 itemName.enabled = false;
@@ -186,7 +187,7 @@ namespace CanvasNS
         {
             if (showedItem != null)
             {
-                showedItem.Use();
+                //  showedItem.Use();
                 itemIcon.enabled = false;
                 itemTier.enabled = false;
                 itemName.enabled = false;
@@ -207,7 +208,7 @@ namespace CanvasNS
             }
         }
 
-        private void CanvasManager_ShowItem(Items.Item obj)
+        private void CanvasManager_ShowItem(Item obj)
         {
             showedItem = obj;
 
@@ -217,9 +218,9 @@ namespace CanvasNS
 
 
             itemIcon.sprite = obj.Icon;
-            itemTier.sprite = obj.tierSprite;
+            itemTier.sprite = obj.TierImage;
             itemTier.color = obj.GetTierColor();
-            itemName.text = obj.itemName;
+            itemName.text = obj.ItemName;
 
             for (int i = 0; i < itemStatTexts.Count; i++)
             {

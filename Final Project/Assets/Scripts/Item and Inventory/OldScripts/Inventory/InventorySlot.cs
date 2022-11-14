@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Items;
+using InventorySystem;
 public class InventorySlot : MonoBehaviour
 {
     public Image itemIcon;
@@ -18,7 +19,7 @@ public class InventorySlot : MonoBehaviour
         itemIcon.sprite = item.Icon;
 
         itemTier.enabled = true;
-        itemTier.sprite = item.tierSprite;
+        itemTier.sprite = item.TierImage;
         itemTier.color = item.GetTierColor();
     }
 

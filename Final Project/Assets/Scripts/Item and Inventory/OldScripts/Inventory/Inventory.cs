@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Items;
 using UnityEngine;
 using Utils;
-
+using InventorySystem;
 public class Inventory : AbstractSingelton<Inventory>
 {
 
@@ -14,16 +14,14 @@ public class Inventory : AbstractSingelton<Inventory>
 
     public void Add(Item item)
     {
-        if (!item.isDefaultItem)
+
+        items.Add(item);
+
+        if (onItemChangedCallback != null)
         {
-            items.Add(item);
-
-            if (onItemChangedCallback != null)
-            {
-                onItemChangedCallback.Invoke();
-            }
-
+            onItemChangedCallback.Invoke();
         }
+
     }
     public void Remove(Item item)
     {

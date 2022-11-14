@@ -1,27 +1,23 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using Stat;
 using UnityEngine;
-using Utils;
 
-namespace Items
+namespace InventorySystem
 {
-    [CreateAssetMenu(fileName = "ScriptableObjects", menuName = "ScriptableObjects/Inventory/Item")]
+    [CreateAssetMenu(menuName = "Inventory/Item")]
     public class Item : ScriptableObject
     {
-
-        public string itemName = "New Item";
-        public ItemClass itemClass;
-        public Sprite Icon = null;
+        public ItemClass ItemClass;
+        public string ItemName;
+        public Sprite Icon;
+        public Sprite TierImage;
         public ItemTier tier;
-        public Sprite tierSprite;
-        public bool isDefaultItem = false;
-        public List<AttributeModifier> stats = new List<AttributeModifier>();
 
-        //public List<ItemStat> compulsoryItemStats = new List<ItemStat>();
-        //public List<ItemStat> randomItemStats = new List<ItemStat>();
+        public List<Stat.AttributeModifier> stats = new List<Stat.AttributeModifier>();
 
-        public RandomItemStatPicker itemStatPool;
+        public Stat.RandomItemStatPicker itemStatPool;
+
+
 
         public Color GetTierColor()
         {
@@ -45,29 +41,11 @@ namespace Items
         public void GetRandomStats()
         {
             stats = itemStatPool.GetRandomStats();
-            
-        }
-
-        public virtual void Use()
-        {
 
         }
-
-        public virtual void Unequip()
-        {
-
-        }
-
-        public void RemoveFromInventory()
-        {
-            Inventory.Instance.Remove(this);
-        }
-
-
-
-
-
     }
+
+
     public enum ItemClass
     {
         All,
@@ -82,4 +60,5 @@ namespace Items
         Epic,
         Legendary
     }
+
 }

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Utils;
 
-namespace Items
+namespace InventorySystem
 {
     public class DroppedItem : MonoBehaviour
     {
@@ -16,16 +16,17 @@ namespace Items
 
         [SerializeField] private Button itemButton;
 
+
         private Item m_Item;
 
-        private event Action<Item> OnSelectItem;
+        public event Action<Item> OnSelectItem;
 
         public void InitializeItemButton(Item item, Action<Item> onSelectItem)
         {
             itemImage.sprite = item.Icon;
-            tierImage.sprite = item.tierSprite;
+            tierImage.sprite = item.TierImage;
             tierImage.color = item.GetTierColor();
-            itemName.text = item.itemName;
+            itemName.text = item.ItemName;
 
             m_Item = item;
 
@@ -36,6 +37,8 @@ namespace Items
 
         private void SelectItem()
         {
+
+
             OnSelectItem?.Invoke(m_Item);
             OnSelectItem = null;
 

@@ -8,14 +8,14 @@ public class InventoryUI : MonoBehaviour
     [Header("----Inventory----")]
     public Transform itemsParent;
     public InventorySlot[] slots;
-    Inventory inventory;
+    //Inventory inventory;
 
 
-
+    /*
 
     void Start()
     {
-        inventory = Inventory.Instance;
+        //inventory = Inventory.Instance;
         inventory.onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 
@@ -38,7 +38,7 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-
+    */
 
 
 
