@@ -11,10 +11,10 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
     public static GameEvent<EquipmentItem> OnEquipItem;
     public static GameEvent<EquipmentItem> OnUnequipItem;
 
-    Inventory inventory;
+    //Inventory inventory;
     private void Start()
     {
-        inventory = Inventory.Instance;
+        //inventory = Inventory.Instance;
         //InitDictionary();
         InitSlots();
     }
@@ -58,7 +58,7 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
             if (oldItem != null)
             {
                 OnUnequipItem.Invoke(oldItem);
-                inventory.Add(oldItem);
+                //inventory.Add(oldItem);
             }
         }
         OnEquipItem.Invoke(newItem);
@@ -70,7 +70,7 @@ public class EquipmentManager : AbstractSingelton<EquipmentManager>
         if (equipmentItems.ContainsKey(newItem.slot))
         {
             OnUnequipItem.Invoke(newItem);
-            inventory.Add(newItem);
+            //inventory.Add(newItem);
             equipmentItems[newItem.slot].item = null;
             equipmentItems[newItem.slot].UnequipItem();
         }

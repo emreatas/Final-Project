@@ -14,19 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constantDropItems: []
   randomDropItems:
-  - item: {fileID: 11400000, guid: 784c3b0585c318943919d9afef50367c, type: 2}
-    dropChance: 75
-  - item: {fileID: 11400000, guid: 1415be73c1efa174fb506257e0fb05ca, type: 2}
-    dropChance: 75
-  - item: {fileID: 11400000, guid: d5705838fc2919c4ba3d44f77a26725e, type: 2}
-    dropChance: 75
-  - item: {fileID: 11400000, guid: ce91f3aa0b5ba544cbdfea0e9471e1e0, type: 2}
-    dropChance: 75
-  - item: {fileID: 11400000, guid: da2b340ffac1b1d46a26f33ae7a4977d, type: 2}
-    dropChance: 75
-  - item: {fileID: 11400000, guid: 57fd06854ab347043b684aa9e5838f02, type: 2}
-    dropChance: 75
-  - item: {fileID: 11400000, guid: ecc68820ddbf6e84380c53ad5c10599a, type: 2}
-    dropChance: 75
-  minRandomItemDrop: 0
+  - item: {fileID: 11400000, guid: 1469f206cc8c67d46840efc527e2d4d3, type: 2}
+    dropChance: 100
+  - item: {fileID: 11400000, guid: cdaa6e728c3400a41a229ae3710cf21a, type: 2}
+    dropChance: 100
+  minRandomItemDrop: 2
   maxRandomItemDrop: 2

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Items;
 using Utils;
+using InventorySystem;
 public class EquipmentSlotScript : MonoBehaviour
 {
     public EquipmentSlot slot;
@@ -20,7 +21,7 @@ public class EquipmentSlotScript : MonoBehaviour
         itemIcon.sprite = item.Icon;
 
         itemTier.enabled = true;
-        itemTier.sprite = item.tierSprite;
+        itemTier.sprite = item.TierImage;
         itemTier.color = item.GetTierColor();
 
     }

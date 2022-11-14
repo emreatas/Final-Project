@@ -4,17 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using Interactables;
 using Utils;
+using InventorySystem;
 
 namespace Items
 {
     public class Chest : Interactable
     {
-        public List<Item> dropableItem;
+        public List<InventorySystem.Item> dropableItem;
         public Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
         private bool m_Interacted;
         private bool CanDestroy => dropableItem.Count <= 0;
 
         private GameEvent OnReset;
+
+
 
         public void InitializeChest(ChestLoot chestLoot)
         {
@@ -72,16 +75,17 @@ namespace Items
         {
             SelectItemFromChest(item);
         }
-        
+
         private void SelectItemFromChest(Item item)
         {
             InteractableUI.Instance.RemoveItemFromPanel();
-            
-            Inventory.Instance.Add(item);
-            
+
+            //Inventory.Instance.Add(item);
+   
+
             instansiatedItems.Remove(item);
             dropableItem.Remove(item);
-    
+
             if (CanDestroy)
             {
                 DestroyChest();
