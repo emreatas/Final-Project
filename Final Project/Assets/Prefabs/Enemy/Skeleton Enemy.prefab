@@ -990,6 +990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef09e0ce2dc3bd147beea4971bc6f4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: cf031d209a40e544dad60a7c9ffe7dcf, type: 2}
   healthBar: {fileID: 7449899831356981270}
   enemyStateManager: {fileID: 8571442670533552624}
 --- !u!1 &7150212829422827594

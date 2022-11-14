@@ -5,7 +5,7 @@ namespace Enemy
 {
     public class EnemyHealth : MonoBehaviour, IHealth
     {
-        private EnemyScriptable enemyStats;
+        public EnemyScriptable enemyStats;
         public Slider healthBar;
         public EnemyStateManager enemyStateManager;
 
