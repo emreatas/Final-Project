@@ -15,6 +15,7 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyIdleState IdleState = new EnemyIdleState();
     public EnemyMoveState MoveState = new EnemyMoveState();
     public EnemyPatrollingState PatrollingState = new EnemyPatrollingState();
+    public EnemyHitReactionState HitReactionState = new EnemyHitReactionState();
 
     void Start() {
         bornPosition = this.transform.position;
@@ -62,5 +63,9 @@ public class EnemyStateManager : MonoBehaviour
     public void DisableColliders() {
         leftHand.enabled = false;
         rightHand.enabled = false;
+    }
+    public void SwitchStateFromHitReaction() {
+        anim.SetBool("isHitted" , false);
+        SwitchState(MoveState);
     }
 }

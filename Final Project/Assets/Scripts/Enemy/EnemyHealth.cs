@@ -7,6 +7,7 @@ namespace Enemy
     {
         private EnemyScriptable enemyStats;
         public Slider healthBar;
+        public EnemyStateManager enemyStateManager;
 
         public float Health => enemyStats.health;
         
@@ -14,6 +15,7 @@ namespace Enemy
         {
             enemyStats.health -= damage;
             healthBar.value = Health;
+            enemyStateManager.SwitchState(enemyStateManager.HitReactionState);
             if (Health <= 0)
             {
                 RandomLoot.Instance.CreateLoot(transform.position);
@@ -21,6 +23,5 @@ namespace Enemy
             }
         }
     }
- 
 }
 
