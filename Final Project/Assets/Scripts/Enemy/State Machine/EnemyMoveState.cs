@@ -10,6 +10,7 @@ public class EnemyMoveState : EnemyBaseState
         if(enemy.getDistanceToPlayer() > enemy.enemyStats.sightRange) {
             if(enemy.getDistanceToBornPosition() < 1f) {
                 enemy.anim.SetBool("isMove" , false);
+                enemy.getNavMeshAgent().isStopped = true;
                 enemy.SwitchState(enemy.PatrollingState);
             }
             else {

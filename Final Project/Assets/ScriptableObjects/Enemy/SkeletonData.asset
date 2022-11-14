@@ -20,3 +20,4 @@ MonoBehaviour:
   damage: 5
   positionDiffWithPrefab: 1
   waitInPatrolling: 0
+  exclamationRange: 15
