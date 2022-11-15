@@ -20,13 +20,13 @@ namespace Player
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private DecalSkillIndicator skillIndicator;
 
-        [SerializeField] private AbstractSkill basicSkill;
-        [SerializeField] private AbstractSkill primarySkill;
-        [SerializeField] private AbstractSkill secondarySkill;
+        [SerializeField] private AbstractSkillSettings basicSkillSettings;
+        [SerializeField] private AbstractSkillSettings primarySkillSettings;
+        [SerializeField] private AbstractSkillSettings secondarySkillSettings;
         
-        public AbstractSkill BasicSkill => basicSkill;
-        public AbstractSkill PrimarySkill => primarySkill;
-        public AbstractSkill SecondarySkill => secondarySkill;
+        public AbstractSkillSettings BasicSkillSettings => basicSkillSettings;
+        public AbstractSkillSettings PrimarySkillSettings => primarySkillSettings;
+        public AbstractSkillSettings SecondarySkillSettings => secondarySkillSettings;
 
         private void OnEnable()
         {
@@ -47,17 +47,17 @@ namespace Player
         
         public void StartBasicSkill()
         {
-            basicSkill.StartSkill();
+            basicSkillSettings.StartSkill();
         }
         
         public void CastBasicSkill()
         {
-            basicSkill.CastSkill();
+            basicSkillSettings.CastSkill();
         }
         
         public void OnFinishedBasicSkill()
         {
-            basicSkill.OnFinishedSkillAnimation();
+            basicSkillSettings.OnFinishedSkillAnimation();
         }
         
         #endregion
@@ -66,23 +66,23 @@ namespace Player
         public void StartPrimarySkill(Vector3 skillDirection)
         {
             skillIndicator.DisableSkillIndicator();
-            primarySkill.SetShootDirection(skillDirection);
-            primarySkill.StartSkill();
+            primarySkillSettings.SetShootDirection(skillDirection);
+            primarySkillSettings.StartSkill();
         }
 
         public void PerformPrimarySkill(Vector3 skillVector)
         {
-            primarySkill.ShowSkillIndicator(skillIndicator, skillVector);
+            primarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
         }
         
         public void CastPrimarySkill()
         {
-            primarySkill.CastSkill();
+            primarySkillSettings.CastSkill();
         }
         
         public void OnFinishedPrimarySkill()
         {
-            primarySkill.OnFinishedSkillAnimation();
+            primarySkillSettings.OnFinishedSkillAnimation();
         }
         #endregion
 
@@ -90,68 +90,68 @@ namespace Player
         public void StartSecondarySkill(Vector3 skillDirection)
         {
             skillIndicator.DisableSkillIndicator();
-            secondarySkill.SetShootDirection(skillDirection);
-            secondarySkill.StartSkill();
+            secondarySkillSettings.SetShootDirection(skillDirection);
+            secondarySkillSettings.StartSkill();
         }
 
         public void PerformSecondarySkill(Vector3 skillVector)
         {
-            secondarySkill.ShowSkillIndicator(skillIndicator, skillVector);
+            secondarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
         }
         
         public void CastSecondarySkill()
         {
-            secondarySkill.CastSkill();
+            secondarySkillSettings.CastSkill();
         }
         
         public void OnFinishedSecondarySkill()
         {
-            secondarySkill.OnFinishedSkillAnimation();
+            secondarySkillSettings.OnFinishedSkillAnimation();
         }
         #endregion
 
         private void InitializeSkills()
         {
-            InitializeSkill(basicSkill);
-            InitializeSkill(primarySkill);
-            InitializeSkill(secondarySkill);
+            InitializeSkill(basicSkillSettings);
+            InitializeSkill(primarySkillSettings);
+            InitializeSkill(secondarySkillSettings);
         }
         
-        private void InitializeSkill(AbstractSkill skill)
+        private void InitializeSkill(AbstractSkillSettings skillSettings)
         {
-            if (skill != null)
+            if (skillSettings != null)
             {
-                skill.InitializeSkill(playerStats.CharacterStats, transform, movementController.LerpPlayerRotation);
+                skillSettings.InitializeSkill(playerStats.CharacterStats, transform, movementController.LerpPlayerRotation);
             }
         }
 
-        private void ResetSkill(AbstractSkill skill)
+        private void ResetSkill(AbstractSkillSettings skillSettings)
         {
-            if (skill != null)
+            if (skillSettings != null)
             {
-                skill.ResetParams();
+                skillSettings.ResetParams();
             }
         }
         
-        private void HandleOnSkillChanged(AbstractSkill newSkill)
+        private void HandleOnSkillChanged(AbstractSkillSettings newSkillSettings)
         {
-            if (newSkill.skillType == PlayerSkillType.Basic)
+            if (newSkillSettings.skillType == PlayerSkillType.Basic)
             {
-                ResetSkill(basicSkill);
-                basicSkill = newSkill;
-                InitializeSkill(basicSkill);
+                ResetSkill(basicSkillSettings);
+                basicSkillSettings = newSkillSettings;
+                InitializeSkill(basicSkillSettings);
             }
-            else if(newSkill.skillType == PlayerSkillType.Primary)
+            else if(newSkillSettings.skillType == PlayerSkillType.Primary)
             {
-                ResetSkill(primarySkill);
-                primarySkill = newSkill;    
-                InitializeSkill(basicSkill);
+                ResetSkill(primarySkillSettings);
+                primarySkillSettings = newSkillSettings;    
+                InitializeSkill(basicSkillSettings);
             }
             else
             {
-                ResetSkill(secondarySkill);
-                secondarySkill = newSkill;
-                InitializeSkill(basicSkill);
+                ResetSkill(secondarySkillSettings);
+                secondarySkillSettings = newSkillSettings;
+                InitializeSkill(basicSkillSettings);
             }
         }
         

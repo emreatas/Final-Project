@@ -67,7 +67,7 @@ namespace Player
             }
             
             animator.SetBool(m_BasicAttack,true);
-            animator.SetTrigger(BASICATTACK + skillController.BasicSkill.AnimationName);
+            animator.SetTrigger(BASICATTACK + skillController.BasicSkillSettings.AnimationName);
         }
         
         public void StopBasicAttackAnimation()
@@ -78,7 +78,7 @@ namespace Player
         public void PlayPrimaryAttackAnimation()
         {
             animator.SetBool(m_PrimaryAttack, true);
-            animator.SetTrigger(PRIMARYATTACK + skillController.PrimarySkill.AnimationName);
+            animator.SetTrigger(PRIMARYATTACK + skillController.PrimarySkillSettings.AnimationName);
         }
 
         public void StopPrimaryAttackAnimation()
@@ -89,7 +89,7 @@ namespace Player
         public void PlaySecondaryAttackAnimation()
         {
             animator.SetBool(m_SecondaryAttack, true);
-            animator.SetTrigger(SECONDARYATTACK + skillController.SecondarySkill.AnimationName);
+            animator.SetTrigger(SECONDARYATTACK + skillController.SecondarySkillSettings.AnimationName);
         }
 
         public void StopSecondaryAttackAnimation()
