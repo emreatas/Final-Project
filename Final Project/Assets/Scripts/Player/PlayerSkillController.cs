@@ -37,12 +37,17 @@ namespace Player
         {
             RemoveListeners();
         }
+
+        private void Start()
+        {
+            InitializeSkills();
+        }
+        
+        #region Basic Attack 
         
         public void StartBasicSkill()
         {
-            InitializeSkill(ref basicSkill);
-            
-            basicSkill.RotatePlayer(movementController.LerpPlayerRotation);
+            basicSkill.StartSkill();
         }
         
         public void CastBasicSkill()
@@ -55,12 +60,14 @@ namespace Player
             basicSkill.OnFinishedSkillAnimation();
         }
         
+        #endregion
+
+        #region PrimarySkill
         public void StartPrimarySkill(Vector3 skillDirection)
         {
             skillIndicator.DisableSkillIndicator();
-            primarySkill.ShootDirection = skillDirection;
-            InitializeSkill(ref primarySkill);
-            primarySkill.RotatePlayer( movementController.LerpPlayerRotation);
+            primarySkill.SetShootDirection(skillDirection);
+            primarySkill.StartSkill();
         }
 
         public void PerformPrimarySkill(Vector3 skillVector)
@@ -77,13 +84,14 @@ namespace Player
         {
             primarySkill.OnFinishedSkillAnimation();
         }
-        
+        #endregion
+
+        #region SecondarySkill
         public void StartSecondarySkill(Vector3 skillDirection)
         {
             skillIndicator.DisableSkillIndicator();
-            secondarySkill.ShootDirection = skillDirection;
-            InitializeSkill(ref secondarySkill);
-            secondarySkill.RotatePlayer( movementController.LerpPlayerRotation);
+            secondarySkill.SetShootDirection(skillDirection);
+            secondarySkill.StartSkill();
         }
 
         public void PerformSecondarySkill(Vector3 skillVector)
@@ -100,30 +108,50 @@ namespace Player
         {
             secondarySkill.OnFinishedSkillAnimation();
         }
-        
-        private void InitializeSkill(ref AbstractSkill skill)
+        #endregion
+
+        private void InitializeSkills()
         {
-            //float dmg = playerStats.GetValue(skill.damageStatType);
-            //float attackSpeed = playerStats.GetValue(skill.attackSpeedStatType);
-            // skill.SetAttributes(dmg, attackSpeed);
-            skill.SetAttributes(playerStats.CharacterStats);
-            
-            skill.SetPlayerTransform(transform);
+            InitializeSkill(basicSkill);
+            InitializeSkill(primarySkill);
+            InitializeSkill(secondarySkill);
+        }
+        
+        private void InitializeSkill(AbstractSkill skill)
+        {
+            if (skill != null)
+            {
+                skill.InitializeSkill(playerStats.CharacterStats, transform, movementController.LerpPlayerRotation);
+            }
+        }
+
+        private void ResetSkill(AbstractSkill skill)
+        {
+            if (skill != null)
+            {
+                skill.ResetParams();
+            }
         }
         
         private void HandleOnSkillChanged(AbstractSkill newSkill)
         {
             if (newSkill.skillType == PlayerSkillType.Basic)
             {
+                ResetSkill(basicSkill);
                 basicSkill = newSkill;
+                InitializeSkill(basicSkill);
             }
             else if(newSkill.skillType == PlayerSkillType.Primary)
             {
+                ResetSkill(primarySkill);
                 primarySkill = newSkill;    
+                InitializeSkill(basicSkill);
             }
             else
             {
+                ResetSkill(secondarySkill);
                 secondarySkill = newSkill;
+                InitializeSkill(basicSkill);
             }
         }
         

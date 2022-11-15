@@ -9,9 +9,6 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/Mage/Secondary/Shield")]
     public class Skill_Shield : AbstractSkill
     {
-        public override void RotatePlayer(Action<Vector3> LerpPlayer)
-        {
-        }
         
         public override void CastSkill()
         {
@@ -29,7 +26,6 @@ namespace Skills
 
         public override void OnFinishedSkillAnimation()
         {
-            base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
         }
     }

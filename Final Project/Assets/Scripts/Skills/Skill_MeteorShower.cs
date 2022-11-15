@@ -14,9 +14,6 @@ namespace Skills
 
         [SerializeField] private float meteorSpawnDelay;
         [SerializeField] private float spawnHeight;
-        public override void RotatePlayer(Action<Vector3> LerpPlayer)
-        {
-        }
 
         public override void CastSkill()
         {
@@ -31,7 +28,6 @@ namespace Skills
 
         public override void OnFinishedSkillAnimation()
         {
-            base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
         }
 

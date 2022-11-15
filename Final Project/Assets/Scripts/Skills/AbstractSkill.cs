@@ -27,52 +27,35 @@ namespace Skills
         [Header("Skill Indicator")]
         public SkillIndicatorSettings SkillIndicatorSettings;
         
-        public GameEvent OnFinishedSkill;
-
         protected CharacterStat m_CharacterStat;
-        
-        protected float m_Damage;
-        protected float m_AttackSpeed;
-        
         protected Transform m_Player;
         protected Vector3 m_ShootDirection;
-        
-        public Vector3 ShootDirection
-        {
-            get => m_ShootDirection;
-            set => m_ShootDirection = value;
-        }
-        
-        public virtual void CastSkill(){}
-        
-        public virtual void ShowSkillIndicator(DecalSkillIndicator skillIndicator, Vector3 shootDirection){}
 
-        public virtual void RotatePlayer(Action<Vector3> LerpPlayer) { }
+        protected Action<Vector3> m_LerpPlayerRotationAction;
         
-        public virtual void OnFinishedSkillAnimation()
-        {
-            ResetParams();
-        }
+        public GameEvent OnFinishedSkill;
         
-        protected virtual void ResetParams()
-        {
-            m_Player = null;
-        }
-        
-        // public void SetAttributes(float baseDamage, float baseAttackSpeed)
-        // {
-        //     m_Damage = baseDamage + (baseDamage * damageMultiplier);
-        //     m_AttackSpeed = baseAttackSpeed * attackSpeedMultiplier;
-        // }
-        
-        public void SetAttributes(CharacterStat characterStat)
+        public void InitializeSkill(CharacterStat characterStat, Transform playerTransform, Action<Vector3> lerpPlayerRotationAction)
         {
             m_CharacterStat = characterStat;
+            m_Player = playerTransform;
+            m_LerpPlayerRotationAction = lerpPlayerRotationAction;
+        }
+        public void ResetParams()
+        {
+            m_Player = null;
+            m_CharacterStat = null;
+            m_LerpPlayerRotationAction = null;
         }
 
-        public void SetPlayerTransform(Transform player)
+        public void SetShootDirection(Vector3 shootDir)
         {
-            m_Player = player;
+            m_ShootDirection = shootDir;
         }
+
+        public virtual void StartSkill(){}
+        public abstract void CastSkill();
+        public virtual void ShowSkillIndicator(DecalSkillIndicator skillIndicator, Vector3 shootDirection){}
+        public abstract void OnFinishedSkillAnimation();
     }
 }

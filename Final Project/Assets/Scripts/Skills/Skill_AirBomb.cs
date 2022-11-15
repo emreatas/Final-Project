@@ -8,9 +8,9 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/Mage/Primary/AirBomb")]
     public class Skill_AirBomb : AbstractSkill
     {
-        public override void RotatePlayer(Action<Vector3> LerpPlayer)
+        public override void StartSkill()
         {
-            LerpPlayer(m_Player.position + ShootDirection);
+            m_LerpPlayerRotationAction(m_Player.position + m_ShootDirection);
         }
         
         public override void CastSkill()
@@ -29,7 +29,6 @@ namespace Skills
 
         public override void OnFinishedSkillAnimation()
         {
-            base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
         }
 

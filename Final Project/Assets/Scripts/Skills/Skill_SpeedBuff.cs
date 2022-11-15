@@ -8,10 +8,6 @@ namespace Skills
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/Mage/Secondary/SpeedBuff")]
     public class Skill_SpeedBuff : AbstractSkill
     {
-        public override void RotatePlayer(Action<Vector3> LerpPlayer)
-        {
-        }
-        
         public override void CastSkill()
         {
             var instansiated = Instantiate(prefab, m_Player);
@@ -28,7 +24,6 @@ namespace Skills
 
         public override void OnFinishedSkillAnimation()
         {
-            base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
         }
     }

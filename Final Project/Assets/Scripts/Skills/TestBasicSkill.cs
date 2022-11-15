@@ -17,13 +17,13 @@ namespace Skills
 
         private Transform m_Target;
 
-        public override void RotatePlayer(Action<Vector3> LerpPlayer)
+        public override void StartSkill()
         {
             Transform target = FindTarget();
 
             if (target != null)
             {
-                LerpPlayer(target.position);
+                m_LerpPlayerRotationAction(target.position);
             }
         }
 
@@ -34,16 +34,15 @@ namespace Skills
             projectile.InitializeStats(m_CharacterStat);
             projectile.FireProjectile( m_Player.forward,m_Target);
         }
-        
+
+        public override void ShowSkillIndicator(DecalSkillIndicator skillIndicator, Vector3 shootDirection)
+        {
+            throw new NotImplementedException();
+        }
+
         public override void OnFinishedSkillAnimation()
         {
-            base.OnFinishedSkillAnimation();
             OnFinishedSkill.Invoke();
-        }
-        
-        protected override void ResetParams()
-        {
-            base.ResetParams();
             m_Target = null;
         }
         
