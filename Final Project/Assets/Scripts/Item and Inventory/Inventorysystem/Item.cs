@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace InventorySystem
+namespace PInventory
 {
     [CreateAssetMenu(menuName = "Inventory/Item")]
     public class Item : ScriptableObject
@@ -16,9 +16,7 @@ namespace InventorySystem
         public List<Stat.AttributeModifier> stats = new List<Stat.AttributeModifier>();
 
         public Stat.RandomItemStatPicker itemStatPool;
-
-
-
+        
         public Color GetTierColor()
         {
             switch (tier)
@@ -52,6 +50,7 @@ namespace InventorySystem
         Mage,
         Knight
     }
+    
     public enum ItemTier
     {
         NoTier,
@@ -60,5 +59,6 @@ namespace InventorySystem
         Epic,
         Legendary
     }
-
+    
+   
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Items;
 using InventorySystem;
+using PInventory;
+
 public class InventorySlot : MonoBehaviour
 {
     public Image itemIcon;

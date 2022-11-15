@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using PInventory;
 using UnityEngine;
 using Utils;
 using Random = System.Random;
-using Item = InventorySystem.Item;
 
 namespace Items
 {

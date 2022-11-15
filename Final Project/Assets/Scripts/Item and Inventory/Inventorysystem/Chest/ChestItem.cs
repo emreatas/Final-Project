@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using InventorySystem;
+using PInventory;
+
 namespace Items
 {
     [Serializable]

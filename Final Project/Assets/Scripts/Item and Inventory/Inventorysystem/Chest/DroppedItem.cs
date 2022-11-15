@@ -1,5 +1,6 @@
 using System;
 using ObjectPooling;
+using PInventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;

@@ -9,6 +9,7 @@ using Skills;
 using UnityEngine.UI;
 using Utils;
 using InventorySystem;
+using PInventory;
 
 namespace CanvasNS
 {
@@ -48,10 +49,10 @@ namespace CanvasNS
         private Dictionary<PlayerSkillType, Image> m_SkillImages;
 
         private Item showedItem;
-        private AbstractSkill selectedSkill;
+        private AbstractSkillSettings _selectedSkillSettings;
 
         public static GameEvent<StatType> OnCharacterAttributeIncreased;
-        public static GameEvent<AbstractSkill> OnSkillChanged;
+        public static GameEvent<AbstractSkillSettings> OnSkillChanged;
 
         private void OnEnable()
         {
@@ -263,10 +264,10 @@ namespace CanvasNS
 
         public void SelectSkill()
         {
-            if (selectedSkill != null)
+            if (_selectedSkillSettings != null)
             {
-                OnSkillChanged.Invoke(selectedSkill);
-                m_SkillImages[selectedSkill.skillType].sprite = selectedSkill.SkillIcon;
+                OnSkillChanged.Invoke(_selectedSkillSettings);
+                m_SkillImages[_selectedSkillSettings.skillType].sprite = _selectedSkillSettings.SkillIcon;
             }
         }
 
@@ -276,11 +277,11 @@ namespace CanvasNS
             rightPanelInfo.text = statType.description;
         }
 
-        public void UpdateSkillText(AbstractSkill skill)
+        public void UpdateSkillText(AbstractSkillSettings skillSettings)
         {
-            selectedSkill = skill;
-            rightPanelTitle.text = skill.SkillName;
-            rightPanelInfo.text = skill.SkillDescription;
+            _selectedSkillSettings = skillSettings;
+            rightPanelTitle.text = skillSettings.SkillName;
+            rightPanelInfo.text = skillSettings.SkillDescription;
         }
 
         public void InventoryUI(GameObject inventoryPanel)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Items;
 using Interactables;
+using PInventory;
 
 namespace InventorySystem
 {

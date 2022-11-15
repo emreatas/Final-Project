@@ -4,6 +4,8 @@ using Items;
 using UnityEngine;
 using Utils;
 using InventorySystem;
+using PInventory;
+
 public class Inventory : AbstractSingelton<Inventory>
 {
 

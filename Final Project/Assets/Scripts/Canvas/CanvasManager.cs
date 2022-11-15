@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Items;
 using InventorySystem;
+using PInventory;
 
 namespace CanvasNS
 {

@@ -5,6 +5,7 @@ using UnityEngine;
 using Interactables;
 using Utils;
 using InventorySystem;
+using PInventory;
 
 namespace Items
 {

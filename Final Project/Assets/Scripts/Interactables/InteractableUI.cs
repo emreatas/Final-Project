@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Utils;
 using InventorySystem;
+using PInventory;
 
 namespace Interactables
 {
