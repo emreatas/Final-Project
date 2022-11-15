@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using MEC;
+using Stat;
 using UnityEngine;
 
 namespace Player
 {
     public class PlayerMovementController : MonoBehaviour
     {
+        [SerializeField] private PlayerStats playerStats;
         [SerializeField] private PlayerMovementSettings movementSettings;
         [SerializeField] private Rigidbody rb;
         [SerializeField] private float lerpRotationDuration;
-        
+   
         public void MovePlayer(Vector3 movementVector)
         {
             rb.MovePosition(
                 rb.position + 
-                movementSettings.MovementSpeed * 
+                playerStats.GetValue(movementSettings.movementStatType) * 
                 Time.deltaTime * 
                 movementVector 
             );
