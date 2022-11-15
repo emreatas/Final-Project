@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Skills
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/Mage/Secondary/Shield")]
-    public class Skill_Shield : AbstractSkill
+    public class SkillSettingsShield : AbstractSkillSettings
     {
         
         public override void CastSkill()

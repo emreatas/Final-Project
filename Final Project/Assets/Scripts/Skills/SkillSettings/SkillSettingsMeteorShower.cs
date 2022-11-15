@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace Skills
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Skills/Mage/Primary/MeteorShower")]
-    public class Skill_MeteorShower : AbstractSkill
+    public class SkillSettingsMeteorShower : AbstractSkillSettings
     {
         [Header("Meteor")] 
         [SerializeField] private int meteorCount;
@@ -17,7 +17,9 @@ namespace Skills
 
         public override void CastSkill()
         {
-           InstansiateMeteors();
+            Vector3[] meteorSpawnPositions = GetRandomSpawnPosition();
+
+            Timing.RunCoroutine(_InstansiateMeteors(meteorSpawnPositions));
         }
 
         public override void ShowSkillIndicator(DecalSkillIndicator skillIndicator, Vector3 shootDirection)
@@ -30,14 +32,7 @@ namespace Skills
         {
             OnFinishedSkill.Invoke();
         }
-
-        private void InstansiateMeteors()
-        {
-            Vector3[] meteorSpawnPositions = GetRandomSpawnPosition();
-
-            Timing.RunCoroutine(_InstansiateMeteors(meteorSpawnPositions));
-        }
-
+        
         private IEnumerator<float> _InstansiateMeteors(Vector3[] meteorSpawnPositions)
         {
             for (int i = 0; i < meteorCount; i++)
@@ -50,7 +45,6 @@ namespace Skills
         private void InstansiateMeteor(Vector3 spawnPosition)
         {
             var instansiated = Instantiate(prefab, spawnPosition, Quaternion.identity);
-            // instansiated.InitializeParams(m_Damage, m_AttackSpeed);
             instansiated.InitializeStats(m_CharacterStat);
             instansiated.FireProjectile();
         }
