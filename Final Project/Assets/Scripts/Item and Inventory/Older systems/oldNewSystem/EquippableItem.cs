@@ -4,7 +4,7 @@ using PInventory;
 using UnityEngine;
 
 
-namespace InventorySystem
+namespace PInventory
 {
     public enum EquipmentType
     {

@@ -13,6 +13,8 @@ namespace PInventory
         public Sprite TierImage;
         public ItemTier tier;
 
+        public bool CanBeStacked;
+
         public List<Stat.AttributeModifier> stats = new List<Stat.AttributeModifier>();
 
         public Stat.RandomItemStatPicker itemStatPool;
