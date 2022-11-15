@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Interactables;
+using PInventory;
 using UnityEngine;
 using Utils;
 
@@ -7,12 +8,15 @@ namespace Player
 {
     public class PlayerInteractionController : MonoBehaviour
     {
+        [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private PlayerInputSystem inputSystem;
         [SerializeField] private LayerMask interactableLayerMask;
         [SerializeField] private string interactableTag;
         
         private List<Interactable> interactables = new List<Interactable>();
 
+        public PlayerInventory PlayerInventory => playerInventory;
+        
         private void OnEnable()
         {
             AddListeners();
@@ -55,7 +59,7 @@ namespace Player
             {
                 if (interactables[i] != null)
                 {
-                    interactables[i].Interact();
+                    interactables[i].Interact(this);
                 }
             }
         }

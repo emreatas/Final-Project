@@ -6,6 +6,7 @@ using Interactables;
 using Utils;
 using InventorySystem;
 using PInventory;
+using Player;
 
 namespace Items
 {
@@ -15,6 +16,8 @@ namespace Items
         public Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
         private bool m_Interacted;
         private bool CanDestroy => dropableItem.Count <= 0;
+
+        private PlayerInventory m_Inventory;
 
         private GameEvent OnReset;
 
@@ -29,8 +32,9 @@ namespace Items
             }
         }
 
-        public override void Interact()
+        public override void Interact(PlayerInteractionController interactionController)
         {
+            m_Inventory = interactionController.PlayerInventory;
             InteractableUI.Instance.EnableInteractPanel();
         }
 
@@ -80,10 +84,9 @@ namespace Items
         private void SelectItemFromChest(Item item)
         {
             InteractableUI.Instance.RemoveItemFromPanel();
-
-            //Inventory.Instance.Add(item);
-   
-
+            
+            m_Inventory.AddItemToInventory(item);
+            
             instansiatedItems.Remove(item);
             dropableItem.Remove(item);
 
