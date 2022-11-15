@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 436751702}
   - component: {fileID: 436751704}
   - component: {fileID: 436751703}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,10 +520,10 @@ GameObject:
   - component: {fileID: 1316861999170624586}
   - component: {fileID: 379916633}
   - component: {fileID: 379916632}
-  - component: {fileID: 1073402045}
-  - component: {fileID: 1256655896}
   - component: {fileID: 1557139969}
-  m_Layer: 0
+  - component: {fileID: 1073402045}
+  - component: {fileID: 8542043478962404816}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -801,9 +801,27 @@ MonoBehaviour:
   movementController: {fileID: 1557139969}
   playerStats: {fileID: 1073402045}
   skillIndicator: {fileID: 85444671}
-  basicSkill: {fileID: 11400000, guid: 9b612e947d3c24a469af23c176e3b6f7, type: 2}
-  primarySkill: {fileID: 11400000, guid: 6114c62a98e73744cb821cec650c27df, type: 2}
-  secondarySkill: {fileID: 11400000, guid: 41d75c9e63507cc45b39d33390ba0055, type: 2}
+  basicSkillSettings: {fileID: 11400000, guid: 9b612e947d3c24a469af23c176e3b6f7, type: 2}
+  primarySkillSettings: {fileID: 11400000, guid: 81d0c726de4e9d641a0f10decf0db5ad,
+    type: 2}
+  secondarySkillSettings: {fileID: 11400000, guid: 41d75c9e63507cc45b39d33390ba0055,
+    type: 2}
+--- !u!114 &1557139969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316861999170624585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96be8779d695cfc4cadea58af98d0fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 1073402045}
+  movementSettings: {fileID: 11400000, guid: e48e04d7c10e30a40a85becccefec4d2, type: 2}
+  rb: {fileID: 1250084310}
+  lerpRotationDuration: 0.1
 --- !u!114 &1073402045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterStats: {fileID: 11400000, guid: ba6b4992a287de0488b712013e18cee1, type: 2}
   targetStat: {fileID: 11400000, guid: c6d74a3ad395a1f4794b680ba660993c, type: 2}
---- !u!114 &1256655896
+--- !u!114 &8542043478962404816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -827,25 +845,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316861999170624585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2925fc636422c62428753621d2ee1ee2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b08a8a8e68471844b742f336179726a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
---- !u!114 &1557139969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316861999170624585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96be8779d695cfc4cadea58af98d0fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSettings: {fileID: 11400000, guid: e48e04d7c10e30a40a85becccefec4d2, type: 2}
-  rb: {fileID: 1250084310}
-  lerpRotationDuration: 0.1
+  inventory: {fileID: 11400000, guid: a61efadd01150b449a48ff7c76cb837b, type: 2}
 --- !u!1 &1316861999343994853
 GameObject:
   m_ObjectHideFlags: 0
