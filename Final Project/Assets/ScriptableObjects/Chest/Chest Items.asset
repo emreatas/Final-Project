@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad1030e97940bc9f232b32eb3b8f78, type: 3}
   m_Name: Chest Items
   m_EditorClassIdentifier: 
-  constantDropItems: []
+  constantDropItems:
+  - {fileID: 11400000, guid: e85f4f9cae99f2540b11c8027112648e, type: 2}
   randomDropItems:
-  - item: {fileID: 11400000, guid: 1469f206cc8c67d46840efc527e2d4d3, type: 2}
+  - item: {fileID: 11400000, guid: e85f4f9cae99f2540b11c8027112648e, type: 2}
     dropChance: 100
-  - item: {fileID: 11400000, guid: cdaa6e728c3400a41a229ae3710cf21a, type: 2}
+  - item: {fileID: 11400000, guid: e85f4f9cae99f2540b11c8027112648e, type: 2}
     dropChance: 100
   minRandomItemDrop: 2
   maxRandomItemDrop: 2

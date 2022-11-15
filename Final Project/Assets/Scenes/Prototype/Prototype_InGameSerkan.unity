@@ -3843,16 +3843,16 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1316861999024017544}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1442656923 stripped
+--- !u!114 &1442656930 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1073402045, guid: c8072b673e3e0744691801952ee27297,
+  m_CorrespondingSourceObject: {fileID: 8542043478962404816, guid: c8072b673e3e0744691801952ee27297,
     type: 3}
   m_PrefabInstance: {fileID: 1316861999024017544}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a862f5f2de823214e88b78205e4bdb12, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b08a8a8e68471844b742f336179726a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1469362289
@@ -6132,43 +6132,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 998840142}
     m_Modifications:
-    - target: {fileID: 379916632, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: basicSkillSettings
+    - target: {fileID: 436751703, guid: c8072b673e3e0744691801952ee27297, type: 3}
+      propertyPath: playerInventory
       value: 
-      objectReference: {fileID: 11400000, guid: 9b612e947d3c24a469af23c176e3b6f7,
-        type: 2}
-    - target: {fileID: 379916632, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: primarySkillSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 81d0c726de4e9d641a0f10decf0db5ad,
-        type: 2}
-    - target: {fileID: 379916632, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: secondarySkillSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 41d75c9e63507cc45b39d33390ba0055,
-        type: 2}
-    - target: {fileID: 436751701, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1557139969, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 1442656923}
-    - target: {fileID: 1557139969, guid: c8072b673e3e0744691801952ee27297, type: 3}
-      propertyPath: movementStatType
-      value: 
-      objectReference: {fileID: 11400000, guid: d353b6f80575f1d4395e7d4939d2445e,
-        type: 2}
+      objectReference: {fileID: 1442656930}
     - target: {fileID: 1316861999170624585, guid: c8072b673e3e0744691801952ee27297,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1316861999170624585, guid: c8072b673e3e0744691801952ee27297,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1316861999170624588, guid: c8072b673e3e0744691801952ee27297,
         type: 3}
@@ -6676,7 +6647,7 @@ PrefabInstance:
     - target: {fileID: 6698001483064196462, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 59.000366
+      value: 59.000244
       objectReference: {fileID: 0}
     - target: {fileID: 6931625112558488174, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
