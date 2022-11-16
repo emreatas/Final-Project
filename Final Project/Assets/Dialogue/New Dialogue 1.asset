@@ -16,15 +16,45 @@ MonoBehaviour:
   - uniqueID: Quest line
     text: Give me quest
     children: []
+    position:
+      serializedVersion: 2
+      x: 220
+      y: 20
+      width: 200
+      height: 200
   - uniqueID: Question line
     text: Tell me about yourself.
     children: []
+    position:
+      serializedVersion: 2
+      x: 20
+      y: 20
+      width: 200
+      height: 200
   - uniqueID: 
     text: 
     children: []
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - uniqueID: 
     text: You are in the wrong house fool!
     children: []
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
   - uniqueID: 
     text: 
     children: []
+    position:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
