@@ -32,7 +32,6 @@ namespace InventorySystem
         {
             inventory.OnItemRightClickedEvet += ShowItem;
             equipmentPanel.OnItemRightClickedEvet += ShowItem;
-
         }
 
         private void EquipFromInventory(Item item)

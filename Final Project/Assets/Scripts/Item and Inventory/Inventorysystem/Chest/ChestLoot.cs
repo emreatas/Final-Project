@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using PInventory;
+using UnityEditor;
 using UnityEngine;
 using Utils;
 using Random = System.Random;
@@ -13,6 +14,8 @@ namespace Items
         [SerializeField] private List<ChestItem> randomDropItems = new List<ChestItem>();
         [SerializeField] private int minRandomItemDrop;
         [SerializeField] private int maxRandomItemDrop;
+        
+        private const string path = "Assets/TestSave/testobj.asset";
         public List<Item> GetRandomLoot()
         {
             List<Item> dropItemList = new List<Item>();
@@ -20,7 +23,9 @@ namespace Items
 
             for (int i = 0; i < constantDropItems.Count; i++)
             {
-                dropItemList.Add(Instantiate(constantDropItems[i]));
+                var newItem = Instantiate(constantDropItems[i]);
+                
+                dropItemList.Add(newItem);
             }
 
             float totalChance = 0;

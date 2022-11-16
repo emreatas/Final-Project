@@ -10,8 +10,7 @@ public class EquipmentItem : Item
 {
 
     public EquipmentSlot slot;
-
-
+    
 }
 
 

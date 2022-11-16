@@ -20,7 +20,8 @@ namespace PInventory
     {
 
         public EquipmentType equipmentType;
-
+        
     }
-
+    
+   
 }
