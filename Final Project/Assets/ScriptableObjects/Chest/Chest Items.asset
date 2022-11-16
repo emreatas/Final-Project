@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: Chest Items
   m_EditorClassIdentifier: 
   constantDropItems:
+  - {fileID: 11400000, guid: c7fce05d7b87bfd41b39152e9614fcc3, type: 2}
   - {fileID: 11400000, guid: e85f4f9cae99f2540b11c8027112648e, type: 2}
-  randomDropItems:
-  - item: {fileID: 11400000, guid: e85f4f9cae99f2540b11c8027112648e, type: 2}
-    dropChance: 100
-  - item: {fileID: 11400000, guid: e85f4f9cae99f2540b11c8027112648e, type: 2}
-    dropChance: 100
+  randomDropItems: []
   minRandomItemDrop: 2
   maxRandomItemDrop: 2
