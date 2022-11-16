@@ -7,6 +7,7 @@ namespace PInventory
     [CreateAssetMenu(menuName = "Inventory/Item")]
     public class Item : ScriptableObject
     {
+        public int ID;
         public ItemClass ItemClass;
         public string ItemName;
         public Sprite Icon;
