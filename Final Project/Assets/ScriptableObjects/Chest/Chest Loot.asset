@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73ad1030e97940bc9f232b32eb3b8f78, type: 3}
-  m_Name: Chest Items 1
+  m_Name: Chest Loot
   m_EditorClassIdentifier: 
-  constantDropItems:
-  - {fileID: 11400000, guid: b4017d3d1aee92a4486a558214356b17, type: 2}
-  randomDropItems:
-  - item: {fileID: 11400000, guid: 3470c7da87be6914094ff9459f4267f4, type: 2}
-    dropChance: 0
+  constantDropItems: []
+  randomDropItems: []
   minRandomItemDrop: 0
-  maxRandomItemDrop: 1
+  maxRandomItemDrop: 0
