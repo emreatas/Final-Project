@@ -23,7 +23,7 @@ MonoBehaviour:
     text: 
     children: []
   - uniqueID: 
-    text: 
+    text: You are in the wrong house fool!
     children: []
   - uniqueID: 
     text: 
