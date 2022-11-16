@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad1030e97940bc9f232b32eb3b8f78, type: 3}
   m_Name: Chest Loot
   m_EditorClassIdentifier: 
-  constantDropItems: []
+  constantDropItems:
+  - {fileID: 11400000, guid: c7fce05d7b87bfd41b39152e9614fcc3, type: 2}
   randomDropItems: []
   minRandomItemDrop: 0
   maxRandomItemDrop: 0

@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b834e2b986a1884c8adbdecd84d8775, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  inventory:
-  - Item: {fileID: 8743385133082510702}
-    Count: 3
+  inventory: []
 --- !u!114 &8743385133082510702
 MonoBehaviour:
   m_ObjectHideFlags: 0
