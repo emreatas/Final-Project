@@ -2114,7 +2114,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: ShowEquipedItem
         m_Mode: 1
@@ -2945,7 +2945,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: ShowEquipedItem
         m_Mode: 1
@@ -3690,7 +3690,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: ShowEquipedItem
         m_Mode: 1
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: ShowEquipedItem
         m_Mode: 1
@@ -5002,7 +5002,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: ShowEquipedItem
         m_Mode: 1
@@ -5893,7 +5893,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: ShowEquipedItem
         m_Mode: 1
@@ -9984,7 +9984,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: DeleteItem
         m_Mode: 1
@@ -11470,7 +11470,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: Unequip
         m_Mode: 1
@@ -13874,7 +13874,6 @@ GameObject:
   - component: {fileID: 2688623678484253586}
   - component: {fileID: 1721150425}
   - component: {fileID: 1766508226}
-  - component: {fileID: 839154782}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -14031,30 +14030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5757ae199904094198c12ca090be590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &839154782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2688623678484253587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91d756076d9ff8641b198fb82a9989fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  equipmentPanel: {fileID: 295914587}
-  itemName: {fileID: 7164428750827087774}
-  itemIcon: {fileID: 1203306333853074611}
-  itemTier: {fileID: 2927715589465262582}
-  itemStatTexts:
-  - {fileID: 5125827793621003005}
-  - {fileID: 3094203615922493595}
-  - {fileID: 7481919200295547112}
-  equipButton: {fileID: 7962438765771774546}
-  unEquipButton: {fileID: 1151371126010327204}
-  deleteButton: {fileID: 94710672840272068}
 --- !u!1 &2688623678820338137
 GameObject:
   m_ObjectHideFlags: 0
@@ -20642,6 +20617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7409498656194032646}
+  - component: {fileID: 462544427}
   m_Layer: 5
   m_Name: Show Item
   m_TagString: Untagged
@@ -20676,6 +20652,25 @@ RectTransform:
   m_AnchoredPosition: {x: 15, y: 15}
   m_SizeDelta: {x: 945, y: 285}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &462544427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5733290554033946183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3447e81bd77bd784488f6d08996f9d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: 1203306333853074611}
+  tierImage: {fileID: 2927715589465262582}
+  itemNameText: {fileID: 7164428750827087774}
+  itemStatTextList:
+  - {fileID: 5125827793621003005}
+  - {fileID: 3094203615922493595}
+  - {fileID: 7481919200295547112}
 --- !u!1 &5854432599880842397
 GameObject:
   m_ObjectHideFlags: 0
@@ -25154,7 +25149,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 839154782}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySystem.InventoryManager, Assembly-CSharp
         m_MethodName: EquipItem
         m_Mode: 1
