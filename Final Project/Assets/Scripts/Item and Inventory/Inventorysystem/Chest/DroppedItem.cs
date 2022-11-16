@@ -1,4 +1,5 @@
 using System;
+using ItemManager;
 using ObjectPooling;
 using PInventory;
 using TMPro;
@@ -24,22 +25,20 @@ namespace InventorySystem
 
         public void InitializeItemButton(Item item, Action<Item> onSelectItem)
         {
-            itemImage.sprite = item.Icon;
-            tierImage.sprite = item.TierImage;
-            tierImage.color = item.GetTierColor();
-            itemName.text = item.ItemName;
-
             m_Item = item;
-
+            
+            itemImage.sprite = item.Icon;
+            //tierImage.sprite = item.TierImage;
+            //tierImage.color = item.GetTierColor();
+            itemName.text = item.ItemName;
+            
             OnSelectItem = onSelectItem;
 
-            itemButton.onClick.AddListener(SelectItem);
+            itemButton.onClick.AddListener(InvokeSelectItem);
         }
 
-        private void SelectItem()
+        private void InvokeSelectItem()
         {
-
-
             OnSelectItem?.Invoke(m_Item);
             OnSelectItem = null;
 

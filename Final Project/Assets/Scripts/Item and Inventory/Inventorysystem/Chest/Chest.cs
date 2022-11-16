@@ -5,6 +5,7 @@ using UnityEngine;
 using Interactables;
 using Utils;
 using InventorySystem;
+using ItemManager;
 using PInventory;
 using Player;
 
@@ -12,21 +13,35 @@ namespace Items
 {
     public class Chest : Interactable
     {
-        public List<Item> dropableItem;
-        public Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
-        private bool m_Interacted;
-        private bool CanDestroy => dropableItem.Count <= 0;
-
+        private List<Item> chestLootList;
+        private Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
+        
         private PlayerInventory m_Inventory;
+        
+        private bool m_Interacted;
 
         private GameEvent OnReset;
+        
+        private bool CanDestroy => chestLootList.Count <= 0;
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            if (m_Interacted) { return; }
+            m_Interacted = true;
 
+            AddChestLootToPanel();
+        }
 
-
+        private void OnTriggerExit(Collider other)
+        {
+            ResetItem();
+        }
+        
         public void InitializeChest(ChestLoot chestLoot)
         {
-            dropableItem = chestLoot.GetRandomLoot();
-            if (dropableItem.Count == 0)
+            chestLootList = chestLoot.GetRandomLoot();
+            
+            if (CanDestroy)
             {
                 Destroy(gameObject);
             }
@@ -37,40 +52,24 @@ namespace Items
             m_Inventory = interactionController.PlayerInventory;
             InteractableUI.Instance.EnableInteractPanel();
         }
-
-        private void OnTriggerEnter(Collider other)
+        
+        private void AddChestLootToPanel()
         {
-            if (m_Interacted)
+            for (int i = 0; i < chestLootList.Count; i++)
             {
-                return;
-            }
-
-            m_Interacted = true;
-
-            AddItemsChest();
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            ResetItem();
-        }
-
-        private void AddItemsChest()
-        {
-            for (int i = 0; i < dropableItem.Count; i++)
-            {
-                var itemGO = InteractableUI.Instance.AddToItemPanel(dropableItem[i], OnSelectItem);
-                instansiatedItems[dropableItem[i]] = itemGO;
+                var itemGO = InteractableUI.Instance.AddToItemPanel(chestLootList[i], OnSelectItem);
+                instansiatedItems[chestLootList[i]] = itemGO;
             }
         }
 
         private void ResetItem()
         {
             m_Interacted = false;
-            for (int i = 0; i < dropableItem.Count; i++)
+            
+            for (int i = 0; i < chestLootList.Count; i++)
             {
                 InteractableUI.Instance.RemoveItemFromPanel();
-                Destroy(instansiatedItems[dropableItem[i]]);
+                Destroy(instansiatedItems[chestLootList[i]]);
             }
 
             instansiatedItems.Clear();
@@ -78,24 +77,19 @@ namespace Items
 
         private void OnSelectItem(Item item)
         {
-            SelectItemFromChest(item);
-        }
-
-        private void SelectItemFromChest(Item item)
-        {
             InteractableUI.Instance.RemoveItemFromPanel();
             
             m_Inventory.AddItemToInventory(item);
             
             instansiatedItems.Remove(item);
-            dropableItem.Remove(item);
+            chestLootList.Remove(item);
 
             if (CanDestroy)
             {
                 DestroyChest();
             }
         }
-
+        
         private void DestroyChest()
         {
             Destroy(gameObject);

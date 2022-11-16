@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using InventorySystem;
+using ItemManager;
 using PInventory;
 
 namespace Items
@@ -8,10 +9,10 @@ namespace Items
     [Serializable]
     public class ChestItem
     {
-        [SerializeField] private Item item;
+        [SerializeField] private ItemSettings item;
         [SerializeField] private float dropChance;
 
-        public Item Item => item;
+        public ItemSettings Item => item;
         public float DropChance => dropChance;
     }
 }
