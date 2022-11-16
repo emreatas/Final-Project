@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using CanvasNS;
+//using CanvasNS;
 using Items;
 using Stat;
 using UnityEngine;
@@ -32,7 +32,7 @@ namespace Player
         {
             OnCharacterStatsInitialized.Invoke(characterStats);
         }
-
+        
         private void OnStatUpdated(CharacterAttribute characterAttribute)
         {
             //OnCharacterAttributeUpdated.Invoke(characterAttribute);
@@ -44,28 +44,7 @@ namespace Player
             characterStats.IncreaseBaseValue(statType, 1);
         }
         
-        private void AddListeners()
-        {
-            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
-            {
-                characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.AddListener(OnStatUpdated);
-            }
-            EquipmentManager.OnEquipItem.AddListener(HandleOnEquipItem);
-            EquipmentManager.OnUnequipItem.AddListener(HandleOnUnequipItem);
-            CanvasScript.OnCharacterAttributeIncreased.AddListener(HandleOnCharacterAttributeIncreased);
-        }
-        
-        private void RemoveListeners()
-        {
-            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
-            {
-                characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.RemoveListener(OnStatUpdated);
-            }
-            EquipmentManager.OnEquipItem.RemoveListener(HandleOnEquipItem);
-            EquipmentManager.OnUnequipItem.RemoveListener(HandleOnUnequipItem);
-            CanvasScript.OnCharacterAttributeIncreased.RemoveListener(HandleOnCharacterAttributeIncreased);
-        }
-        
+       /*
         private void HandleOnEquipItem(EquipmentItem equipedItem)
         {
             for (int i = 0; i < equipedItem.stats.Count; i++)
@@ -81,10 +60,33 @@ namespace Player
                 characterStats.RemoveModifier(unequipedItem.stats[i]);
             }
         }
-        
+        */
         public float GetValue(StatType statType)
         {
             return characterStats.GetValue(statType);
         }
+        
+        private void AddListeners()
+        {
+            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
+            {
+                characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.AddListener(OnStatUpdated);
+            }
+            //EquipmentManager.OnEquipItem.AddListener(HandleOnEquipItem);
+            //EquipmentManager.OnUnequipItem.AddListener(HandleOnUnequipItem);
+            //CanvasScript.OnCharacterAttributeIncreased.AddListener(HandleOnCharacterAttributeIncreased);
+        }
+        
+        private void RemoveListeners()
+        {
+            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
+            {
+                characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.RemoveListener(OnStatUpdated);
+            }
+            //EquipmentManager.OnEquipItem.RemoveListener(HandleOnEquipItem);
+            //EquipmentManager.OnUnequipItem.RemoveListener(HandleOnUnequipItem);
+            //CanvasScript.OnCharacterAttributeIncreased.RemoveListener(HandleOnCharacterAttributeIncreased);
+        }
+
     }
 }

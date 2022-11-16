@@ -5,7 +5,7 @@ using System;
 using Items;
 using InventorySystem;
 using PInventory;
-
+/*
 namespace CanvasNS
 {
     public class CanvasManager : MonoBehaviour
@@ -67,4 +67,4 @@ namespace CanvasNS
         }
 
     }
-}
+}*/

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using CanvasNS;
+//using CanvasNS;
 using MEC;
 using Skills;
 using UnityEngine;
@@ -157,12 +157,12 @@ namespace Player
         
         private void AddListeners()
         {
-            CanvasScript.OnSkillChanged.AddListener(HandleOnSkillChanged);
+            //CanvasScript.OnSkillChanged.AddListener(HandleOnSkillChanged);
         }
 
         private void RemoveListeners()
         {
-            CanvasScript.OnSkillChanged.RemoveListener(HandleOnSkillChanged);
+            //CanvasScript.OnSkillChanged.RemoveListener(HandleOnSkillChanged);
         }
     }
 }

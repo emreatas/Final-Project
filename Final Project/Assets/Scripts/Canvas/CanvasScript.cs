@@ -10,7 +10,7 @@ using UnityEngine.UI;
 using Utils;
 using InventorySystem;
 using PInventory;
-
+/*
 namespace CanvasNS
 {
     public class CanvasScript : MonoBehaviour
@@ -302,3 +302,4 @@ public class StatTexts
     public TextMeshProUGUI text;
     public StatType statType;
 }
+*/
