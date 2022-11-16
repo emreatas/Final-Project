@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
+using ItemTier = ItemManager.ItemTier;
 
 namespace PInventory
 {
     [CreateAssetMenu(menuName = "Inventory/Item")]
-    public class Item : ScriptableObject
+    public class oItem : ScriptableObject
     {
         public int ID;
         public ItemClass ItemClass;
@@ -47,21 +49,7 @@ namespace PInventory
     }
 
 
-    public enum ItemClass
-    {
-        All,
-        Mage,
-        Knight
-    }
-    
-    public enum ItemTier
-    {
-        NoTier,
-        Standart,
-        Rare,
-        Epic,
-        Legendary
-    }
-    
+  
+   
    
 }
