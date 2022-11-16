@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a0662f18f3f04d41beceea332c9257e, type: 3}
+  m_Name: Character Stat_Warrior
+  m_EditorClassIdentifier: 
+  _characterAttribute:
+  - {fileID: 11400000, guid: f52d88b8f20a0614aba5c2847df55615, type: 2}
+  - {fileID: 11400000, guid: bc8b2f24f5b496e4cb2f439d671e72d2, type: 2}
+  - {fileID: 11400000, guid: fa39364587aa41548a0a5c83f75df14e, type: 2}
+  - {fileID: 11400000, guid: 35f7c1c3c3c0372429a78749f805123b, type: 2}
+  - {fileID: 11400000, guid: 9fb244d2488519a479eebd72a258a049, type: 2}
+  - {fileID: 11400000, guid: 84f48bdd2b084d5489c9ccd59ea8e873, type: 2}
+  - {fileID: 11400000, guid: 537c74699be961645a1884522b903e14, type: 2}
+  - {fileID: 11400000, guid: 0d86e39e1851078449ab842faca9d72e, type: 2}
+  - {fileID: 11400000, guid: 713c9de7163db6a418e87d123e284761, type: 2}
+  - {fileID: 11400000, guid: 29b5531724447024db7722bcadd04106, type: 2}
+  - {fileID: 11400000, guid: 2ef49a8f86d39b44596479e2f25c0147, type: 2}
