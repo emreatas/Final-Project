@@ -13,20 +13,30 @@ public class InventoryItemSlot : MonoBehaviour
     
     private InventoryItemData m_ItemData;
 
+    private InventoryUI m_InventoryUI;
+
     public InventoryItemData ItemData => m_ItemData;
-
-    private PInventory.InventoryUI m_InventoryUI;
-
+    
     private bool ItemDestroyed => m_ItemData.Count <= 0;
     
-    public void InitSlot(InventoryItemData itemData, PInventory.InventoryUI inventoryUI)
+    public void InitSlot(InventoryItemData itemData, InventoryUI inventoryUI)
     {
         m_ItemData = itemData;
-        icon.sprite = itemData.Item.Icon;
-        //tier.sprite = itemData.Item.;
-
         m_InventoryUI = inventoryUI;
         
+        SetUIElements(itemData);
+    }
+
+    private void SetUIElements(InventoryItemData itemData)
+    {
+        icon.sprite = itemData.Item.Icon;
+        //tier.sprite = itemData.Item.;
+        SetUIItemCount(itemData);
+      
+    }
+
+    private void SetUIItemCount(InventoryItemData itemData)
+    {
         if (itemData.Item.CanBeStacked)
         {
             countText.text = itemData.Count.ToString();
