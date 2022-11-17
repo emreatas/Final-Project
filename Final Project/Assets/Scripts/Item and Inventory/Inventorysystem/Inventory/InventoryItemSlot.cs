@@ -64,6 +64,6 @@ public class InventoryItemSlot : MonoBehaviour
 
     public void _OnItemSelect()
     {
-        m_InventoryUI.ShowItem(m_ItemData.Item);
+        m_InventoryUI.ShowItem(m_ItemData);
     }
 }

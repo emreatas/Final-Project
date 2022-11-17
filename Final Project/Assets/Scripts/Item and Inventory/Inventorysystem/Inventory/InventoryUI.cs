@@ -9,13 +9,12 @@ namespace  PInventory
 {
     public class InventoryUI : MonoBehaviour
     {
-        
         [SerializeField] private InventoryItemSlot inventoryItemSlotPrefab;
         [SerializeField] private Transform inventorySlotParent;
 
         private List<InventoryItemSlot> m_InventoryItemList = new List<InventoryItemSlot>();
 
-        public static GameEvent<Item> OnShowSelectedItem;
+        public static GameEvent<InventoryItemData> OnShowSelectedItem;
         public static GameEvent<Item> OnRemoveItem;
         
         private void Start()
@@ -30,10 +29,8 @@ namespace  PInventory
         
         private void HandleOnInventoryInitialized(List<InventoryItemData> inventoryItemDataList)
         {
-            Debug.Log("Holaa");
             for (int i = 0; i < inventoryItemDataList.Count; i++)
             {
-                Debug.Log("Holaa");
                 InstansiateItemSlot(inventoryItemDataList[i]);
             }
         }
@@ -80,9 +77,9 @@ namespace  PInventory
             OnRemoveItem.Invoke(item);
         }
 
-        public void ShowItem(Item item)
+        public void ShowItem(InventoryItemData itemData)
         {
-            OnShowSelectedItem.Invoke(item);
+            OnShowSelectedItem.Invoke(itemData);
         }
 
         private bool IDsAreEqual(InventoryItemData firstItemData,InventoryItemData secondItemData)
