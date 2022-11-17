@@ -14,7 +14,7 @@ namespace PInventory
         
         public static GameEvent<List<InventoryItemData>> OnInventoryInitialize;
         
-        public static GameEvent<InventoryUIData> OnItemAddedToInventory;
+        public static GameEvent<InventoryItemData> OnItemAddedToInventory;
         public static GameEvent<InventoryItemData> OnItemRemovedFromInventory;
         
         private void OnEnable()
@@ -47,7 +47,6 @@ namespace PInventory
             {
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
             }
-           
         }
     }
 

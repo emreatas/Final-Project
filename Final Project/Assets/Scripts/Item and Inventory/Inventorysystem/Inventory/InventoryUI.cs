@@ -32,43 +32,45 @@ namespace  PInventory
         {
             for (int i = 0; i < inventoryItemDataList.Count; i++)
             {
-                var itemSlot = Instantiate(inventoryItemSlotPrefab, inventorySlotParent);
-                itemSlot.InitSlot(inventoryItemDataList[i], this);
-                
-                m_InventoryItemList.Add(itemSlot);
+                InstansiateItemSlot(inventoryItemDataList[i]);
             }
         }
 
-        private void HandleOnItemAddedToInventory(InventoryUIData inventoryUIData)
+        private void HandleOnItemAddedToInventory(InventoryItemData inventoryUIData)
         {
-            if (inventoryUIData.IsStacked)
+            if (inventoryUIData.Item.CanBeStacked)
             {
                 for (int i = 0; i < m_InventoryItemList.Count; i++)
                 {
-                    if (m_InventoryItemList[i].ItemData.Item.ID == inventoryUIData.itemData.Item.ID)
+                    if (IDsAreEqual(m_InventoryItemList[i].ItemData, inventoryUIData))
                     {
-                        m_InventoryItemList[i].SetItemCount(inventoryUIData.itemData.Count);
+                        m_InventoryItemList[i].SetItemCount(inventoryUIData.Count);
                         return;
                     }
                 }
             }
-         
-            var instansiated = Instantiate(inventoryItemSlotPrefab,inventorySlotParent);
-            instansiated.InitSlot(inventoryUIData.itemData, this);
             
-            m_InventoryItemList.Add(instansiated);
+            InstansiateItemSlot(inventoryUIData);
         }
         
         private void HandleOnItemRemovedFromInventory(InventoryItemData itemData)
         {
             for (int i = 0; i < m_InventoryItemList.Count; i++)
             {
-                if (m_InventoryItemList[i].ItemData == itemData)
+                if (ItemsAreEqual(m_InventoryItemList[i].ItemData, itemData))
                 {
                     m_InventoryItemList[i].SetItemCount(itemData.Count);
                     return;
                 }
             }
+        }
+
+        private void InstansiateItemSlot(InventoryItemData itemData)
+        {
+            var instansiated = Instantiate(inventoryItemSlotPrefab,inventorySlotParent);
+            instansiated.InitSlot(itemData, this);
+            
+            m_InventoryItemList.Add(instansiated);
         }
         
         public void RemoveItem(Item item)
@@ -79,6 +81,16 @@ namespace  PInventory
         public void ShowItem(Item item)
         {
             OnShowSelectedItem.Invoke(item);
+        }
+
+        private bool IDsAreEqual(InventoryItemData firstItemData,InventoryItemData secondItemData)
+        {
+            return firstItemData.Item.ID == secondItemData.Item.ID;
+        }
+
+        private bool ItemsAreEqual(InventoryItemData firstItemData, InventoryItemData secondItemData)
+        {
+            return firstItemData == secondItemData;
         }
         
         private void AddListeners()

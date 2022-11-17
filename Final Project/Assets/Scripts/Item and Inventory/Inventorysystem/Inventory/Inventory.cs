@@ -12,41 +12,35 @@ namespace PInventory
         [SerializeField] private List<InventoryItemData> inventory = new List<InventoryItemData>();
 
         public List<InventoryItemData> GetInventory => inventory;
-
-        public InventoryUIData AddItem(Item item, int amount = 1)
+        
+        public InventoryItemData AddItem(Item item, int amount = 1)
         {
-            if (!item.CanBeStacked)
-            {
-                var inventoryItem = AddItemToInventory(item, amount);
-                return new InventoryUIData(inventoryItem, false);
-            }
-            else
+            if (item.CanBeStacked)
             {
                 for (int i = 0; i < inventory.Count; i++)
                 {
-                    if (inventory[i].Item.ID == item.ID)
+                    if (IDsAreEqual(inventory[i].Item.ID, item.ID))
                     {
-                        inventory[i].AddAmount(amount);
-                        return new InventoryUIData(inventory[i], true) ;
+                        inventory[i].IncreaseItemAmount(amount);
+                        return inventory[i];
                     }
                 }
-                
-                var inventoryItem = AddItemToInventory(item, amount);
-                return new InventoryUIData(inventoryItem, false);
             }
+            
+            return AddItemToInventory(item, amount);
         }
 
         public InventoryItemData RemoveItem(Item item, int amount = 1)
         {
             for (int i = 0; i < inventory.Count; i++)
             {
-                if (inventory[i].Item == item)
+                if (ItemsAreEqual(inventory[i].Item, item))
                 {
-                    inventory[i].RemoveAmount(amount);
+                    inventory[i].DecreaseItemAmount(amount);
                     
                     InventoryItemData data = inventory[i];
                     
-                    if (inventory[i].Count <= 0)
+                    if (RemovedItemCompletely(inventory[i].Count))
                     {
                         RemoveItemFromInventory(inventory[i]);
                     }
@@ -70,5 +64,21 @@ namespace PInventory
         {
             inventory.Remove(item);
         }
+        
+        private bool IDsAreEqual(int firstID, int SecondID)
+        {
+            return firstID == SecondID;
+        }
+
+        private bool ItemsAreEqual(Item firstItem, Item secondItem)
+        {
+            return firstItem == secondItem;
+        }
+
+        private bool RemovedItemCompletely(int count)
+        {
+            return count <= 0;
+        }
+
     }
 }

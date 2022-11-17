@@ -11,6 +11,7 @@ public class InventorySelectedItemUI : MonoBehaviour
 {
     [SerializeField] private Image iconImage;
     [SerializeField] private Image tierImage;
+    
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private List<TextMeshProUGUI> itemStatTextList = new List<TextMeshProUGUI>();
 
@@ -30,6 +31,17 @@ public class InventorySelectedItemUI : MonoBehaviour
     {
         m_SelectedItem = item;
         
+        SetUIElements(item);
+        EnableUIElements();
+    }
+
+    private void ShowUIButtons()
+    {
+        
+    }
+
+    private void SetUIElements(Item item)
+    {
         iconImage.sprite = item.Icon;
         //tierImage.sprite = item.TierImage;
         itemNameText.text = item.ItemName;
@@ -38,13 +50,7 @@ public class InventorySelectedItemUI : MonoBehaviour
         {
             itemStatTextList[i].text = item.stats[i].GetText();
         }
-  */      
-        EnableUIElements();
-    }
-
-    private void ShowUIButtons()
-    {
-        
+  */    
     }
 
     private void EnableUIElements()
@@ -76,11 +82,11 @@ public class InventorySelectedItemUI : MonoBehaviour
     
     private void AddListeners()
     {
-        PInventory.InventoryUI.OnShowSelectedItem.AddListener(HandleOnShowSelectedItem);
+        InventoryUI.OnShowSelectedItem.AddListener(HandleOnShowSelectedItem);
     }
 
     private void RemoveListeners()
     {
-        PInventory.InventoryUI.OnShowSelectedItem.RemoveListener(HandleOnShowSelectedItem);
+        InventoryUI.OnShowSelectedItem.RemoveListener(HandleOnShowSelectedItem);
     }
 }
