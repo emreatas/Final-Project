@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using Stat;
+using UnityEngine;
 
 namespace ItemManager
 {
+    [Serializable]
     public class Item
     {
         public int ID;
@@ -10,6 +14,10 @@ namespace ItemManager
         public bool CanBeStacked;
         public ItemTier ItemTier = ItemTier.NoTier;
         public Color ItemTierColor;
+        
+        public EquipmentSlotTypes equipmentSlotTypes;
+        
+        public List<AttributeModifier> Stats;
 
         public Sprite ItemTierSprite;
         

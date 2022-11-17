@@ -6,13 +6,13 @@ namespace ItemManager
 {
     public class EquipmentItem : Item
     {
-        public EquipmentSlot EquipmentSlot;
+        //public EquipmentSlot EquipmentSlot;
         
-        public List<AttributeModifier> Stats;
+        //public List<AttributeModifier> Stats;
         
-        public EquipmentItem(int id, string itemName, Sprite icon, bool canBeStacked, Sprite itemTierSprite, EquipmentSlot equipmentSlot , List<AttributeModifier> stats) : base(id, itemName, icon,canBeStacked,itemTierSprite)
+        public EquipmentItem(int id, string itemName, Sprite icon, bool canBeStacked, Sprite itemTierSprite, EquipmentSlotTypes equipmentSlotTypes , List<AttributeModifier> stats) : base(id, itemName, icon,canBeStacked,itemTierSprite)
         {
-            EquipmentSlot = equipmentSlot;
+            base.equipmentSlotTypes = equipmentSlotTypes;
             
             ItemTier = ItemTierManager.GetRandomItemTier();
             ItemTierColor = ItemTierManager.GetTierColor(ItemTier);
