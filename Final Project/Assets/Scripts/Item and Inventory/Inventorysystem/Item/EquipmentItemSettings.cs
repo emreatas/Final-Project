@@ -11,7 +11,7 @@ namespace ItemManager
 
         public override Item CreateNewItem()
         {
-            return new EquipmentItem(ID, ItemName, Icon, CanBeStacked, EquipmentSlot, itemStatPool.GetRandomStats());
+            return new EquipmentItem(ID, ItemName, Icon, CanBeStacked, ItemTierSprite,EquipmentSlot, itemStatPool.GetRandomStats());
         }
     }
 }
