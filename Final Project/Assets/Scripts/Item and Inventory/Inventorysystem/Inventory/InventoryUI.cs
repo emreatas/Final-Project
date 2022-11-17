@@ -30,8 +30,10 @@ namespace  PInventory
         
         private void HandleOnInventoryInitialized(List<InventoryItemData> inventoryItemDataList)
         {
+            Debug.Log("Holaa");
             for (int i = 0; i < inventoryItemDataList.Count; i++)
             {
+                Debug.Log("Holaa");
                 InstansiateItemSlot(inventoryItemDataList[i]);
             }
         }

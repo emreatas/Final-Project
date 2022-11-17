@@ -43,7 +43,7 @@ public class InventorySelectedItemUI : MonoBehaviour
     private void SetUIElements(Item item)
     {
         iconImage.sprite = item.Icon;
-        //tierImage.sprite = item.TierImage;
+        tierImage.sprite = item.ItemTierSprite;
         itemNameText.text = item.ItemName;
 /*
         for (int i = 0; i < item.stats.Count; i++)
