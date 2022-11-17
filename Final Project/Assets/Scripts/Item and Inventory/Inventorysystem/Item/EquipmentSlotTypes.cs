@@ -1,6 +1,6 @@
 ﻿namespace ItemManager
 {
-    public enum EquipmentSlot
+    public enum EquipmentSlotTypes
     {
         Head,
         Chest,
