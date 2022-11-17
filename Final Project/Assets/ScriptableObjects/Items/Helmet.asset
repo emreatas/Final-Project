@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab438ca910dc484fa01733470052e6dc, type: 3}
-  m_Name: Armor
+  m_Name: Helmet
   m_EditorClassIdentifier: 
-  ID: 0
-  ItemName: Armor
-  Icon: {fileID: 21300000, guid: 62cda2715ab934b4c859df5de92eec7b, type: 3}
-  CanBeStacked: 0
+  ID: 1
+  ItemName: Helmet
+  Icon: {fileID: 21300000, guid: 011a9b808bdd7493db5b80fcb0bcc68b, type: 3}
+  CanBeStacked: 1
   ItemTierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
   equipmentSlotTypes: 0
   itemStatPool:
@@ -24,21 +24,21 @@ MonoBehaviour:
       attributeType: 0
       minValue: 100
       maxValue: 200
-      statValue: 139.03586
-    - statType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
+      statValue: 118.13873
+    - statType: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
       attributeType: 1
-      minValue: 0.05
-      maxValue: 0.1
-      statValue: 0.09376672
+      minValue: 0.1
+      maxValue: 0.15
+      statValue: 0.11014036
     randomItemStats:
-    - statType: {fileID: 11400000, guid: 93ac9fca18c821e47b56e27f938f1dbe, type: 2}
+    - statType: {fileID: 11400000, guid: d353b6f80575f1d4395e7d4939d2445e, type: 2}
       attributeType: 0
-      minValue: 100
-      maxValue: 200
-      statValue: 0
-    - statType: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
+      minValue: 1
+      maxValue: 5
+      statValue: 2.4296653
+    - statType: {fileID: 11400000, guid: 4bafa684c20ea26419d02ab848f13220, type: 2}
       attributeType: 0
-      minValue: 100
-      maxValue: 200
-      statValue: 0
-    randomStatCount: 0
+      minValue: 1
+      maxValue: 2
+      statValue: 1.9315243
+    randomStatCount: 1
