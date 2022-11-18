@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constantDropItems:
   - {fileID: 11400000, guid: c7fce05d7b87bfd41b39152e9614fcc3, type: 2}
+  - {fileID: 11400000, guid: ba5d02570ee1a1e45ac55d2d6525cff2, type: 2}
   randomDropItems: []
   minRandomItemDrop: 0
   maxRandomItemDrop: 0

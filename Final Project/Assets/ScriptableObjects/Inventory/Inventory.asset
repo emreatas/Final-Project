@@ -18,38 +18,21 @@ MonoBehaviour:
       ItemName: Helmet
       Icon: {fileID: 21300000, guid: 011a9b808bdd7493db5b80fcb0bcc68b, type: 3}
       CanBeStacked: 1
-      ItemTier: 0
-      ItemTierColor: {r: 0, g: 0, b: 0, a: 1}
+      ItemTier: 4
+      ItemTierColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
       equipmentSlotTypes: 0
       Stats:
-      - m_BaseValue: 118.13873
+      - m_BaseValue: 190.61905
         m_BaseAttributeType: 0
         m_TargetStat: {fileID: 11400000, guid: 889d791648bf1ae49a0c9d65d1002ab2, type: 2}
-      - m_BaseValue: 0.11014036
+      - m_BaseValue: 0.124225065
         m_BaseAttributeType: 1
         m_TargetStat: {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
-      - m_BaseValue: 1.9315243
+      - m_BaseValue: 2.6177456
         m_BaseAttributeType: 0
-        m_TargetStat: {fileID: 11400000, guid: 4bafa684c20ea26419d02ab848f13220, type: 2}
+        m_TargetStat: {fileID: 11400000, guid: d353b6f80575f1d4395e7d4939d2445e, type: 2}
       ItemTierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
-    Count: 3
-  - Item:
-      ID: 0
-      ItemName: Armor
-      Icon: {fileID: 21300000, guid: 62cda2715ab934b4c859df5de92eec7b, type: 3}
-      CanBeStacked: 0
-      ItemTier: 0
-      ItemTierColor: {r: 0, g: 0, b: 0, a: 1}
-      equipmentSlotTypes: 0
-      Stats:
-      - m_BaseValue: 111.61106
-        m_BaseAttributeType: 0
-        m_TargetStat: {fileID: 11400000, guid: 889d791648bf1ae49a0c9d65d1002ab2, type: 2}
-      - m_BaseValue: 0.050038535
-        m_BaseAttributeType: 1
-        m_TargetStat: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
-      ItemTierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
-    Count: 1
+    Count: 23
   - Item:
       ID: 0
       ItemName: Armor
@@ -59,11 +42,11 @@ MonoBehaviour:
       ItemTierColor: {r: 0, g: 1, b: 0, a: 1}
       equipmentSlotTypes: 0
       Stats:
-      - m_BaseValue: 179.98077
+      - m_BaseValue: 111.16766
         m_BaseAttributeType: 0
         m_TargetStat: {fileID: 11400000, guid: 889d791648bf1ae49a0c9d65d1002ab2, type: 2}
-      - m_BaseValue: 0.0664472
+      - m_BaseValue: 0.0530945
         m_BaseAttributeType: 1
         m_TargetStat: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
       ItemTierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
-    Count: 1
+    Count: 0
