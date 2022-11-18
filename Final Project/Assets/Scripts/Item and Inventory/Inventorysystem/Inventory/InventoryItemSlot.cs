@@ -4,6 +4,7 @@ using PInventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utils;
 
 public class InventoryItemSlot : MonoBehaviour
 {
@@ -14,10 +15,8 @@ public class InventoryItemSlot : MonoBehaviour
     private InventoryItemData m_ItemData;
 
     private InventoryUI m_InventoryUI;
-
-    public InventoryItemData ItemData => m_ItemData;
     
-    private bool ItemDestroyed => m_ItemData.Count <= 0;
+    public InventoryItemData ItemData => m_ItemData;
     
     public void InitSlot(InventoryItemData itemData, InventoryUI inventoryUI)
     {
@@ -50,18 +49,13 @@ public class InventoryItemSlot : MonoBehaviour
     {
         m_ItemData.Count = count;
         countText.text = m_ItemData.Count.ToString();
-
-        if (ItemDestroyed)
-        {
-            Destroy(gameObject);
-        }
     }
 
-    public void RemoveItem()
+    public void DestroySlot()
     {
-        m_InventoryUI.RemoveItem(m_ItemData.Item);
+        Destroy(gameObject);
     }
-
+    
     public void _OnItemSelect()
     {
         m_InventoryUI.ShowItem(m_ItemData);
