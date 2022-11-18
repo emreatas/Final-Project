@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using CanvasNS;
 using Items;
+using PInventory;
 using Stat;
 using UnityEngine;
 using Utils;
@@ -44,23 +45,23 @@ namespace Player
             characterStats.IncreaseBaseValue(statType, 1);
         }
         
-       /*
-        private void HandleOnEquipItem(EquipmentItem equipedItem)
+       
+        private void HandleOnItemEquipped(InventoryItemData itemData)
         {
-            for (int i = 0; i < equipedItem.stats.Count; i++)
+            for (int i = 0; i < itemData.Item.Stats.Count; i++)
             {
-                characterStats.AddModifier(equipedItem.stats[i]);
+                characterStats.AddModifier(itemData.Item.Stats[i]);
             }
             
         }
-        private void HandleOnUnequipItem(EquipmentItem unequipedItem)
+        private void HandleOnItemUnequipped(InventoryItemData itemData)
         {
-            for (int i = 0; i < unequipedItem.stats.Count; i++)
+            for (int i = 0; i < itemData.Item.Stats.Count; i++)
             {
-                characterStats.RemoveModifier(unequipedItem.stats[i]);
+                characterStats.RemoveModifier(itemData.Item.Stats[i]);
             }
         }
-        */
+        
         public float GetValue(StatType statType)
         {
             return characterStats.GetValue(statType);
@@ -72,8 +73,10 @@ namespace Player
             {
                 characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.AddListener(OnStatUpdated);
             }
-            //EquipmentManager.OnEquipItem.AddListener(HandleOnEquipItem);
-            //EquipmentManager.OnUnequipItem.AddListener(HandleOnUnequipItem);
+            
+            PlayerEquipment.OnItemEquipped.AddListener(HandleOnItemEquipped);
+            PlayerEquipment.OnItemUnequipped.AddListener(HandleOnItemUnequipped);
+
             //CanvasScript.OnCharacterAttributeIncreased.AddListener(HandleOnCharacterAttributeIncreased);
         }
         
@@ -83,8 +86,10 @@ namespace Player
             {
                 characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.RemoveListener(OnStatUpdated);
             }
-            //EquipmentManager.OnEquipItem.RemoveListener(HandleOnEquipItem);
-            //EquipmentManager.OnUnequipItem.RemoveListener(HandleOnUnequipItem);
+            
+            PlayerEquipment.OnItemEquipped.RemoveListener(HandleOnItemEquipped);
+            PlayerEquipment.OnItemUnequipped.RemoveListener(HandleOnItemUnequipped);
+            
             //CanvasScript.OnCharacterAttributeIncreased.RemoveListener(HandleOnCharacterAttributeIncreased);
         }
 
