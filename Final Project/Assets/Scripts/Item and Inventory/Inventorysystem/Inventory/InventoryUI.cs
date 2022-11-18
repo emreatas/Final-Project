@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ItemManager;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils;
 
 namespace  PInventory
@@ -12,10 +13,13 @@ namespace  PInventory
         [SerializeField] private InventoryItemSlot inventoryItemSlotPrefab;
         [SerializeField] private Transform inventorySlotParent;
 
+        [SerializeField] private Transform inventoryPanel;
+        [SerializeField] private Button inventoryOpenButton;
+        [SerializeField] private Button inventoryCloseButton;
+
         private List<InventoryItemSlot> m_InventoryItemList = new List<InventoryItemSlot>();
 
         public static GameEvent<InventoryItemData> OnShowSelectedItem;
-        public static GameEvent<Item> OnRemoveItem;
         
         private void Start()
         {
@@ -58,8 +62,17 @@ namespace  PInventory
             {
                 if (ItemsAreEqual(m_InventoryItemList[i].ItemData, itemData))
                 {
-                    m_InventoryItemList[i].SetItemCount(itemData.Count);
-                    return;
+                    if (itemData.Count <= 0)
+                    {
+                        m_InventoryItemList[i].DestroySlot();
+                        m_InventoryItemList.RemoveAt(i);
+                        return;
+                    }
+                    else
+                    {
+                        m_InventoryItemList[i].SetItemCount(itemData.Count);
+                        return;
+                    }
                 }
             }
         }
@@ -72,14 +85,19 @@ namespace  PInventory
             m_InventoryItemList.Add(instansiated);
         }
         
-        public void RemoveItem(Item item)
-        {
-            OnRemoveItem.Invoke(item);
-        }
-
         public void ShowItem(InventoryItemData itemData)
         {
             OnShowSelectedItem.Invoke(itemData);
+        }
+
+        public void HandleOnOpenInventoryPanel()
+        {
+            inventoryPanel.gameObject.SetActive(true);
+        }
+        
+        private void HandleOnCloseInventoryPanel()
+        {
+            inventoryPanel.gameObject.SetActive(false);
         }
 
         private bool IDsAreEqual(InventoryItemData firstItemData,InventoryItemData secondItemData)
@@ -95,15 +113,22 @@ namespace  PInventory
         private void AddListeners()
         {
             PlayerInventory.OnItemAddedToInventory.AddListener(HandleOnItemAddedToInventory);
-            PlayerInventory.OnInventoryInitialize.AddListener(HandleOnInventoryInitialized);
+            PlayerInventory.OnInitializeInventory.AddListener(HandleOnInventoryInitialized);
             PlayerInventory.OnItemRemovedFromInventory.AddListener(HandleOnItemRemovedFromInventory);
+            
+            inventoryOpenButton.onClick.AddListener(HandleOnOpenInventoryPanel);
+            inventoryCloseButton.onClick.AddListener(HandleOnCloseInventoryPanel);
         }
         
         private void RemoveListeners()
         {
             PlayerInventory.OnItemAddedToInventory.RemoveListener(HandleOnItemAddedToInventory);
-            PlayerInventory.OnInventoryInitialize.RemoveListener(HandleOnInventoryInitialized);
+            PlayerInventory.OnInitializeInventory.RemoveListener(HandleOnInventoryInitialized);
             PlayerInventory.OnItemRemovedFromInventory.RemoveListener(HandleOnItemRemovedFromInventory);
+            
+            inventoryOpenButton.onClick.RemoveListener(HandleOnOpenInventoryPanel);
+            inventoryCloseButton.onClick.RemoveListener(HandleOnCloseInventoryPanel);
+            
         }
     }
 

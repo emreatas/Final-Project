@@ -17,13 +17,14 @@ public class InventorySelectedItemUI : MonoBehaviour
     [SerializeField] private Button unequipButton;
     [SerializeField] private Button deleteButton;
 
-    
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private List<TextMeshProUGUI> itemStatTextList = new List<TextMeshProUGUI>();
 
     private InventoryItemData m_SelectedItemData;
 
     public static GameEvent<InventoryItemData> OnEquipItem;
+    public static GameEvent<InventoryItemData> OnUneqquipItem;
+    public static GameEvent<InventoryItemData> OnDeleteItem;
     
     private void Start()
     {
@@ -34,8 +35,8 @@ public class InventorySelectedItemUI : MonoBehaviour
     {
         RemoveListeners();
     }
-
-    private void HandleOnShowSelectedItem(InventoryItemData itemData)
+    
+    private void HandleOnShowSelectedInventoryItem(InventoryItemData itemData)
     {
         m_SelectedItemData = itemData;
         
@@ -44,30 +45,50 @@ public class InventorySelectedItemUI : MonoBehaviour
 
         ShowInventorySlotButtons();
     }
+    
+    private void HandleOnShowSelectedEquipmentItem(InventoryItemData itemData)
+    {
+        m_SelectedItemData = itemData;
+        
+        SetUIElements(itemData.Item);
+        EnableUIElements();
 
-    public void _OnEquipButtonClick()
+        ShowEquipmentSlotButtons();
+    }
+
+    public void HandleOnEquipButtonClick()
     {
         OnEquipItem.Invoke(m_SelectedItemData);
+        
+        DisableUIElements();
     }
     
-    public void _OnUnequipButtonClick()
+    public void HandleOnUnequipButtonClick()
     {
+        OnUneqquipItem.Invoke(m_SelectedItemData);
         
+        DisableUIElements();
     }
     
-    public void _OnDeleteButtonClick()
+    public void HandleOnDeleteButtonClick()
     {
+        OnDeleteItem.Invoke(m_SelectedItemData);
         
+        DisableUIElements();
     }
     
     private void ShowInventorySlotButtons()
     {
+        unequipButton.gameObject.SetActive(false);
+        
         equipButton.gameObject.SetActive(true);
         deleteButton.gameObject.SetActive(true);
     }
 
     private void ShowEquipmentSlotButtons()
     {
+        equipButton.gameObject.SetActive(false);
+        
         unequipButton.gameObject.SetActive(true);
         deleteButton.gameObject.SetActive(true);
     }
@@ -78,11 +99,9 @@ public class InventorySelectedItemUI : MonoBehaviour
         tierImage.sprite = item.ItemTierSprite;
         itemNameText.text = item.ItemName;
 
-        var equipmentItem = item as EquipmentItem;
-        
-        for (int i = 0; i < equipmentItem.Stats.Count; i++)
+        for (int i = 0; i < item.Stats.Count; i++)
         {
-            itemStatTextList[i].text = equipmentItem.Stats[i].GetText();
+            itemStatTextList[i].text = item.Stats[i].GetText();
         }
     }
 
@@ -119,11 +138,21 @@ public class InventorySelectedItemUI : MonoBehaviour
     
     private void AddListeners()
     {
-        InventoryUI.OnShowSelectedItem.AddListener(HandleOnShowSelectedItem);
+        InventoryUI.OnShowSelectedItem.AddListener(HandleOnShowSelectedInventoryItem);
+        EquipmentUI.OnShowSelectedItem.AddListener(HandleOnShowSelectedEquipmentItem);
+        
+        equipButton.onClick.AddListener(HandleOnEquipButtonClick);
+        unequipButton.onClick.AddListener(HandleOnUnequipButtonClick);
+        deleteButton.onClick.AddListener(HandleOnDeleteButtonClick);
     }
 
     private void RemoveListeners()
     {
-        InventoryUI.OnShowSelectedItem.RemoveListener(HandleOnShowSelectedItem);
+        InventoryUI.OnShowSelectedItem.RemoveListener(HandleOnShowSelectedInventoryItem);
+        EquipmentUI.OnShowSelectedItem.RemoveListener(HandleOnShowSelectedEquipmentItem);
+        
+        equipButton.onClick.RemoveListener(HandleOnEquipButtonClick);
+        unequipButton.onClick.RemoveListener(HandleOnUnequipButtonClick);
+        deleteButton.onClick.RemoveListener(HandleOnDeleteButtonClick);
     }
 }
