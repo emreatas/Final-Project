@@ -15,12 +15,12 @@ namespace PInventory
             Count = count;
         }
 
-        public void IncreaseItemAmount(int amount)
+        public void IncreaseItemAmount(int amount = 1)
         {
             Count += amount;
         }
 
-        public void DecreaseItemAmount(int amount)
+        public void DecreaseItemAmount(int amount = 1)
         {
             Count -= amount;
         }

@@ -11,9 +11,8 @@ namespace PInventory
     public class PlayerInventory : MonoBehaviour
     {
         [SerializeField] private Inventory inventory;
-        [SerializeField] private Equipment equipment;
         
-        public static GameEvent<List<InventoryItemData>> OnInventoryInitialize;
+        public static GameEvent<List<InventoryItemData>> OnInitializeInventory;
         
         public static GameEvent<InventoryItemData> OnItemAddedToInventory;
         public static GameEvent<InventoryItemData> OnItemRemovedFromInventory;
@@ -30,34 +29,46 @@ namespace PInventory
 
         private void Start()
         {
-            OnInventoryInitialize.Invoke(inventory.GetInventory);
+            OnInitializeInventory.Invoke(inventory.GetInventory);
         }
 
-        public void AddItemToInventory(Item item)
+        public void AddItemToInventory(Item item, int amount = 1)
         {
-            var inventoryItemData = inventory.AddItem(item);
+            AddItemToInventory(new InventoryItemData(item, amount));
+        }
+        
+        public void AddItemToInventory(InventoryItemData itemData)
+        {
+            var inventoryItemData = inventory.AddItem(itemData);
             OnItemAddedToInventory.Invoke(inventoryItemData);
         }
-
-        public void RemoveItemFromInventory(Item item)
+        
+        public void RemoveItemFromInventory(InventoryItemData item)
         {
             var invetoryItemData = inventory.RemoveItem(item);
-            
             if (invetoryItemData != null)
             {
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
             }
         }
-
+        
+        private void HandleOnDeleteItem(InventoryItemData itemData)
+        {
+            var invetoryItemData = inventory.RemoveItem(itemData, itemData.Count);
+            if (invetoryItemData != null)
+            {
+                OnItemRemovedFromInventory.Invoke(invetoryItemData);
+            }
+        }
+        
         private void AddListeners()
         {
-            InventoryUI.OnRemoveItem.AddListener(RemoveItemFromInventory);
+            InventorySelectedItemUI.OnDeleteItem.AddListener(HandleOnDeleteItem);
         }
 
         private void RemoveListeners()
         {
-            InventoryUI.OnRemoveItem.RemoveListener(RemoveItemFromInventory);
+            InventorySelectedItemUI.OnDeleteItem.AddListener(HandleOnDeleteItem);
         }
     }
-
 }

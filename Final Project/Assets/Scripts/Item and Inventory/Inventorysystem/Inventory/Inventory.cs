@@ -12,34 +12,40 @@ namespace PInventory
         [SerializeField] private List<InventoryItemData> inventory = new List<InventoryItemData>();
 
         public List<InventoryItemData> GetInventory => inventory;
-        
+
         public InventoryItemData AddItem(Item item, int amount = 1)
         {
-            if (item.CanBeStacked)
+            InventoryItemData itemData = new InventoryItemData(item, amount);
+            return AddItem(itemData);
+        }
+        
+        public InventoryItemData AddItem(InventoryItemData itemData)
+        {
+            if (itemData.Item.CanBeStacked)
             {
                 for (int i = 0; i < inventory.Count; i++)
                 {
-                    if (IDsAreEqual(inventory[i].Item.ID, item.ID))
+                    if (IDsAreEqual(inventory[i].Item.ID, itemData.Item.ID))
                     {
-                        inventory[i].IncreaseItemAmount(amount);
+                        inventory[i].IncreaseItemAmount(itemData.Count);
                         return inventory[i];
                     }
                 }
             }
             
-            return AddItemToInventory(item, amount);
+            return AddItemToInventory(itemData);
         }
 
-        public InventoryItemData RemoveItem(Item item, int amount = 1)
+        public InventoryItemData RemoveItem(InventoryItemData itemData, int amount = 1)
         {
             for (int i = 0; i < inventory.Count; i++)
             {
-                if (ItemsAreEqual(inventory[i].Item, item))
+                if (ItemsAreEqual(inventory[i].Item, itemData.Item))
                 {
                     inventory[i].DecreaseItemAmount(amount);
                     
                     InventoryItemData data = inventory[i];
-                    
+
                     if (RemovedItemCompletely(inventory[i].Count))
                     {
                         RemoveItemFromInventory(inventory[i]);
@@ -52,12 +58,11 @@ namespace PInventory
             return null;
         }
 
-        private InventoryItemData AddItemToInventory(Item item, int amount)
+        private InventoryItemData AddItemToInventory(InventoryItemData itemData)
         {
-            var newItem = new InventoryItemData(item, amount);
-            inventory.Add(newItem);
+            inventory.Add(itemData);
             
-            return newItem;
+            return itemData;
         }
 
         private void RemoveItemFromInventory(InventoryItemData item)
