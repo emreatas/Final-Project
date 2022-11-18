@@ -13,7 +13,7 @@ namespace Player
         [SerializeField] private LayerMask interactableLayerMask;
         [SerializeField] private string interactableTag;
         
-        private List<Interactable> interactables = new List<Interactable>();
+        private List<IInteractable> interactables = new List<IInteractable>();
 
         public PlayerInventory PlayerInventory => playerInventory;
         
@@ -33,7 +33,7 @@ namespace Player
             {
                 InteractableUI.Instance.EnableInteractButton();
 
-                var interactable = other.GetComponent<Interactable>();
+                var interactable = other.GetComponent<IInteractable>();
                 interactables.Add(interactable);
             }
         }
@@ -42,7 +42,7 @@ namespace Player
         {
             if (other.gameObject.CompareTag(interactableTag))
             {
-                var interactable = other.GetComponent<Interactable>();
+                var interactable = other.GetComponent<IInteractable>();
                 interactables.Remove(interactable);
                 
                 if (interactables.Count == 0)

@@ -12,9 +12,12 @@ namespace ItemManager
         public Sprite Icon;
 
         public bool CanBeStacked;
+
+        public Sprite ItemTierSprite;
+        
         public virtual Item CreateNewItem()
         {
-            return new Item(ID, ItemName, Icon, CanBeStacked);
+            return new Item(ID, ItemName, Icon, CanBeStacked, ItemTierSprite);
         }
     }
 }

@@ -11,22 +11,22 @@ using Player;
 
 namespace Items
 {
-    public class Chest : Interactable
+    public class Chest : MonoBehaviour, IInteractable
     {
         private List<Item> chestLootList;
-        private Dictionary<Item, GameObject> instansiatedItems = new Dictionary<Item, GameObject>();
         
         private PlayerInventory m_Inventory;
         
         private bool m_Interacted;
 
-        private GameEvent OnReset;
+        public GameEvent OnRemoveChestFromPanel;
         
         private bool CanDestroy => chestLootList.Count <= 0;
         
         private void OnTriggerEnter(Collider other)
         {
             if (m_Interacted) { return; }
+            
             m_Interacted = true;
 
             AddChestLootToPanel();
@@ -34,7 +34,7 @@ namespace Items
 
         private void OnTriggerExit(Collider other)
         {
-            ResetItem();
+            RemoveChestLootFromPanel();
         }
         
         public void InitializeChest(ChestLoot chestLoot)
@@ -47,7 +47,7 @@ namespace Items
             }
         }
 
-        public override void Interact(PlayerInteractionController interactionController)
+        public void Interact(PlayerInteractionController interactionController)
         {
             m_Inventory = interactionController.PlayerInventory;
             InteractableUI.Instance.EnableInteractPanel();
@@ -57,31 +57,25 @@ namespace Items
         {
             for (int i = 0; i < chestLootList.Count; i++)
             {
-                var itemGO = InteractableUI.Instance.AddToItemPanel(chestLootList[i], OnSelectItem);
-                instansiatedItems[chestLootList[i]] = itemGO;
+               InteractableUI.Instance.AddToItemPanel(chestLootList[i],this);
             }
         }
 
-        private void ResetItem()
+        private void RemoveChestLootFromPanel()
         {
             m_Interacted = false;
             
-            for (int i = 0; i < chestLootList.Count; i++)
-            {
-                InteractableUI.Instance.RemoveItemFromPanel();
-                Destroy(instansiatedItems[chestLootList[i]]);
-            }
-
-            instansiatedItems.Clear();
+            InteractableUI.Instance.DecreaseUIActiveCount(chestLootList.Count);
+            
+            OnRemoveChestFromPanel.Invoke();
         }
-
-        private void OnSelectItem(Item item)
+        
+        public void OnSelectItem(Item item)
         {
-            InteractableUI.Instance.RemoveItemFromPanel();
+            InteractableUI.Instance.DecreaseUIActiveCount();
             
             m_Inventory.AddItemToInventory(item);
             
-            instansiatedItems.Remove(item);
             chestLootList.Remove(item);
 
             if (CanDestroy)

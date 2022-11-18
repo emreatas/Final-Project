@@ -6,30 +6,18 @@ namespace ItemManager
 {
     public class EquipmentItem : Item
     {
-        public EquipmentSlot EquipmentSlot;
-        public ItemTier ItemTier;
-        public Color ItemTierColor;
+        //public EquipmentSlot EquipmentSlot;
         
-        public List<AttributeModifier> Stats;
+        //public List<AttributeModifier> Stats;
         
-        public EquipmentItem(int id, string itemName, Sprite icon, bool canBeStacked, EquipmentSlot equipmentSlot , List<AttributeModifier> stats) : base(id, itemName, icon,canBeStacked)
+        public EquipmentItem(int id, string itemName, Sprite icon, bool canBeStacked, Sprite itemTierSprite, EquipmentSlotTypes equipmentSlotTypes , List<AttributeModifier> stats) : base(id, itemName, icon,canBeStacked,itemTierSprite)
         {
-            EquipmentSlot = equipmentSlot;
+            base.equipmentSlotTypes = equipmentSlotTypes;
             
             ItemTier = ItemTierManager.GetRandomItemTier();
             ItemTierColor = ItemTierManager.GetTierColor(ItemTier);
 
             Stats = stats;
         }
-    }
-    
-    public enum EquipmentSlot
-    {
-        Head,
-        Chest,
-        Shoes,
-        Weapon,
-        Accessory,
-        Wings
     }
 }

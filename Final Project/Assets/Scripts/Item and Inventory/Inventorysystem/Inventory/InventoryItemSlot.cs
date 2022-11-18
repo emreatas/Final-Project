@@ -30,9 +30,8 @@ public class InventoryItemSlot : MonoBehaviour
     private void SetUIElements(InventoryItemData itemData)
     {
         icon.sprite = itemData.Item.Icon;
-        //tier.sprite = itemData.Item.;
+        tier.sprite = itemData.Item.ItemTierSprite;
         SetUIItemCount(itemData);
-      
     }
 
     private void SetUIItemCount(InventoryItemData itemData)
@@ -65,6 +64,6 @@ public class InventoryItemSlot : MonoBehaviour
 
     public void _OnItemSelect()
     {
-        m_InventoryUI.ShowItem(m_ItemData.Item);
+        m_InventoryUI.ShowItem(m_ItemData);
     }
 }

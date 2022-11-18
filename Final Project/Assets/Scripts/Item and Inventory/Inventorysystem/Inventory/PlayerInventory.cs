@@ -11,6 +11,7 @@ namespace PInventory
     public class PlayerInventory : MonoBehaviour
     {
         [SerializeField] private Inventory inventory;
+        [SerializeField] private Equipment equipment;
         
         public static GameEvent<List<InventoryItemData>> OnInventoryInitialize;
         
@@ -19,13 +20,12 @@ namespace PInventory
         
         private void OnEnable()
         {
-            InventoryUI.OnRemoveItem.AddListener(RemoveItemFromInventory);
+            AddListeners();
         }
-        
 
         private void OnDisable()
         {
-            InventoryUI.OnRemoveItem.RemoveListener(RemoveItemFromInventory);
+            RemoveListeners();
         }
 
         private void Start()
@@ -47,6 +47,16 @@ namespace PInventory
             {
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
             }
+        }
+
+        private void AddListeners()
+        {
+            InventoryUI.OnRemoveItem.AddListener(RemoveItemFromInventory);
+        }
+
+        private void RemoveListeners()
+        {
+            InventoryUI.OnRemoveItem.RemoveListener(RemoveItemFromInventory);
         }
     }
 

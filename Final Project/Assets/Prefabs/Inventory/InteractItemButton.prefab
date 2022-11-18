@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 847032074863047624}
   - component: {fileID: 7672466674015128859}
   m_Layer: 5
-  m_Name: DroppedItemButton
+  m_Name: InteractItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 847032074863047625}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7672466674015128859}
+        m_TargetAssemblyTypeName: InventorySystem.InteractItemButton, Assembly-CSharp
+        m_MethodName: _OnSelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7672466674015128859
 MonoBehaviour:
   m_ObjectHideFlags: 0

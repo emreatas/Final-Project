@@ -17,11 +17,9 @@ namespace Interactables
 
         [SerializeField] private Transform itemButtonParent;
 
-        [SerializeField] private DroppedItem itemButtonPrefab;
-
-        public static Action<Item> OnItemAddedToInventory;
-
-        private int activeItemCount = 0;
+        [SerializeField] private InteractItemButton itemButtonButtonPrefab;
+        
+        private int m_ActiveItemCount = 0;
 
         public void EnableInteractButton()
         {
@@ -35,7 +33,7 @@ namespace Interactables
 
         public void EnableInteractPanel()
         {
-            if (activeItemCount > 0)
+            if (m_ActiveItemCount > 0)
             {
                 interactItemPanel.SetActive(true);
             }
@@ -46,22 +44,24 @@ namespace Interactables
             interactItemPanel.SetActive(false);
         }
 
-        public GameObject AddToItemPanel(Item item, Action<Item> onSelectItem)
+        public void AddToItemPanel(Item item, Chest connectedChest)
         {
-            activeItemCount++;
+            m_ActiveItemCount++;
 
-            var uiItem = Instantiate(itemButtonPrefab, itemButtonParent);
-            uiItem.InitializeItemButton(item, onSelectItem);
-            OnItemAddedToInventory?.Invoke(item);
-
-            return uiItem.gameObject;
+            InstansiateItemButton(item, connectedChest);
         }
-
-        public void RemoveItemFromPanel()
+        
+        private void InstansiateItemButton(Item item, Chest connectedChest)
         {
-            activeItemCount--;
+            var uiItem = Instantiate(itemButtonButtonPrefab, itemButtonParent);
+            uiItem.InitializeItemButton(item, connectedChest);
+        }
+        
+        public void DecreaseUIActiveCount(int amount = 1)
+        {
+            m_ActiveItemCount -= amount;
 
-            if (activeItemCount <= 0)
+            if (m_ActiveItemCount <= 0)
             {
                 DisableInteractPanel();
             }
