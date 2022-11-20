@@ -16,15 +16,48 @@ MonoBehaviour:
   - uniqueID: Quest Line
     text: Sure, here's a quest for you. Kill 10 orcs
     children: []
+    rect:
+      serializedVersion: 2
+      x: 767
+      y: 81
+      width: 200
+      height: 100
   - uniqueID: Vulgar Line
     text: Get lost!
-    children: []
-  - uniqueID: Skeptical Line
+    children:
+    - b
+    - c
+    - d
+    rect:
+      serializedVersion: 2
+      x: 9
+      y: 44
+      width: 200
+      height: 200
+  - uniqueID: b
     text: Who are ya?
     children: []
-  - uniqueID: 
-    text: 
+    rect:
+      serializedVersion: 2
+      x: 414
+      y: 223
+      width: 200
+      height: 100
+  - uniqueID: c
+    text: Why are u Here?
     children: []
-  - uniqueID: 
-    text: 
+    rect:
+      serializedVersion: 2
+      x: 442
+      y: 7
+      width: 200
+      height: 100
+  - uniqueID: d
+    text: 123123123
     children: []
+    rect:
+      serializedVersion: 2
+      x: 394
+      y: 394
+      width: 200
+      height: 100
