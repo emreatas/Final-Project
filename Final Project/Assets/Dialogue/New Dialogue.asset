@@ -13,51 +13,32 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: Quest Line
-    text: Sure, here's a quest for you. Kill 10 orcs
-    children: []
+  - uniqueID: a
+    text: Quest line
+    children:
+    - c
+    - b
     rect:
       serializedVersion: 2
-      x: 767
-      y: 81
+      x: 34
+      y: 104
       width: 200
       height: 100
-  - uniqueID: Vulgar Line
-    text: Get lost!
-    children:
-    - b
-    - c
-    - d
-    rect:
-      serializedVersion: 2
-      x: 9
-      y: 44
-      width: 200
-      height: 200
   - uniqueID: b
-    text: Who are ya?
+    text: Reward line
     children: []
     rect:
       serializedVersion: 2
-      x: 414
-      y: 223
+      x: 389
+      y: 28
       width: 200
       height: 100
   - uniqueID: c
-    text: Why are u Here?
+    text: Failed mission line
     children: []
     rect:
       serializedVersion: 2
-      x: 442
-      y: 7
-      width: 200
-      height: 100
-  - uniqueID: d
-    text: 123123123
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 394
-      y: 394
+      x: 391
+      y: 201
       width: 200
       height: 100
