@@ -109,17 +109,17 @@ namespace RPG.Dialogue.Editor
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField("Node:",EditorStyles.whiteLabel);
 
-            string newText = EditorGUILayout.TextField(node.text);
             string newUniqueID = EditorGUILayout.TextField(node.uniqueID);
+            string newText = EditorGUILayout.TextField(node.text);
 
 
             if (EditorGUI.EndChangeCheck())
             {
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
 
-                node.text = newText;
-
                 node.uniqueID = newUniqueID;
+
+                node.text = newText;
             }
             
             GUILayout.EndArea();
