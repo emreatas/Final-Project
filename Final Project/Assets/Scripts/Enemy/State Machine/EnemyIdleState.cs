@@ -1,13 +1,18 @@
 using UnityEngine;
 
-public class EnemyIdleState : EnemyBaseState
+namespace Enemy
 {
-    public override void EnterState(EnemyStateManager enemy) {
-        enemy.getNavMeshAgent().isStopped = true;
-    }
-    public override void UpdateState(EnemyStateManager enemy) {
-        if(enemy.getDistanceToPlayer() <= enemy.enemyStats.sightRange) {
-            enemy.SwitchState(enemy.MoveState);
+    public class EnemyIdleState : EnemyBaseState
+    {
+        public override void EnterState(EnemyStateManager enemy) {
+            enemy.getNavMeshAgent().isStopped = true;
+            enemy.anim.SetBool("isIdle" , true);
+            Debug.Log("Idle State!");
+        }
+        public override void UpdateState(EnemyStateManager enemy) {
+            if(enemy.getDistanceToPlayer() <= enemy.enemyStats.sightRange) {
+                enemy.SwitchState(enemy.MoveState);
+            }
         }
     }
 }

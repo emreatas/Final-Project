@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Billboard : MonoBehaviour
+namespace Enemy
 {
-    public Transform cam;
-    void LateUpdate() {
-        transform.LookAt(cam.position + cam.forward);
+    public class Billboard : MonoBehaviour
+    {
+        public Transform cam;
+        void LateUpdate() {
+            transform.LookAt(cam.position + cam.forward);
+        }
     }
 }

@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public abstract class EnemyBaseState
+namespace Enemy
 {
-    public abstract void EnterState(EnemyStateManager enemy);
-    public abstract void UpdateState(EnemyStateManager enemy);
+    public abstract class EnemyBaseState
+    {
+        public abstract void EnterState(EnemyStateManager enemy);
+        public abstract void UpdateState(EnemyStateManager enemy);
+    }
 }
