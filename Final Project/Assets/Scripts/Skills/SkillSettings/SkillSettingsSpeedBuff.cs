@@ -21,11 +21,7 @@ namespace Skills
             skillIndicator.InitIndicatorSettings(SkillIndicatorSettings);
             skillIndicator.UpdateIndicatorDirection(shootDirection);
         }
-
-        public override void OnFinishedSkillAnimation()
-        {
-            OnFinishedSkill.Invoke();
-        }
+        
     }
 
 }

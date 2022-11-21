@@ -42,7 +42,6 @@ namespace Skills
 
         public override void OnFinishedSkillAnimation()
         {
-            OnFinishedSkill.Invoke();
             m_Target = null;
         }
         

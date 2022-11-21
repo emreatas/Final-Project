@@ -27,11 +27,6 @@ namespace Skills
             skillIndicator.InitIndicatorSettings(SkillIndicatorSettings);
             skillIndicator.UpdateIndicatorDirection(shootDirection);
         }
-
-        public override void OnFinishedSkillAnimation()
-        {
-            OnFinishedSkill.Invoke();
-        }
         
         private IEnumerator<float> _InstansiateMeteors(Vector3[] meteorSpawnPositions)
         {
