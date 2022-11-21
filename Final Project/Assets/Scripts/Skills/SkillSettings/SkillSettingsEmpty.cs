@@ -10,11 +10,7 @@ public class SkillSettingsEmpty : AbstractSkillSettings
  
     public override void CastSkill()
     {
-        Instantiate(skill, m_Player);
-    }
-
-    public override void OnFinishedSkillAnimation()
-    {
-        OnFinishedSkill.Invoke();
+        var instansiated = Instantiate(prefab, m_Player);
+        instansiated.FireProjectile();
     }
 }
