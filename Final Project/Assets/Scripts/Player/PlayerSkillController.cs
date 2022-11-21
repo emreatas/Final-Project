@@ -28,6 +28,8 @@ namespace Player
         public AbstractSkillSettings PrimarySkillSettings => primarySkillSettings;
         public AbstractSkillSettings SecondarySkillSettings => secondarySkillSettings;
 
+        private AbstractSkillSettings m_ActiveSkill;
+        
         private void OnEnable()
         {
             AddListeners();
@@ -65,6 +67,8 @@ namespace Player
         #region PrimarySkill
         public void StartPrimarySkill(Vector3 skillDirection)
         {
+            m_ActiveSkill = primarySkillSettings;
+            
             skillIndicator.DisableSkillIndicator();
             primarySkillSettings.SetShootDirection(skillDirection);
             primarySkillSettings.StartSkill();
@@ -75,20 +79,13 @@ namespace Player
             primarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
         }
         
-        public void CastPrimarySkill()
-        {
-            primarySkillSettings.CastSkill();
-        }
-        
-        public void OnFinishedPrimarySkill()
-        {
-            primarySkillSettings.OnFinishedSkillAnimation();
-        }
         #endregion
 
         #region SecondarySkill
         public void StartSecondarySkill(Vector3 skillDirection)
         {
+            m_ActiveSkill = secondarySkillSettings;
+            
             skillIndicator.DisableSkillIndicator();
             secondarySkillSettings.SetShootDirection(skillDirection);
             secondarySkillSettings.StartSkill();
@@ -99,17 +96,18 @@ namespace Player
             secondarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
         }
         
-        public void CastSecondarySkill()
-        {
-            secondarySkillSettings.CastSkill();
-        }
-        
-        public void OnFinishedSecondarySkill()
-        {
-            secondarySkillSettings.OnFinishedSkillAnimation();
-        }
         #endregion
 
+        public void CastActiveSkill()
+        {
+            m_ActiveSkill.CastSkill();
+        }
+
+        public void OnFinishedActiveSkill()
+        {
+            m_ActiveSkill.OnFinishedSkillAnimation();
+        }
+        
         private void InitializeSkills()
         {
             InitializeSkill(basicSkillSettings);
