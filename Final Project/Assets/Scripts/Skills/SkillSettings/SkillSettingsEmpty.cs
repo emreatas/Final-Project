@@ -13,4 +13,9 @@ public class SkillSettingsEmpty : AbstractSkillSettings
         var instansiated = Instantiate(prefab, m_Player);
         instansiated.FireProjectile();
     }
+
+    public override void OnFinishedSkillAnimation()
+    {
+       
+    }
 }

@@ -17,6 +17,6 @@ MonoBehaviour:
   SkillIcon: {fileID: 0}
   SkillDescription: 
   AnimationName: Mage01
-  prefab: {fileID: 0}
+  prefab: {fileID: 2860182691716047402, guid: 9bc2a83d0081ec043a4b3b1dfb7316b7, type: 3}
   SkillIndicatorSettings: {fileID: 0}
-  skill: {fileID: 11076218796191067, guid: b61262e264ed35a4bb6d760102814c8e, type: 3}
+  skill: {fileID: 5246197468514882109, guid: 72b87fa71689c124292b95c29a63751e, type: 3}
