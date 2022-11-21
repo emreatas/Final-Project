@@ -17,14 +17,15 @@ namespace Player
     public class PlayerSkillController : MonoBehaviour
     {
         [SerializeField] private PlayerMovementController movementController;
+        [SerializeField] private PlayerAnimationController animationController;
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private DecalSkillIndicator skillIndicator;
 
-        [SerializeField] private AbstractSkillSettings basicSkillSettings;
+        [SerializeField] private AbstractAttackSettings basicSkillSettings;
         [SerializeField] private AbstractSkillSettings primarySkillSettings;
         [SerializeField] private AbstractSkillSettings secondarySkillSettings;
         
-        public AbstractSkillSettings BasicSkillSettings => basicSkillSettings;
+        public AbstractAttackSettings BasicSkillSettings => basicSkillSettings;
         public AbstractSkillSettings PrimarySkillSettings => primarySkillSettings;
         public AbstractSkillSettings SecondarySkillSettings => secondarySkillSettings;
 
@@ -49,6 +50,7 @@ namespace Player
         
         public void StartBasicSkill()
         {
+            basicSkillSettings.SetCombo(animationController.GetComboCount);
             basicSkillSettings.StartSkill();
         }
         
@@ -65,6 +67,12 @@ namespace Player
         #endregion
 
         #region PrimarySkill
+        
+        public void PerformPrimarySkill(Vector3 skillVector)
+        {
+            primarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
+        }
+        
         public void StartPrimarySkill(Vector3 skillDirection)
         {
             m_ActiveSkill = primarySkillSettings;
@@ -73,15 +81,16 @@ namespace Player
             primarySkillSettings.SetShootDirection(skillDirection);
             primarySkillSettings.StartSkill();
         }
-
-        public void PerformPrimarySkill(Vector3 skillVector)
-        {
-            primarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
-        }
         
         #endregion
 
         #region SecondarySkill
+        
+        public void PerformSecondarySkill(Vector3 skillVector)
+        {
+            secondarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
+        }
+
         public void StartSecondarySkill(Vector3 skillDirection)
         {
             m_ActiveSkill = secondarySkillSettings;
@@ -89,11 +98,6 @@ namespace Player
             skillIndicator.DisableSkillIndicator();
             secondarySkillSettings.SetShootDirection(skillDirection);
             secondarySkillSettings.StartSkill();
-        }
-
-        public void PerformSecondarySkill(Vector3 skillVector)
-        {
-            secondarySkillSettings.ShowSkillIndicator(skillIndicator, skillVector);
         }
         
         #endregion
@@ -133,13 +137,7 @@ namespace Player
         
         private void HandleOnSkillChanged(AbstractSkillSettings newSkillSettings)
         {
-            if (newSkillSettings.skillType == PlayerSkillType.Basic)
-            {
-                ResetSkill(basicSkillSettings);
-                basicSkillSettings = newSkillSettings;
-                InitializeSkill(basicSkillSettings);
-            }
-            else if(newSkillSettings.skillType == PlayerSkillType.Primary)
+            if(newSkillSettings.skillType == PlayerSkillType.Primary)
             {
                 ResetSkill(primarySkillSettings);
                 primarySkillSettings = newSkillSettings;    

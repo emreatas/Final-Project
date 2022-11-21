@@ -28,6 +28,8 @@ namespace Player
         private const string SPEED = "Speed";
         private const string IDLE = "Idle";
         private const string COMBO = "Combo";
+
+        public int GetComboCount => animator.GetInteger(m_ComboCount);
         
         public GameEvent OnAttackAnimFinished;
         
