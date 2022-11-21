@@ -339,7 +339,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MageAttack01_Combo2
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6200770613035394534}
@@ -354,7 +354,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f1ccb159787f637448eb0d5fa1aaf5d5, type: 2}
+  m_Motion: {fileID: 7400000, guid: 097fb0c8c3366cf49ae61a5e29eaac77, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -382,8 +382,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 251c391f6ca67324ab63220f7e3f9669,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: 6281b8ec01e111046805b28ac06a8914, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -605,9 +604,9 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1428b1a713cc33540809c48461c32280, type: 2}
+  m_Motion: {fileID: 7400000, guid: d19f2bd10165b0f4799eb719a2d7104a, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
+  m_SpeedParameter: Speed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -1171,8 +1170,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 72cdd41865b0be04ea4d11ab5729a72a,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: 274633a114931314794200ff3aa953c5, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1180,8 +1178,7 @@ BlendTree:
     m_DirectBlendParameter: Speed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: b447f0fefd4ba2447afe4501cf06fa90,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: 309d069a8a835d5468e44537b04c4e3d, type: 2}
     m_Threshold: 0.15
     m_Position: {x: 0, y: 0}
     m_TimeScale: 0.75
@@ -1189,8 +1186,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: 53b7f152ac216704ab289cbc91c72789,
-      type: 3}
+    m_Motion: {fileID: 7400000, guid: c9e6955516e741449bbb488b2188f17d, type: 2}
     m_Threshold: 0.85
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -1226,7 +1222,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 23b4e31e2a5a0ce498f7bf93f7cc0c78, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6281b8ec01e111046805b28ac06a8914, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1296,7 +1292,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MageAttack01_Combo3
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 508664564282072662}
@@ -1311,7 +1307,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1428b1a713cc33540809c48461c32280, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3ba9a7587849c6d47a455896e4eed34e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1417,7 +1413,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2f6875220a52d8d47864fe462ca6a149, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7a1ce5d06e999ae47939cd3ce9929adb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1462,7 +1458,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 8476182624532155559}
-    m_Position: {x: 360, y: 120, z: 0}
+    m_Position: {x: 360, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2780068136046280074}
     m_Position: {x: 360, y: 250, z: 0}
@@ -2013,8 +2009,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 72cdd41865b0be04ea4d11ab5729a72a,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: 274633a114931314794200ff3aa953c5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -2056,7 +2051,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MageAttack01
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8781240620906882622}
@@ -2070,7 +2065,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2f6875220a52d8d47864fe462ca6a149, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7a1ce5d06e999ae47939cd3ce9929adb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
