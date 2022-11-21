@@ -33,14 +33,14 @@ namespace Skills
 
         protected Action<Vector3> m_LerpPlayerRotationAction;
         
-        public GameEvent OnFinishedSkill;
+        //public GameEvent OnFinishedSkill;
         
         public void InitializeSkill(CharacterStat characterStat, Transform playerTransform, Action<Vector3> lerpPlayerRotationAction)
         {
             m_CharacterStat = characterStat;
             m_Player = playerTransform;
             m_LerpPlayerRotationAction = lerpPlayerRotationAction;
-        }
+        } 
         public void ResetParams()
         {
             m_Player = null;
@@ -56,6 +56,6 @@ namespace Skills
         public virtual void StartSkill(){}
         public abstract void CastSkill();
         public virtual void ShowSkillIndicator(DecalSkillIndicator skillIndicator, Vector3 shootDirection){}
-        public abstract void OnFinishedSkillAnimation();
+        public virtual void OnFinishedSkillAnimation(){}
     }
 }

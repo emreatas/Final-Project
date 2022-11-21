@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeefd59aafec3db41966d29a36b4e99d, type: 3}
+  m_Name: New Skill Settings_Warrior_Basic
+  m_EditorClassIdentifier: 
+  SkillName: 
+  skillType: 0
+  SkillIcon: {fileID: 0}
+  SkillDescription: 
+  AnimationName: Mage01
+  prefab: {fileID: 0}
+  SkillIndicatorSettings: {fileID: 0}
+  Combo: 2
+  firstSlashParticle: {fileID: 11076218796191067, guid: b61262e264ed35a4bb6d760102814c8e,
+    type: 3}
+  secondSlashParticle: {fileID: 11076218796191067, guid: b61262e264ed35a4bb6d760102814c8e,
+    type: 3}
+  thirdSlashParticle: {fileID: 7841577349658333411, guid: 58897109bc7e6fc4694899a9d00d4985,
+    type: 3}
