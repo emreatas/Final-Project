@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Prototype/Prototype-Start.unity
-    guid: 7581d9ed79bf82e4aae9affd587c8e69
-  - enabled: 1
-    path: Assets/Scenes/Prototype/Prototype_InGameSerkan.unity
-    guid: 5bdaed19c9698d948ba522d6b0d86d6e
+    path: Assets/Scenes/EmreScene.unity
+    guid: 51d22d0e125299547a7a99d7f6a4e44b
   m_configObjects: {}

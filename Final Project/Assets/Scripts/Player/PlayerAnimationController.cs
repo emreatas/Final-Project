@@ -30,7 +30,6 @@ namespace Player
         private const string COMBO = "Combo";
         
         public GameEvent OnAttackAnimFinished;
-        public GameEvent OnSecondaryAttackAnimFinished;
         
         private CoroutineHandle m_ComboCoroutine;
 
@@ -81,33 +80,29 @@ namespace Player
             animator.SetTrigger(PRIMARYATTACK + skillController.PrimarySkillSettings.AnimationName);
         }
 
-        public void StopPrimaryAttackAnimation()
-        {
-            animator.SetBool(m_PrimaryAttack, false);
-        }
-        
         public void PlaySecondaryAttackAnimation()
         {
             animator.SetBool(m_SecondaryAttack, true);
             animator.SetTrigger(SECONDARYATTACK + skillController.SecondarySkillSettings.AnimationName);
         }
 
-        public void StopSecondaryAttackAnimation()
+        public void StopAttackAnimations()
         {
+            animator.SetBool(m_PrimaryAttack, false);
             animator.SetBool(m_SecondaryAttack, false);
         }
-        
-        public void _OnSecondaryAttackAnimationFinished()
+
+        public void _OnActiveSkillAnimationFinished()
         {
-            OnSecondaryAttackAnimFinished.Invoke();
-            skillController.OnFinishedSecondarySkill();
+            OnAttackAnimFinished.Invoke();
+            skillController.OnFinishedActiveSkill();
         }
 
-        public void _OnSecondarySkillCast()
+        public void _OnActiveSkillCast()
         {
-            skillController.CastSecondarySkill();
+            skillController.CastActiveSkill();
         }
-        
+
         public void _OnAttackAnimationFinished()
         {
             OnAttackAnimFinished.Invoke();
@@ -120,17 +115,6 @@ namespace Player
         public void _OnBasicAttackCast()
         {
             skillController.CastBasicSkill();
-        }
-
-        public void _OnPrimaryAttackAnimationFinished()
-        {
-            OnAttackAnimFinished.Invoke();
-            skillController.OnFinishedPrimarySkill();
-        }
-
-        public void _OnPrimarySkillCast()
-        {
-            skillController.CastPrimarySkill();
         }
 
         private void SetCombo()
