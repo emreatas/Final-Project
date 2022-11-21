@@ -19,3 +19,4 @@ MonoBehaviour:
   AnimationName: Mage01
   prefab: {fileID: 0}
   SkillIndicatorSettings: {fileID: 0}
+  skill: {fileID: 11076218796191067, guid: b61262e264ed35a4bb6d760102814c8e, type: 3}
