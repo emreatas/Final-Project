@@ -34,7 +34,9 @@ namespace Player
         private bool m_IsTouchingPrimarySkill, m_IsTouchingSecondarySkill;
         
         private Vector2 m_MovementVector;
-        private Vector2 m_PrimarySkillVector, m_SecondarySkillVector;
+        
+        private Vector2 m_PrimarySkillVector = Vector2.zero, 
+                        m_SecondarySkillVector = Vector2.zero;
         
         private void Update()
         {
@@ -107,9 +109,11 @@ namespace Player
         public void OnPrimarySkill(InputAction.CallbackContext context)
         {
             m_PrimarySkillVector = context.ReadValue<Vector2>();
+            Debug.Log("Skill vector " + m_PrimarySkillVector);
             
             if (context.started)
             {
+                m_PrimarySkillVector = Vector2.zero;
                 m_IsTouchingPrimarySkill = true;
                 OnPrimarySkillStarted.Invoke(m_PrimarySkillVector);
             }
