@@ -36,7 +36,9 @@ public class NetworkInputReceiver : NetworkBehaviour
         {
             if (inputData.MovementInput != Vector2.zero)
             {
-                OnMovePerformed.Invoke(inputData.MovementInput);
+                Vector3 movementVector = new Vector3(inputData.MovementInput.x, 0, inputData.MovementInput.y);
+                
+                OnMovePerformed.Invoke(movementVector);
             }
             
             if (inputData.MovementStarted)
@@ -50,5 +52,4 @@ public class NetworkInputReceiver : NetworkBehaviour
             }
         }
     }
-    
 }

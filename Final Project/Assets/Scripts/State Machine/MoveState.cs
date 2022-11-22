@@ -24,8 +24,7 @@ namespace StateMachine
         
         private void HandleOnMovePerformed(Vector3 movementVector)
         {
-            
-            //MovePlayer(movementVector);
+            MovePlayer(movementVector);
             RotatePlayer(movementVector);
             // Debug.Log(movementVector.magnitude);
             m_StateMachine.AnimationController.SetSpeed(movementVector.magnitude);
