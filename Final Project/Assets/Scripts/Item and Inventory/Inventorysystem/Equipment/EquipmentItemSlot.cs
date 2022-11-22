@@ -54,8 +54,11 @@ namespace PInventory
 
         private void HandleOnEquipmentSlotButtonClick()
         {
-            Debug.Log(m_InventoryItemData.Item.Icon);
-            equipmentUI.ShowItem(m_InventoryItemData);
+            if (m_InventoryItemData != null)
+            {
+                Debug.Log(m_InventoryItemData.Item.Icon);
+                equipmentUI.ShowItem(m_InventoryItemData);
+            }
         }
 
         private void SetUIElements(InventoryItemData itemData)
