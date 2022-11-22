@@ -461,6 +461,7 @@ MonoBehaviour:
   - {fileID: -1701425736356310273}
   - {fileID: -1316851988810016697}
   - {fileID: 3421283728169577267}
+  - {fileID: 9093896237045241488}
   SimulationBehaviours: []
 --- !u!114 &-1701425736356310273
 MonoBehaviour:
@@ -1278,6 +1279,36 @@ MonoBehaviour:
   animator: {fileID: 649708295341366589}
   skillController: {fileID: 1154367777927831664}
   comboThreshold: 0
+--- !u!114 &9093896237045241488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599885827990722447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 506319458, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolationDataSource: 0
+  Animator: {fileID: 649708295341366589}
+  TotalWords: 3
+  SyncSettings: 79
+  FloatAccuracy:
+    _value: 0
+    _inverse: 0
+    _hash: -814817977
+  TimeAccuracy:
+    _value: 0
+    _inverse: 0
+    _hash: 1061325578
+  WeightAccuracy:
+    _value: 0
+    _inverse: 0
+    _hash: -814817977
+  StateHashes: 000000002b1a167c794069558a18fce4b9abd9d3b627b28aeec0540079a68e9255defdd2e24d35ea97346812614faa1d54915d99c3f7870bc2a15aee55c7807ce54f3fe0ef8ff44b15826061afd369f8abebf7e85865a7c09b9caa7721cda3ee46c9acac
+  TriggerHashes: 00000000ef0c9ca6555d953fc36d92485f00b050e551b9c97361bebe96db58bd2c8a5124baba5653
 --- !u!4 &601945242715606651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4285882004570854, guid: 4f671f96ada2b43438b517dbc501e523,

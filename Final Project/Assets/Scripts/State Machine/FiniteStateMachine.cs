@@ -18,19 +18,7 @@ namespace StateMachine
         public PlayerSkillController SkillController => skillController;
         public NetworkInputReceiver InputSystem => inputSystem;
         public PlayerMovementController MovementController => movementController;
-        
-        
-        
-        public NetworkMovementInputData GetMovementData()
-        {
-            NetworkMovementInputData movementInputData = new NetworkMovementInputData();
 
-            
-            
-            return movementInputData;
-        }
-        
-        
         public bool IsPressingMove
         {
             get => m_IsPressingMove;
