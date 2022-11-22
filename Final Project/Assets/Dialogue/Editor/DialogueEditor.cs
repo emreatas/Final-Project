@@ -22,6 +22,8 @@ namespace RPG.Dialogue.Editor
 
         Vector2 scrollPosition;
 
+        const float canvasSize = 4000;
+        const float backgroundSize = 50;
 
         [MenuItem("Window/Dialogue Editor")]
        public static void ShowEditorWindow()
@@ -75,7 +77,10 @@ namespace RPG.Dialogue.Editor
                 scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
                 Debug.Log(scrollPosition);
 
-                GUILayoutUtility.GetRect(4000, 4000);
+                Rect canvas =GUILayoutUtility.GetRect(canvasSize, canvasSize);
+                Texture2D backgroundTexture = Resources.Load("background") as Texture2D;
+                Rect texCoords = new Rect(0, 0, canvasSize/backgroundSize, canvasSize / backgroundSize);               
+                GUI.DrawTextureWithTexCoords(canvas, backgroundTexture, texCoords);
 
 
                 foreach (DialogueNode node in selectedDialogue.GetAllNodes())
