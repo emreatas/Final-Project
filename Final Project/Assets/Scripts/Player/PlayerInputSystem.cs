@@ -109,8 +109,7 @@ namespace Player
         public void OnPrimarySkill(InputAction.CallbackContext context)
         {
             m_PrimarySkillVector = context.ReadValue<Vector2>();
-            Debug.Log("Skill vector " + m_PrimarySkillVector);
-            
+
             if (context.started)
             {
                 m_PrimarySkillVector = Vector2.zero;

@@ -95,8 +95,6 @@ namespace Player
             skillIndicator.DisableSkillIndicator();
     
             skillSettings.StartSkill(this);
-            
-            m_ShootDirection = Vector3.zero;
         }
         
         public void CastActiveSkill()
@@ -124,6 +122,12 @@ namespace Player
             {
                 m_ShootDirection = skillVector;
             } 
+        }
+
+        public void RotatePlayer()
+        {
+            Debug.Log("Shoot Dir " + m_ShootDirection);
+            movementController.LerpPlayerRotation(m_ShootDirection);
         }
         
         private void HandleOnSkillChanged(AbstractNewSkillSettings newSkillSettings)

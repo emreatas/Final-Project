@@ -33,20 +33,20 @@ namespace Player
             rb.MoveRotation(newRot);
         }
 
-        public void LerpPlayerRotation(Vector3 targetPos)
+        public void LerpPlayerRotation(Vector3 skillDirection)
         {
-            if (targetPos != Vector3.zero)
+            if (skillDirection != Vector3.zero)
             {
-                Timing.RunCoroutine(_LerpRotation(targetPos));
+                Timing.RunCoroutine(_LerpRotation(skillDirection));
             }
         }
 
-        IEnumerator<float> _LerpRotation(Vector3 targetPos)
+        IEnumerator<float> _LerpRotation(Vector3 skillDirection)
         {
             float lerpedTime = 0;
             
             Quaternion startRot = rb.rotation;
-            Quaternion targetRot = Quaternion.LookRotation(targetPos - rb.position);
+            Quaternion targetRot = Quaternion.LookRotation(skillDirection);
             
             while (lerpRotationDuration > lerpedTime)
             {
