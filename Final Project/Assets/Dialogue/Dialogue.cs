@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
 
 namespace RPG.Dialogue
 {
@@ -17,15 +17,10 @@ namespace RPG.Dialogue
 #if UNITY_EDITOR
         private void Awake()
         {
-            OnValidate();
 
             if (nodes.Count == 0)
             {
-                DialogueNode rootNode = new DialogueNode();
-
-                rootNode.uniqueID = Guid.NewGuid().ToString();
-                    
-                nodes.Add(rootNode);
+                CreateNode(null);
             }
         }
 #endif
@@ -35,7 +30,7 @@ namespace RPG.Dialogue
             
             foreach(DialogueNode node in GetAllNodes())
             {
-                nodeLookup[node.uniqueID] = node;
+                nodeLookup[node.name] = node;
             }
         }
 
@@ -64,11 +59,13 @@ namespace RPG.Dialogue
 
         public void CreateNode(DialogueNode parent)
         {
-            DialogueNode newNode = new DialogueNode();
-
-            newNode.uniqueID = Guid.NewGuid().ToString();
-
-            parent.children.Add(newNode.uniqueID);
+            DialogueNode newNode = CreateInstance<DialogueNode>();
+            newNode.name = Guid.NewGuid().ToString();
+            Undo.RegisterCreatedObjectUndo(newNode, "Created Dialogue Node");
+            if (parent != null)
+            {
+                parent.children.Add(newNode.name);
+            }
 
             nodes.Add(newNode);
             OnValidate();
@@ -77,6 +74,7 @@ namespace RPG.Dialogue
         public void DeleteNode(DialogueNode nodeToDelete)
         {
             nodes.Remove(nodeToDelete);
+            Undo.DestroyObjectImmediate(nodeToDelete);
             OnValidate();
             CleanUselessChildren(nodeToDelete);
         }
@@ -85,7 +83,7 @@ namespace RPG.Dialogue
         {
             foreach (DialogueNode node in GetAllNodes())
             {
-                node.children.Remove(nodeToDelete.uniqueID);
+                node.children.Remove(nodeToDelete.name);
             }
         }
     }

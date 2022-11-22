@@ -13,32 +13,4 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: a
-    text: Quest line
-    children:
-    - c
-    - b
-    rect:
-      serializedVersion: 2
-      x: 34
-      y: 104
-      width: 200
-      height: 100
-  - uniqueID: b
-    text: Reward line
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 389
-      y: 28
-      width: 200
-      height: 100
-  - uniqueID: c
-    text: Failed mission line
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 391
-      y: 201
-      width: 200
-      height: 100
+  - {fileID: 0}
