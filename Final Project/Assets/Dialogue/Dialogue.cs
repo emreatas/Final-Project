@@ -7,7 +7,7 @@ using UnityEditor;
 namespace RPG.Dialogue
 {
     [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue", order = 0)]
-    public class Dialogue : ScriptableObject
+    public class Dialogue : ScriptableObject, ISerializationCallbackReceiver
     {
        [SerializeField] List< DialogueNode> nodes=new List<DialogueNode>();
 
@@ -18,10 +18,7 @@ namespace RPG.Dialogue
         private void Awake()
         {
 
-            if (nodes.Count == 0)
-            {
-                CreateNode(null);
-            }
+          
         }
 #endif
         private void OnValidate()
@@ -68,6 +65,7 @@ namespace RPG.Dialogue
             }
 
             nodes.Add(newNode);
+            AssetDatabase.AddObjectToAsset(newNode, this);
             OnValidate();
         }
 
@@ -85,6 +83,31 @@ namespace RPG.Dialogue
             {
                 node.children.Remove(nodeToDelete.name);
             }
+        }
+
+        public void OnBeforeSerialize()
+        {
+
+            if (nodes.Count == 0)
+            {
+                CreateNode(null);
+            }
+
+
+            if (AssetDatabase.GetAssetPath(this)!= "")
+            {
+                foreach(DialogueNode node in GetAllNodes())
+                {
+                    if(AssetDatabase.GetAssetPath(node)== "")
+                    {
+                        AssetDatabase.AddObjectToAsset(node, this);
+                    }
+                }
+            }
+        }
+
+        public void OnAfterDeserialize()
+        {
         }
     }
 }
