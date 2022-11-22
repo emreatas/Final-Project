@@ -22,12 +22,6 @@ namespace Skills
             Timing.RunCoroutine(_InstansiateMeteors(meteorSpawnPositions));
         }
 
-        public override void ShowSkillIndicator(DecalSkillIndicator skillIndicator, Vector3 shootDirection)
-        {
-            skillIndicator.InitIndicatorSettings(SkillIndicatorSettings);
-            skillIndicator.UpdateIndicatorDirection(shootDirection);
-        }
-        
         private IEnumerator<float> _InstansiateMeteors(Vector3[] meteorSpawnPositions)
         {
             for (int i = 0; i < meteorCount; i++)

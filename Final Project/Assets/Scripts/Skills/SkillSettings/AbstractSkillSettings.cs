@@ -33,8 +33,6 @@ namespace Skills
 
         protected Action<Vector3> m_LerpPlayerRotationAction;
         
-        //public GameEvent OnFinishedSkill;
-        
         public void InitializeSkill(CharacterStat characterStat, Transform playerTransform, Action<Vector3> lerpPlayerRotationAction)
         {
             m_CharacterStat = characterStat;

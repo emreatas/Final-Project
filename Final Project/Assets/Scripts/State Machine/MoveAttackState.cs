@@ -36,7 +36,6 @@ namespace StateMachine
         {
             MovePlayer(movementVector);
             RotatePlayer(movementVector);
-            // Debug.Log(movementVector.magnitude);
             m_StateMachine.AnimationController.SetSpeed(movementVector.magnitude);
         }
         
