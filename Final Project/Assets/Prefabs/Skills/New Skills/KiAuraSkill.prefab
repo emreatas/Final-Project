@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044645715201629739}
-  - component: {fileID: 2860182691716047402}
+  - component: {fileID: -8944594764102228610}
   m_Layer: 0
-  m_Name: Warrior Secondary Skill 1
+  m_Name: KiAuraSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2860182691716047402
+--- !u!114 &-8944594764102228610
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,13 +42,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8328743250665740935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c9f84e07f5adc84798bdd154d1714f3, type: 3}
+  m_Script: {fileID: 11500000, guid: abd07c9359103bb4f8f51305e86177fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
-  _particleDelays:
-  - particle: {fileID: 6579164935667498063}
-    startDelay: 0
+  skillBuffs:
+  - buffType: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
+    buffMultiplicator: 0.1
+  - buffType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
+    buffMultiplicator: 100
 --- !u!1001 &3877049438518265493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,12 +123,6 @@ PrefabInstance:
 --- !u!4 &6450140534339725035 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7804046872723103870, guid: 63a33adcb78178242a1537bbed0f800e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3877049438518265493}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &6579164935667498063 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7963463973106940634, guid: 63a33adcb78178242a1537bbed0f800e,
     type: 3}
   m_PrefabInstance: {fileID: 3877049438518265493}
   m_PrefabAsset: {fileID: 0}

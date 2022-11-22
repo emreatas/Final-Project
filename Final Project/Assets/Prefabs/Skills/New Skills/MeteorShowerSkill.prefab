@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2715596262481547229}
   - component: {fileID: 8784796673510434226}
   m_Layer: 12
-  m_Name: MeteorShower
+  m_Name: MeteorShowerSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
