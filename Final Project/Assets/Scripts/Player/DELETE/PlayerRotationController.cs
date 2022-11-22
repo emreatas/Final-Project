@@ -30,12 +30,12 @@ namespace Player
         
         private void AddListeners()
         {
-            inputSystem.OnMovePerformed.AddListener(HandleOnMovePerformed);
+            //inputSystem.OnMovePerformed.AddListener(HandleOnMovePerformed);
         }
 
         private void RemoveListeners()
         {
-            inputSystem.OnMovePerformed.RemoveListener(HandleOnMovePerformed);
+            //inputSystem.OnMovePerformed.RemoveListener(HandleOnMovePerformed);
         }
     }
 }

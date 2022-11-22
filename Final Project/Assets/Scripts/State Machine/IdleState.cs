@@ -20,7 +20,7 @@ namespace StateMachine
             RemoveListeners();
         }
 
-        private void HandleOnMoveStarted(Vector3 movementVector)
+        private void HandleOnMoveStarted()
         {
             m_StateMachine.SwitchState(PlayerStates.Move);
         }

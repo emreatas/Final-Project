@@ -55,12 +55,12 @@ namespace StateMachine
             }
         }
         
-        private void HandleOnMoveStarted(Vector3 obj)
+        private void HandleOnMoveStarted()
         {
             m_StateMachine.IsPressingMove = true;
         }
 
-        private void HandleOnMoveCanceled(Vector3 obj)
+        private void HandleOnMoveCanceled()
         {
             m_StateMachine.IsPressingMove = false;
         }
@@ -91,17 +91,9 @@ namespace StateMachine
         {
             m_StateMachine.InputSystem.OnBasicAttackPerformed.AddListener(HandleOnBasicAttackPerformed);
             m_StateMachine.InputSystem.OnBasicAttackCanceled.AddListener(HandleOnBasicAttackCanceled);
-            // m_StateMachine.SkillController.BasicSkill.OnFinishedSkill.AddListener(HandleOnFinishedBasicSkill);
+  
             m_StateMachine.AnimationController.OnAttackAnimFinished.AddListener(HandleOnFinishedBasicSkill);
-            
-            // m_StateMachine.InputSystem.OnPrimarySkillPerfomed.AddListener(HandleOnPrimarySkillPerformed);
-            // m_StateMachine.InputSystem.OnPrimarySkillCanceled.AddListener(HandleOnPrimarySkillCanceled);
-            // m_StateMachine.SkillController.PrimarySkill.OnFinishedSkill.AddListener(HandleOnFinishedPrimarySkill);
-
-            // m_StateMachine.InputSystem.OnSecondarySkillPerfomed.AddListener(HandleOnSecondarySkillPerformed);
-            // m_StateMachine.InputSystem.OnSecondarySkillCanceled.AddListener(HandleOnSecondarySkillCanceled);
-            // m_StateMachine.SkillController.SecondarySkill.OnFinishedSkill.AddListener(HandleOnFinishedSecondarySkill);
-            
+  
             m_StateMachine.InputSystem.OnMoveStarted.AddListener(HandleOnMoveStarted);
             m_StateMachine.InputSystem.OnMoveCanceled.AddListener(HandleOnMoveCanceled);
         }
@@ -110,16 +102,8 @@ namespace StateMachine
         {
             m_StateMachine.InputSystem.OnBasicAttackPerformed.RemoveListener(HandleOnBasicAttackPerformed);
             m_StateMachine.InputSystem.OnBasicAttackCanceled.RemoveListener(HandleOnBasicAttackCanceled);
-            // m_StateMachine.SkillController.BasicSkill.OnFinishedSkill.RemoveListener(HandleOnFinishedBasicSkill);
+
             m_StateMachine.AnimationController.OnAttackAnimFinished.RemoveListener(HandleOnFinishedBasicSkill);
-            
-            // m_StateMachine.InputSystem.OnPrimarySkillPerfomed.RemoveListener(HandleOnPrimarySkillPerformed);
-            // m_StateMachine.InputSystem.OnPrimarySkillCanceled.RemoveListener(HandleOnPrimarySkillCanceled);
-            // m_StateMachine.SkillController.PrimarySkill.OnFinishedSkill.RemoveListener(HandleOnFinishedPrimarySkill);
-            
-            // m_StateMachine.InputSystem.OnSecondarySkillPerfomed.RemoveListener(HandleOnSecondarySkillPerformed);
-            // m_StateMachine.InputSystem.OnSecondarySkillCanceled.RemoveListener(HandleOnSecondarySkillCanceled);
-            // m_StateMachine.SkillController.SecondarySkill.OnFinishedSkill.RemoveListener(HandleOnFinishedSecondarySkill);
             
             m_StateMachine.InputSystem.OnMoveStarted.RemoveListener(HandleOnMoveStarted);
             m_StateMachine.InputSystem.OnMoveCanceled.RemoveListener(HandleOnMoveCanceled);

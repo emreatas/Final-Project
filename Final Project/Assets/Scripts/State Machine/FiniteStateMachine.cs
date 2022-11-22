@@ -9,15 +9,27 @@ namespace StateMachine
     public class FiniteStateMachine : MonoBehaviour
     {
         [SerializeField] private PlayerStates initialPlayerState;
-        [SerializeField] private PlayerInputSystem inputSystem;
+        [SerializeField] private NetworkInputReceiver inputSystem;
         [SerializeField] private PlayerSkillController skillController;
         [SerializeField] private PlayerAnimationController animationController;
         [SerializeField] private PlayerMovementController movementController;
         
         public PlayerAnimationController AnimationController => animationController;
         public PlayerSkillController SkillController => skillController;
-        public PlayerInputSystem InputSystem => inputSystem;
+        public NetworkInputReceiver InputSystem => inputSystem;
         public PlayerMovementController MovementController => movementController;
+        
+        
+        
+        public NetworkMovementInputData GetMovementData()
+        {
+            NetworkMovementInputData movementInputData = new NetworkMovementInputData();
+
+            
+            
+            return movementInputData;
+        }
+        
         
         public bool IsPressingMove
         {

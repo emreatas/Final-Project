@@ -9,7 +9,7 @@ namespace Player
     public class PlayerInteractionController : MonoBehaviour
     {
         [SerializeField] private PlayerInventory playerInventory;
-        [SerializeField] private PlayerInputSystem inputSystem;
+        [SerializeField] private NetworkInputReceiver inputSystem;
         [SerializeField] private LayerMask interactableLayerMask;
         [SerializeField] private string interactableTag;
         

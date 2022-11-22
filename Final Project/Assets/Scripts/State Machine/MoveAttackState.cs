@@ -25,7 +25,7 @@ namespace StateMachine
             StopCurrentAnimation();
         }
         
-        private void HandleOnMoveStarted(Vector3 obj)
+        private void HandleOnMoveStarted()
         {
             m_StateMachine.IsPressingMove = true;
             m_StateMachine.AnimationController.StopIdleAnimation();
@@ -40,7 +40,7 @@ namespace StateMachine
             m_StateMachine.AnimationController.SetSpeed(movementVector.magnitude);
         }
         
-        private void HandleOnMoveCanceled(Vector3 obj)
+        private void HandleOnMoveCanceled()
         {
             m_StateMachine.IsPressingMove = false;
             m_StateMachine.AnimationController.StopWalkAnimation();

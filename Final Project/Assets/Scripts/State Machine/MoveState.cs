@@ -24,13 +24,14 @@ namespace StateMachine
         
         private void HandleOnMovePerformed(Vector3 movementVector)
         {
-            MovePlayer(movementVector);
+            
+            //MovePlayer(movementVector);
             RotatePlayer(movementVector);
             // Debug.Log(movementVector.magnitude);
             m_StateMachine.AnimationController.SetSpeed(movementVector.magnitude);
         }
 
-        private void HandleOnMoveCanceled(Vector3 movementVector)
+        private void HandleOnMoveCanceled()
         {
             m_StateMachine.SwitchState(PlayerStates.Idle);
             m_StateMachine.IsPressingMove = false;
