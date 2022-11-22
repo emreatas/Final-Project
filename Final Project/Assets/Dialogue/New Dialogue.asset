@@ -28,13 +28,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
   m_Name: 661f891f-5350-4fbd-b1d8-77c5ff82a8e7
   m_EditorClassIdentifier: 
-  text: 
+  text: eqweqsd
   children:
   - 8dc07c84-e6f0-4a81-be37-b8be620f2379
   rect:
     serializedVersion: 2
-    x: 348
-    y: 223
+    x: 356
+    y: 412
     width: 200
     height: 100
 --- !u!114 &5227608587379257794
@@ -49,12 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
   m_Name: 8dc07c84-e6f0-4a81-be37-b8be620f2379
   m_EditorClassIdentifier: 
-  text: 
+  text: sadqwesadgqwed
   children: []
   rect:
     serializedVersion: 2
-    x: 716
-    y: 177
+    x: 762
+    y: 225
     width: 200
     height: 100
 --- !u!114 &5827382898670180125
@@ -69,12 +69,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
   m_Name: 57865a96-479c-47e2-a239-1f0e74ff96af
   m_EditorClassIdentifier: 
-  text: 
+  text: asdwqeasd
   children:
   - 661f891f-5350-4fbd-b1d8-77c5ff82a8e7
   rect:
     serializedVersion: 2
-    x: 116
-    y: 402
+    x: 53
+    y: 2
     width: 200
     height: 100
