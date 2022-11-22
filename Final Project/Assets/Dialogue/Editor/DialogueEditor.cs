@@ -10,13 +10,15 @@ namespace RPG.Dialogue.Editor
     public class DialogueEditor : EditorWindow
     {
         Dialogue selectedDialogue = null;
-        GUIStyle nodeStyle;
 
-        DialogueNode draggingNode = null;
+        [NonSerialized] GUIStyle nodeStyle;
+        [NonSerialized] DialogueNode draggingNode = null;
+        [NonSerialized] DialogueNode creatingNode = null;
+        [NonSerialized] Vector2 draggingOffset;
+        [NonSerialized] DialogueNode deletingNode = null;
 
-        Vector2 draggingOffset;
 
-       [MenuItem("Window/Dialogue Editor")]
+        [MenuItem("Window/Dialogue Editor")]
        public static void ShowEditorWindow()
         {
             GetWindow(typeof(DialogueEditor), true, "Dialogue Editor");
@@ -73,6 +75,18 @@ namespace RPG.Dialogue.Editor
                 {
                     DrawNode(node);
                 }
+                if (creatingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Added Dialogue Node");
+                    selectedDialogue.CreateNode(creatingNode);
+                    creatingNode = null;
+                }
+                if (deletingNode != null)
+                {
+                    Undo.RecordObject(selectedDialogue, "Deleted Dialogue Node");
+                    selectedDialogue.DeleteNode(deletingNode);
+                    deletingNode = null;
+                }
             }
         }
         private void ProcessEvents()
@@ -107,9 +121,7 @@ namespace RPG.Dialogue.Editor
             GUILayout.BeginArea(node.rect, nodeStyle);
 
             EditorGUI.BeginChangeCheck();
-            EditorGUILayout.LabelField("Node:",EditorStyles.whiteLabel);
 
-            string newUniqueID = EditorGUILayout.TextField(node.uniqueID);
             string newText = EditorGUILayout.TextField(node.text);
 
 
@@ -117,10 +129,22 @@ namespace RPG.Dialogue.Editor
             {
                 Undo.RecordObject(selectedDialogue, "Update Dialogue Text");
 
-                node.uniqueID = newUniqueID;
-
                 node.text = newText;
             }
+
+            GUILayout.BeginHorizontal();
+
+            if (GUILayout.Button("-"))
+            {
+                deletingNode = node;
+            }
+
+            if (GUILayout.Button("+"))
+            {
+                creatingNode = node;
+            }
+
+            GUILayout.EndHorizontal();
             
             GUILayout.EndArea();
         }
