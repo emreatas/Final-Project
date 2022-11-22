@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4e190c1fa88e0242819e438a9e1b7f9, type: 3}
-  m_Name: Buff Skill Settings
+  m_Script: {fileID: 11500000, guid: ab1b00986dd31d04b8007afd56c498f3, type: 3}
+  m_Name: Whirlwind Skill Settings
   m_EditorClassIdentifier: 
-  SkillName: Buff
-  skillType: 1
+  SkillName: 
+  skillType: 0
   SkillIcon: {fileID: 0}
   SkillDescription: 
-  AnimationName: Mage01
+  AnimationName: 
   prefab: {fileID: 0}
-  SkillIndicatorSettings: {fileID: 11400000, guid: bd1cc9887ecfbe241bc838292d8b6e8f,
-    type: 2}
+  SkillIndicatorSettings: {fileID: 0}

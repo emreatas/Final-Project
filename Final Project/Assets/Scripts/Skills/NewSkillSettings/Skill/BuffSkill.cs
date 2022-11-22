@@ -38,6 +38,7 @@ namespace Skills
         {
             for (int i = 0; i < m_Modifier.Count; i++)
             {
+                Debug.Log("Adding to character");
                 m_PlayerSkillController.PlayerStats.CharacterStats.AddModifier(m_Modifier[i]);
             }
         }

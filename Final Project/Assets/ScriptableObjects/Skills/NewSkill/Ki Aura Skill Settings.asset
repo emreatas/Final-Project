@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4e190c1fa88e0242819e438a9e1b7f9, type: 3}
-  m_Name: Buff Skill Settings
+  m_Name: Ki Aura Skill Settings
   m_EditorClassIdentifier: 
   SkillName: Buff
   skillType: 1

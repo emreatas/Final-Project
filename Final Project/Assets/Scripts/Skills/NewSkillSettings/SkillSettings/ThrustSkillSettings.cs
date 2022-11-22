@@ -5,10 +5,13 @@ using UnityEngine;
 
 namespace Skills
 {
-    [CreateAssetMenu(menuName = "ScriptableObjects/Skills/New/BuffSettings")]
-    public class BuffSkillSettings : AbstractNewSkillSettings
+    [CreateAssetMenu(menuName = "ScriptableObjects/Skills/New/ThrustShowerSettings")]
+    public class ThrustSkillSettings : AbstractNewSkillSettings
     {
-        public override void StartSkill(PlayerSkillController skillController) { }
+        public override void StartSkill(PlayerSkillController skillController)
+        {
+            skillController.RotatePlayer();
+        }
 
         public override void ExecuteSkill(PlayerSkillController skillController)
         {
