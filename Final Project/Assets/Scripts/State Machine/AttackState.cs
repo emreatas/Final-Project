@@ -28,8 +28,11 @@ namespace StateMachine
         {
             m_IsPressingBasicAttack = true;
             
+            Debug.Log("Handle Perfomed");
+            
             if (!m_PerformingAttack)
             {
+                Debug.Log("Performed Succeded");
                 m_PerformingAttack = true;
                 
                 m_StateMachine.SkillController.StartBasicSkill();

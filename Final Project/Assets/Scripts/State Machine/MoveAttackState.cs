@@ -65,7 +65,7 @@ namespace StateMachine
             m_lastPrimaryAttackDirection = skillDirection;
         }
         
-        private void HandleOnPrimarySkillCanceled(Vector3 skillDirection)
+        private void HandleOnPrimarySkillCanceled()
         {
             m_StateMachine.AnimationController.PlayPrimaryAttackAnimation();
             m_StateMachine.SkillController.StartPrimarySkill(m_lastPrimaryAttackDirection);

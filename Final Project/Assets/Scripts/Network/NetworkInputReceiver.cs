@@ -17,10 +17,12 @@ public class NetworkInputReceiver : NetworkBehaviour
         OnBasicAttackPerformed,
         OnBasicAttackCanceled;
 
-    public GameEvent<Vector3> 
+    public GameEvent<Vector3>
         OnPrimarySkillStarted,
-        OnPrimarySkillPerfomed,
-        OnPrimarySkillCanceled;   
+        OnPrimarySkillPerfomed;
+       
+    
+    public GameEvent OnPrimarySkillCanceled;  
         
     public GameEvent<Vector3> 
         OnSecondarySkillStarted,
@@ -49,6 +51,24 @@ public class NetworkInputReceiver : NetworkBehaviour
             if (inputData.MovementCanceled)
             {
                 OnMoveCanceled.Invoke();
+            }
+
+            if (inputData.BasicAttackStarted)
+            {
+                Debug.Log("Girdiiiiiiiii   1");
+                OnBasicAttackStarted.Invoke();
+            }
+
+            if (inputData.BasicPerformedStarted)
+            {
+                Debug.Log("Girdiiiiiiiii");
+                OnBasicAttackPerformed.Invoke();
+            }
+
+            if (inputData.BasicCanceledStarted)
+            {
+                Debug.Log("Ciktiiiiiiiiii");
+                OnBasicAttackCanceled.Invoke();
             }
         }
     }

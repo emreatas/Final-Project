@@ -37,4 +37,8 @@ public struct NetworkMovementInputData : INetworkInput
 
     public NetworkBool MovementStarted;
     public NetworkBool MovementCanceled;
+
+    public NetworkBool BasicAttackStarted;
+    public NetworkBool BasicPerformedStarted;
+    public NetworkBool BasicCanceledStarted;
 }
