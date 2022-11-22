@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-581225922056008362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
+  m_Name: a79a85c8-d411-478b-b0f7-95666358f5d8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: 
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 337
+    y: 118
+    width: 200
+    height: 100
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,32 +34,28 @@ MonoBehaviour:
   m_Name: New Dialogue
   m_EditorClassIdentifier: 
   nodes:
-  - uniqueID: a
-    text: Quest line
-    children:
-    - c
-    - b
-    rect:
-      serializedVersion: 2
-      x: 34
-      y: 104
-      width: 200
-      height: 100
-  - uniqueID: b
-    text: Reward line
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 389
-      y: 28
-      width: 200
-      height: 100
-  - uniqueID: c
-    text: Failed mission line
-    children: []
-    rect:
-      serializedVersion: 2
-      x: 391
-      y: 201
-      width: 200
-      height: 100
+  - {fileID: 5827382898670180125}
+  - {fileID: -581225922056008362}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &5827382898670180125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
+  m_Name: 57865a96-479c-47e2-a239-1f0e74ff96af
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 
+  children:
+  - a79a85c8-d411-478b-b0f7-95666358f5d8
+  rect:
+    serializedVersion: 2
+    x: 57
+    y: 139
+    width: 200
+    height: 100
