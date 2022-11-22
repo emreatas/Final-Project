@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Warrior_Primary_1
   m_EditorClassIdentifier: 
   SkillName: 
-  skillType: 0
+  skillType: 1
   SkillIcon: {fileID: 0}
   SkillDescription: 
   AnimationName: Mage01
   prefab: {fileID: 2860182691716047402, guid: 9bc2a83d0081ec043a4b3b1dfb7316b7, type: 3}
   SkillIndicatorSettings: {fileID: 0}
-  skill: {fileID: 5246197468514882109, guid: 72b87fa71689c124292b95c29a63751e, type: 3}
+  skill: {fileID: 0}

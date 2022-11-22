@@ -11,6 +11,8 @@ namespace StateMachine
         private bool m_PerformingAttack;
 
         private bool m_IsPressingMove;
+
+        private bool cooldown;
         
         public override void OnEnter()
         {
@@ -26,6 +28,8 @@ namespace StateMachine
 
         private void HandleOnBasicAttackPerformed()
         {
+            if (cooldown) return;
+
             m_IsPressingBasicAttack = true;
             
             if (!m_PerformingAttack)
@@ -39,6 +43,7 @@ namespace StateMachine
         
         private void HandleOnBasicAttackCanceled()
         {
+            if (cooldown) return;
             m_IsPressingBasicAttack = false;
         }
         
@@ -46,6 +51,7 @@ namespace StateMachine
         {
             if (!m_IsPressingBasicAttack)
             {
+                cooldown = true;
                 m_StateMachine.AnimationController.StopBasicAttackAnimation();
                 m_StateMachine.InvokeFunction(ChangeState,0.1f);
             }
@@ -80,6 +86,8 @@ namespace StateMachine
                     m_StateMachine.SwitchState(PlayerStates.Idle);
                 }
             }
+            // Change invoke to Coroutine and kill coroutime on state change
+            cooldown = false;
         }
         
         private void ResetPerformAttack()

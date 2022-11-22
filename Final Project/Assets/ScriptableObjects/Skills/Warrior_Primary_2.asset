@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 293255ea512fc254d9e15188d145f9a1, type: 3}
-  m_Name: New Skill Settings Empty 1
+  m_Name: Warrior_Primary_2
   m_EditorClassIdentifier: 
   SkillName: 
-  skillType: 0
+  skillType: 1
   SkillIcon: {fileID: 0}
   SkillDescription: 
   AnimationName: Mage02
-  prefab: {fileID: 0}
+  prefab: {fileID: 2860182691716047402, guid: 3aa4eaff7e416334087737ac41ff0c19, type: 3}
   SkillIndicatorSettings: {fileID: 0}
+  skill: {fileID: 0}
