@@ -97,7 +97,6 @@ namespace Player
         public void _OnActiveSkillAnimationFinished()
         {
             OnAttackAnimFinished.Invoke();
-            skillController.OnFinishedActiveSkill();
         }
 
         public void _OnActiveSkillCast()
@@ -108,15 +107,14 @@ namespace Player
         public void _OnAttackAnimationFinished()
         {
             OnAttackAnimFinished.Invoke();
-            skillController.OnFinishedBasicSkill();
-            
+
             SetCombo();
             m_ComboCoroutine = Timing.RunCoroutine(ResetCombo());
         }
         
         public void _OnBasicAttackCast()
         {
-            skillController.CastBasicSkill();
+            skillController.CastActiveSkill();
         }
 
         private void SetCombo()
