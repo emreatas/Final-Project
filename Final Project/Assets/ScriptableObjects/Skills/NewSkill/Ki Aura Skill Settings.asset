@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e190c1fa88e0242819e438a9e1b7f9, type: 3}
   m_Name: Ki Aura Skill Settings
   m_EditorClassIdentifier: 
-  SkillName: Buff
-  skillType: 1
+  SkillName: Ki Aura
+  skillType: 2
   SkillIcon: {fileID: 0}
   SkillDescription: 
   AnimationName: Mage01
-  prefab: {fileID: 0}
+  prefab: {fileID: -8944594764102228610, guid: 0b50a32c9b143ed468a980978a10201e, type: 3}
   SkillIndicatorSettings: {fileID: 11400000, guid: bd1cc9887ecfbe241bc838292d8b6e8f,
     type: 2}
