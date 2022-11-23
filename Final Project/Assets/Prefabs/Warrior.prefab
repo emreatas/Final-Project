@@ -964,7 +964,6 @@ MonoBehaviour:
   movementController: {fileID: 2460094972489346787}
   animationController: {fileID: 548115071471114275}
   playerStats: {fileID: 2460094970927344735}
-  _playerTarget: {fileID: 0}
   skillIndicator: {fileID: 2460094971822503133}
   basicSkillSettings: {fileID: 11400000, guid: 127528d22299ffd408d79623199498df, type: 2}
   primarySkillSettings: {fileID: 11400000, guid: 9a0359c5d8d64174f8c7d1bcd9b077d2,
@@ -1008,6 +1007,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3486468175592497326}
     m_Modifications:
+    - target: {fileID: 1690730859082074, guid: 4f671f96ada2b43438b517dbc501e523, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744338657602604, guid: 4f671f96ada2b43438b517dbc501e523, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1841705985760018, guid: 4f671f96ada2b43438b517dbc501e523, type: 3}
       propertyPath: m_Name
       value: SM_Chr_Merchant_01

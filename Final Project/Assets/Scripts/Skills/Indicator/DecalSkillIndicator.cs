@@ -29,7 +29,13 @@ namespace Skills
             m_SkillIndicatorSettings = null;
         }
 
-        public void InitIndicatorSettings(SkillIndicatorSettings skillIndicatorSettings)
+        public void ShowSkillIndicator(AbstractNewSkillSettings skillSettings, Vector3 shootDirection)
+        { 
+            InitIndicatorSettings(skillSettings.SkillIndicatorSettings);
+            UpdateIndicatorDirection(shootDirection);
+        }
+        
+        private void InitIndicatorSettings(SkillIndicatorSettings skillIndicatorSettings)
         {
             if (initalizedIndicator) { return; }
             
@@ -40,7 +46,7 @@ namespace Skills
             EnableSkillIndicator();
         }
         
-        public void UpdateIndicatorDirection(Vector3 direction)
+        private void UpdateIndicatorDirection(Vector3 direction)
         {
             m_SkillIndicatorSettings.UpdateIndicator(transform , directionParent, impactDecal.transform, direction);
         }

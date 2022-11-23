@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Player
 {
@@ -9,7 +10,8 @@ namespace Player
     {
         [SerializeField] private LayerMask enemyLayerMask;
         [SerializeField] private SphereCollider collider;
-        [SerializeField] private float targetRadius;
+
+        
         private List<ITarget> inRangeTargetList = new List<ITarget>();
         
         private ITarget m_CurrentTarget;
@@ -17,33 +19,53 @@ namespace Player
 
         private Camera mainCam;
 
+        public bool HasTarget => m_CurrentTarget != null;
+        
+        public Vector3 GetTargetDirection()
+        {
+            Debug.Log("Direction" + (m_CurrentTarget.Position - transform.position));
+            return (m_CurrentTarget.Position - transform.position);
+        }
+        
         private void Start()
         {
             mainCam = Camera.main;
-            targetRadius = collider.radius;
         }
 
+        private bool IsPointerOverUIObject()
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+            return results.Count > 0;
+        }
+        
         private void Update()
         {
             if (Input.touches.Length > 0)
             {
                 var firstTouch = Input.GetTouch(0);
 
-                if (firstTouch.phase == TouchPhase.Began)
+                if (!IsPointerOverUIObject())
                 {
-                    Debug.Log("Start Raycast");
-                    Ray ray = mainCam.ScreenPointToRay(firstTouch.position);
-                    RaycastHit hit;
-                    if (Physics.Raycast(ray,out hit, 100,enemyLayerMask))
+                    if (firstTouch.phase == TouchPhase.Began)
                     {
-                        Debug.Log("Raycast Hit " + hit.transform.name);
-                        if (hit.transform.TryGetComponent(out ITarget target))
+                        Ray ray = mainCam.ScreenPointToRay(firstTouch.position);
+                        RaycastHit hit;
+                        if (Physics.Raycast(ray,out hit, 100,enemyLayerMask))
                         {
-                       
-                                Debug.Log("Raycast Hit Target");
+                            if (hit.transform.TryGetComponent(out ITarget target))
+                            {
+ 
                                 m_PlayerChooseTarget = true;
                                 SwitchTarget(target);
-                           
+                            }
+                        }
+                        else
+                        {
+                            m_PlayerChooseTarget = false;
+                            DisableCurrentTarget();
                         }
                     }
                 }
@@ -122,6 +144,7 @@ namespace Player
             if (m_CurrentTarget != null)
             {
                 m_CurrentTarget.DisableTargetIndicator();
+                m_CurrentTarget = null;
             }
         }
 
@@ -131,10 +154,6 @@ namespace Player
             {
                 m_CurrentTarget = newTarget;
                 m_CurrentTarget.EnableTargetIndicator();
-            }
-            else
-            {
-                m_CurrentTarget = null;
             }
         }
     }

@@ -111,9 +111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 8542043478962404816}
   inputSystem: {fileID: 1316861999170624586}
-  interactableLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
   interactableTag: Interactable
 --- !u!1 &1318443085
 GameObject:
@@ -267,6 +264,68 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1595685319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1595685320}
+  - component: {fileID: 1595685322}
+  - component: {fileID: 1595685321}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1595685320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595685319}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1316861999170624588}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1595685322
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595685319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1595685321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595685319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9329d73b96c81e149a7381d25d2c2c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  collider: {fileID: 1595685322}
 --- !u!1 &1819502888
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +610,7 @@ Transform:
   - {fileID: 8586771193026357534}
   - {fileID: 1555197301}
   - {fileID: 85444670}
+  - {fileID: 1595685320}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -801,12 +861,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementController: {fileID: 1557139969}
+  animationController: {fileID: 2005241925510371740}
   playerStats: {fileID: 1073402045}
+  _playerTarget: {fileID: 1595685321}
   skillIndicator: {fileID: 85444671}
-  basicSkillSettings: {fileID: 11400000, guid: 9b612e947d3c24a469af23c176e3b6f7, type: 2}
-  primarySkillSettings: {fileID: 11400000, guid: 81d0c726de4e9d641a0f10decf0db5ad,
+  basicSkillSettings: {fileID: 0}
+  primarySkillSettings: {fileID: 11400000, guid: 18c40330edf2e1749822b8a9769bbce2,
     type: 2}
-  secondarySkillSettings: {fileID: 11400000, guid: 41d75c9e63507cc45b39d33390ba0055,
+  secondarySkillSettings: {fileID: 11400000, guid: 0053e95062eeb4048b15f04187062c64,
     type: 2}
 --- !u!114 &1557139969
 MonoBehaviour:

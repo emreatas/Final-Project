@@ -19,6 +19,14 @@ namespace ObjectPooling
             transform.SetPositionAndRotation(position, rotation);
         }
 
+        public void SetParent(Transform parent)
+        {
+            if (parent != null)
+            {
+                transform.SetParent(parent);
+            }
+        }
+
         public void SetActive(bool value)
         {
             gameObject.SetActive(value);
@@ -27,6 +35,7 @@ namespace ObjectPooling
         public void Release()
         {
             m_Pool.ReleaseObject(this as T);
+            transform.SetParent(SkillPool.Instance.transform);
         }
     }
 }

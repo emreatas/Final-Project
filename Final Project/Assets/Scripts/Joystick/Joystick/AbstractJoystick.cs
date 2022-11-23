@@ -47,7 +47,7 @@ namespace JoystickManager
 
             m_PointerDownPos = ScreenPointToLocalPointInRectangle(eventData);
         
-            SendValueToControl(Vector2.one);
+            SendValueToControl(new Vector2(0.1f,0.1f));
         }  
         
         public virtual void OnDrag(PointerEventData eventData)

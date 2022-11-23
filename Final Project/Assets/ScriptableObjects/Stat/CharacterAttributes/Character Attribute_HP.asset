@@ -15,7 +15,10 @@ MonoBehaviour:
   statType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
   baseValue: 1000
   additiveAttributeModifiers: []
-  percentageAttributeModifiers: []
+  percentageAttributeModifiers:
+  - m_BaseValue: 0.0530945
+    m_BaseAttributeType: 1
+    m_TargetStat: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
   dependantCharacterAttributes:
   - characterAttribute: {fileID: 11400000, guid: 29b5531724447024db7722bcadd04106,
       type: 2}
