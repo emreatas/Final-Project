@@ -35,10 +35,14 @@ namespace Player
 
         public void LerpPlayerRotation(Vector3 skillDirection)
         {
+            /*
             if (skillDirection != Vector3.zero)
             {
                 Timing.RunCoroutine(_LerpRotation(skillDirection));
             }
+            */
+            
+            rb.rotation = Quaternion.LookRotation(skillDirection, transform.up);
         }
 
         IEnumerator<float> _LerpRotation(Vector3 skillDirection)
