@@ -10,7 +10,6 @@ namespace Player
     {
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private PlayerInputSystem inputSystem;
-        [SerializeField] private LayerMask interactableLayerMask;
         [SerializeField] private string interactableTag;
         
         private List<IInteractable> interactables = new List<IInteractable>();

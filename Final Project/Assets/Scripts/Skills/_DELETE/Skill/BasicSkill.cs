@@ -46,7 +46,7 @@ namespace Skills
             IHealth enemy = other.GetComponent<IHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(m_Damage);
+                //enemy.TakeDamage(m_Damage);
                 Destroy(gameObject);
             }
         }

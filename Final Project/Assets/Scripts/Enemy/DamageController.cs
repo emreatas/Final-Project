@@ -6,7 +6,7 @@ public class DamageController : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         IHealth player = other.GetComponent<IHealth>();
         if(player != null) {
-            player.TakeDamage(enemyStats.damage);
+            //player.TakeDamage(enemyStats.damage);
             Debug.Log("Damage Taken!");
         }
     }

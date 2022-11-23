@@ -266,7 +266,7 @@
                     "id": "d076da3c-cd3f-4229-a2be-d1d96c7e0f7e",
                     "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
-                    "processors": "StickDeadzone(min=0.7)",
+                    "processors": "StickDeadzone(min=0.25)",
                     "groups": "",
                     "action": "PrimaryAttack",
                     "isComposite": false,

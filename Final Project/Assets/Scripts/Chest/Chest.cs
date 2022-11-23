@@ -13,10 +13,10 @@ namespace Items
 {
     public class Chest : MonoBehaviour, IInteractable
     {
-        private List<Item> chestLootList;
-        
         private PlayerInventory m_Inventory;
         
+        private List<Item> chestLootList;
+
         private bool m_Interacted;
 
         public GameEvent OnRemoveChestFromPanel;

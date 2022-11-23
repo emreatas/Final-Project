@@ -107,7 +107,7 @@ namespace Player
         public void _OnAttackAnimationFinished()
         {
             OnAttackAnimFinished.Invoke();
-
+            
             SetCombo();
             m_ComboCoroutine = Timing.RunCoroutine(ResetCombo());
         }

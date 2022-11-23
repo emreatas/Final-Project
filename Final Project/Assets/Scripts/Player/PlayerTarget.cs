@@ -21,6 +21,7 @@ namespace Player
 
         public bool HasTarget => m_CurrentTarget != null;
         
+        
         public Vector3 GetTargetDirection()
         {
             Debug.Log("Direction" + (m_CurrentTarget.Position - transform.position));

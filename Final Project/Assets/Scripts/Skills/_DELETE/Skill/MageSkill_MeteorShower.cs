@@ -33,7 +33,7 @@ namespace Skills
             IHealth enemy = other.GetComponent<IHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(m_Damage * damageMultiplicator);
+                //enemy.TakeDamage(m_Damage * damageMultiplicator);
             }
 
             Debug.Log("Interacted with " + other.name);
