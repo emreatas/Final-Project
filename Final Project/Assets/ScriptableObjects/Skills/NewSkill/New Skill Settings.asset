@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1b00986dd31d04b8007afd56c498f3, type: 3}
-  m_Name: Thrust Skill Settings
+  m_Script: {fileID: 11500000, guid: be3b357909b38434d8a5e3d1907337a2, type: 3}
+  m_Name: New Skill Settings
   m_EditorClassIdentifier: 
-  SkillName: Thrust
+  SkillName: 
   skillType: 0
   SkillIcon: {fileID: 0}
   SkillDescription: 
   AnimationName: Mage01
-  prefab: {fileID: 3803148174720550399, guid: 148c7d20996043749ba53e848add306d, type: 3}
-  skillSpawnOffset: {x: 0, y: 2, z: 2}
+  prefab: {fileID: 0}
+  skillSpawnOffset: {x: 0, y: 0, z: 0}
   SkillIndicatorSettings: {fileID: 11400000, guid: 8d53efed5e53cc04bb7ed14c61a48e09,
     type: 2}
+  playerParticle: {fileID: 0}

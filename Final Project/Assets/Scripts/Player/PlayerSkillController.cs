@@ -18,6 +18,7 @@ namespace Player
     {
         [SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController animationController;
+        [SerializeField] private PlayerLevel playerLevel;
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private PlayerTarget _playerTarget;
         [SerializeField] private DecalSkillIndicator skillIndicator;
@@ -26,6 +27,7 @@ namespace Player
         [SerializeField] private AbstractNewSkillSettings primarySkillSettings;
         [SerializeField] private AbstractNewSkillSettings secondarySkillSettings;
 
+        public PlayerLevel PlayerLevel => playerLevel; 
         public PlayerStats PlayerStats => playerStats;
         public Vector3 ShootDirection => m_ShootDirection;
         
@@ -115,7 +117,7 @@ namespace Player
             {
                 if (_playerTarget.HasTarget)
                 {
-                    m_ShootDirection = _playerTarget.GetTargetDirection();
+                    m_ShootDirection = _playerTarget.GetTargetDirection().normalized;
                 }
             }
             else

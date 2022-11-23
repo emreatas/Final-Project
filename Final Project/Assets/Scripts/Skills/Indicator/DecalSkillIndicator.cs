@@ -30,7 +30,7 @@ namespace Skills
         }
 
         public void ShowSkillIndicator(AbstractNewSkillSettings skillSettings, Vector3 shootDirection)
-        { 
+        {
             InitIndicatorSettings(skillSettings.SkillIndicatorSettings);
             UpdateIndicatorDirection(shootDirection);
         }
