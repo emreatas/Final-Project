@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: a79a85c8-d411-478b-b0f7-95666358f5d8
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: 
-  children: []
+  text: Sana da selam
+  children:
+  - f0b79cf6-33e5-4962-8b71-6a8f0b057ee3
   rect:
     serializedVersion: 2
-    x: 337
-    y: 118
+    x: 395
+    y: 87
     width: 200
     height: 100
 --- !u!114 &11400000
@@ -36,6 +37,9 @@ MonoBehaviour:
   nodes:
   - {fileID: 5827382898670180125}
   - {fileID: -581225922056008362}
+  - {fileID: 6014753666957663310}
+  - {fileID: 7072705336578931684}
+  - {fileID: 6934131027658535997}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &5827382898670180125
 MonoBehaviour:
@@ -50,12 +54,77 @@ MonoBehaviour:
   m_Name: 57865a96-479c-47e2-a239-1f0e74ff96af
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: 
+  text: Selamlar
   children:
   - a79a85c8-d411-478b-b0f7-95666358f5d8
+  - 5b2d2377-262f-4230-83ad-d04e7ee9a0f7
   rect:
     serializedVersion: 2
     x: 57
-    y: 139
+    y: 138
+    width: 200
+    height: 100
+--- !u!114 &6014753666957663310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
+  m_Name: 5b2d2377-262f-4230-83ad-d04e7ee9a0f7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: "Sen de kimsin yabanc\u0131?"
+  children:
+  - 9508e094-32d0-4109-8e58-2c917ad89a52
+  rect:
+    serializedVersion: 2
+    x: 393
+    y: 222
+    width: 200
+    height: 100
+--- !u!114 &6934131027658535997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
+  m_Name: 9508e094-32d0-4109-8e58-2c917ad89a52
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Mallar\u0131n\u0131 g\xF6ster."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 648
+    y: 333
+    width: 200
+    height: 100
+--- !u!114 &7072705336578931684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
+  m_Name: f0b79cf6-33e5-4962-8b71-6a8f0b057ee3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Elindekilerini g\xF6rmek isterim"
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 674
+    y: 61
     width: 200
     height: 100
