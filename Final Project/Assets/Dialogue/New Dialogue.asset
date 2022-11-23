@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: a79a85c8-d411-478b-b0f7-95666358f5d8
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: 
+  text: 123412
   children: []
   rect:
     serializedVersion: 2
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 57865a96-479c-47e2-a239-1f0e74ff96af
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: 
+  text: asdqwe
   children:
   - a79a85c8-d411-478b-b0f7-95666358f5d8
   rect:
