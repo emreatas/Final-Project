@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Dialogue;
 using TMPro;
+using UnityEngine.UI;
+
 
 namespace RPG.UI
 {
@@ -10,18 +12,26 @@ namespace RPG.UI
     {
         PlayerConversation playerConversation;
         [SerializeField] TextMeshProUGUI AIText;
+        [SerializeField] Button nextButton;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             playerConversation = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversation>();
-            AIText.text = playerConversation.GetText();
+            nextButton.onClick.AddListener(Next);
+        }
+
+        private void Next()
+        {
+            playerConversation.Next();
+            UpdateUI();
         }
 
         // Update is called once per frame
-        void Update()
+        private void UpdateUI()
         {
-
+            AIText.text = playerConversation.GetText();
+            nextButton.gameObject.SetActive(playerConversation.HasNext());
         }
     }
 }
