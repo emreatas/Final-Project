@@ -6,7 +6,7 @@ using Player;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class AbstractNewSkill : ObjectPoolBehaviour<AbstractNewSkill>
+public abstract class AbstractNewSkill : ObjectPoolBehaviour<AbstractNewSkill>
 {
     [SerializeField] protected float lifeTime;
 
@@ -14,12 +14,12 @@ public class AbstractNewSkill : ObjectPoolBehaviour<AbstractNewSkill>
     
     protected PlayerSkillController m_PlayerSkillController;
     
-    protected virtual void Start()
+    private void OnEnable()
     {
         m_DestroyCoroutine = Timing.RunCoroutine(ReleaseCO());
     }
         
-    private void OnDestroy()
+    private void OnDisable()
     {
         Timing.KillCoroutines(m_DestroyCoroutine);
     }
@@ -27,12 +27,22 @@ public class AbstractNewSkill : ObjectPoolBehaviour<AbstractNewSkill>
     public void InitSkill(PlayerSkillController skillController)
     {
         m_PlayerSkillController = skillController;
+        OnInitialized();
     }
     
-    protected virtual IEnumerator<float> ReleaseCO()
+    private IEnumerator<float> ReleaseCO()
     {
         yield return Timing.WaitForSeconds(lifeTime);
-        
+        ReleaseSkill();
+    }
+
+    protected void ReleaseSkill()
+    {
+        OnReleaseObject();
         Release();
     }
+    
+    protected abstract void OnInitialized();
+    protected abstract void OnReleaseObject();
+
 }

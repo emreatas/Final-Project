@@ -16,13 +16,15 @@ namespace Skills
 
         private float m_Damage;
         
-        protected override void Start()
+        protected override void OnInitialized()
         {
-            base.Start();
             m_Damage = m_PlayerSkillController.PlayerStats.CharacterStats.GetValue(attackType) * attackMultiplicator;
             
             thrustParticleSystem.Play();
         }
+
+        protected override void OnReleaseObject() { }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out IHealth health))

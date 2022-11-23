@@ -18,15 +18,16 @@ namespace Skills
         private float m_AttackSpeed;
         private float m_Damage;
         
-        protected override void Start()
+        protected override void OnInitialized()
         {
-            base.Start();
             m_AttackSpeed = m_PlayerSkillController.PlayerStats.CharacterStats.GetValue(attackSpeedType);
             m_Damage = m_PlayerSkillController.PlayerStats.CharacterStats.GetValue(damageType);
             
             rb.velocity = Vector3.down * m_AttackSpeed * attackSpeedMultiplicator;
         }
-        
+
+        protected override void OnReleaseObject() { }
+
         private void OnTriggerEnter(Collider other)
         {
             IHealth enemy = other.GetComponent<IHealth>();

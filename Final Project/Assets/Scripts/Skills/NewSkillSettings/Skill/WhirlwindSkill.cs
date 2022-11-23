@@ -6,7 +6,12 @@ namespace Skills
 {
     public class WhirlwindSkill : AbstractNewSkill
     {
-        
-        
+        protected override void OnInitialized()
+        {
+        }
+
+        protected override void OnReleaseObject()
+        {
+        }
     }
 }

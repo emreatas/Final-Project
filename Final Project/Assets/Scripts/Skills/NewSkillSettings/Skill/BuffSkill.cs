@@ -11,11 +11,9 @@ namespace Skills
         [SerializeField] private List<SkillBuff> skillBuffs = new List<SkillBuff>();
         
         private List<AttributeModifier> m_Modifier = new List<AttributeModifier>();
-
-        protected override void Start()
+        
+        protected override void OnInitialized()
         {
-            base.Start();
-            
             for (int i = 0; i < skillBuffs.Count; i++)
             {
                 float buffAmount = m_PlayerSkillController.PlayerStats.GetValue(skillBuffs[i].buffType) * skillBuffs[i].buffMultiplicator;
@@ -25,15 +23,13 @@ namespace Skills
             
             AddToCharacterAttributes();
         }
-        
-        protected override IEnumerator<float> ReleaseCO()
+
+        protected override void OnReleaseObject()
         {
-            yield return Timing.WaitForSeconds(lifeTime);
             RemoveFromCharacterAttributes();
-            Destroy(gameObject);
         }
 
-        
+
         private void AddToCharacterAttributes()
         {
             for (int i = 0; i < m_Modifier.Count; i++)
