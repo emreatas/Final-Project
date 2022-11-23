@@ -23,8 +23,11 @@ namespace ObjectPooling
             if (InactiveItemCount > 0)
             {
                 T pooledObject = m_InactiveItems[0];
+                
                 m_InactiveItems.Remove(pooledObject);
                 m_ActiveItems.Add(pooledObject);
+                
+                pooledObject.SetParent(parent);
                 pooledObject.SetActive(true);
                 return pooledObject;
             }
