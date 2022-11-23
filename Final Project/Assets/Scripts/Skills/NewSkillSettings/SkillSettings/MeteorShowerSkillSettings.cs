@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MEC;
+using ObjectPooling;
 using Player;
 using UnityEngine;
 
@@ -34,8 +35,9 @@ namespace Skills
 
         private void InstansiateMeteor(PlayerSkillController skillController, Vector3 spawnPosition)
         {
-            var instansiated = Instantiate(prefab, spawnPosition, Quaternion.identity);
-            instansiated.InitSkill(skillController);
+            var pooled = SkillPool.Instance.PoolSkill(prefab);
+            pooled.SetPositionAndRotation(spawnPosition, Quaternion.identity);
+            pooled.InitSkill(skillController);
         }
 
         private Vector3[] GetRandomSpawnPosition(Vector3 playerPosition)

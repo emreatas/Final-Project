@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ObjectPooling;
 using Player;
 using UnityEngine;
 
@@ -15,8 +16,12 @@ namespace Skills
 
         public override void ExecuteSkill(PlayerSkillController skillController)
         {
-            var instansiated = Instantiate(prefab, skillController.transform);
-            instansiated.InitSkill(skillController);
+            var pooled = SkillPool.Instance.PoolSkill(prefab);
+            pooled.SetPositionAndRotation(
+                GetSpawnPosition(skillController.transform), 
+                Quaternion.LookRotation(skillController.ShootDirection)
+                );
+            pooled.InitSkill(skillController);
         }
     }
 }

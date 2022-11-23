@@ -19,10 +19,24 @@ namespace Skills
         
         [Header("Projectile Prefab")]
         [SerializeField] protected AbstractNewSkill prefab;
+
+        [SerializeField] private Vector3 skillSpawnOffset;
         
         [Header("Skill Indicator")]
         public SkillIndicatorSettings SkillIndicatorSettings;
 
+        protected Vector3 GetSpawnPosition(Transform playerTransform)
+        {
+            return playerTransform.position + GetLocalSpawnOffset(playerTransform);
+        }
+        
+        private Vector3 GetLocalSpawnOffset(Transform playerTransform)
+        {
+            return playerTransform.right * skillSpawnOffset.x + 
+                   playerTransform.up * skillSpawnOffset.y +
+                   playerTransform.forward * skillSpawnOffset.z;
+        } 
+        
         public abstract void StartSkill(PlayerSkillController skillController);
         public abstract void ExecuteSkill(PlayerSkillController skillController);
     }
