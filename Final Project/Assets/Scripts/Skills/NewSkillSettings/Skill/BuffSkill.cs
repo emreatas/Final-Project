@@ -26,7 +26,7 @@ namespace Skills
             AddToCharacterAttributes();
         }
         
-        protected override IEnumerator<float> _Destroy()
+        protected override IEnumerator<float> ReleaseCO()
         {
             yield return Timing.WaitForSeconds(lifeTime);
             RemoveFromCharacterAttributes();

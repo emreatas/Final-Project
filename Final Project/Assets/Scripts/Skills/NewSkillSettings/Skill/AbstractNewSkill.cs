@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using MEC;
+using ObjectPooling;
 using Player;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class AbstractNewSkill : MonoBehaviour
+public class AbstractNewSkill : ObjectPoolBehaviour<AbstractNewSkill>
 {
     [SerializeField] protected float lifeTime;
 
     private CoroutineHandle m_DestroyCoroutine;
-
+    
     protected PlayerSkillController m_PlayerSkillController;
     
     protected virtual void Start()
     {
-        m_DestroyCoroutine = Timing.RunCoroutine(_Destroy());
+        m_DestroyCoroutine = Timing.RunCoroutine(ReleaseCO());
     }
         
     private void OnDestroy()
@@ -27,12 +29,10 @@ public class AbstractNewSkill : MonoBehaviour
         m_PlayerSkillController = skillController;
     }
     
-    protected virtual IEnumerator<float> _Destroy()
+    protected virtual IEnumerator<float> ReleaseCO()
     {
         yield return Timing.WaitForSeconds(lifeTime);
         
-        Destroy(gameObject);
+        Release();
     }
-    
-    
 }
