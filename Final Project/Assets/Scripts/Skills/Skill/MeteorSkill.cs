@@ -36,7 +36,7 @@ namespace Skills
                 enemy.TakeDamage(m_Damage * damageMultiplicator);
             }
 
-            Debug.Log("Interacted with " + other.name);
+            ReleaseSkill();
         }
     }
 }
