@@ -32,7 +32,7 @@ namespace Enemy
             {
                 if (damageGiver.TryGetComponent(out PlayerLevel playerLevel))
                 {
-                    playerLevel.AddExperience(100);
+                    playerLevel.AddExperience(enemyStats.exp);
                 }
             
                 RandomLoot.Instance.CreateLoot(transform.position);
