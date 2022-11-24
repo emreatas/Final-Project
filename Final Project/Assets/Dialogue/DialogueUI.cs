@@ -13,6 +13,7 @@ namespace RPG.UI
         PlayerConversation playerConversation;
         [SerializeField] TextMeshProUGUI AIText;
         [SerializeField] Button nextButton;
+        public GameObject closePanel;
 
         // Start is called before the first frame update
         private void Start()
@@ -32,6 +33,11 @@ namespace RPG.UI
         {
             AIText.text = playerConversation.GetText();
             nextButton.gameObject.SetActive(playerConversation.HasNext());
+        }
+
+        public void closingPanel()
+        {
+            closePanel.gameObject.SetActive(false);
         }
     }
 }

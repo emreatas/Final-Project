@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2537179615823279870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
+  m_Name: 49a77a0e-db46-4e65-af41-36807eb41a6d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: "Elimdekiler ilgini \xE7ekebilir g\xF6z atmal\u0131s\u0131n."
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 848
+    y: 335
+    width: 200
+    height: 100
 --- !u!114 &-581225922056008362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,13 +34,13 @@ MonoBehaviour:
   m_Name: a79a85c8-d411-478b-b0f7-95666358f5d8
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Sana da selam
+  text: "Selam. O yan\u0131ndakiler sat\u0131\u015Fa a\xE7\u0131k m\u0131?"
   children:
   - f0b79cf6-33e5-4962-8b71-6a8f0b057ee3
   rect:
     serializedVersion: 2
-    x: 395
-    y: 87
+    x: 496
+    y: 154
     width: 200
     height: 100
 --- !u!114 &11400000
@@ -39,7 +60,7 @@ MonoBehaviour:
   - {fileID: -581225922056008362}
   - {fileID: 6014753666957663310}
   - {fileID: 7072705336578931684}
-  - {fileID: 6934131027658535997}
+  - {fileID: -2537179615823279870}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &5827382898670180125
 MonoBehaviour:
@@ -60,8 +81,8 @@ MonoBehaviour:
   - 5b2d2377-262f-4230-83ad-d04e7ee9a0f7
   rect:
     serializedVersion: 2
-    x: 57
-    y: 138
+    x: 191
+    y: 246
     width: 200
     height: 100
 --- !u!114 &6014753666957663310
@@ -77,34 +98,13 @@ MonoBehaviour:
   m_Name: 5b2d2377-262f-4230-83ad-d04e7ee9a0f7
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: "Sen de kimsin yabanc\u0131?"
+  text: "T\xFCccara benziyorsun, var m\u0131 elinde g\xFCzel bir \u015Feyler?"
   children:
-  - 9508e094-32d0-4109-8e58-2c917ad89a52
+  - 49a77a0e-db46-4e65-af41-36807eb41a6d
   rect:
     serializedVersion: 2
-    x: 393
-    y: 222
-    width: 200
-    height: 100
---- !u!114 &6934131027658535997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
-  m_Name: 9508e094-32d0-4109-8e58-2c917ad89a52
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: "Mallar\u0131n\u0131 g\xF6ster."
-  children: []
-  rect:
-    serializedVersion: 2
-    x: 648
-    y: 333
+    x: 498
+    y: 343
     width: 200
     height: 100
 --- !u!114 &7072705336578931684
@@ -120,11 +120,12 @@ MonoBehaviour:
   m_Name: f0b79cf6-33e5-4962-8b71-6a8f0b057ee3
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: "Elindekilerini g\xF6rmek isterim"
+  text: "Elbette sat\u0131\u015Fa a\xE7\u0131k, fiyatlar\u0131n\u0131 kar\u015F\u0131layabilirsen
+    tabii."
   children: []
   rect:
     serializedVersion: 2
-    x: 674
-    y: 61
+    x: 833
+    y: 138
     width: 200
     height: 100
