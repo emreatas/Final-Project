@@ -9,15 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1b00986dd31d04b8007afd56c498f3, type: 3}
-  m_Name: Whirlwind Skill Settings
+  m_Script: {fileID: 11500000, guid: 5a3831344ce1e824593a29b2c829f397, type: 3}
+  m_Name: Basic Attack Skill Settings
   m_EditorClassIdentifier: 
-  SkillName: Whirlwind
+  SkillName: 
   skillType: 0
   SkillIcon: {fileID: 0}
   SkillDescription: 
-  AnimationName: Mage02
-  prefab: {fileID: 7829550296585816785, guid: 3aa4eaff7e416334087737ac41ff0c19, type: 3}
+  AnimationName: Mage01
+  prefab: {fileID: 0}
   skillSpawnOffset: {x: 0, y: 0, z: 0}
   SkillIndicatorSettings: {fileID: 11400000, guid: 8d53efed5e53cc04bb7ed14c61a48e09,
     type: 2}
+  firstComboSkill: {fileID: 3043808611513795905, guid: 90266939c3a644c42b0f38020e89564c,
+    type: 3}
+  secondComboSkill: {fileID: 3043808611513795905, guid: e791aad927e7fc143ba465eb7a6fbe8e,
+    type: 3}
+  thirdComboSkill: {fileID: 3043808611513795905, guid: 5da6d7116af0e694bb04aaf0245e0988,
+    type: 3}

@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
   baseValue: 1000
-  additiveAttributeModifiers: []
+  additiveAttributeModifiers:
+  - m_BaseValue: 107415.64
+    m_BaseAttributeType: 0
+    m_TargetStat: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
+  - m_BaseValue: 107415.64
+    m_BaseAttributeType: 0
+    m_TargetStat: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
   percentageAttributeModifiers:
   - m_BaseValue: 0.0530945
     m_BaseAttributeType: 1
