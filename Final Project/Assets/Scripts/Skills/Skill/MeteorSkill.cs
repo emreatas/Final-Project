@@ -23,7 +23,7 @@ namespace Skills
             m_AttackSpeed = m_PlayerSkillController.PlayerStats.CharacterStats.GetValue(attackSpeedType);
             m_Damage = m_PlayerSkillController.PlayerStats.CharacterStats.GetValue(damageType);
             
-            rb.velocity = Vector3.down * m_AttackSpeed * attackSpeedMultiplicator;
+            rb.velocity = Vector3.down * (m_AttackSpeed * attackSpeedMultiplicator);
         }
 
         protected override void OnReleaseObject() { }
@@ -33,7 +33,7 @@ namespace Skills
             IHealth enemy = other.GetComponent<IHealth>();
             if (enemy != null)
             {
-                enemy.TakeDamage(m_Damage * damageMultiplicator);
+                enemy.TakeDamage(m_Damage * damageMultiplicator, m_PlayerSkillController.gameObject);
             }
 
             ReleaseSkill();

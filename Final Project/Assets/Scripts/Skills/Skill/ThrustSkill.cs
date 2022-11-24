@@ -29,7 +29,7 @@ namespace Skills
         {
             if (other.TryGetComponent(out IHealth health))
             {
-                health.TakeDamage(m_Damage);
+                health.TakeDamage(m_Damage, m_PlayerSkillController.gameObject);
             }
         }
     }

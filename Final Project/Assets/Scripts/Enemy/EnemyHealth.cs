@@ -1,4 +1,5 @@
 using System;
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,13 +20,21 @@ namespace Enemy
             healthBar.value = health;
         }
 
-        public void TakeDamage(float damage)
+
+        public float Health { get; }
+
+        public void TakeDamage(float damage, GameObject damageGiver)
         {
             health -= damage;
             healthBar.value = health;
             enemyStateManager.SwitchState(enemyStateManager.HitReactionState);
             if (health <= 0)
             {
+                if (damageGiver.TryGetComponent(out PlayerLevel playerLevel))
+                {
+                    playerLevel.AddExperience(100);
+                }
+            
                 RandomLoot.Instance.CreateLoot(transform.position);
                 Destroy(gameObject);
             }
