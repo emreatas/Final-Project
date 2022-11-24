@@ -22,14 +22,18 @@ namespace Player
         [SerializeField] private PlayerStats playerStats;
         [SerializeField] private PlayerTarget _playerTarget;
         [SerializeField] private DecalSkillIndicator skillIndicator;
-
+        [SerializeField] private WeaponSelector weaponSelector;
+        
+        
         [SerializeField] private AbstractNewSkillSettings basicSkillSettings;
         [SerializeField] private AbstractNewSkillSettings primarySkillSettings;
         [SerializeField] private AbstractNewSkillSettings secondarySkillSettings;
 
+        public WeaponSelector WeaponSelector => weaponSelector;
         public PlayerLevel PlayerLevel => playerLevel; 
         public PlayerStats PlayerStats => playerStats;
         public Vector3 ShootDirection => m_ShootDirection;
+        public PlayerAnimationController PlayerAnimationController => animationController;
         
         public AbstractNewSkillSettings BasicSkillSettings => basicSkillSettings;
         public AbstractNewSkillSettings PrimarySkillSettings => primarySkillSettings;
@@ -39,7 +43,7 @@ namespace Player
         private AbstractNewSkillSettings m_ActiveSkill;
 
         private Vector3 m_ShootDirection;
-        
+
         private void OnEnable()
         {
             AddListeners();
@@ -54,7 +58,8 @@ namespace Player
         
         public void StartBasicSkill()
         {
-            m_ActiveSkill = primarySkillSettings;
+            m_ActiveSkill = basicSkillSettings;
+            FindShootDirection(Vector3.zero);
             basicSkillSettings.StartSkill(this);
         }
         
@@ -117,7 +122,7 @@ namespace Player
             {
                 if (_playerTarget.HasTarget)
                 {
-                    m_ShootDirection = _playerTarget.GetTargetDirection().normalized;
+                    m_ShootDirection = _playerTarget.GetTargetDirection();
                 }
             }
             else
