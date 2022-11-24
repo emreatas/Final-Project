@@ -15,7 +15,7 @@ namespace Skills
         public override void StartSkill(PlayerSkillController skillController)
         {
             var pooled = SkillPool.Instance.PoolSkill(playerParticle, skillController.WeaponSelector.GetActiveWeaponTransform());
-            pooled.SetPositionAndRotation(skillController.transform.position, Quaternion.identity);
+            pooled.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
             pooled.InitSkill(skillController);
         }
 

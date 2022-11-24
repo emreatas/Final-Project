@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e190c1fa88e0242819e438a9e1b7f9, type: 3}
+  m_Name: Buff2
+  m_EditorClassIdentifier: 
+  SkillName: 
+  skillType: 2
+  SkillIcon: {fileID: 0}
+  SkillDescription: 
+  AnimationName: Mage01
+  prefab: {fileID: 7829550296585816785, guid: dd0ab28489deb1745bbd8dd88782d431, type: 3}
+  skillSpawnOffset: {x: 0, y: 0, z: 0}
+  SkillIndicatorSettings: {fileID: 11400000, guid: c0d534159168c1244ab85220a82c795b,
+    type: 2}
