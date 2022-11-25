@@ -53,7 +53,7 @@ namespace StateMachine
             {
                 cooldown = true;
                 m_StateMachine.AnimationController.StopBasicAttackAnimation();
-                m_StateMachine.InvokeFunction(ChangeState,0.1f);
+                m_StateMachine.InvokeFunction(ChangeState,0.2f);
             }
             else
             {
