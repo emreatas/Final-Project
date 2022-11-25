@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a606e8c1814408885008cf00ad6e678, type: 3}
   m_Name: Archer Skill Settings Container
   m_EditorClassIdentifier: 
-  Combo1: {fileID: 0}
-  Combo2: {fileID: 0}
-  Combo3: {fileID: 0}
-  Primary1: {fileID: 0}
-  Primary2: {fileID: 0}
-  Primary3: {fileID: 0}
-  Secondary1: {fileID: 0}
-  Secondary2: {fileID: 0}
+  Basic1: {fileID: 0}
+  Basic2: {fileID: 0}
+  Basic3: {fileID: 0}
+  Primary1: {fileID: 11400000, guid: d7b7a5a72e37a6742aaa51f44a21b9ae, type: 2}
+  Primary2: {fileID: 11400000, guid: 0fc05eb3ab2aae94895ae794bb119389, type: 2}
+  Primary3: {fileID: 11400000, guid: 28085551d6e894c47a541b9681807dc6, type: 2}
+  Secondary1: {fileID: 11400000, guid: ab629bfc22fa31b46ba16fe4dbb2d7b7, type: 2}
+  Secondary2: {fileID: 11400000, guid: 25fd5e7b2cef41f4ebda3c3e52982dd7, type: 2}
   Secondary3: {fileID: 0}

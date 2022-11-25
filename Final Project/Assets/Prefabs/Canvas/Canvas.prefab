@@ -1279,7 +1279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07566667, y: 0.17888342}
   m_AnchorMax: {x: 0.9275333, y: 0.80811214}
-  m_AnchoredPosition: {x: -1.5, y: -4.4999695}
+  m_AnchoredPosition: {x: -1.5, y: -4.5}
   m_SizeDelta: {x: -11, y: -18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &357297772
@@ -2480,7 +2480,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5067708, y: 0.0237611}
   m_AnchorMax: {x: 0.9921875, y: 0.7951417}
-  m_AnchoredPosition: {x: -2.75, y: -2.000122}
+  m_AnchoredPosition: {x: -2.75, y: -2}
   m_SizeDelta: {x: 5.5, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &620512730
@@ -5032,7 +5032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1078592398
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5175,9 +5175,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5961237175141523924}
         m_TargetAssemblyTypeName: Stat.StatUI, Assembly-CSharp
-        m_MethodName: AddStat
+        m_MethodName: _AddStat
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 565954323bdb20849a5bf6f85666d7e8,
@@ -6034,9 +6034,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5961237175141523924}
         m_TargetAssemblyTypeName: Stat.StatUI, Assembly-CSharp
-        m_MethodName: AddStat
+        m_MethodName: _AddStat
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 4bafa684c20ea26419d02ab848f13220,
@@ -6244,9 +6244,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5961237175141523924}
         m_TargetAssemblyTypeName: Stat.StatUI, Assembly-CSharp
-        m_MethodName: AddStat
+        m_MethodName: _AddStat
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5,
@@ -7561,9 +7561,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5961237175141523924}
         m_TargetAssemblyTypeName: Stat.StatUI, Assembly-CSharp
-        m_MethodName: AddStat
+        m_MethodName: _AddStat
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: c8d5d76ee1d8b8241b5f1e916cccc0b7,
@@ -10233,7 +10233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0052083335, y: 0.0237611}
   m_AnchorMax: {x: 0.49375, y: 0.7951417}
-  m_AnchoredPosition: {x: 481, y: -2.000122}
+  m_AnchoredPosition: {x: 481, y: -2}
   m_SizeDelta: {x: 952, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &269524607215440449
@@ -11132,6 +11132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7233695365484641771}
+  - component: {fileID: 1978695574}
   m_Layer: 5
   m_Name: Base Skill
   m_TagString: Untagged
@@ -11160,6 +11161,19 @@ RectTransform:
   m_AnchoredPosition: {x: 425, y: 200}
   m_SizeDelta: {x: 99, y: 100}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1978695574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579945503073088064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe88695433944fdaf643c68c2983a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillImage: {fileID: 4662673212837852206}
 --- !u!1 &613065919559988890
 GameObject:
   m_ObjectHideFlags: 0
@@ -14746,14 +14760,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CanvasNS.CanvasScript, Assembly-CSharp
-        m_MethodName: UpdateSkillText
-        m_Mode: 2
+      - m_Target: {fileID: 1978695574}
+        m_TargetAssemblyTypeName: Skills.SkillUI, Assembly-CSharp
+        m_MethodName: _SelectSkill
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 41d75c9e63507cc45b39d33390ba0055,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Skills.AbstractSkill, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -15103,6 +15116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4554159982653073277}
+  - component: {fileID: 239192277}
   m_Layer: 5
   m_Name: Character Mana
   m_TagString: Untagged
@@ -15132,6 +15146,19 @@ RectTransform:
   m_AnchoredPosition: {x: 94, y: 6}
   m_SizeDelta: {x: -200.00006, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &239192277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038116915254069119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948fde362510aa34abd8c1a40bdbe074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaSlider: {fileID: 8386253152218055379}
 --- !u!1 &2039839377214298914
 GameObject:
   m_ObjectHideFlags: 0
@@ -15855,6 +15882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5713847643061026133}
+  - component: {fileID: 652058431}
   m_Layer: 5
   m_Name: Skill 1
   m_TagString: Untagged
@@ -15883,6 +15911,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -525}
   m_SizeDelta: {x: 99, y: 100}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &652058431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292334554221500785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe88695433944fdaf643c68c2983a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillImage: {fileID: 4347158392960683547}
 --- !u!1 &2310444392703514954
 GameObject:
   m_ObjectHideFlags: 0
@@ -16303,6 +16344,8 @@ GameObject:
   m_Component:
   - component: {fileID: 116076344215076955}
   - component: {fileID: 5961237175141523924}
+  - component: {fileID: 1278480821}
+  - component: {fileID: 1278480822}
   m_Layer: 5
   m_Name: Stat
   m_TagString: Untagged
@@ -16349,6 +16392,43 @@ MonoBehaviour:
   - {fileID: 1531880798}
   - {fileID: 355915216}
   skillPointsText: {fileID: 1983361991}
+--- !u!114 &1278480821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365095487657489858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac8e2edb927983408ce6dd3023b8903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primarySkillIcon: {fileID: 773744422}
+  secondarySkillIcon: {fileID: 6485916582660749215}
+--- !u!114 &1278480822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365095487657489858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b4de34f453f664b951313288829965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primarySkillUIArray:
+  - {fileID: 1749797838}
+  - {fileID: 1601591785}
+  secondarySkillUIArray:
+  - {fileID: 652058431}
+  - {fileID: 1978695574}
+  mageSkillContainer: {fileID: 11400000, guid: ee3930aa4244b584babb1f01792e4f0d, type: 2}
+  warriorSkillContainer: {fileID: 11400000, guid: baf35c05dca6b0344a5da8eda76c95a1,
+    type: 2}
+  archerSkillContainer: {fileID: 11400000, guid: 260c5e9e63b79a44a96ce751da97bb14,
+    type: 2}
 --- !u!1 &2439110192192388950
 GameObject:
   m_ObjectHideFlags: 0
@@ -17078,7 +17158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 59.000977, y: 56.00049}
+  m_AnchoredPosition: {x: 59.00055, y: 56.00049}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1963504016447616491
@@ -18417,7 +18497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 59.000732, y: 56.00049}
+  m_AnchoredPosition: {x: 59.000305, y: 56.00049}
   m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &98168084238469154
@@ -19676,6 +19756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6347462674595298253}
+  - component: {fileID: 1749797838}
   m_Layer: 5
   m_Name: Skill 1
   m_TagString: Untagged
@@ -19704,6 +19785,19 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: -24}
   m_SizeDelta: {x: -57, y: -35}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1749797838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231970592018823610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe88695433944fdaf643c68c2983a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillImage: {fileID: 6945057511889785180}
 --- !u!1 &3283049845711647749
 GameObject:
   m_ObjectHideFlags: 0
@@ -21777,9 +21871,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CanvasNS.CanvasScript, Assembly-CSharp
-        m_MethodName: SelectSkill
+      - m_Target: {fileID: 1278480821}
+        m_TargetAssemblyTypeName: SkillEquipUI, Assembly-CSharp
+        m_MethodName: _EquipSkill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22576,7 +22670,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.15
+  m_fontSize: 36.2
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23792,6 +23886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8568823156380710556}
+  - component: {fileID: 1601591785}
   m_Layer: 5
   m_Name: Base Skill
   m_TagString: Untagged
@@ -23820,6 +23915,19 @@ RectTransform:
   m_AnchoredPosition: {x: 15, y: 6}
   m_SizeDelta: {x: -31, y: -34}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1601591785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931183960232083058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe88695433944fdaf643c68c2983a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillImage: {fileID: 3700020182114628555}
 --- !u!1 &5074396820284917995
 GameObject:
   m_ObjectHideFlags: 0
@@ -27484,7 +27592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0052083335, y: 0.0237611}
   m_AnchorMax: {x: 0.49375, y: 0.7951417}
-  m_AnchoredPosition: {x: 481, y: -2.000122}
+  m_AnchoredPosition: {x: 481, y: -2}
   m_SizeDelta: {x: 952, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6027563965967687856
@@ -27610,6 +27718,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3639643261391962061}
+  - component: {fileID: 695714093}
   m_Layer: 5
   m_Name: Character Exp
   m_TagString: Untagged
@@ -27639,6 +27748,20 @@ RectTransform:
   m_AnchoredPosition: {x: 93.99997, y: 16.299973}
   m_SizeDelta: {x: -200.00006, y: 50}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &695714093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6116089033201805225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5bfab4ef0a64d43bc58b1097aeb2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experienceSlider: {fileID: 2700738317035254807}
+  levelText: {fileID: 1044521301476821776}
 --- !u!1 &6117516097564459247
 GameObject:
   m_ObjectHideFlags: 0
@@ -28645,7 +28768,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0074375006, y: 0.32314816}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1, y: -14.999878}
+  m_AnchoredPosition: {x: 1, y: -14.999756}
   m_SizeDelta: {x: -1.5, y: -16}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1039219263
@@ -29863,7 +29986,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 2100903573960047801}
-  healthType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
 --- !u!1 &6882757606321790104
 GameObject:
   m_ObjectHideFlags: 0
@@ -31728,14 +31850,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CanvasNS.CanvasScript, Assembly-CSharp
-        m_MethodName: UpdateSkillText
-        m_Mode: 2
+      - m_Target: {fileID: 1749797838}
+        m_TargetAssemblyTypeName: Skills.SkillUI, Assembly-CSharp
+        m_MethodName: _SelectSkill
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 81d0c726de4e9d641a0f10decf0db5ad,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Skills.AbstractSkill, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -32015,14 +32136,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CanvasNS.CanvasScript, Assembly-CSharp
-        m_MethodName: UpdateSkillText
-        m_Mode: 2
+      - m_Target: {fileID: 652058431}
+        m_TargetAssemblyTypeName: Skills.SkillUI, Assembly-CSharp
+        m_MethodName: _SelectSkill
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 03c0633d9ba57564996197f9e94e966a,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Skills.AbstractSkill, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -32149,14 +32269,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CanvasNS.CanvasScript, Assembly-CSharp
-        m_MethodName: UpdateSkillText
-        m_Mode: 2
+      - m_Target: {fileID: 1601591785}
+        m_TargetAssemblyTypeName: Skills.SkillUI, Assembly-CSharp
+        m_MethodName: _SelectSkill
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 6114c62a98e73744cb821cec650c27df,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Skills.AbstractSkill, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -35812,7 +35931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23500001, y: 0.100797206}
   m_AnchorMax: {x: 0.768, y: 0.7675944}
-  m_AnchoredPosition: {x: -1.4998779, y: 47}
+  m_AnchoredPosition: {x: -1.4998932, y: 47}
   m_SizeDelta: {x: 441, y: 238}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1661884346
