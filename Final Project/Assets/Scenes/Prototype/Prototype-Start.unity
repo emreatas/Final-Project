@@ -2307,6 +2307,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 538662761}
     m_Modifications:
+    - target: {fileID: 4068872296665014591, guid: ee09ed17902c07d419782e1b5f35bcb1,
+        type: 3}
+      propertyPath: m_text
+      value: Archer
+      objectReference: {fileID: 0}
     - target: {fileID: 4068872297588280612, guid: ee09ed17902c07d419782e1b5f35bcb1,
         type: 3}
       propertyPath: m_Name
@@ -11100,6 +11105,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 538662761}
     m_Modifications:
+    - target: {fileID: 4068872296665014591, guid: ee09ed17902c07d419782e1b5f35bcb1,
+        type: 3}
+      propertyPath: m_text
+      value: 'Warrior
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 4068872297588280612, guid: ee09ed17902c07d419782e1b5f35bcb1,
         type: 3}
       propertyPath: m_Name
