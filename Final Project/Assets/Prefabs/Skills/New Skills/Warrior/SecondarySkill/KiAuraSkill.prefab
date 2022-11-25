@@ -50,7 +50,7 @@ MonoBehaviour:
   - buffType: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
     buffMultiplicator: 0.1
   - buffType: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
-    buffMultiplicator: 100
+    buffMultiplicator: 2
 --- !u!1001 &3877049438518265493
 PrefabInstance:
   m_ObjectHideFlags: 0
