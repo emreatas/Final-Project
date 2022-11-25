@@ -16,8 +16,10 @@ MonoBehaviour:
   skillType: 2
   SkillIcon: {fileID: 0}
   SkillDescription: 
-  AnimationName: Mage01
+  manaCost: 0
+  AnimationName: Mage02
   prefab: {fileID: 7829550296585816785, guid: dd0ab28489deb1745bbd8dd88782d431, type: 3}
   skillSpawnOffset: {x: 0, y: 0, z: 0}
   SkillIndicatorSettings: {fileID: 11400000, guid: c0d534159168c1244ab85220a82c795b,
     type: 2}
+  spawnEffectInPlayer: 0

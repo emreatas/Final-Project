@@ -16,6 +16,7 @@ MonoBehaviour:
   skillType: 0
   SkillIcon: {fileID: 0}
   SkillDescription: 
+  manaCost: 0
   AnimationName: Mage01
   prefab: {fileID: 7829550296585816785, guid: 1856f834f96a84d4cb1317858fa4ded4, type: 3}
   skillSpawnOffset: {x: 0, y: 0, z: 0}
@@ -23,3 +24,5 @@ MonoBehaviour:
     type: 2}
   playerParticle: {fileID: 8521999483806879542, guid: c275562691f03a94a824d3f175aca08e,
     type: 3}
+  spawnEffectInWeapon: 1
+  shootSkillInShootDri: 1
