@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a606e8c1814408885008cf00ad6e678, type: 3}
   m_Name: Mage Skill Settings Container
   m_EditorClassIdentifier: 
-  Combo1: {fileID: 0}
-  Combo2: {fileID: 0}
-  Combo3: {fileID: 0}
-  Primary1: {fileID: 0}
-  Primary2: {fileID: 0}
-  Primary3: {fileID: 0}
-  Secondary1: {fileID: 0}
-  Secondary2: {fileID: 0}
+  Basic1: {fileID: 11400000, guid: 57b6b0ed7f2b49040ac67a145432255d, type: 2}
+  Basic2: {fileID: 0}
+  Basic3: {fileID: 0}
+  Primary1: {fileID: 11400000, guid: e4a413c1f39e4ab4cb1bdaeefc625e2b, type: 2}
+  Primary2: {fileID: 11400000, guid: 755fb8795fbc96c4ab2427399c17f911, type: 2}
+  Primary3: {fileID: 11400000, guid: 5b1a557c5c443574ea7a5f0f52cabef6, type: 2}
+  Secondary1: {fileID: 11400000, guid: 150703410db63d0458541ff7b7c1ef3a, type: 2}
+  Secondary2: {fileID: 11400000, guid: 0e752aa1779c0774396b435b25ac5b87, type: 2}
   Secondary3: {fileID: 0}

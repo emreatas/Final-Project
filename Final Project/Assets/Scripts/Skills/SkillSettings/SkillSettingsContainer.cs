@@ -6,9 +6,9 @@ namespace Skills
     public class SkillSettingsContainer : ScriptableObject
     {
         [Header("Basic Attack")]
-        public AbstractNewSkillSettings Combo1;
-        public AbstractNewSkillSettings Combo2;
-        public AbstractNewSkillSettings Combo3;
+        public AbstractNewSkillSettings Basic1;
+        public AbstractNewSkillSettings Basic2;
+        public AbstractNewSkillSettings Basic3;
         
         [Header("Primary Skills")]
         public AbstractNewSkillSettings Primary1;

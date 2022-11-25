@@ -2128,6 +2128,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+--- !u!1 &628024648 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2584209938277290249, guid: 5627d99bef3e2914b91ecb904c6e4e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 2018686579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &633878425 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8572960828217824235, guid: 5627d99bef3e2914b91ecb904c6e4e80,
@@ -2940,6 +2946,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2018686579}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &833414397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3574338843411667992, guid: 5627d99bef3e2914b91ecb904c6e4e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 2018686579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628024648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d931d9a68c247024194efdc82b3975d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &833414409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628024648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abc900cf15d94a4392ca5608c348dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSkillController: {fileID: 833414397}
+  mageSkillContainer: {fileID: 11400000, guid: ee3930aa4244b584babb1f01792e4f0d, type: 2}
+  archerSkillContainer: {fileID: 11400000, guid: 260c5e9e63b79a44a96ce751da97bb14,
+    type: 2}
+  warriorSkillContainer: {fileID: 11400000, guid: baf35c05dca6b0344a5da8eda76c95a1,
+    type: 2}
 --- !u!1001 &864597379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7066,7 +7102,7 @@ PrefabInstance:
     - target: {fileID: 3716719764411830621, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 59.00049
+      value: 59.00055
       objectReference: {fileID: 0}
     - target: {fileID: 4007393851303260623, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
@@ -7092,7 +7128,7 @@ PrefabInstance:
     - target: {fileID: 6698001483064196462, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 59.000244
+      value: 59.000305
       objectReference: {fileID: 0}
     - target: {fileID: 7309581329817337213, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}

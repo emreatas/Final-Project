@@ -34,10 +34,22 @@ namespace Player
         public PlayerStats PlayerStats => playerStats;
         public Vector3 ShootDirection => m_ShootDirection;
         public PlayerAnimationController PlayerAnimationController => animationController;
-        
-        public AbstractNewSkillSettings BasicSkillSettings => basicSkillSettings;
-        public AbstractNewSkillSettings PrimarySkillSettings => primarySkillSettings;
-        public AbstractNewSkillSettings SecondarySkillSettings => secondarySkillSettings;
+
+        public AbstractNewSkillSettings BasicSkillSettings
+        {
+            get => basicSkillSettings;
+            set => basicSkillSettings = value;
+        } 
+        public AbstractNewSkillSettings PrimarySkillSettings 
+        {
+            get => primarySkillSettings;
+            set => primarySkillSettings = value;
+        }
+        public AbstractNewSkillSettings SecondarySkillSettings   
+        {
+            get => secondarySkillSettings;
+            set => secondarySkillSettings = value;
+        }
         
 
         private AbstractNewSkillSettings m_ActiveSkill;
