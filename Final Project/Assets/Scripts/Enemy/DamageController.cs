@@ -3,8 +3,8 @@ using UnityEngine;
 public class DamageController : MonoBehaviour
 {
     public EnemyScriptable enemyStats;
-    private void OnTriggerEnter(Collider other) {
-        IHealth player = other.GetComponent<IHealth>();
+    private void OnTriggerEnter(Collider handCollider) {
+        IHealth player = handCollider.GetComponent<IHealth>();
         if(player != null) {
             player.TakeDamage(enemyStats.damage,null);
             Debug.Log("Damage Taken!");
