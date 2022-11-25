@@ -24,3 +24,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 713c9de7163db6a418e87d123e284761, type: 2}
   - {fileID: 11400000, guid: 29b5531724447024db7722bcadd04106, type: 2}
   - {fileID: 11400000, guid: 2ef49a8f86d39b44596479e2f25c0147, type: 2}
+  totalSkillPoints: 2
+  availableSkillPoints: 0
