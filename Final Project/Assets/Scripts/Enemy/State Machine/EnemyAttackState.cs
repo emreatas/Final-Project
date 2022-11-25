@@ -19,7 +19,13 @@ namespace Enemy
                 enemy.rightHand.GetComponent<Collider>().enabled = false;
                 enemy.SwitchState(enemy.MoveState);
             }
-            enemy.transform.LookAt(new Vector3(enemy.getTargetTransform().x , 0 , enemy.getTargetTransform().z));
+
+            Vector3 dir = (enemy.getTargetTransform() - enemy.transform.position).normalized;
+            Quaternion rotation = Quaternion.LookRotation(dir);
+            rotation.x = 0;
+            rotation.z = 0;
+            enemy.transform.rotation = rotation;
+            //enemy.transform.LookAt(new Vector3(0 ,  enemy.getTargetTransform().y ,0));
         }
     }
 }
