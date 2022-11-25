@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3831344ce1e824593a29b2c829f397, type: 3}
+  m_Name: Archer Basic Attack
+  m_EditorClassIdentifier: 
+  SkillName: 
+  skillType: 0
+  SkillIcon: {fileID: 0}
+  SkillDescription: 
+  manaCost: 0
+  AnimationName: Mage01
+  prefab: {fileID: 0}
+  skillSpawnOffset: {x: 0, y: 0, z: 0}
+  SkillIndicatorSettings: {fileID: 0}
+  firstComboSkill: {fileID: 0}
+  secondComboSkill: {fileID: 0}
+  thirdComboSkill: {fileID: 0}
