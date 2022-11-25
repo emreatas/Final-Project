@@ -14,9 +14,14 @@ namespace ObjectPooling
             m_Pool = pool;
         }
 
-        public void SetPositionAndRotation(Vector3 position, Quaternion rotation)
+        public void SetWorldPositionAndRotation(Vector3 position, Quaternion rotation)
         {
             transform.SetPositionAndRotation(position, rotation);
+        }
+
+        public void SetLocalPosition(Vector3 position, Quaternion rotation)
+        {
+            transform.localPosition = position;
         }
 
         public void SetParent(Transform parent)
