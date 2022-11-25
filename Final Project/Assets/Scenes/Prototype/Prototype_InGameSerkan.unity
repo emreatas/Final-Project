@@ -2081,31 +2081,6 @@ Transform:
   m_Father: {fileID: 998840142}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &662936136 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1450346904730788570, guid: 5627d99bef3e2914b91ecb904c6e4e80,
-    type: 3}
-  m_PrefabInstance: {fileID: 2018686579}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &662936137 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1456298040635016580, guid: 5627d99bef3e2914b91ecb904c6e4e80,
-    type: 3}
-  m_PrefabInstance: {fileID: 2018686579}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &662936138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662936136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c459345986e4f8c88259e7b9e79b05f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSkillSpawnPoint: {fileID: 662936137}
 --- !u!224 &707726790 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18,
@@ -6117,14 +6092,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 998840142}
     m_Modifications:
-    - target: {fileID: 804435607, guid: 5627d99bef3e2914b91ecb904c6e4e80, type: 3}
-      propertyPath: weaponsParent.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 804435607, guid: 5627d99bef3e2914b91ecb904c6e4e80, type: 3}
-      propertyPath: weaponsParent.Array.data[2]
-      value: 
-      objectReference: {fileID: 662936138}
     - target: {fileID: 2584209938277290249, guid: 5627d99bef3e2914b91ecb904c6e4e80,
         type: 3}
       propertyPath: m_Name
@@ -6673,21 +6640,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1173939002}
     m_Modifications:
-    - target: {fileID: 357297770, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -4.4999695
-      objectReference: {fileID: 0}
     - target: {fileID: 328198642546607013, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 839154782, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
-    - target: {fileID: 2683039548486715172, guid: d866bd075e58a5a439b76da3d7d309b6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -14.996216
-      objectReference: {fileID: 0}
     - target: {fileID: 2688623678484253587, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
       propertyPath: m_Name
@@ -6810,11 +6768,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 839154782, guid: d866bd075e58a5a439b76da3d7d309b6,
         type: 3}
-    - target: {fileID: 8645383025026999167, guid: d866bd075e58a5a439b76da3d7d309b6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -14.99939
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d866bd075e58a5a439b76da3d7d309b6, type: 3}
 --- !u!224 &2688623678276074884 stripped
