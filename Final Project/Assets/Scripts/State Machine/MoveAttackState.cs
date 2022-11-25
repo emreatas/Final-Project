@@ -66,9 +66,19 @@ namespace StateMachine
         
         private void HandleOnPrimarySkillCanceled(Vector3 skillDirection)
         {
-            m_StateMachine.AnimationController.PlayPrimaryAttackAnimation();
-            m_StateMachine.SkillController.StartPrimarySkill(m_lastPrimaryAttackDirection);
-
+            float skillManaCost = m_StateMachine.SkillController.PrimarySkillSettings.manaCost;
+            if (m_StateMachine.PlayerMana.HasEnoughMana(skillManaCost))
+            {
+                m_StateMachine.PlayerMana.UseMana(skillManaCost);
+                
+                m_StateMachine.AnimationController.PlayPrimaryAttackAnimation();
+                m_StateMachine.SkillController.StartPrimarySkill(m_lastPrimaryAttackDirection);
+            }
+            else
+            {
+                m_StateMachine.SkillController.DisableSkillIndicator();
+            }
+            
             RemoveMovementListeners();
             RemoveSkillListeners();
             
@@ -84,13 +94,17 @@ namespace StateMachine
 
         private void HandleOnSecondarySkillCanceled(Vector3 obj)
         {
-            m_StateMachine.AnimationController.PlaySecondaryAttackAnimation();
-            m_StateMachine.SkillController.StartSecondarySkill(m_lastPrimaryAttackDirection);
+            float skillManaCost = m_StateMachine.SkillController.SecondarySkillSettings.manaCost;
+            if (m_StateMachine.PlayerMana.HasEnoughMana(skillManaCost))
+            {
+                m_StateMachine.AnimationController.PlaySecondaryAttackAnimation();
+                m_StateMachine.SkillController.StartSecondarySkill(m_lastPrimaryAttackDirection);
 
-            RemoveMovementListeners();
-            RemoveSkillListeners();
-            
-            StopCurrentAnimation();
+                RemoveMovementListeners();
+                RemoveSkillListeners();
+
+                StopCurrentAnimation();
+            }
         }
 
         private void StartCurrentAnimation()

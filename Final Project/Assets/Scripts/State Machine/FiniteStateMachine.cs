@@ -13,11 +13,13 @@ namespace StateMachine
         [SerializeField] private PlayerSkillController skillController;
         [SerializeField] private PlayerAnimationController animationController;
         [SerializeField] private PlayerMovementController movementController;
+        [SerializeField] private PlayerMana playerMana;
         
         public PlayerAnimationController AnimationController => animationController;
         public PlayerSkillController SkillController => skillController;
         public PlayerInputSystem InputSystem => inputSystem;
         public PlayerMovementController MovementController => movementController;
+        public PlayerMana PlayerMana => playerMana;
         
         public bool IsPressingMove
         {
