@@ -64,7 +64,7 @@ namespace Player
 
         private void RemoveListeners()
         {
-            PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
+            PlayerClass.OnCharacterInitialized.RemoveListener(HandleOnCharacterInitialized);
         }
     }
 }
