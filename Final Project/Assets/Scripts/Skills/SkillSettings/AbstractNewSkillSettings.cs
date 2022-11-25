@@ -13,6 +13,8 @@ namespace Skills
         public Sprite SkillIcon;
         [TextArea(10,100)] 
         public string SkillDescription;
+
+        public float manaCost;
         
         [Header("Animations Name")]
         public string AnimationName;

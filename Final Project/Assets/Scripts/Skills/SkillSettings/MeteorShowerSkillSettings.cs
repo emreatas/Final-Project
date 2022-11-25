@@ -36,7 +36,7 @@ namespace Skills
         private void InstansiateMeteor(PlayerSkillController skillController, Vector3 spawnPosition)
         {
             var pooled = SkillPool.Instance.PoolSkill(prefab);
-            pooled.SetPositionAndRotation(spawnPosition, Quaternion.identity);
+            pooled.SetLocalPosition(spawnPosition, Quaternion.identity);
             pooled.InitSkill(skillController);
         }
 

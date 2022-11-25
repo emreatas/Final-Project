@@ -39,7 +39,7 @@ namespace Skills
         private void PoolSkill(PlayerSkillController skillController, ref AbstractNewSkill skill)
         {
             var pooled = SkillPool.Instance.PoolSkill(skill);
-            pooled.SetPositionAndRotation(skillController.transform.position, Quaternion.LookRotation(skillController.transform.forward));
+            pooled.SetLocalPosition(skillController.transform.position, Quaternion.LookRotation(skillController.transform.forward));
             pooled.InitSkill(skillController);
         }
     }
