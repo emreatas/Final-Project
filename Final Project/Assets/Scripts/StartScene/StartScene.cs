@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
+using SceneSystem;
 using Stat;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +10,9 @@ using UnityEngine.UI;
 public class StartScene : MonoBehaviour
 {
 
+    [SerializeField] private SceneHandler sceneHandler;
+    [SerializeField] private PlayerSettings playerSettings;
+    
     public List<StartScreenCharacter> characters;
     public Transform startCamPos;
     public Transform createCamPos;
@@ -17,6 +22,8 @@ public class StartScene : MonoBehaviour
 
 
     private Dictionary<CharacterTypes, GameObject> m_Characters = new Dictionary<CharacterTypes, GameObject>();
+
+    private StartScreenCharacter m_SelectedCharacter;
 
     private void Start()
     {
@@ -58,16 +65,26 @@ public class StartScene : MonoBehaviour
         }
     }
 
-    public void SelectCharacter(CharacterTypes selectedCharacterType)
+    public void SelectCharacter(int index)
     {
         for (int i = 0; i < characters.Count; i++)
         {
             characters[i].gameObject.SetActive(false);
         }
-        
-        m_Characters[selectedCharacterType].gameObject.SetActive(true);
+        characters[index].gameObject.SetActive(true);
+        m_SelectedCharacter = characters[index];
+
+        // m_Characters[selectedCharacterType].gameObject.SetActive(true);
     }
 
+    public void StartGame()
+    {
+        if (m_SelectedCharacter != null)
+        {
+            playerSettings.characterType = m_SelectedCharacter.CharacterType;
+            sceneHandler.LoadGameScene();
+        }
+    }
     
     public void BackButton()
     {
