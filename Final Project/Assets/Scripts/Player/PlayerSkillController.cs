@@ -156,6 +156,7 @@ namespace Player
         
         private void HandleOnSkillChanged(AbstractNewSkillSettings newSkillSettings)
         {
+            Debug.Log("On Changed SKill");
             if(newSkillSettings.skillType == PlayerSkillType.Primary)
             {
                 primarySkillSettings = newSkillSettings;
@@ -169,11 +170,13 @@ namespace Player
         private void AddListeners()
         {
             //CanvasScript.OnSkillChanged.AddListener(HandleOnSkillChanged);
+            SkillEquipUI.OnEquipSkill.AddListener(HandleOnSkillChanged);
         }
 
         private void RemoveListeners()
         {
             //CanvasScript.OnSkillChanged.RemoveListener(HandleOnSkillChanged);
+            SkillEquipUI.OnEquipSkill.RemoveListener(HandleOnSkillChanged);
         }
     }
 }
