@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Stat;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class StartScene : MonoBehaviour
 {
 
-    public List<GameObject> characters;
+    public List<StartScreenCharacter> characters;
     public Transform startCamPos;
     public Transform createCamPos;
     public Camera cam;
@@ -14,8 +16,12 @@ public class StartScene : MonoBehaviour
     public GameObject createPanel;
 
 
+    private Dictionary<CharacterTypes, GameObject> m_Characters = new Dictionary<CharacterTypes, GameObject>();
+
     private void Start()
     {
+        InitCharacters();
+        
         startPanel.SetActive(true);
         createPanel.SetActive(false);
 
@@ -24,19 +30,18 @@ public class StartScene : MonoBehaviour
 
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].SetActive(false);
+            characters[i].gameObject.SetActive(false);
         }
     }
 
-    public void SelectCharacter(int characterIndex)
+    private void InitCharacters()
     {
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].SetActive(false);
+            m_Characters.Add(characters[i].CharacterType, characters[i].gameObject);
         }
-        characters[characterIndex].SetActive(true);
+       
     }
-
 
 
     public void NewCharacterButton()
@@ -49,21 +54,21 @@ public class StartScene : MonoBehaviour
 
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].SetActive(false);
+            characters[i].gameObject.SetActive(false);
         }
     }
 
-    public void SelectNewCharacter(int characterIndex)
+    public void SelectCharacter(CharacterTypes selectedCharacterType)
     {
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].SetActive(false);
+            characters[i].gameObject.SetActive(false);
         }
-        characters[characterIndex].SetActive(true);
-
-
+        
+        m_Characters[selectedCharacterType].gameObject.SetActive(true);
     }
 
+    
     public void BackButton()
     {
         startPanel.SetActive(true);
@@ -74,11 +79,9 @@ public class StartScene : MonoBehaviour
 
         for (int i = 0; i < characters.Count; i++)
         {
-            characters[i].SetActive(false);
+            characters[i].gameObject.SetActive(false);
         }
     }
-
-
 }
 
 
