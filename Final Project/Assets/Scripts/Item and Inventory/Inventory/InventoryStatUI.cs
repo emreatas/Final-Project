@@ -7,7 +7,7 @@ namespace PInventory
 {
     public class InventoryStatUI : MonoBehaviour
     {
-        [SerializeField] private InventoryStatSlot[] statSlots;
+        [SerializeField] private StatSlot[] statSlots;
 
         private void Start()
         {

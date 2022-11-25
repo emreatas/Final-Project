@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PInventory
 {
-    public class InventoryStatSlot : MonoBehaviour
+    public class StatSlot : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI statText;
         [SerializeField] private StatType statType;
