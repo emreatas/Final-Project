@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MEC;
@@ -12,6 +13,7 @@ namespace Skills
         
         private List<AttributeModifier> m_Modifier = new List<AttributeModifier>();
         
+
         protected override void OnInitialized()
         {
             for (int i = 0; i < skillBuffs.Count; i++)
@@ -24,17 +26,16 @@ namespace Skills
             AddToCharacterAttributes();
         }
 
-        protected override void OnReleaseObject()
+        protected override void OnDisableCallback()
         {
             RemoveFromCharacterAttributes();
+            m_Modifier.Clear();
         }
-
-
+        
         private void AddToCharacterAttributes()
         {
             for (int i = 0; i < m_Modifier.Count; i++)
             {
-                Debug.Log("Adding to character");
                 m_PlayerSkillController.PlayerStats.CharacterStats.AddModifier(m_Modifier[i]);
             }
         }

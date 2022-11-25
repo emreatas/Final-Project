@@ -10,8 +10,7 @@ namespace Skills
         {
         }
 
-        protected override void OnReleaseObject()
-        {
-        }
+        protected override void OnDisableCallback() { }
+        
     }
 }

@@ -26,7 +26,8 @@ namespace Skills
             rb.velocity = Vector3.down * (m_AttackSpeed * attackSpeedMultiplicator);
         }
 
-        protected override void OnReleaseObject() { }
+        protected override void OnDisableCallback() { }
+
 
         private void OnTriggerEnter(Collider other)
         {
@@ -36,7 +37,7 @@ namespace Skills
                 enemy.TakeDamage(m_Damage * damageMultiplicator, m_PlayerSkillController.gameObject);
             }
 
-            ReleaseSkill();
+            Release();
         }
     }
 }

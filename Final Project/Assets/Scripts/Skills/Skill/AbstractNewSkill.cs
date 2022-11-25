@@ -22,6 +22,7 @@ public abstract class AbstractNewSkill : ObjectPoolBehaviour<AbstractNewSkill>
     private void OnDisable()
     {
         Timing.KillCoroutines(m_DestroyCoroutine);
+        OnDisableCallback();
     }
 
     public void InitSkill(PlayerSkillController skillController)
@@ -33,16 +34,10 @@ public abstract class AbstractNewSkill : ObjectPoolBehaviour<AbstractNewSkill>
     private IEnumerator<float> ReleaseCO()
     {
         yield return Timing.WaitForSeconds(lifeTime);
-        ReleaseSkill();
-    }
-
-    protected void ReleaseSkill()
-    {
-        OnReleaseObject();
         Release();
     }
     
     protected abstract void OnInitialized();
-    protected abstract void OnReleaseObject();
+    protected abstract void OnDisableCallback();
 
 }
