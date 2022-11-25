@@ -43,7 +43,7 @@ namespace Player
         private AbstractNewSkillSettings m_ActiveSkill;
 
         private Vector3 m_ShootDirection;
-
+        
         private void OnEnable()
         {
             AddListeners();
@@ -98,15 +98,20 @@ namespace Player
         private void StartSkill(ref AbstractNewSkillSettings skillSettings)
         {
             m_ActiveSkill = skillSettings;
-            
-            skillIndicator.DisableSkillIndicator();
-    
+        
+            DisableSkillIndicator();
+
             skillSettings.StartSkill(this);
         }
         
         public void CastActiveSkill()
         {
             m_ActiveSkill.ExecuteSkill(this);
+        }
+
+        public void DisableSkillIndicator()
+        {
+            skillIndicator.DisableSkillIndicator();
         }
         
         private void ShowSkillIndicator(AbstractNewSkillSettings skillSettings)
