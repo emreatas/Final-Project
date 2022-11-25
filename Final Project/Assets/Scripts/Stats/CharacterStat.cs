@@ -10,9 +10,23 @@ namespace Stat
     {
         [Header("Base Stats")] 
         [SerializeField] private List<CharacterAttribute> _characterAttribute;
-
         public List<CharacterAttribute> CharacterAttributes => _characterAttribute;
 
+        [SerializeField] private int totalSkillPoints;
+        [SerializeField] private int availableSkillPoints;
+
+        public int AvailableSkillPoints => availableSkillPoints;
+        
+        public void IncreaseSkillPoints()
+        {
+            totalSkillPoints++;
+            availableSkillPoints++;
+        }
+
+        public void DecreaseSkillPoints()
+        {
+            availableSkillPoints--;
+        }
         
         public void AddModifier(AttributeModifier modifier)
         {
