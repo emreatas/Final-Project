@@ -1281,6 +1281,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1451798086652733904}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &662936138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450346904730788570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c459345986e4f8c88259e7b9e79b05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSkillSpawnPoint: {fileID: 1456298040635016580}
 --- !u!4 &1456298040635016580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4536520008723540, guid: 000ba31fdb0111d4584775b384f6efac,
@@ -1568,39 +1581,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3011230999666700533}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &804435607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3011924801855482855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241cca5baa254f819ab09d415dc48345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mageWeapon: {fileID: 8572960828217824235}
-  archerWeapon: {fileID: 2758903416061656071}
-  warriorWeapon: {fileID: 1450346904730788570}
-  weaponsParent:
-  - {fileID: 21188517250869578}
-  - {fileID: 8619190280571951747}
---- !u!114 &1451798084714640932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3011924801855482855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61264be54d54f8245803313c45c7cdd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 2926076546245927253}
-  skillController: {fileID: 3574338843411667992}
-  comboThreshold: 0
 --- !u!114 &584543622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,6 +1614,40 @@ MonoBehaviour:
     type: 2}
   warriorAnimController: {fileID: 9100000, guid: bc1948e5751e3944bba9ec46d7580286,
     type: 2}
+--- !u!114 &804435607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3011924801855482855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241cca5baa254f819ab09d415dc48345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mageWeapon: {fileID: 8572960828217824235}
+  archerWeapon: {fileID: 2758903416061656071}
+  warriorWeapon: {fileID: 1450346904730788570}
+  weaponsParent:
+  - {fileID: 21188517250869578}
+  - {fileID: 8619190280571951747}
+  - {fileID: 662936138}
+--- !u!114 &1451798084714640932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3011924801855482855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61264be54d54f8245803313c45c7cdd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2926076546245927253}
+  skillController: {fileID: 3574338843411667992}
+  comboThreshold: 0
 --- !u!1 &3012519828720700703 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1289114744847850, guid: 4f671f96ada2b43438b517dbc501e523,
