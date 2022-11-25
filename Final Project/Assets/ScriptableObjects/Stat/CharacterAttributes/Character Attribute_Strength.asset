@@ -13,31 +13,7 @@ MonoBehaviour:
   m_Name: Character Attribute_Strength
   m_EditorClassIdentifier: 
   statType: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  baseValue: 2
-  additiveAttributeModifiers:
-  - m_BaseValue: 0.2
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  - m_BaseValue: 0.22000001
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  - m_BaseValue: 0.24200001
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  - m_BaseValue: 0.26620004
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  - m_BaseValue: 0.26620004
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  - m_BaseValue: 0.26620004
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  - m_BaseValue: 0.26620004
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
-  - m_BaseValue: 0.26620004
-    m_BaseAttributeType: 0
-    m_TargetStat: {fileID: 11400000, guid: 9b2552193ee593d4ab86d723be4d64a5, type: 2}
+  baseValue: 1
+  additiveAttributeModifiers: []
   percentageAttributeModifiers: []
   dependantCharacterAttributes: []
