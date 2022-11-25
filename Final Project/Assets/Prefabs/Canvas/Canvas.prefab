@@ -5273,15 +5273,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1175534266}
-  - component: {fileID: 1752954604}
-  - component: {fileID: 1349223370579165954}
   m_Layer: 5
   m_Name: Stat and Skill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1175534266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5310,43 +5308,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1752954604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175534265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b4de34f453f664b951313288829965, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primarySkillUIArray:
-  - {fileID: 1749797838}
-  - {fileID: 1601591785}
-  secondarySkillUIArray:
-  - {fileID: 652058431}
-  - {fileID: 1978695574}
-  mageSkillContainer: {fileID: 11400000, guid: ee3930aa4244b584babb1f01792e4f0d, type: 2}
-  warriorSkillContainer: {fileID: 11400000, guid: baf35c05dca6b0344a5da8eda76c95a1,
-    type: 2}
-  archerSkillContainer: {fileID: 11400000, guid: 260c5e9e63b79a44a96ce751da97bb14,
-    type: 2}
---- !u!114 &1349223370579165954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175534265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ac8e2edb927983408ce6dd3023b8903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primarySkillIcon: {fileID: 0}
-  secondarySkillIcon: {fileID: 0}
 --- !u!1 &1186945249
 GameObject:
   m_ObjectHideFlags: 0
@@ -16383,6 +16344,8 @@ GameObject:
   m_Component:
   - component: {fileID: 116076344215076955}
   - component: {fileID: 5961237175141523924}
+  - component: {fileID: 1278480821}
+  - component: {fileID: 1278480822}
   m_Layer: 5
   m_Name: Stat
   m_TagString: Untagged
@@ -16429,6 +16392,43 @@ MonoBehaviour:
   - {fileID: 1531880798}
   - {fileID: 355915216}
   skillPointsText: {fileID: 1983361991}
+--- !u!114 &1278480821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365095487657489858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac8e2edb927983408ce6dd3023b8903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primarySkillIcon: {fileID: 773744422}
+  secondarySkillIcon: {fileID: 6485916582660749215}
+--- !u!114 &1278480822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365095487657489858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b4de34f453f664b951313288829965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primarySkillUIArray:
+  - {fileID: 1749797838}
+  - {fileID: 1601591785}
+  secondarySkillUIArray:
+  - {fileID: 652058431}
+  - {fileID: 1978695574}
+  mageSkillContainer: {fileID: 11400000, guid: ee3930aa4244b584babb1f01792e4f0d, type: 2}
+  warriorSkillContainer: {fileID: 11400000, guid: baf35c05dca6b0344a5da8eda76c95a1,
+    type: 2}
+  archerSkillContainer: {fileID: 11400000, guid: 260c5e9e63b79a44a96ce751da97bb14,
+    type: 2}
 --- !u!1 &2439110192192388950
 GameObject:
   m_ObjectHideFlags: 0
@@ -21871,7 +21871,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1349223370579165954}
+      - m_Target: {fileID: 1278480821}
         m_TargetAssemblyTypeName: SkillEquipUI, Assembly-CSharp
         m_MethodName: _EquipSkill
         m_Mode: 1
