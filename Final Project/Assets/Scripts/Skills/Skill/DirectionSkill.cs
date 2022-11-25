@@ -28,8 +28,10 @@ namespace Skills
 
         private void OnTriggerEnter(Collider other)
         {
+            Debug.Log("On Trigger entered +" + other.name);
             if (other.TryGetComponent(out IHealth health))
             {
+                Debug.Log("Call on take damage " + m_Damage);
                 health.TakeDamage(m_Damage, m_PlayerSkillController.gameObject);
             }
         }

@@ -22,9 +22,9 @@ MonoBehaviour:
   skillSpawnOffset: {x: 0, y: 0, z: 0}
   SkillIndicatorSettings: {fileID: 11400000, guid: 8d53efed5e53cc04bb7ed14c61a48e09,
     type: 2}
-  firstComboSkill: {fileID: 8583050734672531322, guid: 57ed30c8e91deeb4ba7d697411b881a9,
+  firstComboSkill: {fileID: -4343188389117050736, guid: 57ed30c8e91deeb4ba7d697411b881a9,
     type: 3}
-  secondComboSkill: {fileID: 8583050734672531322, guid: 57ed30c8e91deeb4ba7d697411b881a9,
+  secondComboSkill: {fileID: -4343188389117050736, guid: 57ed30c8e91deeb4ba7d697411b881a9,
     type: 3}
-  thirdComboSkill: {fileID: 8583050734672531322, guid: 57ed30c8e91deeb4ba7d697411b881a9,
+  thirdComboSkill: {fileID: -4343188389117050736, guid: 57ed30c8e91deeb4ba7d697411b881a9,
     type: 3}

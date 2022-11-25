@@ -50,7 +50,7 @@ MonoBehaviour:
   thrustParticleSystem: {fileID: 198751475278251796, guid: 24b4d5ac26ab14743ba7b95824466121,
     type: 3}
   attackType: {fileID: 11400000, guid: c8d5d76ee1d8b8241b5f1e916cccc0b7, type: 2}
-  attackMultiplicator: 0.128
+  attackMultiplicator: 0.319
 --- !u!135 &6363890120862383768
 SphereCollider:
   m_ObjectHideFlags: 0

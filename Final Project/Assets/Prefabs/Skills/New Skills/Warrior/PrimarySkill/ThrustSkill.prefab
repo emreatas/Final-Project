@@ -62,7 +62,7 @@ MonoBehaviour:
   lifeTime: 2
   thrustParticleSystem: {fileID: 3199352396991015041}
   attackType: {fileID: 11400000, guid: 93ac9fca18c821e47b56e27f938f1dbe, type: 2}
-  attackMultiplicator: 0.196
+  attackMultiplicator: 0.995
 --- !u!1001 &3264285660635964079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,6 +70,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3803148174720550398}
     m_Modifications:
+    - target: {fileID: 83472034478199718, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 83492077863325836, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 83894681424520134, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 83949659525290064, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84000823369875426, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84171371127124342, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84253967851085744, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84284776217446958, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84291992160769246, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84363212727593418, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 84364733523212188, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95997569112351292, guid: 72b87fa71689c124292b95c29a63751e,
+        type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 280349651017724910, guid: 72b87fa71689c124292b95c29a63751e,
         type: 3}
       propertyPath: m_LocalScale.x

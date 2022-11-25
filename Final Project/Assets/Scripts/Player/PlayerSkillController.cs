@@ -29,6 +29,7 @@ namespace Player
         [SerializeField] private AbstractNewSkillSettings primarySkillSettings;
         [SerializeField] private AbstractNewSkillSettings secondarySkillSettings;
 
+        public PlayerTarget PlayerTarget => _playerTarget;
         public WeaponSelector WeaponSelector => weaponSelector;
         public PlayerLevel PlayerLevel => playerLevel; 
         public PlayerStats PlayerStats => playerStats;
@@ -87,6 +88,7 @@ namespace Player
 
         public void StartPrimarySkill(Vector3 skillDirection)
         {
+            Debug.Log("SHot Dir + " + m_ShootDirection);
             StartSkill(ref primarySkillSettings);
         }
         

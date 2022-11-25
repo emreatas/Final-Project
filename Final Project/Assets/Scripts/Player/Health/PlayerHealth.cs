@@ -63,6 +63,8 @@ namespace Player
         
         public void TakeDamage(float damage, GameObject damageGiver)
         {
+            if (damageGiver != null) { return; }
+            
             health -= damage;
 
             OnHealthChanged.Invoke(GetHealthInPercent());

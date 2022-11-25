@@ -24,8 +24,17 @@ namespace Player
         
         public Vector3 GetTargetDirection()
         {
-            Debug.Log("Direction" + (m_CurrentTarget.Position - transform.position));
-            return (m_CurrentTarget.Position - transform.position);
+            if (HasTarget)
+            {
+                return (m_CurrentTarget.Position - transform.position);
+            }
+
+            return Vector3.zero;
+        }
+
+        public Vector3 GetTargetPosition()
+        {
+            return m_CurrentTarget.Position;
         }
         
         private void Start()
@@ -157,5 +166,6 @@ namespace Player
                 m_CurrentTarget.EnableTargetIndicator();
             }
         }
+        
     }
 }

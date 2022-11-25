@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using Utils;
 
 public class Target : MonoBehaviour, ITarget
 {
     [SerializeField] private GameObject targetGO;
+
+    public GameEvent OnDestroyed;
+    
     public Vector3 Position
     {
         get => transform.position;
@@ -19,5 +24,10 @@ public class Target : MonoBehaviour, ITarget
     public void DisableTargetIndicator()
     {
         targetGO.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        OnDestroyed.Invoke();
     }
 }

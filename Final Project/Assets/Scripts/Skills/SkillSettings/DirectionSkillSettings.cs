@@ -17,10 +17,8 @@ namespace Skills
         public override void ExecuteSkill(PlayerSkillController skillController)
         {
             var pooled = SkillPool.Instance.PoolSkill(prefab);
-            pooled.SetLocalPosition(
-                GetSpawnPosition(skillController.transform), 
-                Quaternion.LookRotation(skillController.ShootDirection)
-                );
+            pooled.SetWorldPositionAndRotation(GetSpawnPosition(skillController.transform), 
+                Quaternion.LookRotation(skillController.ShootDirection));
             pooled.InitSkill(skillController);
         }
     }

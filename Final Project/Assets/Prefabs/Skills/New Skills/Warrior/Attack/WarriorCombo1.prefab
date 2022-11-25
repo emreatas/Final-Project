@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3795372995503596671}
   - component: {fileID: 4316023984918748224}
   - component: {fileID: 3043808611513795905}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: WarriorCombo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
   lifeTime: 0.5
   thrustParticleSystem: {fileID: 7494856067243475612}
   attackType: {fileID: 11400000, guid: 93ac9fca18c821e47b56e27f938f1dbe, type: 2}
-  attackMultiplicator: 0
+  attackMultiplicator: 0.933
 --- !u!1 &7692910282414700254
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 7697102521984488870}
   - component: {fileID: 7529735681787533614}
   - component: {fileID: 7495151547880502902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SparksCore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4965,7 +4965,7 @@ GameObject:
   - component: {fileID: 7696098509569381288}
   - component: {fileID: 7494384198539551368}
   - component: {fileID: 7495670040909475344}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Flare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9847,7 +9847,7 @@ GameObject:
   - component: {fileID: 7696106104074166516}
   - component: {fileID: 7494973603550031544}
   - component: {fileID: 7495308279731070726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14729,7 +14729,7 @@ GameObject:
   - component: {fileID: 7696815750660617310}
   - component: {fileID: 7495019146006869596}
   - component: {fileID: 7494606603350726924}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19613,7 +19613,7 @@ GameObject:
   - component: {fileID: 7696140411188313282}
   - component: {fileID: 7494432304193991848}
   - component: {fileID: 7496092855616431158}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24495,7 +24495,7 @@ GameObject:
   - component: {fileID: 7697028114757452470}
   - component: {fileID: 7494856067243475612}
   - component: {fileID: 7495270984735353982}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sword Slash 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24510,7 +24510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7694302340049598878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

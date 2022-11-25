@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "HA1CA3HH",
         "name": "com.DefaultCompany.FinalProject",
-        "processId": 14629,
+        "processId": 8662,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -114,12 +114,6 @@
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
             "processId": 8662,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 14629,
             "exited": false
         }
     ],

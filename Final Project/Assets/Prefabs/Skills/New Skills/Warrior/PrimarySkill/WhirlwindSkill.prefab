@@ -62,7 +62,7 @@ MonoBehaviour:
   lifeTime: 3
   thrustParticleSystem: {fileID: 8739304541097612308}
   attackType: {fileID: 11400000, guid: 93ac9fca18c821e47b56e27f938f1dbe, type: 2}
-  attackMultiplicator: 0.128
+  attackMultiplicator: 1
 --- !u!1001 &8902162874768336778
 PrefabInstance:
   m_ObjectHideFlags: 0
