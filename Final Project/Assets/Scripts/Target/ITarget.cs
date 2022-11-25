@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Utils;
-
+/*
 namespace Player
 {
     public interface ITarget
@@ -9,4 +10,4 @@ namespace Player
         void EnableTargetIndicator();
         void DisableTargetIndicator();
     }
-}
+}*/

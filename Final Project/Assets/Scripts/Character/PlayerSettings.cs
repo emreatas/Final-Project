@@ -15,8 +15,6 @@ namespace Player
         public PlayerLevelSettings LevelSettings;
 
         public CharacterTypes characterType;
-
-        [SerializeField] public int wh = 1;
     }
     
 }

@@ -5,7 +5,7 @@ using Player;
 using UnityEngine;
 using Utils;
 
-public class Target : MonoBehaviour, ITarget
+public class Target : MonoBehaviour
 {
     [SerializeField] private GameObject targetGO;
 

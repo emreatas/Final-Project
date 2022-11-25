@@ -12,9 +12,9 @@ namespace Player
         [SerializeField] private SphereCollider collider;
 
         
-        private List<ITarget> inRangeTargetList = new List<ITarget>();
+        private List<Target> inRangeTargetList = new List<Target>();
         
-        private ITarget m_CurrentTarget;
+        private Target m_CurrentTarget;
         private bool m_PlayerChooseTarget;
 
         private Camera mainCam;
@@ -65,17 +65,12 @@ namespace Player
                         RaycastHit hit;
                         if (Physics.Raycast(ray,out hit, 100,enemyLayerMask))
                         {
-                            if (hit.transform.TryGetComponent(out ITarget target))
+                            if (hit.transform.TryGetComponent(out Target target))
                             {
  
                                 m_PlayerChooseTarget = true;
                                 SwitchTarget(target);
                             }
-                        }
-                        else
-                        {
-                            m_PlayerChooseTarget = false;
-                            DisableCurrentTarget();
                         }
                     }
                 }
@@ -84,7 +79,7 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out ITarget target))
+            if (other.TryGetComponent(out Target target))
             {
                 if (!inRangeTargetList.Contains(target))
                 {
@@ -100,7 +95,7 @@ namespace Player
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.TryGetComponent(out ITarget target))
+            if (other.TryGetComponent(out Target target))
             {
                 if (inRangeTargetList.Contains(target))
                 {
@@ -114,17 +109,17 @@ namespace Player
                         m_PlayerChooseTarget = false;
                     }
                     
-                    ITarget newTarget = GetClosestTarget();
+                    Target newTarget = GetClosestTarget();
                     SwitchTarget(newTarget);
                 }
             }
         }
 
-        private ITarget GetClosestTarget()
+        private Target GetClosestTarget()
         {
             if (inRangeTargetList.Count > 0)
             {
-                ITarget closestTarget = inRangeTargetList[0];
+                Target closestTarget = inRangeTargetList[0];
                 float targetDistance = (transform.position - inRangeTargetList[0].Position).sqrMagnitude;
 
                 for (int i = 0; i < inRangeTargetList.Count; i++)
@@ -143,7 +138,7 @@ namespace Player
             return null;
         }
         
-        private void SwitchTarget(ITarget newTarget)
+        private void SwitchTarget(Target newTarget)
         {
             DisableCurrentTarget();
             SetNewTarget(newTarget);
@@ -154,18 +149,34 @@ namespace Player
             if (m_CurrentTarget != null)
             {
                 m_CurrentTarget.DisableTargetIndicator();
+                RemoveListeners();
                 m_CurrentTarget = null;
             }
         }
 
-        private void SetNewTarget(ITarget newTarget)
+        private void SetNewTarget(Target newTarget)
         {
             if (newTarget != null)
             {
                 m_CurrentTarget = newTarget;
+                AddListeners();
                 m_CurrentTarget.EnableTargetIndicator();
             }
         }
-        
+
+        private void HandleOnPlayerDeath()
+        {
+            m_CurrentTarget = null;
+        }
+
+        private void AddListeners()
+        {
+            m_CurrentTarget.OnDestroyed.AddListener(HandleOnPlayerDeath);
+        }
+
+        private void RemoveListeners()
+        {
+            m_CurrentTarget.OnDestroyed.RemoveListener(HandleOnPlayerDeath);
+        }
     }
 }

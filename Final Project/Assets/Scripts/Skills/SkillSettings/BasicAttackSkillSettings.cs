@@ -17,6 +17,7 @@ namespace Skills
         
         public override void StartSkill(PlayerSkillController skillController)
         {
+            skillController.RotatePlayer();
             m_ComboCount = skillController.PlayerAnimationController.GetComboCount;
         }
 
