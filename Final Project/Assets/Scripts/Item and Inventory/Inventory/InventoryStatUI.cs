@@ -23,7 +23,8 @@ namespace PInventory
         {
             for (int i = 0; i < statSlots.Length; i++)
             {
-                statSlots[i].SetStatText(characterStats.GetValue(statSlots[i].StatType).ToString());
+                int statValue = (int)characterStats.GetValue(statSlots[i].StatType);
+                statSlots[i].SetStatText(statValue.ToString());
             }
         }
         
