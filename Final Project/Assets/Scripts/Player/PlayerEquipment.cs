@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ItemManager;
+using Player;
 using UnityEngine;
 using Utils;
 
@@ -26,12 +27,13 @@ namespace PInventory
         {
             RemoveListeners();
         }
-
-        private void Start()
+        
+        private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
         {
+            equipment = playerSettings.Equipment;
             OnInitalizeEquipment.Invoke(equipment.GetEquipment);
         }
-
+        
         public void HandleOnEquipItem(InventoryItemData itemData)
         {
             var oldEquippedItem = equipment.EquipItem(itemData);
@@ -69,6 +71,8 @@ namespace PInventory
         
         private void AddListeners()
         {
+            PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
+            
             InventorySelectedItemUI.OnEquipItem.AddListener(HandleOnEquipItem);
             InventorySelectedItemUI.OnUneqquipItem.AddListener(HandleOnUnequipItem);
             InventorySelectedItemUI.OnDeleteItem.AddListener(HandleOnDeleteItem);
@@ -76,6 +80,8 @@ namespace PInventory
 
         private void RemoveListeners()
         {
+            PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
+            
             InventorySelectedItemUI.OnEquipItem.RemoveListener(HandleOnEquipItem);
             InventorySelectedItemUI.OnUneqquipItem.RemoveListener(HandleOnUnequipItem);
             InventorySelectedItemUI.OnDeleteItem.RemoveListener(HandleOnDeleteItem);

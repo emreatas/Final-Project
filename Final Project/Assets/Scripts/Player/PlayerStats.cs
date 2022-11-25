@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-//using CanvasNS;
 using Items;
 using PInventory;
 using Stat;
@@ -13,10 +12,10 @@ namespace Player
     public class PlayerStats : MonoBehaviour
     {
         [SerializeField] private CharacterStat characterStats;
-        [SerializeField] private StatType targetStat;
 
         public CharacterStat CharacterStats => characterStats;
-        
+
+        public static GameEvent<int> OnSkillPointsUpdated;
         public static GameEvent<CharacterStat> OnCharacterStatsInitialized;
         public static GameEvent<CharacterAttribute> OnCharacterAttributeUpdated;
 
@@ -29,23 +28,34 @@ namespace Player
             RemoveListeners();
         }
 
-        private void Start()
+        private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
         {
+            characterStats = playerSettings.CharacterStat;
+            
+            AddStatListeners();
+            
             OnCharacterStatsInitialized.Invoke(characterStats);
         }
-        
+
         private void OnStatUpdated(CharacterAttribute characterAttribute)
         {
             //OnCharacterAttributeUpdated.Invoke(characterAttribute);
             OnCharacterStatsInitialized.Invoke(characterStats);
         }
         
+        private void HandleOnPlayerLeveldUp()
+        {
+            characterStats.IncreaseSkillPoints();
+            OnSkillPointsUpdated.Invoke(characterStats.AvailableSkillPoints);
+        }
+        
         private void HandleOnCharacterAttributeIncreased(StatType statType)
         {
             characterStats.IncreaseBaseValue(statType, 1);
+            characterStats.DecreaseSkillPoints();
+            OnSkillPointsUpdated.Invoke(characterStats.AvailableSkillPoints);
         }
         
-       
         private void HandleOnItemEquipped(InventoryItemData itemData)
         {
             for (int i = 0; i < itemData.Item.Stats.Count; i++)
@@ -69,29 +79,46 @@ namespace Player
         
         private void AddListeners()
         {
-            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
-            {
-                characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.AddListener(OnStatUpdated);
-            }
+          
+            PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
+            
+            PlayerLevel.OnPlayerLeveldUp.AddListener(HandleOnPlayerLeveldUp);
             
             PlayerEquipment.OnItemEquipped.AddListener(HandleOnItemEquipped);
             PlayerEquipment.OnItemUnequipped.AddListener(HandleOnItemUnequipped);
 
-            //CanvasScript.OnCharacterAttributeIncreased.AddListener(HandleOnCharacterAttributeIncreased);
+            StatUI.OnStatIncreased.AddListener(HandleOnCharacterAttributeIncreased);
         }
         
         private void RemoveListeners()
+        {   
+            RemoveStatListeners();
+           
+            PlayerClass.OnCharacterInitialized.RemoveListener(HandleOnCharacterInitialized);
+            
+            PlayerLevel.OnPlayerLeveldUp.RemoveListener(HandleOnPlayerLeveldUp);
+            
+            PlayerEquipment.OnItemEquipped.RemoveListener(HandleOnItemEquipped);
+            PlayerEquipment.OnItemUnequipped.RemoveListener(HandleOnItemUnequipped);
+            
+            StatUI.OnStatIncreased.RemoveListener(HandleOnCharacterAttributeIncreased);
+        }
+
+
+        private void AddStatListeners()
+        {
+            for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
+            {
+                characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.AddListener(OnStatUpdated);
+            }
+        }
+        
+        private void RemoveStatListeners()
         {
             for (int i = 0; i < characterStats.CharacterAttributes.Count; i++)
             {
                 characterStats.CharacterAttributes[i].OnCharacterAttributeUpdated.RemoveListener(OnStatUpdated);
             }
-            
-            PlayerEquipment.OnItemEquipped.RemoveListener(HandleOnItemEquipped);
-            PlayerEquipment.OnItemUnequipped.RemoveListener(HandleOnItemUnequipped);
-            
-            //CanvasScript.OnCharacterAttributeIncreased.RemoveListener(HandleOnCharacterAttributeIncreased);
         }
-
     }
 }

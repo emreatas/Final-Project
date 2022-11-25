@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using MEC;
@@ -8,16 +9,36 @@ namespace Player
 {
     public class PlayerMovementController : MonoBehaviour
     {
-        [SerializeField] private PlayerStats playerStats;
-        [SerializeField] private PlayerMovementSettings movementSettings;
+        [SerializeField] private CharacterStat playerStats;
         [SerializeField] private Rigidbody rb;
+        [SerializeField] private StatType movementStatType;
+        [SerializeField] private float rotationSpeed;
+        
         [SerializeField] private float lerpRotationDuration;
-   
+
+        private void OnEnable()
+        {
+            AddListeners();
+        }
+
+    
+
+        private void OnDisable()
+        {
+            RemoveListeners();
+        }
+
+     
+        private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
+        {
+            playerStats = playerSettings.CharacterStat;
+        }
+
         public void MovePlayer(Vector3 movementVector)
         {
             rb.MovePosition(
                 rb.position + 
-                playerStats.GetValue(movementSettings.movementStatType) * 
+                playerStats.GetValue(movementStatType) * 
                 Time.deltaTime * 
                 movementVector 
             );
@@ -28,7 +49,7 @@ namespace Player
             Quaternion newRot = Quaternion.RotateTowards(
                 rb.rotation, 
                 Quaternion.LookRotation(movementVector,  transform.up), 
-                movementSettings.RotationSpeed * Time.deltaTime);
+                rotationSpeed * Time.deltaTime);
             
             rb.MoveRotation(newRot);
         }
@@ -60,6 +81,16 @@ namespace Player
                     
                 yield return Timing.WaitForOneFrame;
             }
+        }
+        
+        private void AddListeners()
+        {
+            PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
+        }
+        
+        private void RemoveListeners()
+        {
+            PlayerClass.OnCharacterInitialized.RemoveListener(HandleOnCharacterInitialized);
         }
     }
 }

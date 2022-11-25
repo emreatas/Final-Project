@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using ItemManager;
+using Player;
 using Stat;
 using UnityEngine;
 using Utils;
@@ -27,8 +28,9 @@ namespace PInventory
             RemoveListeners();
         }
 
-        private void Start()
+        private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
         {
+            inventory = playerSettings.Inventory;
             OnInitializeInventory.Invoke(inventory.GetInventory);
         }
 
@@ -63,12 +65,16 @@ namespace PInventory
         
         private void AddListeners()
         {
+            PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
+            
             InventorySelectedItemUI.OnDeleteItem.AddListener(HandleOnDeleteItem);
         }
 
         private void RemoveListeners()
         {
-            InventorySelectedItemUI.OnDeleteItem.AddListener(HandleOnDeleteItem);
+            PlayerClass.OnCharacterInitialized.RemoveListener(HandleOnCharacterInitialized);
+            
+            InventorySelectedItemUI.OnDeleteItem.RemoveListener(HandleOnDeleteItem);
         }
     }
 }
