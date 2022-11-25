@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace RPG.Dialogue.Editor
 {
+#if UNITY_EDITOR
     public class DialogueModificationProcessor : UnityEditor.AssetModificationProcessor
     {
         private static AssetMoveResult OnWillMoveAsset(string sourcePath, string destinationPath)
@@ -26,4 +29,5 @@ namespace RPG.Dialogue.Editor
             return AssetMoveResult.DidNotMove;
         }
     }
+#endif
 }
