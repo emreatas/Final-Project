@@ -1,8 +1,9 @@
 ﻿namespace Stat
 {
-    enum CharacterTypes
+    public enum CharacterTypes
     {
         Mage,
-        Knight
+        Warrior,
+        Archer
     }
 }
