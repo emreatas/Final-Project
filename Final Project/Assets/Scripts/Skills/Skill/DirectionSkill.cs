@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Skills
 {
-    public class ThrustSkill : AbstractNewSkill
+    public class DirectionSkill : AbstractNewSkill
     {
         [SerializeField] private ParticleSystem thrustParticleSystem;
         
@@ -23,7 +23,8 @@ namespace Skills
             thrustParticleSystem.Play();
         }
 
-        protected override void OnReleaseObject() { }
+        protected override void OnDisableCallback() { }
+
 
         private void OnTriggerEnter(Collider other)
         {
