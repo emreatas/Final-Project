@@ -12,6 +12,8 @@ namespace Skills
         [SerializeField] private AbstractNewSkill firstComboSkill;
         [SerializeField] private AbstractNewSkill secondComboSkill;
         [SerializeField] private AbstractNewSkill thirdComboSkill;
+
+        [SerializeField] private bool spawnInWeapon;
         
         private int m_ComboCount;
         
@@ -40,8 +42,20 @@ namespace Skills
         private void PoolSkill(PlayerSkillController skillController, ref AbstractNewSkill skill)
         {
             var pooled = SkillPool.Instance.PoolSkill(skill);
-            pooled.SetLocalPosition(skillController.transform.position, Quaternion.LookRotation(skillController.transform.forward));
+            pooled.SetWorldPositionAndRotation(FindStartPos(skillController), Quaternion.LookRotation(skillController.transform.forward));
             pooled.InitSkill(skillController);
+        }
+        
+        private Vector3 FindStartPos(PlayerSkillController skillController)
+        {
+            if (spawnInWeapon)
+            {
+                return skillController.WeaponSelector.GetActiveWeaponTransform().position;
+            }
+            else
+            {
+                return skillController.transform.position;
+            }
         }
     }
 

@@ -18,13 +18,14 @@ MonoBehaviour:
   SkillDescription: 
   manaCost: 0
   AnimationName: Mage01
-  prefab: {fileID: 0}
+  prefab: {fileID: 6840258235590630007, guid: c7168fbecf8cfb44e99e595435168b0e, type: 3}
   skillSpawnOffset: {x: 0, y: 0, z: 0}
   SkillIndicatorSettings: {fileID: 11400000, guid: 8d53efed5e53cc04bb7ed14c61a48e09,
     type: 2}
-  firstComboSkill: {fileID: -4343188389117050736, guid: 57ed30c8e91deeb4ba7d697411b881a9,
+  firstComboSkill: {fileID: 6840258235590630007, guid: c7168fbecf8cfb44e99e595435168b0e,
     type: 3}
-  secondComboSkill: {fileID: -4343188389117050736, guid: 57ed30c8e91deeb4ba7d697411b881a9,
+  secondComboSkill: {fileID: 6840258235590630007, guid: c7168fbecf8cfb44e99e595435168b0e,
     type: 3}
-  thirdComboSkill: {fileID: -4343188389117050736, guid: 57ed30c8e91deeb4ba7d697411b881a9,
+  thirdComboSkill: {fileID: 6840258235590630007, guid: c7168fbecf8cfb44e99e595435168b0e,
     type: 3}
+  spawnInWeapon: 1

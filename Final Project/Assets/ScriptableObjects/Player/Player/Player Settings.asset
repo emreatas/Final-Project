@@ -16,5 +16,4 @@ MonoBehaviour:
   Equipment: {fileID: 11400000, guid: 16b2c3b9bbf43ad469a6854e0686a36b, type: 2}
   CharacterStat: {fileID: 11400000, guid: ba6b4992a287de0488b712013e18cee1, type: 2}
   LevelSettings: {fileID: 11400000, guid: 16cab949cab82804485efba5ec0f1ed3, type: 2}
-  characterType: 1
-  wh: 1
+  characterType: 0

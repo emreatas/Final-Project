@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -32,9 +33,9 @@ namespace Player
             return Vector3.zero;
         }
 
-        public Vector3 GetTargetPosition()
+        public Target GetTarget()
         {
-            return m_CurrentTarget.Position;
+            return m_CurrentTarget;
         }
         
         private void Start()
@@ -166,6 +167,10 @@ namespace Player
 
         private void HandleOnPlayerDeath()
         {
+            if (inRangeTargetList.Contains(m_CurrentTarget))
+            {
+                inRangeTargetList.Remove(m_CurrentTarget);
+            }
             m_CurrentTarget = null;
         }
 
