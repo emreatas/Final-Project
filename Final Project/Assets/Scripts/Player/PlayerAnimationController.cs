@@ -74,6 +74,7 @@ namespace Player
         public void StopBasicAttackAnimation()
         {
             animator.SetBool(m_BasicAttack,false);
+            Debug.Log("Basic attack set to false");
         }
 
         public void PlayPrimaryAttackAnimation()
@@ -117,7 +118,7 @@ namespace Player
             skillController.CastActiveSkill();
         }
 
-        private void SetCombo()
+        public void SetCombo()
         {
             if (animator.GetInteger(m_ComboCount) == 1)
             {

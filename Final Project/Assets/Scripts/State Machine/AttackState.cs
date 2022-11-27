@@ -12,7 +12,7 @@ namespace StateMachine
 
         private bool m_IsPressingMove;
 
-        private bool cooldown;
+
         
         public override void OnEnter()
         {
@@ -28,22 +28,25 @@ namespace StateMachine
 
         private void HandleOnBasicAttackPerformed()
         {
-            if (cooldown) return;
-
             m_IsPressingBasicAttack = true;
+            
             
             if (!m_PerformingAttack)
             {
-                m_PerformingAttack = true;
-                
-                m_StateMachine.SkillController.StartBasicSkill();
-                m_StateMachine.AnimationController.PlayBasicAttackAnimation();
+                PerformAttack();
             }
+        }
+
+        private void PerformAttack()
+        {
+            m_PerformingAttack = true;
+                
+            m_StateMachine.SkillController.StartBasicSkill();
+            m_StateMachine.AnimationController.PlayBasicAttackAnimation();
         }
         
         private void HandleOnBasicAttackCanceled()
         {
-            if (cooldown) return;
             m_IsPressingBasicAttack = false;
         }
         
@@ -51,13 +54,14 @@ namespace StateMachine
         {
             if (!m_IsPressingBasicAttack)
             {
-                cooldown = true;
                 m_StateMachine.AnimationController.StopBasicAttackAnimation();
                 m_StateMachine.InvokeFunction(ChangeState,0.2f);
             }
             else
             {
                 ResetPerformAttack();
+           
+               //PerformAttack();
             }
         }
         
@@ -75,19 +79,16 @@ namespace StateMachine
         {
             ResetPerformAttack();
 
-            if (!m_IsPressingBasicAttack)
+            if (m_StateMachine.IsPressingMove)
             {
-                if (m_StateMachine.IsPressingMove)
-                {
-                    m_StateMachine.SwitchState(PlayerStates.Move);
-                }
-                else
-                {
-                    m_StateMachine.SwitchState(PlayerStates.Idle);
-                }
+                m_StateMachine.SwitchState(PlayerStates.Move);
             }
+            else
+            {
+                m_StateMachine.SwitchState(PlayerStates.Idle);
+            }
+            
             // Change invoke to Coroutine and kill coroutime on state change
-            cooldown = false;
         }
         
         private void ResetPerformAttack()

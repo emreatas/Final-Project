@@ -14869,6 +14869,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 1451798084714640932, guid: 5627d99bef3e2914b91ecb904c6e4e80,
+        type: 3}
+      propertyPath: comboThreshold
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1451798086500686180, guid: 5627d99bef3e2914b91ecb904c6e4e80,
         type: 3}
       propertyPath: m_Layer
@@ -15386,6 +15391,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ab629bfc22fa31b46ba16fe4dbb2d7b7,
         type: 2}
+    - target: {fileID: 3574338843411667993, guid: 5627d99bef3e2914b91ecb904c6e4e80,
+        type: 3}
+      propertyPath: switchStateCooldown
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3574338843737589117, guid: 5627d99bef3e2914b91ecb904c6e4e80,
         type: 3}
       propertyPath: m_Layer

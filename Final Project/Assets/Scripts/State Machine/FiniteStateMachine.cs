@@ -77,6 +77,7 @@ namespace StateMachine
 
         public void InvokeFunction(Action action, float delay)
         {
+            Debug.Log("Start Invoke");
             Timing.RunCoroutine(_InvokeCoroutine(action, delay));
         }
 
@@ -85,6 +86,7 @@ namespace StateMachine
             yield return Timing.WaitForSeconds(delay);
 
             action.Invoke();
+            Debug.Log("Invoked");
         }
     }
 }
