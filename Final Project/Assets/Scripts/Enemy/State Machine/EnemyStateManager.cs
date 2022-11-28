@@ -5,7 +5,7 @@ namespace Enemy
 {
     public class EnemyStateManager : MonoBehaviour
     {
-        [SerializeField] private Transform movePositionTransform;
+        private Transform movePositionTransform;
         private NavMeshAgent navMeshAgent;
         private Vector3 bornPosition;
         private bool hitAnimationEnded;
@@ -26,6 +26,7 @@ namespace Enemy
             currentState = PatrollingState;
             navMeshAgent = GetComponent<NavMeshAgent>();
             currentState.EnterState(this);
+            movePositionTransform = transform.GetComponentInParent<RandomSpawner>().player.transform;
         }
         void Update() {
             currentState.UpdateState(this);

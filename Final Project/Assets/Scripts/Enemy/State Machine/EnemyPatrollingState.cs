@@ -9,7 +9,6 @@ namespace Enemy
         bool hasTargetPoint;
         public override void EnterState(EnemyStateManager enemy) {
             hasTargetPoint = false;
-
         }
         public override void UpdateState(EnemyStateManager enemy) {
             if(enemy.getNavMeshAgent().remainingDistance <= enemy.getNavMeshAgent().stoppingDistance) {
