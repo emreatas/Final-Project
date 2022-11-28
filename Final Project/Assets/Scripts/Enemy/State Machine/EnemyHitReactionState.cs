@@ -10,10 +10,14 @@ namespace Enemy
             enemy.anim.SetBool("isAttack" , false);
             enemy.anim.SetBool("isMove" , false);
             enemy.anim.SetBool("isIdle" , false);
-            Debug.Log("Hit State!");
+            enemy.setHitAnimationEnded(false);
+
         }
         public override void UpdateState(EnemyStateManager enemy) {
-
+            if(enemy.getHitAnimationEnded()) {
+                enemy.anim.SetBool("isHitted" , false);
+                enemy.SwitchState(enemy.MoveState);
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Enemy
             enemy.anim.SetBool("isMove" , false);
             enemy.leftHand.GetComponent<Collider>().enabled = true;
             enemy.rightHand.GetComponent<Collider>().enabled = true;
-            Debug.Log("Attack State!");
+
         }
         public override void UpdateState(EnemyStateManager enemy) {
             if(enemy.getDistanceToPlayer() > enemy.enemyStats.attackRange) {

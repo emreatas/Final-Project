@@ -8,7 +8,6 @@ namespace Enemy
             enemy.anim.SetBool("isMove" , true);
             enemy.anim.SetBool("isIdle" , false);
             enemy.getNavMeshAgent().isStopped = false;
-            Debug.Log("Move State!");
         }
         public override void UpdateState(EnemyStateManager enemy) {
             if(enemy.getDistanceToPlayer() > enemy.enemyStats.sightRange) {

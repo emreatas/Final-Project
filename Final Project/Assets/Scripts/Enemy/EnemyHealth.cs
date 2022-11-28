@@ -25,7 +25,6 @@ namespace Enemy
 
         public void TakeDamage(float damage, GameObject damageGiver)
         {
-            Debug.Log("Taking Damage");
             health -= damage;
             healthBar.value = health;
             enemyStateManager.SwitchState(enemyStateManager.HitReactionState);

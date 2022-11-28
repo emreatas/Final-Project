@@ -8,6 +8,7 @@ namespace Enemy
         [SerializeField] private Transform movePositionTransform;
         private NavMeshAgent navMeshAgent;
         private Vector3 bornPosition;
+        private bool hitAnimationEnded;
 
         public GameObject exclamationMark, questionMark;
         public Collider leftHand, rightHand;
@@ -73,9 +74,14 @@ namespace Enemy
             leftHand.enabled = false;
             rightHand.enabled = false;
         }
-        public void SwitchStateFromHitReaction() {
-            anim.SetBool("isHitted" , false);
-            SwitchState(MoveState);
+        public void HitAnimationEnded() {
+            hitAnimationEnded = true;
+        }
+        public bool getHitAnimationEnded() {
+            return hitAnimationEnded;
+        }
+        public void setHitAnimationEnded(bool hitBool) {
+            hitAnimationEnded = hitBool;
         }
     }
 }

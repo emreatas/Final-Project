@@ -7,7 +7,6 @@ public class DamageController : MonoBehaviour
         IHealth player = handCollider.GetComponent<IHealth>();
         if(player != null) {
             player.TakeDamage(enemyStats.damage,null);
-            Debug.Log("Damage Taken!");
         }
     }
 }

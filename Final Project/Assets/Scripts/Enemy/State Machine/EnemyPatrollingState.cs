@@ -8,8 +8,8 @@ namespace Enemy
     {
         bool hasTargetPoint;
         public override void EnterState(EnemyStateManager enemy) {
-            Debug.Log("Patrolling State!");
             hasTargetPoint = false;
+
         }
         public override void UpdateState(EnemyStateManager enemy) {
             if(enemy.getNavMeshAgent().remainingDistance <= enemy.getNavMeshAgent().stoppingDistance) {
