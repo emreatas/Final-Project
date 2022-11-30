@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
   m_Name: a79a85c8-d411-478b-b0f7-95666358f5d8
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
+  isPlayerSpeaking: 1
   text: "Selam. O yan\u0131ndakiler sat\u0131\u015Fa a\xE7\u0131k m\u0131?"
   children:
   - db3d86a6-e307-4411-8b27-754a516f52b3
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
   m_Name: 5b2d2377-262f-4230-83ad-d04e7ee9a0f7
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
+  isPlayerSpeaking: 1
   text: "Var m\u0131 elinde \u015F\xF6yle g\xFCzel bir \u015Fey?"
   children:
   - 49a77a0e-db46-4e65-af41-36807eb41a6d
