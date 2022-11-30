@@ -5,21 +5,25 @@ using UnityEngine;
 namespace PInventory
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Inventory/Equipment")]
+    [System.Serializable]
     public class Equipment : ScriptableObject
     {
-        Dictionary<EquipmentSlotTypes,InventoryItemData> equipment = new Dictionary<EquipmentSlotTypes,InventoryItemData>();
+        Dictionary<EquipmentSlotTypes, InventoryItemData> equipment = new Dictionary<EquipmentSlotTypes, InventoryItemData>();
+
+
 
         public Dictionary<EquipmentSlotTypes, InventoryItemData> GetEquipment => equipment;
         public InventoryItemData EquipItem(InventoryItemData equippedItemData)
         {
             var item = equippedItemData.Item;
-            
+
             InventoryItemData oldItem = null;
             if (EquipmentSlotIsFull(item))
             {
+
                 oldItem = equipment[item.equipmentSlotTypes];
             }
-            
+
             equipment[item.equipmentSlotTypes] = equippedItemData;
 
             return oldItem;
@@ -36,7 +40,7 @@ namespace PInventory
 
             return unequipedItem;
         }
-        
+
         public InventoryItemData DeleteItem(InventoryItemData equippedItemData)
         {
             InventoryItemData unequipedItem = null;
@@ -53,12 +57,12 @@ namespace PInventory
         {
             return equipment.ContainsKey(item.equipmentSlotTypes) && equipment[item.equipmentSlotTypes] != null;
         }
-        
+
         private bool ItemsAreEqual(Item firstItem, Item secondItem)
         {
             return firstItem == secondItem;
         }
-        
+
         private bool IsItemToDelete(InventoryItemData equippedItemData)
         {
             return EquipmentSlotIsFull(equippedItemData.Item) &&

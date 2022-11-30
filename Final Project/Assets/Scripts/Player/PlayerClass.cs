@@ -7,9 +7,17 @@ using Utils;
 
 namespace Player
 {
+    [Serializable]
     public class PlayerClass : MonoBehaviour
     {
         [SerializeField] private PlayerSettings playerSettings;
+
+        public PlayerSettings PlayerSettings
+        {
+            get { return playerSettings; }
+
+            set { playerSettings = value; }
+        }
 
         public static GameEvent<PlayerSettings> OnCharacterInitialized;
 

@@ -7,18 +7,26 @@ using UnityEngine;
 namespace PInventory
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Inventory/Inventory")]
+    [System.Serializable]
     public class Inventory : ScriptableObject
     {
         [SerializeField] private List<InventoryItemData> inventory = new List<InventoryItemData>();
 
-        public List<InventoryItemData> GetInventory => inventory;
+        public List<InventoryItemData> GetInventory
+        {
+            get
+            {
+                return inventory;
+            }
+
+        }
 
         public InventoryItemData AddItem(Item item, int amount = 1)
         {
             InventoryItemData itemData = new InventoryItemData(item, amount);
             return AddItem(itemData);
         }
-        
+
         public InventoryItemData AddItem(InventoryItemData itemData)
         {
             if (itemData.Item.CanBeStacked)
@@ -32,7 +40,7 @@ namespace PInventory
                     }
                 }
             }
-            
+
             return AddItemToInventory(itemData);
         }
 
@@ -43,14 +51,14 @@ namespace PInventory
                 if (ItemsAreEqual(inventory[i].Item, itemData.Item))
                 {
                     inventory[i].DecreaseItemAmount(amount);
-                    
+
                     InventoryItemData data = inventory[i];
 
                     if (RemovedItemCompletely(inventory[i].Count))
                     {
                         RemoveItemFromInventory(inventory[i]);
                     }
-                    
+
                     return data;
                 }
             }
@@ -61,7 +69,7 @@ namespace PInventory
         private InventoryItemData AddItemToInventory(InventoryItemData itemData)
         {
             inventory.Add(itemData);
-            
+
             return itemData;
         }
 
@@ -69,7 +77,7 @@ namespace PInventory
         {
             inventory.Remove(item);
         }
-        
+
         private bool IDsAreEqual(int firstID, int SecondID)
         {
             return firstID == SecondID;

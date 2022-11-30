@@ -14,13 +14,13 @@ namespace ItemManager
         public bool CanBeStacked;
         public ItemTier ItemTier = ItemTier.NoTier;
         public Color ItemTierColor;
-        
+
         public EquipmentSlotTypes equipmentSlotTypes;
-        
+
         public List<AttributeModifier> Stats;
 
         public Sprite ItemTierSprite;
-        
+
         public Item(int id, string itemName, Sprite icon, bool canBeStacked, Sprite itemTierSprite)
         {
             ID = id;
@@ -28,7 +28,7 @@ namespace ItemManager
             Icon = icon;
             CanBeStacked = canBeStacked;
             ItemTierSprite = itemTierSprite;
-
+            Stats = new List<AttributeModifier>();
             ItemTierColor = ItemTierManager.GetTierColor(ItemTier);
         }
     }

@@ -12,12 +12,12 @@ namespace PInventory
     public class PlayerInventory : MonoBehaviour
     {
         [SerializeField] private Inventory inventory;
-        
+
         public static GameEvent<List<InventoryItemData>> OnInitializeInventory;
-        
+
         public static GameEvent<InventoryItemData> OnItemAddedToInventory;
         public static GameEvent<InventoryItemData> OnItemRemovedFromInventory;
-        
+
         private void OnEnable()
         {
             AddListeners();
@@ -31,6 +31,7 @@ namespace PInventory
         private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
         {
             inventory = playerSettings.Inventory;
+            Debug.Log("---------c---------");
             OnInitializeInventory.Invoke(inventory.GetInventory);
         }
 
@@ -38,13 +39,13 @@ namespace PInventory
         {
             AddItemToInventory(new InventoryItemData(item, amount));
         }
-        
+
         public void AddItemToInventory(InventoryItemData itemData)
         {
             var inventoryItemData = inventory.AddItem(itemData);
             OnItemAddedToInventory.Invoke(inventoryItemData);
         }
-        
+
         public void RemoveItemFromInventory(InventoryItemData item)
         {
             var invetoryItemData = inventory.RemoveItem(item);
@@ -53,7 +54,7 @@ namespace PInventory
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
             }
         }
-        
+
         private void HandleOnDeleteItem(InventoryItemData itemData)
         {
             var invetoryItemData = inventory.RemoveItem(itemData, itemData.Count);
@@ -62,18 +63,18 @@ namespace PInventory
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
             }
         }
-        
+
         private void AddListeners()
         {
             PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
-            
+
             InventorySelectedItemUI.OnDeleteItem.AddListener(HandleOnDeleteItem);
         }
 
         private void RemoveListeners()
         {
             PlayerClass.OnCharacterInitialized.RemoveListener(HandleOnCharacterInitialized);
-            
+
             InventorySelectedItemUI.OnDeleteItem.RemoveListener(HandleOnDeleteItem);
         }
     }

@@ -27,17 +27,18 @@ namespace JSONSystem
         public static string ToJson<T>(T element, bool prettyPrint, List<T> dataInJson)
         {
             Wrapper<T> wrapper = new Wrapper<T>();
-         
+
+
             dataInJson.Add(element);
             wrapper.Characters = dataInJson.ToArray();
 
             return JsonUtility.ToJson(wrapper, prettyPrint);
         }
-      
+
         public static string ToJson<T>(List<T> element, bool prettyPrint, List<T> dataInJson)
         {
             Wrapper<T> wrapper = new Wrapper<T>();
-         
+            dataInJson.Clear();
             dataInJson.AddRange(element);
             wrapper.Characters = dataInJson.ToArray();
 

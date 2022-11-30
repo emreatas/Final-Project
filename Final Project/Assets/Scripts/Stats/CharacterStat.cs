@@ -6,9 +6,10 @@ using Utils;
 namespace Stat
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Stats/CharacterStats")]
+    [System.Serializable]
     public class CharacterStat : ScriptableObject
     {
-        [Header("Base Stats")] 
+        [Header("Base Stats")]
         [SerializeField] private List<CharacterAttribute> _characterAttribute;
         public List<CharacterAttribute> CharacterAttributes => _characterAttribute;
 
@@ -16,7 +17,7 @@ namespace Stat
         [SerializeField] private int availableSkillPoints;
 
         public int AvailableSkillPoints => availableSkillPoints;
-        
+
         public void IncreaseSkillPoints()
         {
             totalSkillPoints++;
@@ -27,7 +28,7 @@ namespace Stat
         {
             availableSkillPoints--;
         }
-        
+
         public void AddModifier(AttributeModifier modifier)
         {
             CharacterAttribute modifiedAttribute = FindAttribute(modifier.TargetStat);
@@ -56,7 +57,7 @@ namespace Stat
                 attribute.IncreaseBaseValue(amount);
             }
         }
-        
+
         public float GetValue(StatType type)
         {
             return FindAttribute(type).CalculateFinalValue();
@@ -74,7 +75,7 @@ namespace Stat
 
             return null;
         }
-        
-        
+
+
     }
 }

@@ -10,7 +10,7 @@ namespace ItemManager
         {
             int randomTierIndex = Random.Range(0, Enum.GetNames(typeof(ItemTier)).Length);
 
-            ItemTier tier =  (ItemTier)randomTierIndex;
+            ItemTier tier = (ItemTier)randomTierIndex;
 
             return tier;
         }
@@ -34,7 +34,7 @@ namespace ItemManager
             }
         }
     }
-    
+
     public enum ItemTier
     {
         NoTier,

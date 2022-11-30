@@ -8,27 +8,29 @@ namespace JSONSystem
 {
     public static class JSONSaveSystem
     {
-        public static string filename = "Characters.json";
+        public static string filename;
         public static string resourcesFilename = "Characters";
-        
-        public static void SaveToJSON<T>(T saveData, bool prettyPrint)
+
+        public static void SaveToJSON<T>(T saveData, bool prettyPrint, string fileNamePath)
         {
-            List<T> dataInJson = ReadFromJson<T>();
+            filename = fileNamePath;
+            List<T> dataInJson = ReadFromJson<T>(filename);
             string content = JsonHelper.ToJson(saveData, prettyPrint, dataInJson);
-            WriteFile(GetPath(), content);
+            WriteFile(GetPath(filename), content);
         }
-        
-        public static void SaveToJSON<T>(List<T> saveData, bool prettyPrint)
+
+        public static void SaveToJSON<T>(List<T> saveData, bool prettyPrint, string fileNamePath)
         {
-            List<T> dataInJson = ReadFromJson<T>();
+            filename = fileNamePath;
+            List<T> dataInJson = ReadFromJson<T>(filename);
             string content = JsonHelper.ToJson(saveData, prettyPrint, dataInJson);
-            WriteFile(GetPath(), content);
+            WriteFile(GetPath(filename), content);
         }
-        
-        public static List<T> ReadFromJson<T>()
+
+        public static List<T> ReadFromJson<T>(string fileName)
         {
-            Debug.Log(GetPath());
-            string content = ReadFile(GetPath());
+            Debug.Log(GetPath(fileName));
+            string content = ReadFile(GetPath(fileName));
             if (string.IsNullOrEmpty(content) || content == "")
             {
                 return new List<T>();
@@ -37,10 +39,10 @@ namespace JSONSystem
 
             return res;
         }
-        
-        private static string GetPath()
+
+        private static string GetPath(string fileName)
         {
-            return Path.Combine(Application.persistentDataPath, filename);
+            return Path.Combine(Application.persistentDataPath, fileName + ".json");
         }
 
         private static void WriteFile(string path, string content)
@@ -53,21 +55,21 @@ namespace JSONSystem
             }
             fileStream.Close();
         }
-/*
-        private static void ResetDataInJson()
-        {
-            string content = JsonHelper.ResetJson<PlayerClass>();
-            WriteFile(GetPath(),content);
-        }
-        
-        public static void InitializeLevels()
-        {
-            ResetDataInJson();  
-            var levels = Resources.Load<TextAsset>(resourcesFilename);
-            List<PlayerClass> levelsList = JsonHelper.FromJson<PlayerClass>(levels.ToString()).ToList();
-            SaveToJSON(levelsList,true);
-        }
-*/
+        /*
+                private static void ResetDataInJson()
+                {
+                    string content = JsonHelper.ResetJson<PlayerClass>();
+                    WriteFile(GetPath(),content);
+                }
+
+                public static void InitializeLevels()
+                {
+                    ResetDataInJson();  
+                    var levels = Resources.Load<TextAsset>(resourcesFilename);
+                    List<PlayerClass> levelsList = JsonHelper.FromJson<PlayerClass>(levels.ToString()).ToList();
+                    SaveToJSON(levelsList,true);
+                }
+        */
         public static string ReadFile(string path)
         {
             if (File.Exists(path))
@@ -77,7 +79,7 @@ namespace JSONSystem
                     string content = reader.ReadToEnd();
                     reader.Close();
                     return content;
-                    
+
                 }
             }
             return "";
