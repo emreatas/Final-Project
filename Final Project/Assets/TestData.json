@@ -1,0 +1,65 @@
+{
+    "inventory": [
+        {
+            "Item": {
+                "ID": 1,
+                "ItemName": "Hel",
+                "Icon": {
+                    "instanceID": 702022
+                },
+                "CanBeStacked": false,
+                "ItemTier": 2,
+                "ItemTierColor": {
+                    "r": 0.0,
+                    "g": 0.915339469909668,
+                    "b": 1.0,
+                    "a": 1.0
+                },
+                "equipmentSlotTypes": 0,
+                "Stats": [
+                    {
+                        "m_BaseValue": 12.0,
+                        "m_BaseAttributeType": 0,
+                        "m_TargetStat": {
+                            "instanceID": 29926
+                        }
+                    },
+                    {
+                        "m_BaseValue": 23.0,
+                        "m_BaseAttributeType": 1,
+                        "m_TargetStat": {
+                            "instanceID": 29890
+                        }
+                    }
+                ],
+                "ItemTierSprite": {
+                    "instanceID": 29886
+                }
+            },
+            "Count": 0
+        },
+        {
+            "Item": {
+                "ID": 0,
+                "ItemName": "adasd",
+                "Icon": {
+                    "instanceID": 0
+                },
+                "CanBeStacked": false,
+                "ItemTier": 0,
+                "ItemTierColor": {
+                    "r": 0.0,
+                    "g": 0.0,
+                    "b": 0.0,
+                    "a": 0.0
+                },
+                "equipmentSlotTypes": 0,
+                "Stats": [],
+                "ItemTierSprite": {
+                    "instanceID": 0
+                }
+            },
+            "Count": 0
+        }
+    ]
+}

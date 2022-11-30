@@ -5,11 +5,12 @@ using UnityEngine;
 namespace Items
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Chest")]
+    [System.Serializable]
     public class ChestLoot : ScriptableObject
     {
         [SerializeField] private List<ItemSettings> constantDropItems = new List<ItemSettings>();
         [SerializeField] private List<ChestItem> randomDropItems = new List<ChestItem>();
-        
+
         [SerializeField] private int minRandomItemDrop;
         [SerializeField] private int maxRandomItemDrop;
 
@@ -18,10 +19,10 @@ namespace Items
         public List<Item> GetRandomLoot()
         {
             m_ChestItems = new List<Item>();
-            
+
             AddConstantItemsToDrop();
             AddRandomItemsToDrop();
-            
+
             return m_ChestItems;
         }
 
@@ -33,17 +34,17 @@ namespace Items
                 m_ChestItems.Add(newItem);
             }
         }
-        
+
         private void AddRandomItemsToDrop()
         {
             int randomItemDropCount = GetRandomItemDropCount();
-            
+
             for (int i = 0; i < randomItemDropCount; i++)
             {
-               GetRandomItemFromChest();
+                GetRandomItemFromChest();
             }
         }
-        
+
         private void GetRandomItemFromChest()
         {
             float randomDropChance = Random.Range(0, CalculateTotalItemDropChance());
@@ -51,7 +52,7 @@ namespace Items
             for (int j = 0; j < randomDropItems.Count; j++)
             {
                 randomDropChance -= randomDropItems[j].DropChance;
-                
+
                 if (randomDropChance <= 0)
                 {
                     var newItem = randomDropItems[j].Item.CreateNewItem();
@@ -60,10 +61,10 @@ namespace Items
                 }
             }
         }
-        
+
         private float CalculateTotalItemDropChance()
         {
-            float totalChance = 0; 
+            float totalChance = 0;
             for (int i = 0; i < randomDropItems.Count; i++)
             {
                 totalChance += randomDropItems[i].DropChance;

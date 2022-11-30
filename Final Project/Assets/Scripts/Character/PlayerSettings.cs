@@ -9,12 +9,11 @@ namespace Player
     [Serializable]
     public class PlayerSettings : ScriptableObject
     {
-        [SerializeField] public Inventory Inventory;
+        public Inventory Inventory;
         public Equipment Equipment;
         public CharacterStat CharacterStat;
         public PlayerLevelSettings LevelSettings;
-
         public CharacterTypes characterType;
     }
-    
+
 }

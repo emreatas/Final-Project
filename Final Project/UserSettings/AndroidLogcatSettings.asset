@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "HA1CA3HH",
         "name": "com.DefaultCompany.FinalProject",
-        "processId": 8662,
+        "processId": 6147,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,109 +11,79 @@
         {
             "deviceId": "HA1CA3HH",
             "name": "com.tblenovo.launcher",
-            "processId": 1635,
+            "processId": 1637,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 14017,
+            "processId": 18503,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 14549,
+            "processId": 18681,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 14810,
+            "processId": 19183,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 15052,
+            "processId": 19421,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 19803,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 15367,
+            "processId": 20014,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 15592,
+            "processId": 20195,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 15793,
+            "processId": 20289,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 16034,
+            "processId": 20468,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 17197,
+            "processId": 6147,
             "exited": false
         },
         {
-            "deviceId": "HA1CA3HH",
+            "deviceId": "R68R800489E",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 6829,
+            "processId": 27417,
             "exited": false
         },
         {
-            "deviceId": "HA1CA3HH",
+            "deviceId": "R68R800489E",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 7172,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 7500,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 7777,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 7981,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 8147,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 8341,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 8662,
+            "processId": 28002,
             "exited": false
         }
     ],

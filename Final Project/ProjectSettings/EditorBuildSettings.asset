@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Prototype/Prototype-Start.unity
-    guid: 7581d9ed79bf82e4aae9affd587c8e69
-  - enabled: 1
     path: Assets/Scenes/Prototype/Prototype_InGameSerkan 3.unity
     guid: 6c4689281866e0848ba24de9b3b12c7f
   m_configObjects: {}
