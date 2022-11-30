@@ -13,6 +13,9 @@ namespace RPG.UI
         PlayerConversation playerConversation;
         [SerializeField] TextMeshProUGUI AIText;
         [SerializeField] Button nextButton;
+        [SerializeField] Transform choiceRoot;
+        [SerializeField] GameObject choicePrefab;
+
         public GameObject closePanel;
 
         // Start is called before the first frame update
@@ -20,6 +23,8 @@ namespace RPG.UI
         {
             playerConversation = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConversation>();
             nextButton.onClick.AddListener(Next);
+
+            UpdateUI();
         }
 
         private void Next()
@@ -33,6 +38,18 @@ namespace RPG.UI
         {
             AIText.text = playerConversation.GetText();
             nextButton.gameObject.SetActive(playerConversation.HasNext());
+
+            foreach(Transform item in choiceRoot)
+            {
+                Destroy(item.gameObject);
+            }
+
+            foreach (string choiceText in playerConversation.GetChoices())
+            {
+                GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
+                var textComp = choiceInstance.GetComponentInChildren<TextMeshProUGUI>();
+                textComp.text = choiceText;
+            }
         }
 
         public void closingPanel()
