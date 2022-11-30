@@ -16311,7 +16311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1243314677
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17146,6 +17146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIText: {fileID: 535189999}
+  AIResponse: {fileID: 1243314676}
   nextButton: {fileID: 1486480073}
   choiceRoot: {fileID: 413265285}
   choicePrefab: {fileID: 4098861937122510939, guid: c1d807d7ab7c57f4db70a1627d69cc3f,
@@ -17304,7 +17305,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 32631
 --- !u!114 &1769978726
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ namespace RPG.UI
     {
         PlayerConversation playerConversation;
         [SerializeField] TextMeshProUGUI AIText;
+        [SerializeField] GameObject AIResponse;
         [SerializeField] Button nextButton;
         [SerializeField] Transform choiceRoot;
         [SerializeField] GameObject choicePrefab;
@@ -36,22 +37,29 @@ namespace RPG.UI
         // Update is called once per frame
         private void UpdateUI()
         {
-            AIText.text = playerConversation.GetText();
-            nextButton.gameObject.SetActive(playerConversation.HasNext());
+            AIResponse.SetActive(!playerConversation.IsChoosing());
+            choiceRoot.gameObject.SetActive(playerConversation.IsChoosing());
 
-            foreach(Transform item in choiceRoot)
+            if (playerConversation.IsChoosing())
             {
-                Destroy(item.gameObject);
+                foreach (Transform item in choiceRoot)
+                {
+                    Destroy(item.gameObject);
+                }
+
+                foreach (DialogueNode choice in playerConversation.GetChoices())
+                {
+                    GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
+                    var textComp = choiceInstance.GetComponentInChildren<TextMeshProUGUI>();
+                    textComp.text = choice.GetText();
+                }
             }
-
-            foreach (string choiceText in playerConversation.GetChoices())
+            else
             {
-                GameObject choiceInstance = Instantiate(choicePrefab, choiceRoot);
-                var textComp = choiceInstance.GetComponentInChildren<TextMeshProUGUI>();
-                textComp.text = choiceText;
+                AIText.text = playerConversation.GetText();
+                nextButton.gameObject.SetActive(playerConversation.HasNext());
             }
         }
-
         public void closingPanel()
         {
             closePanel.gameObject.SetActive(false);
