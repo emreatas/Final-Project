@@ -27,8 +27,7 @@ namespace JSONSystem
         public static string ToJson<T>(T element, bool prettyPrint, List<T> dataInJson)
         {
             Wrapper<T> wrapper = new Wrapper<T>();
-
-
+            dataInJson.Clear();
             dataInJson.Add(element);
             wrapper.Characters = dataInJson.ToArray();
 

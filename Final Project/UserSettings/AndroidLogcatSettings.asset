@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "HA1CA3HH",
         "name": "com.DefaultCompany.FinalProject",
-        "processId": 6147,
+        "processId": 9843,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,67 +11,37 @@
         {
             "deviceId": "HA1CA3HH",
             "name": "com.tblenovo.launcher",
-            "processId": 1637,
+            "processId": 1588,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 18503,
+            "processId": 7377,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 18681,
+            "processId": 7795,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 19183,
+            "processId": 8023,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 19421,
+            "processId": 8245,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 19803,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 20014,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 20195,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 20289,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 20468,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 6147,
+            "processId": 9843,
             "exited": false
         },
         {

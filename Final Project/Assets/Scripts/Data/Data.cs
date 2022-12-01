@@ -12,6 +12,7 @@ public class Data : MonoBehaviour
     [Header("Player")]
     public PlayerClass playerClass;
     public PlayerInventory inventory;
+    public PlayerEquipment equipment;
 
     [Header("Item Database")]
     [SerializeField] private List<ItemSettings> itemDataBase;
@@ -27,6 +28,9 @@ public class Data : MonoBehaviour
     public List<EquipmentSlotTypes> flagEquipmentKeys = new List<EquipmentSlotTypes>();
     public List<InventoryItemData> flagEquipmentValues = new List<InventoryItemData>();
     public Dictionary<EquipmentSlotTypes, InventoryItemData> flagEquipment = new Dictionary<EquipmentSlotTypes, InventoryItemData>();
+    public List<DataEquipmentItem> dataEquipmentItems = new List<DataEquipmentItem>();
+    public List<DataEquipmentItem> savedEquipmentItems = new List<DataEquipmentItem>();
+    public List<InventoryItemData> savedFlagEquipmentItems = new List<InventoryItemData>();
 
     void Start()
     {
@@ -36,6 +40,7 @@ public class Data : MonoBehaviour
     private void OnApplicationPause(bool pause)
     {
         InventorySave();
+        EquipmentSave();
 
     }
 
@@ -96,15 +101,13 @@ public class Data : MonoBehaviour
     }
     private void InventoryLoad()
     {
-        Debug.Log("-----------------a---------------");
         savedInventory = JSONSystem.JSONSaveSystem.ReadFromJson<DataInventoryItem>("IInventory");
 
         if (savedInventory.Count <= 0)
         {
             return;
         }
-        Debug.Log(savedInventory[0].ItemID);
-        Debug.Log("----------------b-------------");
+
 
 
         for (int i = 0; i < savedInventory.Count; i++)
@@ -161,16 +164,102 @@ public class Data : MonoBehaviour
     }
     private void EquipmentSave()
     {
+        if (Time.time < 5)
+        {
+            return;
+        }
+
         flagEquipment = playerClass.PlayerSettings.Equipment.GetEquipment;
         flagEquipmentKeys = flagEquipment.Keys.ToList();
         flagEquipmentValues = flagEquipment.Values.ToList();
 
 
 
+        for (int i = 0; i < flagEquipment.Count; i++)
+        {
+            DataEquipmentItem datanew = new DataEquipmentItem();
+
+            if (flagEquipment[flagEquipmentKeys[i]] != null)
+            {
+                datanew.EquipmentSlot = ((int)flagEquipmentKeys[i]);
+                datanew.ItemID = flagEquipment[flagEquipmentKeys[i]].Item.ID;
+                datanew.ItemTier = ((int)flagEquipment[flagEquipmentKeys[i]].Item.ItemTier);
+                datanew.StatCount = flagEquipment[flagEquipmentKeys[i]].Item.Stats.Count;
+
+                for (int j = 0; j < datanew.StatCount; j++)
+                {
+                    if (flagEquipment[flagEquipmentKeys[i]].Item.Stats[j] != null)
+                    {
+                        datanew.statsAttributeModifiers[j] = flagEquipment[flagEquipmentKeys[i]].Item.Stats[j].TargetStat.ID;
+                        datanew.statsBaseValues[j] = flagEquipment[flagEquipmentKeys[i]].Item.Stats[j].BaseValue;
+                        datanew.statsAttributeType[j] = ((int)flagEquipment[flagEquipmentKeys[i]].Item.Stats[j].BaseAttributeType);
+
+                    }
+                }
+                dataEquipmentItems.Add(datanew);
+            }
+
+        }
+        JSONSystem.JSONSaveSystem.SaveToJSON(dataEquipmentItems, true, "Equipment");
     }
 
     private void EquipmentLoad()
     {
+        savedEquipmentItems = JSONSystem.JSONSaveSystem.ReadFromJson<DataEquipmentItem>("Equipment");
+
+        if (savedEquipmentItems.Count <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < savedEquipmentItems.Count; i++)
+        {
+            for (int j = 0; j < itemDataBase.Count; j++)
+            {
+                if (savedEquipmentItems[i].ItemID == itemDataBase[j].ID)
+                {
+                    Item item = new Item(
+                       itemDataBase[j].ID,
+                       itemDataBase[j].ItemName,
+                       itemDataBase[j].Icon,
+                       itemDataBase[j].CanBeStacked,
+                       itemDataBase[j].ItemTierSprite
+                       );
+
+                    InventoryItemData inventoryItem = new InventoryItemData(item, savedInventory[i].stackCount);
+
+                    for (int k = 0; k < savedEquipmentItems[i].StatCount; k++)
+                    {
+                        for (int t = 0; t < statDataBase.Count; t++)
+                        {
+                            if (savedEquipmentItems[i].statsAttributeModifiers[k] == statDataBase[t].ID)
+                            {
+
+                                Stat.AttributeModifier attributeModifier = new Stat.AttributeModifier(
+                                   savedEquipmentItems[i].statsBaseValues[k],
+                                   statDataBase[t],
+                                   (Stat.AttributeType)savedEquipmentItems[i].statsAttributeType[k]
+                                   );
+
+                                inventoryItem.Item.Stats.Add(attributeModifier);
+                            }
+                        }
+                    }
+                    inventoryItem.Item.ItemTier = (ItemTier)savedInventory[i].ItemTier;
+                    inventoryItem.Item.ItemTierColor = ItemTierManager.GetTierColor(inventoryItem.Item.ItemTier);
+                    inventoryItem.Item.equipmentSlotTypes = (EquipmentSlotTypes)savedEquipmentItems[i].EquipmentSlot;
+
+                    savedFlagEquipmentItems.Add(inventoryItem);
+                }
+            }
+        }
+
+        for (int k = 0; k < savedFlagEquipmentItems.Count; k++)
+        {
+            equipment.HandleOnEquipItem(savedFlagEquipmentItems[k]);
+        }
+
+
 
     }
 
@@ -180,6 +269,7 @@ public class Data : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         InventoryLoad();
+        EquipmentLoad();
     }
 
 }
@@ -204,7 +294,6 @@ public class DataEquipmentItem
     public int EquipmentSlot;
     public int ItemID;
     public int ItemTier;
-    public int stackCount;
     public int StatCount;
     public int[] statsAttributeModifiers = new int[3];
     public float[] statsBaseValues = new float[3];

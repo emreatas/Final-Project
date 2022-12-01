@@ -8841,6 +8841,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b08a8a8e68471844b742f336179726a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1285009296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2496534211609483820, guid: 5627d99bef3e2914b91ecb904c6e4e80,
+    type: 3}
+  m_PrefabInstance: {fileID: 2018686579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285009259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 111f0271714884248b22e46ac00b0c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1302760789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13067,9 +13079,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerClass: {fileID: 1285009284}
   inventory: {fileID: 1285009286}
+  equipment: {fileID: 1285009296}
   itemDataBase:
   - {fileID: 11400000, guid: ba5d02570ee1a1e45ac55d2d6525cff2, type: 2}
   - {fileID: 11400000, guid: c7fce05d7b87bfd41b39152e9614fcc3, type: 2}
+  - {fileID: 11400000, guid: 08a1cc154f7dd874b983e9f3f593f968, type: 2}
+  - {fileID: 11400000, guid: 001f5b0c1f8519d46b0dbd195711abc5, type: 2}
+  - {fileID: 11400000, guid: d0b37f73d44ef8246a181fc4e6bd6f8f, type: 2}
+  - {fileID: 11400000, guid: 2d3353add2a41b942ba2ef698902d1f0, type: 2}
   statDataBase:
   - {fileID: 11400000, guid: 2d8888b287992ad44af9c96a71b5eb32, type: 2}
   - {fileID: 11400000, guid: 889d791648bf1ae49a0c9d65d1002ab2, type: 2}
@@ -13088,6 +13105,9 @@ MonoBehaviour:
   savedFlagInventory: []
   flagEquipmentKeys: 
   flagEquipmentValues: []
+  dataEquipmentItems: []
+  savedEquipmentItems: []
+  savedFlagEquipmentItems: []
 --- !u!4 &1932492350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 414432, guid: 578b79da386ab7d4fa2a018ea2019638,

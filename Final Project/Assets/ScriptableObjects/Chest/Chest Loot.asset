@@ -15,6 +15,10 @@ MonoBehaviour:
   constantDropItems:
   - {fileID: 11400000, guid: c7fce05d7b87bfd41b39152e9614fcc3, type: 2}
   - {fileID: 11400000, guid: ba5d02570ee1a1e45ac55d2d6525cff2, type: 2}
+  - {fileID: 11400000, guid: 08a1cc154f7dd874b983e9f3f593f968, type: 2}
+  - {fileID: 11400000, guid: 001f5b0c1f8519d46b0dbd195711abc5, type: 2}
+  - {fileID: 11400000, guid: d0b37f73d44ef8246a181fc4e6bd6f8f, type: 2}
+  - {fileID: 11400000, guid: 2d3353add2a41b942ba2ef698902d1f0, type: 2}
   randomDropItems: []
   minRandomItemDrop: 0
   maxRandomItemDrop: 0
