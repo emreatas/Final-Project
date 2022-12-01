@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab438ca910dc484fa01733470052e6dc, type: 3}
+  m_Name: Light Armor
+  m_EditorClassIdentifier: 
+  ID: 10
+  ItemName: Light Armor
+  Icon: {fileID: 21300000, guid: 6fd0c242a45d6472cb3533e9f7dbf179, type: 3}
+  CanBeStacked: 0
+  ItemTierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
+  equipmentSlotTypes: 1
+  itemStatPool:
+    compulsoryItemStats:
+    - statType: {fileID: 11400000, guid: 889d791648bf1ae49a0c9d65d1002ab2, type: 2}
+      attributeType: 0
+      minValue: 45
+      maxValue: 85
+      statValue: 55
+    - statType: {fileID: 11400000, guid: 565954323bdb20849a5bf6f85666d7e8, type: 2}
+      attributeType: 0
+      minValue: 100
+      maxValue: 200
+      statValue: 0
+    randomItemStats: []
+    randomStatCount: 0
