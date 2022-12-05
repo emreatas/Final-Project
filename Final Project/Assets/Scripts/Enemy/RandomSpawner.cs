@@ -8,8 +8,8 @@ public class RandomSpawner : MonoBehaviour
     public Transform player;
     public int[] enemySize;
 
-    private float spawnRadius = 3f;
-    private float spawnDistance = 3f;
+    private float spawnRadius = 10f;
+    private float spawnDistance = 10f;
     private bool[] isEnemySpawned = new bool[3];
     void Start() {
         for(int i = 0; i < spawnPoints.Length; i++) {
