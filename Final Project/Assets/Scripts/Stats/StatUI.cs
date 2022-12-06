@@ -13,11 +13,11 @@ namespace Stat
     {
         [SerializeField] private StatSlot[] statSlots;
         [SerializeField] private TextMeshProUGUI skillPointsText;
-        
+
         public static GameEvent<StatType> OnStatIncreased;
 
         private int m_SkillPoints = 0;
-        
+
         private void Start()
         {
             AddListeners();
@@ -27,7 +27,7 @@ namespace Stat
         {
             RemoveListeners();
         }
-        
+
         private void HandleOnCharacterStatsInitialized(CharacterStat characterStats)
         {
             for (int i = 0; i < statSlots.Length; i++)
@@ -43,7 +43,7 @@ namespace Stat
             m_SkillPoints = availabSkillPoints;
             skillPointsText.text = m_SkillPoints.ToString();
         }
-        
+
         public void _AddStat(StatType statType)
         {
             Debug.Log("Try Add Stat");
@@ -51,6 +51,7 @@ namespace Stat
             {
                 Debug.Log("Stat added succesfully");
                 OnStatIncreased.Invoke(statType);
+                Data.instance.CharacterAttributeSave();
             }
         }
 
@@ -59,7 +60,7 @@ namespace Stat
             PlayerStats.OnCharacterStatsInitialized.AddListener(HandleOnCharacterStatsInitialized);
             PlayerStats.OnSkillPointsUpdated.AddListener(HandleOnSkillPointsUpdated);
         }
-        
+
         private void RemoveListeners()
         {
             PlayerStats.OnCharacterStatsInitialized.RemoveListener(HandleOnCharacterStatsInitialized);

@@ -16,14 +16,13 @@ public class RandomLoot : AbstractSingelton<RandomLoot>
     private void Start()
     {
         CreateLoot(Vector3.zero);
-        CreateLoot(Vector3.zero);
-        CreateLoot(Vector3.zero);
+
     }
 
     public void CreateLoot(Vector3 position)
     {
         var chestLoot = Instantiate(loot);
-        var instansiated = Instantiate(chestPrefab, position,Quaternion.identity);
+        var instansiated = Instantiate(chestPrefab, position, Quaternion.identity);
         instansiated.InitializeChest(chestLoot);
     }
 

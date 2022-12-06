@@ -16,6 +16,15 @@ namespace Stat
         [SerializeField] private int totalSkillPoints;
         [SerializeField] private int availableSkillPoints;
 
+        public int TotalSkillPoints => totalSkillPoints;
+        public void SetTotalSkillPoints(int i)
+        {
+            totalSkillPoints = i;
+        }
+        public void SetAvailableSkillPoints(int i)
+        {
+            availableSkillPoints = i;
+        }
         public int AvailableSkillPoints => availableSkillPoints;
 
         public void IncreaseSkillPoints()

@@ -8,6 +8,7 @@ namespace Items
     [System.Serializable]
     public class ChestLoot : ScriptableObject
     {
+
         [SerializeField] private List<ItemSettings> constantDropItems = new List<ItemSettings>();
         [SerializeField] private List<ChestItem> randomDropItems = new List<ChestItem>();
 
@@ -28,6 +29,7 @@ namespace Items
 
         private void AddConstantItemsToDrop()
         {
+
             for (int i = 0; i < constantDropItems.Count; i++)
             {
                 var newItem = constantDropItems[i].CreateNewItem();

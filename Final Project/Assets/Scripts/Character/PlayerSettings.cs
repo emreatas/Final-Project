@@ -9,6 +9,7 @@ namespace Player
     [Serializable]
     public class PlayerSettings : ScriptableObject
     {
+        public int CharacterID;
         public Inventory Inventory;
         public Equipment Equipment;
         public CharacterStat CharacterStat;

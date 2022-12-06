@@ -10,6 +10,7 @@ namespace PInventory
     [System.Serializable]
     public class Inventory : ScriptableObject
     {
+
         [SerializeField] private List<InventoryItemData> inventory = new List<InventoryItemData>();
 
         public List<InventoryItemData> GetInventory

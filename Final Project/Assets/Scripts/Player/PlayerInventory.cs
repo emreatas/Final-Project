@@ -21,6 +21,8 @@ namespace PInventory
         private void OnEnable()
         {
             AddListeners();
+
+
         }
 
         private void OnDisable()
@@ -28,10 +30,10 @@ namespace PInventory
             RemoveListeners();
         }
 
+
         private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
         {
             inventory = playerSettings.Inventory;
-            Debug.Log("---------c---------");
             OnInitializeInventory.Invoke(inventory.GetInventory);
         }
 
@@ -44,6 +46,8 @@ namespace PInventory
         {
             var inventoryItemData = inventory.AddItem(itemData);
             OnItemAddedToInventory.Invoke(inventoryItemData);
+            Data.instance.InventorySave();
+
         }
 
         public void RemoveItemFromInventory(InventoryItemData item)
@@ -52,7 +56,9 @@ namespace PInventory
             if (invetoryItemData != null)
             {
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
+                Data.instance.InventorySave();
             }
+
         }
 
         private void HandleOnDeleteItem(InventoryItemData itemData)
@@ -61,7 +67,9 @@ namespace PInventory
             if (invetoryItemData != null)
             {
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
+                Data.instance.InventorySave();
             }
+
         }
 
         private void AddListeners()

@@ -8,19 +8,19 @@ namespace Stat
     [CreateAssetMenu(menuName = "ScriptableObjects/Stats/CharacterAttribute")]
     public class CharacterAttribute : ScriptableObject
     {
-        [SerializeField] private StatType statType;
-        [SerializeField] private float baseValue;
-        
-        [SerializeField] private List<AttributeModifier> additiveAttributeModifiers = new List<AttributeModifier>();
-        [SerializeField] private List<AttributeModifier> percentageAttributeModifiers = new List<AttributeModifier>();
-        [SerializeField] private List<DependantAttribute> dependantCharacterAttributes = new List<DependantAttribute>();
-        
+        [SerializeField] public StatType statType;
+        [SerializeField] public float baseValue;
+
+        [SerializeField] public List<AttributeModifier> additiveAttributeModifiers = new List<AttributeModifier>();
+        [SerializeField] public List<AttributeModifier> percentageAttributeModifiers = new List<AttributeModifier>();
+        [SerializeField] public List<DependantAttribute> dependantCharacterAttributes = new List<DependantAttribute>();
+
         public GameEvent<CharacterAttribute> OnCharacterAttributeUpdated;
-        
+
         private float m_FinalValue;
 
         private bool m_FinalValueChanged;
-        
+
         public bool FinalValueChanged => m_FinalValueChanged;
         public StatType StatType => statType;
 
@@ -29,7 +29,7 @@ namespace Stat
             this.baseValue = baseValue;
             this.statType = statType;
         }
-        
+
         public void AddModifier(AttributeModifier modifier)
         {
             if (statType == modifier.TargetStat)
@@ -42,9 +42,9 @@ namespace Stat
                 {
                     percentageAttributeModifiers.Add(modifier);
                 }
-                
+
                 m_FinalValueChanged = true;
-                
+
                 OnCharacterAttributeUpdated.Invoke(this);
             }
         }
@@ -64,7 +64,7 @@ namespace Stat
                 }
 
                 m_FinalValueChanged = true;
-                
+
                 OnCharacterAttributeUpdated.Invoke(this);
             }
         }
@@ -84,12 +84,12 @@ namespace Stat
                 m_FinalValue *= (1 + percentageAttributeModifiers[i].BaseValue);
             }
         }
-        
+
         private void ApplyDependantAttributes()
         {
             for (int i = 0; i < dependantCharacterAttributes.Count; i++)
             {
-              
+
                 m_FinalValue += dependantCharacterAttributes[i].characterAttribute.CalculateFinalValue() *
                                 dependantCharacterAttributes[i].multiplier;
             }
@@ -100,7 +100,7 @@ namespace Stat
             dependantCharacterAttributes.Add(characterAttribute);
 
             m_FinalValueChanged = true;
-            
+
             OnCharacterAttributeUpdated.Invoke(this);
         }
 
@@ -109,9 +109,9 @@ namespace Stat
             if (dependantCharacterAttributes.Contains(characterAttribute))
             {
                 dependantCharacterAttributes.Remove(characterAttribute);
-                
+
                 m_FinalValueChanged = true;
-                
+
                 OnCharacterAttributeUpdated.Invoke(this);
             }
         }
@@ -121,7 +121,7 @@ namespace Stat
             baseValue += amount;
             OnCharacterAttributeUpdated.Invoke(this);
         }
-        
+
         public float CalculateFinalValue()
         {
             CheckDependantAttrValueChanged();
@@ -130,10 +130,10 @@ namespace Stat
             ApplyDependantAttributes();
             ApplyAdditiveModifiers();
             ApplyPercentageModifiers();
-            
+
             m_FinalValueChanged = false;
-           
-            
+
+
             /*
             if (m_FinalValueChanged)
             {

@@ -15,6 +15,7 @@ namespace ItemManager
         public ItemTier ItemTier = ItemTier.NoTier;
         public Color ItemTierColor;
 
+
         public EquipmentSlotTypes equipmentSlotTypes;
 
         public List<AttributeModifier> Stats;

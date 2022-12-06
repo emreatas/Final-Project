@@ -7,6 +7,7 @@
         Shoes,
         Weapon,
         Accessory,
-        Wings
+        Wings,
+        Coin
     }
 }

@@ -13,8 +13,8 @@ namespace PInventory
         [SerializeField] private PlayerInventory playerInventory;
         [SerializeField] private Equipment equipment;
 
-        public static GameEvent<Dictionary<EquipmentSlotTypes,InventoryItemData>> OnInitalizeEquipment;
-        
+        public static GameEvent<Dictionary<EquipmentSlotTypes, InventoryItemData>> OnInitalizeEquipment;
+
         public static GameEvent<InventoryItemData> OnItemEquipped;
         public static GameEvent<InventoryItemData> OnItemUnequipped;
 
@@ -27,27 +27,28 @@ namespace PInventory
         {
             RemoveListeners();
         }
-        
+
         private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
         {
             equipment = playerSettings.Equipment;
             OnInitalizeEquipment.Invoke(equipment.GetEquipment);
         }
-        
+
         public void HandleOnEquipItem(InventoryItemData itemData)
         {
             var oldEquippedItem = equipment.EquipItem(itemData);
             playerInventory.RemoveItemFromInventory(itemData);
-            
+
             if (oldEquippedItem != null)
             {
                 playerInventory.AddItemToInventory(oldEquippedItem);
                 OnItemUnequipped.Invoke(oldEquippedItem);
             }
-            
+
             OnItemEquipped.Invoke(itemData);
+            Data.instance.EquipmentSave();
         }
-        
+
         public void HandleOnUnequipItem(InventoryItemData itemData)
         {
             var uneqquipedItem = equipment.UnequipItem(itemData);
@@ -57,22 +58,27 @@ namespace PInventory
                 playerInventory.AddItemToInventory(uneqquipedItem);
                 OnItemUnequipped.Invoke(uneqquipedItem);
             }
+            Data.instance.EquipmentSave();
+
         }
-        
+
         private void HandleOnDeleteItem(InventoryItemData itemData)
         {
             var uneqquipedItem = equipment.DeleteItem(itemData);
-            
+
             if (uneqquipedItem != null)
             {
                 OnItemUnequipped.Invoke(uneqquipedItem);
             }
+            Data.instance.EquipmentSave();
+
+
         }
-        
+
         private void AddListeners()
         {
             PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
-            
+
             InventorySelectedItemUI.OnEquipItem.AddListener(HandleOnEquipItem);
             InventorySelectedItemUI.OnUneqquipItem.AddListener(HandleOnUnequipItem);
             InventorySelectedItemUI.OnDeleteItem.AddListener(HandleOnDeleteItem);
@@ -81,7 +87,7 @@ namespace PInventory
         private void RemoveListeners()
         {
             PlayerClass.OnCharacterInitialized.AddListener(HandleOnCharacterInitialized);
-            
+
             InventorySelectedItemUI.OnEquipItem.RemoveListener(HandleOnEquipItem);
             InventorySelectedItemUI.OnUneqquipItem.RemoveListener(HandleOnUnequipItem);
             InventorySelectedItemUI.OnDeleteItem.RemoveListener(HandleOnDeleteItem);

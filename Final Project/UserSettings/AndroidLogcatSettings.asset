@@ -3,45 +3,45 @@
     "m_SelectedPackage": {
         "deviceId": "HA1CA3HH",
         "name": "com.DefaultCompany.FinalProject",
-        "processId": 9843,
+        "processId": 22648,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 21816,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 22083,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 22178,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 22277,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
             "name": "com.tblenovo.launcher",
-            "processId": 1588,
+            "processId": 1614,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 7377,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 7795,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 8023,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 8245,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 9843,
+            "processId": 22648,
             "exited": false
         },
         {

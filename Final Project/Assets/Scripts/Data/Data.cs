@@ -9,6 +9,14 @@ using PInventory;
 using ItemManager;
 public class Data : MonoBehaviour
 {
+    #region Singleton
+    public static Data instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     [Header("Player")]
     public PlayerClass playerClass;
     public PlayerInventory inventory;
@@ -17,6 +25,9 @@ public class Data : MonoBehaviour
     [Header("Item Database")]
     [SerializeField] private List<ItemSettings> itemDataBase;
     [SerializeField] private List<Stat.StatType> statDataBase;
+
+    [Header("CharacterCurrency")]
+    public int coin;
 
     [Header("Inventory")]
     public List<DataInventoryItem> dataInventoryItems = new List<DataInventoryItem>();
@@ -32,15 +43,25 @@ public class Data : MonoBehaviour
     public List<DataEquipmentItem> savedEquipmentItems = new List<DataEquipmentItem>();
     public List<InventoryItemData> savedFlagEquipmentItems = new List<InventoryItemData>();
 
+    [Header("Character Stats")]
+    public List<Stat.CharacterAttribute> characterAttributes = new List<Stat.CharacterAttribute>();
+    public List<Stat.CharacterAttribute> savedCharacterAttributes = new List<Stat.CharacterAttribute>();
+    public List<DataCharacterAttribute> dataCharacterAttribute;
+    public List<DataCharacterAttribute> savedDataCharacterAttributes;
+
+
+
+
     void Start()
     {
-        StartCoroutine(test());        //EquipmentLoad();
+        playerClass.PlayerSettings.CharacterID = PlayerPrefs.GetInt("CharacterID", 0);
+        StartCoroutine(test());
     }
 
     private void OnApplicationPause(bool pause)
     {
-        InventorySave();
-        EquipmentSave();
+        //InventorySave();
+        //EquipmentSave();
 
     }
 
@@ -56,16 +77,11 @@ public class Data : MonoBehaviour
     }
 
 
-
-    private void InventorySave()
+    #region Inventory Save and Load
+    public void InventorySave()
     {
         flagInventory = playerClass.PlayerSettings.Inventory.GetInventory;
 
-
-        if (Time.time < 5)
-        {
-            return;
-        }
 
         for (int i = 0; i < flagInventory.Count; i++)
         {
@@ -97,11 +113,11 @@ public class Data : MonoBehaviour
             dataInventoryItems.Add(datanew);
         }
 
-        JSONSystem.JSONSaveSystem.SaveToJSON(dataInventoryItems, true, "IInventory");
+        JSONSystem.JSONSaveSystem.SaveToJSON(dataInventoryItems, true, "Inventory" + playerClass.PlayerSettings.CharacterID);
     }
     private void InventoryLoad()
     {
-        savedInventory = JSONSystem.JSONSaveSystem.ReadFromJson<DataInventoryItem>("IInventory");
+        savedInventory = JSONSystem.JSONSaveSystem.ReadFromJson<DataInventoryItem>("Inventory" + playerClass.PlayerSettings.CharacterID);
 
         if (savedInventory.Count <= 0)
         {
@@ -162,12 +178,12 @@ public class Data : MonoBehaviour
         }
 
     }
-    private void EquipmentSave()
+    #endregion
+
+    #region Equipment Save and Load
+    public void EquipmentSave()
     {
-        if (Time.time < 5)
-        {
-            return;
-        }
+
 
         flagEquipment = playerClass.PlayerSettings.Equipment.GetEquipment;
         flagEquipmentKeys = flagEquipment.Keys.ToList();
@@ -200,12 +216,11 @@ public class Data : MonoBehaviour
             }
 
         }
-        JSONSystem.JSONSaveSystem.SaveToJSON(dataEquipmentItems, true, "Equipment");
+        JSONSystem.JSONSaveSystem.SaveToJSON(dataEquipmentItems, true, "Equipment" + playerClass.PlayerSettings.CharacterID);
     }
-
     private void EquipmentLoad()
     {
-        savedEquipmentItems = JSONSystem.JSONSaveSystem.ReadFromJson<DataEquipmentItem>("Equipment");
+        savedEquipmentItems = JSONSystem.JSONSaveSystem.ReadFromJson<DataEquipmentItem>("Equipment" + playerClass.PlayerSettings.CharacterID);
 
         if (savedEquipmentItems.Count <= 0)
         {
@@ -262,7 +277,93 @@ public class Data : MonoBehaviour
 
 
     }
+    #endregion
 
+    #region Currency
+
+    public static event Action<int> SetCurrency;
+    public void OnSetCurrency(int coin)
+    {
+        if (SetCurrency != null)
+        {
+            PlayerPrefs.SetInt("Currency", PlayerPrefs.GetInt("Currency", 0) + coin);
+            SetCurrency(coin);
+        }
+    }
+    public int GetCurrency()
+    {
+        return PlayerPrefs.GetInt("Currency", 0);
+    }
+    #endregion
+
+
+    #region CharacterAttribute
+
+    #region CharacterAttributeSave
+
+    public void CharacterAttributeSave()
+    {
+        characterAttributes = playerClass.PlayerSettings.CharacterStat.CharacterAttributes;
+
+        for (int i = 0; i < characterAttributes.Count; i++)
+        {
+            //vit id = 11
+            //int id = 5
+            //str id = 10
+            //dex id = 3
+            if (characterAttributes[i].statType.ID == 5 ||
+                characterAttributes[i].statType.ID == 3 ||
+                characterAttributes[i].statType.ID == 10 ||
+                characterAttributes[i].statType.ID == 11)
+            {
+                DataCharacterAttribute datanew = new DataCharacterAttribute();
+                datanew.CharacterAttributeID = characterAttributes[i].statType.ID;
+                datanew.CharacterAttributeBaseValue = (int)characterAttributes[i].baseValue;
+                dataCharacterAttribute.Add(datanew);
+            }
+        }
+
+
+        JSONSystem.JSONSaveSystem.SaveToJSON(dataCharacterAttribute, true, "CharacterAttribute" + playerClass.PlayerSettings.CharacterID);
+
+
+        PlayerPrefs.SetInt("CharacterAttributeTotalSkillPoint", playerClass.PlayerSettings.CharacterStat.TotalSkillPoints);
+        PlayerPrefs.SetInt("CharacterAttributeAvailableSkillPoints", playerClass.PlayerSettings.CharacterStat.AvailableSkillPoints);
+
+    }
+    #endregion
+
+    #region CharacterAttributeLoad
+
+    public void CharacterAttributeLoad()
+    {
+        playerClass.PlayerSettings.CharacterStat.SetTotalSkillPoints(PlayerPrefs.GetInt("CharacterAttributeTotalSkillPoint", 0));
+        playerClass.PlayerSettings.CharacterStat.SetAvailableSkillPoints(PlayerPrefs.GetInt("CharacterAttributeAvailableSkillPoints", 0));
+
+        savedDataCharacterAttributes = JSONSystem.JSONSaveSystem.ReadFromJson<DataCharacterAttribute>("CharacterAttribute" + playerClass.PlayerSettings.CharacterID);
+
+
+        for (int i = 0; i < savedDataCharacterAttributes.Count; i++)
+        {
+            for (int j = 0; j < playerClass.PlayerSettings.CharacterStat.CharacterAttributes.Count; j++)
+            {
+                if (savedDataCharacterAttributes[i].CharacterAttributeID == playerClass.PlayerSettings.CharacterStat.CharacterAttributes[j].statType.ID)
+                {
+                    playerClass.PlayerSettings.CharacterStat.CharacterAttributes[j].baseValue = savedDataCharacterAttributes[i].CharacterAttributeBaseValue;
+                }
+            }
+        }
+    }
+
+    #endregion
+
+
+
+
+
+
+
+    #endregion
 
     IEnumerator test()
     {
@@ -270,6 +371,7 @@ public class Data : MonoBehaviour
 
         InventoryLoad();
         EquipmentLoad();
+        CharacterAttributeLoad();
     }
 
 }
@@ -298,4 +400,14 @@ public class DataEquipmentItem
     public int[] statsAttributeModifiers = new int[3];
     public float[] statsBaseValues = new float[3];
     public int[] statsAttributeType = new int[3];
+}
+
+[System.Serializable]
+public class DataCharacterAttribute
+{
+
+    public int CharacterAttributeID;
+    public int CharacterAttributeBaseValue;
+
+
 }

@@ -10,11 +10,15 @@ namespace ItemManager
         public int ID;
         public string ItemName;
         public Sprite Icon;
+        public Sprite ItemTierSprite;
 
         public bool CanBeStacked;
 
-        public Sprite ItemTierSprite;
-        
+        public int defaultCoinValue;
+        public int sellValue;
+        public int buyValue;
+
+
         public virtual Item CreateNewItem()
         {
             return new Item(ID, ItemName, Icon, CanBeStacked, ItemTierSprite);

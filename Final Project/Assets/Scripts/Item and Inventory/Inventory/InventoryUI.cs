@@ -5,8 +5,9 @@ using ItemManager;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils;
+using TMPro;
 
-namespace  PInventory
+namespace PInventory
 {
     public class InventoryUI : MonoBehaviour
     {
@@ -17,20 +18,34 @@ namespace  PInventory
         [SerializeField] private Button inventoryOpenButton;
         [SerializeField] private Button inventoryCloseButton;
 
+        [SerializeField] private TextMeshProUGUI coinText;
+
         private List<InventoryItemSlot> m_InventoryItemList = new List<InventoryItemSlot>();
 
         public static GameEvent<InventoryItemData> OnShowSelectedItem;
-        
+
+
+
         private void Start()
         {
+            coinText.text = Data.instance.GetCurrency().ToString();
             AddListeners();
-        } 
-        
+            Data.SetCurrency += Data_SetCurrency;
+        }
+
+        private void Data_SetCurrency(int obj)
+        {
+            Debug.Log("geldi");
+            coinText.text = Data.instance.GetCurrency().ToString();
+        }
+
         private void OnDestroy()
         {
             RemoveListeners();
+            Data.SetCurrency -= Data_SetCurrency;
+
         }
-        
+
         private void HandleOnInventoryInitialized(List<InventoryItemData> inventoryItemDataList)
         {
             for (int i = 0; i < inventoryItemDataList.Count; i++)
@@ -41,6 +56,7 @@ namespace  PInventory
 
         private void HandleOnItemAddedToInventory(InventoryItemData inventoryUIData)
         {
+
             if (inventoryUIData.Item.CanBeStacked)
             {
                 for (int i = 0; i < m_InventoryItemList.Count; i++)
@@ -52,10 +68,10 @@ namespace  PInventory
                     }
                 }
             }
-            
+
             InstansiateItemSlot(inventoryUIData);
         }
-        
+
         private void HandleOnItemRemovedFromInventory(InventoryItemData itemData)
         {
             for (int i = 0; i < m_InventoryItemList.Count; i++)
@@ -75,16 +91,17 @@ namespace  PInventory
                     }
                 }
             }
+
         }
 
         private void InstansiateItemSlot(InventoryItemData itemData)
         {
-            var instansiated = Instantiate(inventoryItemSlotPrefab,inventorySlotParent);
+            var instansiated = Instantiate(inventoryItemSlotPrefab, inventorySlotParent);
             instansiated.InitSlot(itemData, this);
-            
+
             m_InventoryItemList.Add(instansiated);
         }
-        
+
         public void ShowItem(InventoryItemData itemData)
         {
             OnShowSelectedItem.Invoke(itemData);
@@ -94,13 +111,13 @@ namespace  PInventory
         {
             inventoryPanel.gameObject.SetActive(true);
         }
-        
+
         private void HandleOnCloseInventoryPanel()
         {
             inventoryPanel.gameObject.SetActive(false);
         }
 
-        private bool IDsAreEqual(InventoryItemData firstItemData,InventoryItemData secondItemData)
+        private bool IDsAreEqual(InventoryItemData firstItemData, InventoryItemData secondItemData)
         {
             return firstItemData.Item.ID == secondItemData.Item.ID;
         }
@@ -109,26 +126,29 @@ namespace  PInventory
         {
             return firstItemData == secondItemData;
         }
-        
+
         private void AddListeners()
         {
             PlayerInventory.OnItemAddedToInventory.AddListener(HandleOnItemAddedToInventory);
             PlayerInventory.OnInitializeInventory.AddListener(HandleOnInventoryInitialized);
             PlayerInventory.OnItemRemovedFromInventory.AddListener(HandleOnItemRemovedFromInventory);
-            
+
+
+
             inventoryOpenButton.onClick.AddListener(HandleOnOpenInventoryPanel);
             inventoryCloseButton.onClick.AddListener(HandleOnCloseInventoryPanel);
         }
-        
+
         private void RemoveListeners()
         {
             PlayerInventory.OnItemAddedToInventory.RemoveListener(HandleOnItemAddedToInventory);
             PlayerInventory.OnInitializeInventory.RemoveListener(HandleOnInventoryInitialized);
             PlayerInventory.OnItemRemovedFromInventory.RemoveListener(HandleOnItemRemovedFromInventory);
-            
+
+
             inventoryOpenButton.onClick.RemoveListener(HandleOnOpenInventoryPanel);
             inventoryCloseButton.onClick.RemoveListener(HandleOnCloseInventoryPanel);
-            
+
         }
     }
 
