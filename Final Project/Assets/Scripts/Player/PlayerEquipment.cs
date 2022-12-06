@@ -43,10 +43,9 @@ namespace PInventory
             {
                 playerInventory.AddItemToInventory(oldEquippedItem);
                 OnItemUnequipped.Invoke(oldEquippedItem);
-            }
 
+            }
             OnItemEquipped.Invoke(itemData);
-            Data.instance.EquipmentSave();
         }
 
         public void HandleOnUnequipItem(InventoryItemData itemData)
@@ -57,8 +56,10 @@ namespace PInventory
             {
                 playerInventory.AddItemToInventory(uneqquipedItem);
                 OnItemUnequipped.Invoke(uneqquipedItem);
+
             }
-            Data.instance.EquipmentSave();
+
+
 
         }
 
@@ -70,7 +71,6 @@ namespace PInventory
             {
                 OnItemUnequipped.Invoke(uneqquipedItem);
             }
-            Data.instance.EquipmentSave();
 
 
         }
@@ -92,5 +92,10 @@ namespace PInventory
             InventorySelectedItemUI.OnUneqquipItem.RemoveListener(HandleOnUnequipItem);
             InventorySelectedItemUI.OnDeleteItem.RemoveListener(HandleOnDeleteItem);
         }
+
+
+
     }
+
+
 }

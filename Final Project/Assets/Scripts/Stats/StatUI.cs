@@ -51,7 +51,6 @@ namespace Stat
             {
                 Debug.Log("Stat added succesfully");
                 OnStatIncreased.Invoke(statType);
-                Data.instance.CharacterAttributeSave();
             }
         }
 

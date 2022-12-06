@@ -60,6 +60,12 @@ public class Data : MonoBehaviour
 
     private void OnApplicationPause(bool pause)
     {
+        if (pause)
+        {
+            InventorySave();
+            EquipmentSave();
+
+        }
         //InventorySave();
         //EquipmentSave();
 
@@ -80,6 +86,13 @@ public class Data : MonoBehaviour
     #region Inventory Save and Load
     public void InventorySave()
     {
+
+        if (Time.time < 5)
+        {
+            return;
+        }
+
+
         flagInventory = playerClass.PlayerSettings.Inventory.GetInventory;
 
 
@@ -96,6 +109,8 @@ public class Data : MonoBehaviour
             datanew.ItemID = flagInventory[i].Item.ID;
             datanew.ItemTier = (int)flagInventory[i].Item.ItemTier;
             datanew.StatCount = flagInventory[i].Item.Stats.Count;
+
+            datanew.EquipmentSlotType = (int)flagInventory[i].Item.equipmentSlotTypes;
 
 
 
@@ -159,7 +174,7 @@ public class Data : MonoBehaviour
                             }
                         }
                     }
-
+                    inventoryItem.Item.equipmentSlotTypes = (EquipmentSlotTypes)savedInventory[i].EquipmentSlotType;
                     inventoryItem.Item.ItemTier = (ItemTier)savedInventory[i].ItemTier;
                     inventoryItem.Item.ItemTierColor = ItemTierManager.GetTierColor(inventoryItem.Item.ItemTier);
 
@@ -167,10 +182,6 @@ public class Data : MonoBehaviour
                 }
             }
         }
-        //Debug.Log("orj" + playerClass.PlayerSettings.Inventory.GetInventory.Count);
-        //Debug.Log("flag" + savedFlagInventory.Count);
-        //playerClass.PlayerSettings.Inventory.GetInventory.AddRange(savedFlagInventory);
-        //Debug.Log("endorj" + playerClass.PlayerSettings.Inventory.GetInventory.Count);
 
         for (int i = 0; i < savedFlagInventory.Count; i++)
         {
@@ -183,6 +194,13 @@ public class Data : MonoBehaviour
     #region Equipment Save and Load
     public void EquipmentSave()
     {
+
+
+        if (Time.time < 5)
+        {
+            return;
+        }
+
 
 
         flagEquipment = playerClass.PlayerSettings.Equipment.GetEquipment;
@@ -303,6 +321,13 @@ public class Data : MonoBehaviour
 
     public void CharacterAttributeSave()
     {
+
+
+        if (Time.time < 5)
+        {
+            return;
+        }
+
         characterAttributes = playerClass.PlayerSettings.CharacterStat.CharacterAttributes;
 
         for (int i = 0; i < characterAttributes.Count; i++)
@@ -371,7 +396,6 @@ public class Data : MonoBehaviour
 
         InventoryLoad();
         EquipmentLoad();
-        CharacterAttributeLoad();
     }
 
 }
@@ -383,6 +407,7 @@ public class DataInventoryItem
 {
     public int ItemID;
     public int ItemTier;
+    public int EquipmentSlotType;
     public int stackCount;
     public int StatCount;
     public int[] statsAttributeModifiers = new int[3];

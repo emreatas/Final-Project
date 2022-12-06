@@ -46,7 +46,6 @@ namespace PInventory
         {
             var inventoryItemData = inventory.AddItem(itemData);
             OnItemAddedToInventory.Invoke(inventoryItemData);
-            Data.instance.InventorySave();
 
         }
 
@@ -56,7 +55,6 @@ namespace PInventory
             if (invetoryItemData != null)
             {
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
-                Data.instance.InventorySave();
             }
 
         }
@@ -67,7 +65,6 @@ namespace PInventory
             if (invetoryItemData != null)
             {
                 OnItemRemovedFromInventory.Invoke(invetoryItemData);
-                Data.instance.InventorySave();
             }
 
         }

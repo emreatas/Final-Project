@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "HA1CA3HH",
         "name": "com.DefaultCompany.FinalProject",
-        "processId": 22648,
+        "processId": 10927,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,37 +11,49 @@
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 21816,
+            "processId": 7788,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 22083,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 22178,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 22277,
+            "processId": 8340,
             "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.tblenovo.launcher",
-            "processId": 1614,
+            "processId": 1621,
             "exited": false
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
-            "processId": 22648,
+            "processId": 9398,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 9591,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 9686,
+            "exited": false
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 10514,
+            "exited": false
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 10927,
             "exited": false
         },
         {
