@@ -20,6 +20,7 @@ namespace Stat
 
         private void Start()
         {
+
             AddListeners();
         }
 

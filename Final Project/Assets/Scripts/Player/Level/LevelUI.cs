@@ -13,7 +13,7 @@ namespace Player
         [SerializeField] private TextMeshProUGUI levelText;
 
         private PlayerLevelSettings m_PlayerLevelSettings;
-        
+
         private void Start()
         {
             AddListeners();
@@ -23,13 +23,14 @@ namespace Player
         {
             RemoveListeners();
         }
-        
+
         private void HandleOnCharacterInitialized(PlayerSettings playerSettings)
         {
             m_PlayerLevelSettings = playerSettings.LevelSettings;
+            Data.instance.CharacterLevelLoad();
             SetSkillUI();
         }
-        
+
         private void HandleOnPlayerXPIncreased()
         {
             SetSkillUI();

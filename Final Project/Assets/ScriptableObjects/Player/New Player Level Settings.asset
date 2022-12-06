@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3fcc519aab43998d3633b6ee1b77b2, type: 3}
   m_Name: New Player Level Settings
   m_EditorClassIdentifier: 
-  level: 3
-  currentExperience: 125
+  level: 1
+  currentExperience: 0
   nextLevelExperienceMuliplicator: 0.25
-  levelUpXP: 156.25
+  levelUpXP: 100

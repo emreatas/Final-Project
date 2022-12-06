@@ -49,6 +49,10 @@ public class Data : MonoBehaviour
     public List<DataCharacterAttribute> dataCharacterAttribute;
     public List<DataCharacterAttribute> savedDataCharacterAttributes;
 
+    [Header("Level")]
+    public List<DataLevel> levelData = new List<DataLevel>();
+    public List<DataLevel> savedLevelData = new List<DataLevel>();
+
 
 
 
@@ -64,24 +68,14 @@ public class Data : MonoBehaviour
         {
             InventorySave();
             EquipmentSave();
+            CharacterAttributeSave();
+            CharacterLevelSave();
 
         }
         //InventorySave();
         //EquipmentSave();
 
     }
-
-    private void OnApplicationQuit()
-    {
-        //InventorySave();
-        //EquipmentSave();
-    }
-
-    private void OnDestroy()
-    {
-        //InventoryLoad();
-    }
-
 
     #region Inventory Save and Load
     public void InventorySave()
@@ -202,7 +196,6 @@ public class Data : MonoBehaviour
         }
 
 
-
         flagEquipment = playerClass.PlayerSettings.Equipment.GetEquipment;
         flagEquipmentKeys = flagEquipment.Keys.ToList();
         flagEquipmentValues = flagEquipment.Values.ToList();
@@ -304,16 +297,15 @@ public class Data : MonoBehaviour
     {
         if (SetCurrency != null)
         {
-            PlayerPrefs.SetInt("Currency", PlayerPrefs.GetInt("Currency", 0) + coin);
+            PlayerPrefs.SetInt("Currency" + playerClass.PlayerSettings.CharacterID, PlayerPrefs.GetInt("Currency" + playerClass.PlayerSettings.CharacterID, 0) + coin);
             SetCurrency(coin);
         }
     }
     public int GetCurrency()
     {
-        return PlayerPrefs.GetInt("Currency", 0);
+        return PlayerPrefs.GetInt("Currency" + playerClass.PlayerSettings.CharacterID, 0);
     }
     #endregion
-
 
     #region CharacterAttribute
 
@@ -382,20 +374,56 @@ public class Data : MonoBehaviour
 
     #endregion
 
+    #endregion
 
+    #region Level
 
+    public void CharacterLevelSave()
+    {
+        if (Time.time < 5)
+        {
+            return;
+        }
 
+        DataLevel datanew = new DataLevel();
 
+        datanew.CurrentLevel = playerClass.PlayerSettings.LevelSettings.level;
+        datanew.CurrentExp = (int)playerClass.PlayerSettings.LevelSettings.currentExperience;
+        datanew.NextLevelMul = playerClass.PlayerSettings.LevelSettings.nextLevelExperienceMuliplicator;
+        datanew.NextLevelExp = (int)playerClass.PlayerSettings.LevelSettings.levelUpXP;
+
+        levelData.Add(datanew);
+
+        JSONSystem.JSONSaveSystem.SaveToJSON(levelData, true, "Level" + playerClass.PlayerSettings.CharacterID);
+
+    }
+    public void CharacterLevelLoad()
+    {
+        savedLevelData = JSONSystem.JSONSaveSystem.ReadFromJson<DataLevel>("Level" + playerClass.PlayerSettings.CharacterID);
+
+        if (savedLevelData.Count <= 0)
+        {
+            return;
+        }
+
+        playerClass.PlayerSettings.LevelSettings.level = savedLevelData[0].CurrentLevel;
+        playerClass.PlayerSettings.LevelSettings.currentExperience = savedLevelData[0].CurrentExp;
+        playerClass.PlayerSettings.LevelSettings.nextLevelExperienceMuliplicator = savedLevelData[0].NextLevelMul;
+        playerClass.PlayerSettings.LevelSettings.levelUpXP = savedLevelData[0].NextLevelExp;
+
+    }
 
 
     #endregion
-
     IEnumerator test()
     {
         yield return new WaitForSeconds(1f);
 
         InventoryLoad();
         EquipmentLoad();
+        CharacterAttributeLoad();
+        CharacterLevelLoad();
+
     }
 
 }
@@ -435,4 +463,13 @@ public class DataCharacterAttribute
     public int CharacterAttributeBaseValue;
 
 
+}
+
+[System.Serializable]
+public class DataLevel
+{
+    public int CurrentLevel;
+    public int CurrentExp;
+    public float NextLevelMul;
+    public int NextLevelExp;
 }
