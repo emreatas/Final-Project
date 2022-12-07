@@ -1,33 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class StartSceneData : MonoBehaviour
 {
-    public GameObject CharacterButton;
-    public GameObject addButton;
 
-    public List<CharacterData> data = new List<CharacterData>();
-    public List<CharacterData> savedData = new List<CharacterData>();
 
-    public int id;
-    public int ctype;
+    private List<CharacterData> data = new List<CharacterData>();
+    private List<CharacterData> savedData = new List<CharacterData>();
 
-    public Stat.CharacterTypes selectedType;
+    public List<CharacterButtons> characterButtons = new List<CharacterButtons>();
+
+    private int id;
+    private int ctype;
+    private Stat.CharacterTypes selectedType;
+
+
+
+    private void Start()
+    {
+
+
+        LoadData();
+    }
 
     public void SaveCharacterData()
     {
+
         JSONSystem.JSONSaveSystem.SaveToJSON(data, true, "Characters");
+
     }
 
     public void LoadData()
     {
         savedData = JSONSystem.JSONSaveSystem.ReadFromJson<CharacterData>("Characters");
+
+        if (savedData.Count <= 0)
+        {
+            for (int i = 0; i < characterButtons.Count; i++)
+            {
+                characterButtons[i].Icon.SetActive(false);
+                characterButtons[i].text.SetActive(false);
+                characterButtons[i].charactr.enabled = false;
+                characterButtons[i].plusButton.SetActive(true);
+            }
+
+            return;
+        }
+
+        for (int i = 0; i < savedData.Count; i++)
+        {
+            characterButtons[i].btn.id = savedData[i].characterID;
+            characterButtons[i].charactr.text = ((Stat.CharacterTypes)savedData[i].characterType).ToString();
+            characterButtons[i].text.SetActive(true);
+            characterButtons[i].plusButton.SetActive(false);
+            characterButtons[i].Icon.SetActive(true);
+
+        }
+
+        for (int j = savedData.Count; j < characterButtons.Count; j++)
+        {
+            characterButtons[j].Icon.SetActive(false);
+            characterButtons[j].text.SetActive(false);
+            characterButtons[j].charactr.enabled = false;
+            characterButtons[j].plusButton.SetActive(true);
+        }
+
+
     }
 
-    public void SelectCharacter(Stat.CharacterTypes ct)
+    public void SelectCharacter(int ct)
     {
-        selectedType = ct;
+        selectedType = (Stat.CharacterTypes)ct;
     }
 
     public void CreateCharacter()
@@ -50,4 +96,14 @@ public class CharacterData
 {
     public int characterID;
     public int characterType;
+}
+
+[System.Serializable]
+public class CharacterButtons
+{
+    public StartCharacterBtnData btn;
+    public GameObject Icon;
+    public GameObject text;
+    public TextMeshProUGUI charactr;
+    public GameObject plusButton;
 }

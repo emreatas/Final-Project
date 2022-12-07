@@ -6,14 +6,13 @@ using UnityEngine.UI;
 
 public class CharacterSelectButton : MonoBehaviour
 {
-   [SerializeField] private Image characterIcon;
-   [SerializeField] private TextMeshProUGUI levelText;
-   [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private Image characterIcon;
+    [SerializeField] private TextMeshProUGUI Character;
+    [SerializeField] private Image plusImage;
 
-   public void InitButton(Sprite icon, int level, string name)
-   {
-      characterIcon.sprite = icon;
-      levelText.text = $"LEVEL : {level}";
-      nameText.text = name;
-   }
+
+
+
+
+
 }
