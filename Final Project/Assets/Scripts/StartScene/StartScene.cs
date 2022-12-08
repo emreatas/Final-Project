@@ -12,13 +12,15 @@ public class StartScene : MonoBehaviour
 
     [SerializeField] private SceneHandler sceneHandler;
     [SerializeField] private PlayerSettings playerSettings;
-    
+
     public List<StartScreenCharacter> characters;
     public Transform startCamPos;
     public Transform createCamPos;
     public Camera cam;
     public GameObject startPanel;
     public GameObject createPanel;
+
+    public List<GameObject> charactersss = new List<GameObject>();
 
 
     private Dictionary<CharacterTypes, GameObject> m_Characters = new Dictionary<CharacterTypes, GameObject>();
@@ -28,7 +30,7 @@ public class StartScene : MonoBehaviour
     private void Start()
     {
         InitCharacters();
-        
+
         startPanel.SetActive(true);
         createPanel.SetActive(false);
 
@@ -47,7 +49,16 @@ public class StartScene : MonoBehaviour
         {
             m_Characters.Add(characters[i].CharacterType, characters[i].gameObject);
         }
-       
+
+    }
+
+    public void OpenCharacter(int a)
+    {
+        for (int i = 0; i < charactersss.Count; i++)
+        {
+            charactersss[i].gameObject.SetActive(false);
+        }
+        charactersss[a].SetActive(true);
     }
 
 
@@ -79,13 +90,11 @@ public class StartScene : MonoBehaviour
 
     public void StartGame()
     {
-        if (m_SelectedCharacter != null)
-        {
-            playerSettings.characterType = m_SelectedCharacter.CharacterType;
-            sceneHandler.LoadGameScene();
-        }
+
+        sceneHandler.LoadGameScene();
+
     }
-    
+
     public void BackButton()
     {
         startPanel.SetActive(true);

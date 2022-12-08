@@ -5,12 +5,8 @@ using UnityEngine;
 public class StartCharacterBtnData : MonoBehaviour
 {
     public int id;
+    public int characterType;
 
-    public void setID()
-    {
-        PlayerPrefs.SetInt("CharacterID", id);
 
-        Debug.Log(PlayerPrefs.GetInt("CharacterID", 0));
 
-    }
 }

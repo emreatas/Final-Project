@@ -23,6 +23,12 @@ namespace Player
 
         private void Start()
         {
+            playerSettings.CharacterID = PlayerPrefs.GetInt("CharacterID", 0);
+            playerSettings.characterType = (Stat.CharacterTypes)PlayerPrefs.GetInt("CharacterType", 0);
+
+            Debug.Log("ccc" + PlayerPrefs.GetInt("CharacterID", 0));
+            Debug.Log("ddd" + (Stat.CharacterTypes)PlayerPrefs.GetInt("CharacterType", 0));
+
             Timing.RunCoroutine(StartCO());
         }
         private IEnumerator<float> StartCO()
