@@ -58,14 +58,14 @@ public class Data : MonoBehaviour
 
     void Start()
     {
-        //playerClass.PlayerSettings.CharacterID = PlayerPrefs.GetInt("CharacterID", 0);
-        //StartCoroutine(test());
+        playerClass.PlayerSettings.CharacterID = PlayerPrefs.GetInt("CharacterID", 0);
+        StartCoroutine(test());
     }
 
     private void OnEnable()
     {
-        playerClass.PlayerSettings.CharacterID = PlayerPrefs.GetInt("CharacterID", 0);
-        StartCoroutine(test());
+        //playerClass.PlayerSettings.CharacterID = PlayerPrefs.GetInt("CharacterID", 0);
+        //StartCoroutine(test());
     }
 
 

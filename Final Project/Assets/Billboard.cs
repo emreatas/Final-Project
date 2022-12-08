@@ -6,9 +6,12 @@ namespace Enemy
 {
     public class Billboard : MonoBehaviour
     {
-        public Transform cam;
+        private Transform cam;
         void LateUpdate() {
             transform.LookAt(cam.position + cam.forward);
+        }
+        public void setCameraTransform(Transform cam) {
+            this.cam = cam;
         }
     }
 }
