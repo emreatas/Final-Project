@@ -2472,6 +2472,7 @@ GameObject:
   - component: {fileID: 979543301}
   - component: {fileID: 979543302}
   - component: {fileID: 979543306}
+  - component: {fileID: -3314282294976984554}
   m_Layer: 0
   m_Name: Giant Enemy
   m_TagString: GiantEnemy
@@ -2599,6 +2600,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-3314282294976984554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7157037491772449333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a26b99b24ab614e8bc5cf310249232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetGO: {fileID: 5237758771594576406, guid: d97a0773298178d448814916370f8d74,
+    type: 3}
 --- !u!1 &7157099319951944115
 GameObject:
   m_ObjectHideFlags: 0
