@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab438ca910dc484fa01733470052e6dc, type: 3}
   m_Name: Staff
   m_EditorClassIdentifier: 
-  ID: 7
+  ID: 8
   ItemName: Staff
   Icon: {fileID: 21300000, guid: 84ea8babf74fa4e9a9d27401b99d3658, type: 3}
-  CanBeStacked: 0
   ItemTierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
+  CanBeStacked: 0
+  defaultCoinValue: 0
+  sellValue: 0
+  buyValue: 0
   equipmentSlotTypes: 3
   itemStatPool:
     compulsoryItemStats:
@@ -24,11 +27,11 @@ MonoBehaviour:
       attributeType: 0
       minValue: 5
       maxValue: 12
-      statValue: 0
+      statValue: 5.8391447
     - statType: {fileID: 11400000, guid: c8d5d76ee1d8b8241b5f1e916cccc0b7, type: 2}
       attributeType: 1
       minValue: 0.05
       maxValue: 0.1
-      statValue: 0
+      statValue: 0.08458664
     randomItemStats: []
     randomStatCount: 0

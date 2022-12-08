@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab438ca910dc484fa01733470052e6dc, type: 3}
   m_Name: MageShoe
   m_EditorClassIdentifier: 
-  ID: 6
+  ID: 7
   ItemName: Mage Shoe
   Icon: {fileID: 21300000, guid: 82b8b2544f0ce4164a31119e70601d03, type: 3}
-  CanBeStacked: 0
   ItemTierSprite: {fileID: 21300000, guid: 5b81854d27f924a7baec8371989d5377, type: 3}
+  CanBeStacked: 0
+  defaultCoinValue: 0
+  sellValue: 0
+  buyValue: 0
   equipmentSlotTypes: 2
   itemStatPool:
     compulsoryItemStats:
@@ -24,11 +27,11 @@ MonoBehaviour:
       attributeType: 0
       minValue: 10
       maxValue: 15
-      statValue: 0
+      statValue: 13.628283
     - statType: {fileID: 11400000, guid: 565954323bdb20849a5bf6f85666d7e8, type: 2}
       attributeType: 1
       minValue: 0.01
       maxValue: 0.05
-      statValue: 0
+      statValue: 0.049856964
     randomItemStats: []
     randomStatCount: 0
