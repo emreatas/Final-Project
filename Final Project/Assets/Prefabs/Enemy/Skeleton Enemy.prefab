@@ -1285,6 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26db853853ae6f949b3ee4eb902d4171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 6053527482705610629}
   exclamationMark: {fileID: 3757979710535179955}
   questionMark: {fileID: 6973034329111173652}
   leftHand: {fileID: 1899053267}

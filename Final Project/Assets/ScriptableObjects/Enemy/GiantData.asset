@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GiantData
   m_EditorClassIdentifier: 
   sightRange: 20
-  attackRange: 3.5
+  attackRange: 3
   patrolRadius: 5
   attackRate: 0
   health: 1000

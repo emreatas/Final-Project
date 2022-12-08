@@ -10,7 +10,7 @@ public class RandomSpawner : MonoBehaviour
 
     private float spawnRadius = 10f;
     private float spawnDistance = 10f;
-    private bool[] isEnemySpawned = new bool[3];
+    private bool[] isEnemySpawned = new bool[2];
     void Start() {
         for(int i = 0; i < spawnPoints.Length; i++) {
             isEnemySpawned[i] = false;
@@ -22,7 +22,7 @@ public class RandomSpawner : MonoBehaviour
                 isEnemySpawned[j] = true;
                 Vector3 point;
                 for(int i = 0; i < enemySize[j]; i++) {
-                    while(!CreateRandomPoints(j , out point)) {
+                    while(CreateRandomPoints(j , out point)) {
                     }
                     Instantiate(enemies[j] , point , transform.rotation).transform.SetParent(spawnPoints[j]);
                 }

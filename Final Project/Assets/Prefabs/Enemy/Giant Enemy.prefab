@@ -400,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee935f6e43c0e6c4a9c74f13549ef919, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &1526036062
 GameObject:
   m_ObjectHideFlags: 0
@@ -2475,7 +2474,7 @@ GameObject:
   - component: {fileID: 979543306}
   m_Layer: 0
   m_Name: Giant Enemy
-  m_TagString: Untagged
+  m_TagString: GiantEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2556,6 +2555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26db853853ae6f949b3ee4eb902d4171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1130329831}
   exclamationMark: {fileID: 93813853}
   questionMark: {fileID: 1526036062}
   leftHand: {fileID: 1572645078}

@@ -10,6 +10,7 @@ namespace Enemy
         private Vector3 bornPosition;
         private bool hitAnimationEnded;
 
+        public Canvas canvas;
         public GameObject exclamationMark, questionMark;
         public Collider leftHand, rightHand;
         public Animator anim;
@@ -26,7 +27,6 @@ namespace Enemy
             currentState = PatrollingState;
             navMeshAgent = GetComponent<NavMeshAgent>();
             currentState.EnterState(this);
-            movePositionTransform = transform.GetComponentInParent<RandomSpawner>().player.transform;
         }
         void Update() {
             currentState.UpdateState(this);
@@ -83,6 +83,15 @@ namespace Enemy
         }
         public void setHitAnimationEnded(bool hitBool) {
             hitAnimationEnded = hitBool;
+        }
+        public void setPlayerTransform(Transform player) {
+            movePositionTransform = player;
+        }
+        public void setBilboardCamera(Transform cam) {
+            canvas.GetComponent<Billboard>().setCameraTransform(cam);
+        }
+        public bool getIsEnemyDisabled() {
+            return this.enabled;
         }
     }
 }
