@@ -10,7 +10,6 @@ namespace Enemy
         public EnemyScriptable enemyStats;
         public Slider healthBar;
         public EnemyStateManager enemyStateManager;
-        public GameObject pooler;
 
         private float health;
 
@@ -38,7 +37,6 @@ namespace Enemy
             
                 RandomLoot.Instance.CreateLoot(transform.position);
                 this.gameObject.SetActive(false);
-                pooler.GetComponent<EnemyPooler>().getPool(this.tag).isAllEnemyDisabled -= 1;
             }
         }
     }
