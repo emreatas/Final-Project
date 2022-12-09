@@ -41,8 +41,8 @@ namespace Enemy
             
                 RandomLoot.Instance.CreateLoot(transform.position);
                 target.Destroyed();
-                this.gameObject.SetActive(false);
                 objectPooler.IsEnemyDisabled(this.tag);
+                this.gameObject.SetActive(false);
             }
         }
     }
