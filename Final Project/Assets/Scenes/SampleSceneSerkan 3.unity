@@ -1061,7 +1061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f7a75d6a47bd7448cdf059d05fd1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropableItem: []
 --- !u!65 &1877190387
 BoxCollider:
   m_ObjectHideFlags: 0

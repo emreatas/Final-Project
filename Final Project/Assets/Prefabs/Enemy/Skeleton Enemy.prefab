@@ -400,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8937686013660374222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1304,10 +1304,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef09e0ce2dc3bd147beea4971bc6f4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 2146329987271201350}
   enemyStats: {fileID: 11400000, guid: cf031d209a40e544dad60a7c9ffe7dcf, type: 2}
   healthBar: {fileID: 7449899831356981270}
   enemyStateManager: {fileID: 8571442670533552624}
-  pooler: {fileID: 5351233736663100768, guid: cb4a4f7b73bd47449b2c72f81497e2c8, type: 3}
 --- !u!54 &1338207421448003665
 Rigidbody:
   m_ObjectHideFlags: 0

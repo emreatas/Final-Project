@@ -7,9 +7,11 @@ namespace Enemy
 {
     public class EnemyHealth : MonoBehaviour, IHealth
     {
+        public Target target;
         public EnemyScriptable enemyStats;
         public Slider healthBar;
         public EnemyStateManager enemyStateManager;
+        private EnemyPooler objectPooler;
 
         private float health;
 
@@ -18,6 +20,7 @@ namespace Enemy
             health = enemyStats.health;
             healthBar.maxValue = health;
             healthBar.value = health;
+            objectPooler = EnemyPooler.Instance;
         }
 
 
@@ -36,7 +39,9 @@ namespace Enemy
                 }
             
                 RandomLoot.Instance.CreateLoot(transform.position);
+                target.Destroyed();
                 this.gameObject.SetActive(false);
+                objectPooler.IsEnemyDisabled(this.tag);
             }
         }
     }

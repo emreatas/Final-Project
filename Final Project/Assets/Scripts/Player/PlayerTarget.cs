@@ -66,9 +66,9 @@ namespace Player
                         RaycastHit hit;
                         if (Physics.Raycast(ray,out hit, 100,enemyLayerMask))
                         {
-                            if (hit.transform.TryGetComponent(out Target target))
+                            if (hit.transform.TryGetComponent(out Target target) && target.gameObject.activeInHierarchy)
                             {
- 
+                                    
                                 m_PlayerChooseTarget = true;
                                 SwitchTarget(target);
                             }
@@ -80,9 +80,9 @@ namespace Player
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Target target))
+            if (other.TryGetComponent(out Target target) && target.gameObject.activeInHierarchy)
             {
-                if (!inRangeTargetList.Contains(target))
+                if (!inRangeTargetList.Contains(target) )
                 {
                     inRangeTargetList.Add(target);
                 }
@@ -167,11 +167,13 @@ namespace Player
 
         private void HandleOnPlayerDeath()
         {
+            Debug.Log("ifin dýþý");
             if (inRangeTargetList.Contains(m_CurrentTarget))
             {
+                Debug.Log("ifin içi.");
                 inRangeTargetList.Remove(m_CurrentTarget);
             }
-            m_CurrentTarget = null;
+            SwitchTarget(GetClosestTarget());
         }
 
         private void AddListeners()

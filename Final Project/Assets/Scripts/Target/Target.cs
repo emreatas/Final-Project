@@ -26,7 +26,7 @@ public class Target : MonoBehaviour
         targetGO.SetActive(false);
     }
 
-    private void OnDestroy()
+    public void Destroyed()
     {
         OnDestroyed.Invoke();
     }

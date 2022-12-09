@@ -618,7 +618,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStats: {fileID: 11400000, guid: ba6b4992a287de0488b712013e18cee1, type: 2}
-  targetStat: {fileID: 11400000, guid: 4e7b62af84f61214487f21cf44ae79cf, type: 2}
 --- !u!114 &1294646666 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 19998200878704338, guid: d866bd075e58a5a439b76da3d7d309b6,
@@ -1081,7 +1080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f7a75d6a47bd7448cdf059d05fd1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropableItem: []
 --- !u!65 &1877190387
 BoxCollider:
   m_ObjectHideFlags: 0

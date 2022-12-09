@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8791,6 +8791,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b3d9febcfe0a440b51d9dce62c119e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneHandler: {fileID: 0}
+  playerSettings: {fileID: 0}
   characters:
   - {fileID: 1870307273}
   - {fileID: 1682376584}
@@ -8802,6 +8804,7 @@ MonoBehaviour:
   cam: {fileID: 965879749}
   startPanel: {fileID: 1425571015}
   createPanel: {fileID: 1445455152}
+  charactersss: []
 --- !u!4 &1070201305
 Transform:
   m_ObjectHideFlags: 0

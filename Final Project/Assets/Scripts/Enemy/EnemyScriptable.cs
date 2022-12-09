@@ -4,4 +4,5 @@ using UnityEngine;
 public class EnemyScriptable : ScriptableObject
 {
     public float sightRange, attackRange, patrolRadius, attackRate, health, damage, positionDiffWithPrefab, waitInPatrolling, exclamationRange, exp;
+    public bool isEnable;
 }

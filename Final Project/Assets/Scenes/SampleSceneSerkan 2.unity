@@ -3756,8 +3756,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96be8779d695cfc4cadea58af98d0fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSettings: {fileID: 11400000, guid: e48e04d7c10e30a40a85becccefec4d2, type: 2}
+  playerStats: {fileID: 0}
   rb: {fileID: 1557139966}
+  movementStatType: {fileID: 0}
+  rotationSpeed: 0
   lerpRotationDuration: 0.1
 --- !u!1 &1574422621
 GameObject:

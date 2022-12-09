@@ -2575,10 +2575,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef09e0ce2dc3bd147beea4971bc6f4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: -3314282294976984554}
   enemyStats: {fileID: 11400000, guid: 79ae6f23b43002141a8fb510db37d444, type: 2}
   healthBar: {fileID: 721957505}
   enemyStateManager: {fileID: 979543301}
-  pooler: {fileID: 5351233736663100768, guid: cb4a4f7b73bd47449b2c72f81497e2c8, type: 3}
 --- !u!195 &979543306
 NavMeshAgent:
   m_ObjectHideFlags: 0
