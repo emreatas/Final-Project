@@ -23,6 +23,13 @@ namespace Items
 
         private bool CanDestroy => chestLootList.Count <= 0;
 
+        private Coroutine m_destroyCoroutine;
+
+        private void Start() {
+            if(m_destroyCoroutine == null)
+                m_destroyCoroutine = StartCoroutine(DestroyCoroutine());
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (m_Interacted) { return; }
@@ -44,7 +51,7 @@ namespace Items
 
             if (CanDestroy)
             {
-                Destroy(gameObject);
+                DestroyChest();
             }
         }
 
@@ -94,7 +101,13 @@ namespace Items
 
         private void DestroyChest()
         {
+            if(m_destroyCoroutine != null)
+                StopCoroutine(m_destroyCoroutine);
             Destroy(gameObject);
+        }
+        IEnumerator DestroyCoroutine() {
+            yield return new WaitForSeconds(10f);
+            Destroy(this.gameObject);
         }
     }
 }

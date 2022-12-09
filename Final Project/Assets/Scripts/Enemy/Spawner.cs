@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
@@ -18,4 +17,5 @@ public class Spawner : MonoBehaviour
             }
         }
     }
+
 }
