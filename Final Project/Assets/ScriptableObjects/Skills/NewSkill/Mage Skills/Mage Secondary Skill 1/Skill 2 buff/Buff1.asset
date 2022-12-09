@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: 
   skillType: 2
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 21300000, guid: d310306a9ea3d01e43d154c300143c0c, type: 3}
   SkillDescription: 
   manaCost: 10
   AnimationName: Mage01
