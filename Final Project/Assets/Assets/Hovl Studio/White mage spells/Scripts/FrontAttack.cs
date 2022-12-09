@@ -27,14 +27,17 @@ public class FrontAttack : MonoBehaviour
     public float delay = 0f;
     public bool playMeshEffect;
 
-    private void Update()
+    public void LevelUpAnim()
     {
+        playMeshEffect = true;
+
         if (playMeshEffect == true)
         {
             StartCoroutine(MeshEffect());
             playMeshEffect = false;
         }
     }
+
 
     public void PrepeareAttack(Vector3 targetPoint)
     {
