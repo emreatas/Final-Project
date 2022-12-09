@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Buff1
   m_EditorClassIdentifier: 
   SkillName: 
-  skillType: 0
+  skillType: 2
   SkillIcon: {fileID: 0}
   SkillDescription: 
   manaCost: 10

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baeb637f94037ee4e8b486ed7a9ba8e4, type: 3}
   m_Name: a17c5f63-0721-417e-afbb-2f6d495f0858
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
+  isPlayerSpeaking: 0
   text: ' ...'
   children: []
   rect:
