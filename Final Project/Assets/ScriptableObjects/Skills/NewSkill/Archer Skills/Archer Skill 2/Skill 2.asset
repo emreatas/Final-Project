@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Skill 2
   m_EditorClassIdentifier: 
   SkillName: 
-  skillType: 0
-  SkillIcon: {fileID: 0}
+  skillType: 1
+  SkillIcon: {fileID: 21300000, guid: 0017b2750f9008dd923cdceda60343ee, type: 3}
   SkillDescription: 
   manaCost: 10
   AnimationName: Mage01
@@ -25,4 +25,4 @@ MonoBehaviour:
   playerParticle: {fileID: 8521999483806879542, guid: c275562691f03a94a824d3f175aca08e,
     type: 3}
   spawnStartEffectInWeapon: 0
-  setRotationToShootDirection: 0
+  setRotationToShootDirection: 1

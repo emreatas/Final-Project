@@ -35,6 +35,7 @@ namespace Items
         private void OnTriggerExit(Collider other)
         {
             RemoveChestLootFromPanel();
+            m_Interacted = false;
         }
 
         public void InitializeChest(ChestLoot chestLoot)

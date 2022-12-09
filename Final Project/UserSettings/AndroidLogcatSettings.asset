@@ -3,88 +3,88 @@
     "m_SelectedPackage": {
         "deviceId": "HA1CA3HH",
         "name": "com.DefaultCompany.FinalProject",
-        "processId": 20147,
+        "processId": 7218,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "HA1CA3HH",
-            "name": "com.tblenovo.launcher",
-            "processId": 1621,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 15217,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 15801,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 16211,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 16686,
-            "exited": true
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 18072,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 18289,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
-            "name": "com.DefaultCompany.FinalProject",
-            "processId": 18923,
-            "exited": false
-        },
-        {
-            "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
             "processId": 19787,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
             "processId": 19888,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "HA1CA3HH",
             "name": "com.DefaultCompany.FinalProject",
             "processId": 20147,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 8396,
+            "exited": true
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 11465,
+            "exited": false
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 11767,
+            "exited": false
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 12038,
+            "exited": false
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 12253,
+            "exited": false
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 7002,
+            "exited": false
+        },
+        {
+            "deviceId": "HA1CA3HH",
+            "name": "com.DefaultCompany.FinalProject",
+            "processId": 7218,
             "exited": false
         },
         {
             "deviceId": "R68R800489E",
             "name": "com.DefaultCompany.FinalProject",
             "processId": 27417,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "R68R800489E",
             "name": "com.DefaultCompany.FinalProject",
             "processId": 28002,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "R68R800489E",
+            "name": "com.sec.android.app.launcher",
+            "processId": 2296,
+            "exited": true
         }
     ],
     "m_Tags": {
