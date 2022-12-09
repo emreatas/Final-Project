@@ -15,11 +15,13 @@ namespace Enemy
 
         private float health;
 
-        private void Start()
-        {
+        private void OnEnable() {
             health = enemyStats.health;
             healthBar.maxValue = health;
             healthBar.value = health;
+        }
+        private void Start()
+        {
             objectPooler = EnemyPooler.Instance;
         }
 

@@ -22,9 +22,11 @@ namespace Enemy
         public EnemyPatrollingState PatrollingState = new EnemyPatrollingState();
         public EnemyHitReactionState HitReactionState = new EnemyHitReactionState();
 
+        private void OnEnable() {
+            currentState = PatrollingState;
+        }
         void Start() {
             bornPosition = this.transform.position;
-            currentState = PatrollingState;
             navMeshAgent = GetComponent<NavMeshAgent>();
             currentState.EnterState(this);
         }
