@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Whirlwind
   skillType: 1
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 21300000, guid: 994143e311654da49ad0031a8f407748, type: 3}
   SkillDescription: 
   manaCost: 10
   AnimationName: Mage02

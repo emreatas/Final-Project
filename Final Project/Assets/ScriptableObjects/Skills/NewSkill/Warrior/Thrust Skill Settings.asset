@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillName: Thrust
   skillType: 1
-  SkillIcon: {fileID: 0}
+  SkillIcon: {fileID: 21300000, guid: 4a9f6d5656e398bf843e93de2bbb9bd4, type: 3}
   SkillDescription: 
   manaCost: 10
   AnimationName: Mage01
